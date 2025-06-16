@@ -15,4 +15,10 @@ wheels/
 .idea/
 
 papers/
-database/
+# original project PrimeKG
+primekg/
+data/
+data_*/
+test/
+kg/
+models/

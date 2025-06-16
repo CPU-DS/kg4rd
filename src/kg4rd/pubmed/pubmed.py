@@ -20,7 +20,7 @@ class Article:
     doi: str
     title: str
     abstract: Markdown
-    keywords: Optional[list[str]]
+    keywords: list[str]
 
 
 def get_article(url: str) -> Optional[Article]:
@@ -32,20 +32,17 @@ def get_article(url: str) -> Optional[Article]:
     doi = soup.find("span", class_="identifier doi").find("a").text.strip()
     abstract_content = soup.find("div", id="abstract")
     abstract = Markdown.from_html(str(abstract_content.find("div", class_="abstract-content")))
+    keywords = []
     if ps := abstract_content.find("p", recursive=False):
         keywords = [s.strip() for s in ps.text.replace("Keywords:", "").split(";")]
-    else:
-        keywords = None
     return Article(url, doi, title, abstract, keywords)
 
 
-def search_article_urls(term: str, recent_year: Optional[Literal[1, 2, 5]] = None, max_count = None, **kwargs) -> Optional[list[str]]:   
+def search_article_urls(term: str, max_count: int = None, filters: list[str] = None) ->list[str]:   
     logger.info(f"search article urls: {term}")  
     base_url = f"https://pubmed.ncbi.nlm.nih.gov/?term={term}"
-    if recent_year:
-        base_url += f"&filter=datesearch.y_{recent_year}"
-    for k, v in kwargs:
-        base_url += f"&{k}={v}"
+    for v in filters:
+        base_url += f"&filter={v}"
     
     page = 1
     article_urls = []
