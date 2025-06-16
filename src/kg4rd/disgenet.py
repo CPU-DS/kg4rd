@@ -10,4 +10,4 @@ data_path = 'data/disgenet/curated_gene_disease_associations.tsv'
 
 df = pd.read_csv(data_path, sep='\t')
 
-print(df['source'].unique().tolist())
+print(df.drop_duplicates('source'))

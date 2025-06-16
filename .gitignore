@@ -17,6 +17,7 @@ wheels/
 papers/
 # original project PrimeKG
 primekg/
+!src/primekg/
 data/
 data_*/
 test/
