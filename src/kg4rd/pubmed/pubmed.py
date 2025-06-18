@@ -18,9 +18,11 @@ from type import Markdown
 class Article:
     url: str
     doi: str
+    pmid: str
     title: str
     abstract: Markdown
     keywords: list[str]
+    mesh_terms: list[str]
 
 
 def get_article(url: str) -> Optional[Article]:
@@ -30,12 +32,14 @@ def get_article(url: str) -> Optional[Article]:
     soup = BeautifulSoup(response.text, "html.parser")
     title = soup.find("h1", class_="heading-title").text.strip()
     doi = soup.find("span", class_="identifier doi").find("a").text.strip()
+    pmid = soup.find("span", class_="identifier pubmed").find("strong").text.strip()
     abstract_content = soup.find("div", id="abstract")
     abstract = Markdown.from_html(str(abstract_content.find("div", class_="abstract-content")))
     keywords = []
     if ps := abstract_content.find("p", recursive=False):
         keywords = [s.strip() for s in ps.text.replace("Keywords:", "").split(";")]
-    return Article(url, doi, title, abstract, keywords)
+    mesh_terms = [btn.text.strip() for btn in soup.find("div", class_="mesh-terms keywords-section").find_all("button", class_="keyword-actions-trigger trigger keyword-link")]
+    return Article(url, doi, pmid, title, abstract, keywords, mesh_terms)
 
 
 def search_article_urls(term: str, max_count: int = None, filters: list[str] = None) ->list[str]:   
@@ -69,4 +73,8 @@ def search_article_urls(term: str, max_count: int = None, filters: list[str] = N
 
 
 if __name__ == "__main__":
-    pass
+    
+    from pprint import pprint
+    
+    article = get_article('https://pubmed.ncbi.nlm.nih.gov/40506738/')
+    pprint(article)

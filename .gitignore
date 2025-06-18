@@ -19,7 +19,7 @@ papers/
 primekg/
 !src/primekg/
 data/
-data_*/
+data_synonyms/
 test/
 kg/
 models/
