@@ -11,6 +11,11 @@ drugcentral_df = pd.read_csv('data_synonyms/drugcentral_synonyms_drugbank_id.csv
 drugbank_df = pd.read_csv('data_synonyms/drugbank_synonyms.csv')
 
 df = pd.concat([drugbank_df, drugcentral_df], axis=0)
+
+df['name'] = df['name'].apply(lambda x: x.lower())
+
+# 可能会存在多个 True
+
 df = df.drop_duplicates(['id', 'name'], keep='first')
 df = df.sort_values(by=['id', 'preferred_name'], ascending=[True, False], na_position='last')
 df.to_csv('data_synonyms/drugbank_synonyms_concat.csv', index=False)

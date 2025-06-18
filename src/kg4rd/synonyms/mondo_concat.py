@@ -12,5 +12,8 @@ mondo_df = pd.read_csv('data_synonyms/mondo_synonyms.csv')
 
 df = pd.concat([mondo_df, do_df, orphanet_df], axis=0)
 df = df.drop_duplicates(['id', 'name'], keep='first')
+
+df['name'] = df['name'].apply(lambda x: x.lower())
+
 df = df.sort_values(by=['id', 'preferred_name'], ascending=[True, False], na_position='last')
 df.to_csv('data_synonyms/mondo_synonyms_concat.csv', index=False)

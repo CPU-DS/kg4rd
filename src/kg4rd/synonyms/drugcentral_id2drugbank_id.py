@@ -8,6 +8,7 @@ import pandas as pd
 
 
 df = pd.read_csv('data_synonyms/drugcentral_synonyms.csv', low_memory=False)
+df = df.query('not @df.cas_reg_no.isna()')
 df = df.sort_values(by=['id', 'preferred_name'])
 df['preferred_name'] = df['preferred_name'].apply(lambda x: True if x == 1.0 else x)
 
