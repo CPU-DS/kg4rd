@@ -29,6 +29,12 @@ df_prot = df_prot.drop_duplicates(['id', 'name'])
 
 df_path = pd.read_csv('data_synonyms/reactome_synonyms.csv')
 df_path['name'] = df_path['name'].astype(str).apply(lambda x: x.lower())
+df_path2 = pd.read_csv('data/kegg/drug_kegg_pathway.csv').drop('drugbank_id', axis=1).rename(
+    columns={'pathway_kegg_id': 'id', 'pathway_kegg_name': 'name'}
+)
+df_path2['preferred_name'] = True
+df_path2.drop_duplicates()
+df_path = pd.concat([df_path, df_path2])
 
 df_exp = pd.read_csv('data_synonyms/ctd_synonyms.csv')
 df_exp['name'] = df_exp['name'].astype(str).apply(lambda x: x.lower())
