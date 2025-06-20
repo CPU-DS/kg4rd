@@ -56,12 +56,12 @@ def method2():
     df['id'] = df['id'].astype(int)
     
     mondo_ref = 'data/mondo/mondo_references.csv'
-    mondo_ref_df = pd.read_csv(mondo_ref).query('ontology == "DOID"')
+    mondo_ref_df = pd.read_csv(mondo_ref).query('ontology == "Orphanet"')
     mondo_ref_df['ontology_id'] = mondo_ref_df['ontology_id'].astype(int)
     
     df = pd.merge(df, mondo_ref_df, 'inner', left_on='id', right_on='ontology_id')
     df['mondo_id'] = df['mondo_id'].apply(lambda x: f"MONDO:{int(x):07d}")
-    df['id'] = df['id'].apply(lambda x: f"DOID:{int(x):07d}")
+    df['id'] = df['id'].apply(lambda x: f"Orphanet:{int(x):07d}")
     df = df.drop(['ontology_id', 'ontology'], axis=1)
     df = df.rename(columns={'Synonyms': 'name'})
     
