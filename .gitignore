@@ -20,6 +20,7 @@ primekg/
 !src/primekg/
 data/
 data_synonyms/
+data_feature/
 test/
 kg/
 models/

@@ -23,4 +23,5 @@ dependencies = [
     "seaborn>=0.13.2",
     "matplotlib>=3.10.3",
     "matplotlib-inline==0.1.7",
+    "scrapy>=2.13.2",
 ]
