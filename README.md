@@ -12,4 +12,6 @@ uv sync
 
 ## Extract triples with LLM
 
+## QueryMultiModal Information
+
 ## Knowledge Graph Embedding for DMD
