@@ -2,7 +2,7 @@
 # Create Date: 2025/06/24
 # Author: wangtao <wangtao.cpu@gmail.com>
 # File Name: gene.py
-# Description: gene/protein 特征
+# Description: gene/protein 序列
 
 import os
 import pandas as pd
@@ -10,6 +10,7 @@ import requests
 import zipfile
 import shutil
 from tqdm import tqdm
+import time
 
 
 gene_id_df = (
@@ -64,8 +65,13 @@ def download(gene_id):
 def wait_for_download(gene_id):
     while not download(gene_id):
         time.sleep(60)
+        
+from glob import glob
+li =[os.path.basename(file) for file in glob('data_feature/gene/*')]
 
 for _, row in tqdm(gene_id_df.iterrows(), total=len(gene_id_df)):
+    if row['id'] in li:
+        continue
     try:
         wait_for_download(row['id'])
     except Exception as e:

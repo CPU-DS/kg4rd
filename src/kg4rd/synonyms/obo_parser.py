@@ -26,9 +26,15 @@ class OBOParser:
 
                 if line.startswith('[Term]'):
                     current_term = {
-                        'id': '', 'ORPHA': '', 'MESH': '', 'name': '', 'def': '',
-                        'synonyms': [], 'xrefs': [], 'is_a': [],
-                        'intersection_of': [], 'relationship': [], 'is_not': []
+                        'id': '', 
+                        'name': '', 
+                        'def': '',
+                        'synonyms': [], 
+                        'xrefs': [], 
+                        'is_a': [],
+                        'intersection_of': [], 
+                        'relationship': [], 
+                        'is_not': []
                     }
                 elif line.startswith(('[Typedef]', '[Instance]')):
                     current_term = None
@@ -55,15 +61,6 @@ class OBOParser:
         elif line.startswith('synonym:'):
             synonym = line.split('"', 2)[1].strip()
             term['synonyms'].append(synonym)
-        elif line.startswith('xref:') and "MONDO:equivalentTo" in line:
-            xref = line.split(':', 1)[1].strip()
-            xref = xref.split('{', 1)[0].strip()
-            term['xrefs'].append(xref)
-            if 'Orphanet' in xref:
-                term['ORPHA'] = int(xref.replace('Orphanet:', ''))
-            if 'MESH' in xref:
-                term['MESH'] = xref.replace('MESH:', '')
-            self.xref_mapping[term['id']].append(xref)
         elif line.startswith('is_a:'):
             is_a = line.split(' ', 1)[1].split('!')[0].strip()
             is_a = is_a.split('{', 1)[0].strip()
@@ -100,6 +97,7 @@ class OBOParser:
             'id': term['id'],
             'name': term['name'],
             'synonyms': term['synonyms'],
+            'def': term['def']
         })
 
 
