@@ -6,10 +6,12 @@
 
 from typing import Optional, Literal
 from dataclasses import dataclass
+import re
 
 import requests
 from bs4 import BeautifulSoup
 from loguru import logger
+import pandas as pd
 
 from type import Markdown
 
@@ -74,7 +76,13 @@ def search_article_urls(term: str, max_count: int = None, filters: list[str] = N
 
 if __name__ == "__main__":
     
-    from pprint import pprint
+    df = pd.read_csv('data/orphanet/orphanet_mesh.csv')
+    for _, row in df.iterrows():
+        name = row['name']
+        mesh = row['mesh']
+        mesh_name = row['mesh_name']
+        if pd.isna(mesh_name):
+            search_article_urls(f'"{name}"[Title/Abstract]')
     
-    article = get_article('https://pubmed.ncbi.nlm.nih.gov/40506738/')
-    pprint(article)
+    # article_urls = search_article_urls('"Acute myocardial infarction"[pt] AND "Acute myocardial infarction"[pt]')
+    # print(article_urls)
