@@ -21,6 +21,10 @@ primekg/
 data/
 data_synonyms/
 data_feature/
+data_abstract/
 test/
 kg/
 models/
+checkpoints/
+wandb/
+swanlog/

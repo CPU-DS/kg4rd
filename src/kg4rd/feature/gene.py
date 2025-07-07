@@ -25,6 +25,13 @@ gene_id_df = (
 )
 gene_id_df['id'] = gene_id_df['id'].astype(int).astype(str)
 
+kg_gene_id = pd.read_csv('src/kg4rd/kg/nodes.csv').query('node_type == "gene/protein"')
+kg_gene_id['node_id'] = kg_gene_id['node_id'].astype(int).astype(str)
+
+
+all_gene_id = gene_id_df['id'].tolist() + kg_gene_id['node_id'].tolist()
+all_gene_id = list(set(all_gene_id))
+
 headers = {
     'Content-Type': 'application/zip',
     'api-key': os.getenv('NCBI_API_KEY')
@@ -69,11 +76,11 @@ def wait_for_download(gene_id):
 from glob import glob
 li =[os.path.basename(file) for file in glob('data_feature/gene/*')]
 
-for _, row in tqdm(gene_id_df.iterrows(), total=len(gene_id_df)):
-    if row['id'] in li:
+for id_ in tqdm(all_gene_id, total=len(all_gene_id)):
+    if id_ in li:
         continue
     try:
-        wait_for_download(row['id'])
+        wait_for_download(id_)
     except Exception as e:
-        print(row['id'])
+        print(id_)
         raise e
