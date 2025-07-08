@@ -1,0 +1,7002 @@
+{
+  "Duchenne muscular dystrophy": {
+    "preferred_name": "duchenne muscular dystrophy",
+    "score": 1000
+  },
+  "α-dystroglycan": {
+    "preferred_name": "dag1",
+    "score": 85.71428571428572
+  },
+  "DMD": {
+    "preferred_name": "duchenne muscular dystrophy",
+    "score": 1000
+  },
+  "facioscapulohumeral muscular dystrophy (FSHD)": {
+    "preferred_name": "facioscapulohumeral muscular dystrophy 1",
+    "score": 93.82716049382715
+  },
+  "skeletal muscle": {
+    "preferred_name": "somatic muscle, invertebrate",
+    "score": 1000
+  },
+  "dystrophin": {
+    "preferred_name": "dmd",
+    "score": 1000
+  },
+  "intellectual disability": {
+    "preferred_name": "intellectual disability",
+    "score": 1000
+  },
+  "Duchenne Muscular Dystrophy (DMD)": {
+    "preferred_name": "duchenne muscular dystrophy",
+    "score": 93.10344827586206
+  },
+  "acute respiratory failure": {
+    "preferred_name": "respiratory failure",
+    "score": 86.36363636363636
+  },
+  "Cardiomyopathy": {
+    "preferred_name": "cardiomyopathy",
+    "score": 1000
+  },
+  "fibrosis": {
+    "preferred_name": "fibroins",
+    "score": 87.5
+  },
+  "deflazacort": {
+    "preferred_name": "deflazacort",
+    "score": 1000
+  },
+  "ataluren": {
+    "preferred_name": "ataluren",
+    "score": 1000
+  },
+  "heart": {
+    "preferred_name": "dorsal vessel heart",
+    "score": 1000
+  },
+  "delandistrogene moxeparvovec": {
+    "preferred_name": "delandistrogene moxeparvovec",
+    "score": 1000
+  },
+  "myocarditis": {
+    "preferred_name": "myocarditis",
+    "score": 1000
+  },
+  "thrombocytopenia": {
+    "preferred_name": "thrombocytopenia",
+    "score": 1000
+  },
+  "citrate synthase": {
+    "preferred_name": "cs",
+    "score": 1000
+  },
+  "peroxisome proliferator-activated receptor γ coactivator 1 alpha (PGC-1α)": {
+    "preferred_name": "ppargc1a",
+    "score": 89.20863309352518
+  },
+  "mitochondrial respiratory chain complex II": {
+    "preferred_name": "ndufb6",
+    "score": 86.31578947368422
+  },
+  "p38 mitogen-activated protein kinase (MAPK)": {
+    "preferred_name": "mapk1",
+    "score": 85.33333333333333
+  },
+  "progressive muscle-wasting": {
+    "preferred_name": "progressive spinal muscular atrophy",
+    "score": 88.13559322033898
+  },
+  "PIEZO1": {
+    "preferred_name": "piezo1",
+    "score": 1000
+  },
+  "satellite cell proliferation": {
+    "preferred_name": "stem cell proliferation",
+    "score": 86.27450980392157
+  },
+  "myogenic differentiation": {
+    "preferred_name": "myod1",
+    "score": 96.0
+  },
+  "Duchenne Muscular Dystrophy": {
+    "preferred_name": "duchenne muscular dystrophy",
+    "score": 1000
+  },
+  "Mitochondrial dysfunction": {
+    "preferred_name": "abnormality of mitochondrial metabolism",
+    "score": 1000
+  },
+  "VDAC1": {
+    "preferred_name": "vdac1",
+    "score": 1000
+  },
+  "cell proliferation": {
+    "preferred_name": "cell population proliferation",
+    "score": 1000
+  },
+  "oxidative stress": {
+    "preferred_name": "increased reactive oxygen species production",
+    "score": 1000
+  },
+  "autophagy": {
+    "preferred_name": "macroautophagy",
+    "score": 1000
+  },
+  "differentiation": {
+    "preferred_name": "dedifferentiation",
+    "score": 93.75
+  },
+  "myoblast proliferation": {
+    "preferred_name": "myoblast proliferation",
+    "score": 1000
+  },
+  "mitochondrial function": {
+    "preferred_name": "abnormality of mitochondrial metabolism",
+    "score": 93.61702127659575
+  },
+  "Duchenne muscular dystrophy (DMD)": {
+    "preferred_name": "duchenne muscular dystrophy",
+    "score": 93.10344827586206
+  },
+  "Dystrophin": {
+    "preferred_name": "dmd",
+    "score": 1000
+  },
+  "muscle degeneration": {
+    "preferred_name": "skeletal muscle atrophy",
+    "score": 1000
+  },
+  "DMD pathogenesis": {
+    "preferred_name": "symbiont-mediated activation of host programmed cell death",
+    "score": 85.71428571428572
+  },
+  "Forskolin": {
+    "preferred_name": "colforsin",
+    "score": 1000
+  },
+  "Muscle weakness": {
+    "preferred_name": "muscle weakness",
+    "score": 1000
+  },
+  "contractures": {
+    "preferred_name": "joint contracture",
+    "score": 95.65217391304348
+  },
+  "progressive muscle weakness": {
+    "preferred_name": "progressive muscle weakness",
+    "score": 1000
+  },
+  "Duchenne and Becker muscular dystrophies": {
+    "preferred_name": "obsolete duchenne and becker muscular dystrophy",
+    "score": 85.0574712643678
+  },
+  "chronic inflammation": {
+    "preferred_name": "chronic hepatitis",
+    "score": 86.95652173913044
+  },
+  "BMD": {
+    "preferred_name": "becker muscular dystrophy",
+    "score": 1000
+  },
+  "inflammation": {
+    "preferred_name": "inflammatory response",
+    "score": 1000
+  },
+  "increase in connective tissue": {
+    "preferred_name": "increased connective tissue",
+    "score": 92.85714285714286
+  },
+  "vascular adaptations": {
+    "preferred_name": "vascular dilatation",
+    "score": 87.17948717948718
+  },
+  "cardiomyopathy": {
+    "preferred_name": "cardiomyopathy",
+    "score": 1000
+  },
+  "hematopoietic prostaglandin D2 synthase (HPGDS)": {
+    "preferred_name": "hpgds",
+    "score": 91.56626506024097
+  },
+  "Oestrogen receptor alpha (ERα)": {
+    "preferred_name": "esr1",
+    "score": 92.3076923076923
+  },
+  "regulating metabolism": {
+    "preferred_name": "regulation of metabolic process",
+    "score": 88.88888888888889
+  },
+  "skeletal muscle regeneration": {
+    "preferred_name": "skeletal muscle tissue regeneration",
+    "score": 88.88888888888889
+  },
+  "triceps": {
+    "preferred_name": "triceps brachii",
+    "score": 1000
+  },
+  "oestrogen-related receptor alpha (ERRα)": {
+    "preferred_name": "esrra",
+    "score": 91.17647058823529
+  },
+  "myogenic differentiation 1 (MyoD)": {
+    "preferred_name": "myod1",
+    "score": 91.22807017543859
+  },
+  "Tadalafil": {
+    "preferred_name": "tadalafil",
+    "score": 1000
+  },
+  "phosphodiesterase 5 (PDE5)": {
+    "preferred_name": "pde4d",
+    "score": 86.36363636363636
+  },
+  "loss of ambulation": {
+    "preferred_name": "loss of ambulation",
+    "score": 1000
+  },
+  "progressive muscle degeneration": {
+    "preferred_name": "progressive spinal muscular atrophy",
+    "score": 89.85507246376811
+  },
+  "dilated cardiomyopathy": {
+    "preferred_name": "dilated cardiomyopathy",
+    "score": 1000
+  },
+  "Mitochondrial dysfunctions": {
+    "preferred_name": "abnormality of mitochondrial metabolism",
+    "score": 98.0392156862745
+  },
+  "SIRT1": {
+    "preferred_name": "sirt1",
+    "score": 1000
+  },
+  "resveratrol": {
+    "preferred_name": "resveratrol",
+    "score": 1000
+  },
+  "transferrin receptor (TfR1)": {
+    "preferred_name": "tfrc",
+    "score": 88.88888888888889
+  },
+  "decreases in serum creatine kinase": {
+    "preferred_name": "elevated circulating creatine kinase concentration",
+    "score": 86.15384615384616
+  },
+  "neuromuscular disease": {
+    "preferred_name": "neuromuscular disease",
+    "score": 1000
+  },
+  "Ataluren": {
+    "preferred_name": "ataluren",
+    "score": 1000
+  },
+  "neuromuscular disorders": {
+    "preferred_name": "neurovascular disorder",
+    "score": 88.88888888888889
+  },
+  "head and neck squamous cell carcinoma (HNSCC)": {
+    "preferred_name": "head and neck squamous cell carcinoma",
+    "score": 92.5
+  },
+  "proliferation": {
+    "preferred_name": "proliferative region",
+    "score": 1000
+  },
+  "HNSCC": {
+    "preferred_name": "head and neck squamous cell carcinoma",
+    "score": 1000
+  },
+  "dystrophinopathy": {
+    "preferred_name": "qualitative or quantitative defects of dystrophin",
+    "score": 1000
+  },
+  "cognitive impairment": {
+    "preferred_name": "cognitive impairment",
+    "score": 1000
+  },
+  "motor dysfunction": {
+    "preferred_name": "anhidrosis",
+    "score": 89.47368421052632
+  },
+  "valproic acid (VPA)": {
+    "preferred_name": "valproic acid",
+    "score": 86.66666666666667
+  },
+  "perindopril": {
+    "preferred_name": "perindopril",
+    "score": 1000
+  },
+  "bisoprolol": {
+    "preferred_name": "bisoprolol",
+    "score": 1000
+  },
+  "ventricular dysfunction": {
+    "preferred_name": "abnormal left ventricular function",
+    "score": 90.19607843137256
+  },
+  "CDCs": {
+    "preferred_name": "cycloserine",
+    "score": 85.71428571428572
+  },
+  "hippocampus": {
+    "preferred_name": "archicortex",
+    "score": 1000
+  },
+  "cerebral cortex": {
+    "preferred_name": "cerebral cortex",
+    "score": 1000
+  },
+  "cerebellar Purkinje cells": {
+    "preferred_name": "purkinje cell layer of cerebellar cortex",
+    "score": 87.27272727272728
+  },
+  "muscular dystrophy": {
+    "preferred_name": "muscular dystrophy",
+    "score": 1000
+  },
+  "NMDs": {
+    "preferred_name": "myelodysplastic syndrome",
+    "score": 85.71428571428572
+  },
+  "exercise intolerance": {
+    "preferred_name": "exercise intolerance",
+    "score": 1000
+  },
+  "Becker muscular dystrophy": {
+    "preferred_name": "becker muscular dystrophy",
+    "score": 1000
+  },
+  "limb girdle muscular dystrophy types R9": {
+    "preferred_name": "pomgnt2-related limb-girdle muscular dystrophy r24",
+    "score": 94.87179487179486
+  },
+  "limb girdle muscular dystrophy types R12": {
+    "preferred_name": "pomgnt2-related limb-girdle muscular dystrophy r24",
+    "score": 96.20253164556962
+  },
+  "weakness": {
+    "preferred_name": "asthenia",
+    "score": 1000
+  },
+  "spinal muscular atrophy": {
+    "preferred_name": "proximal spinal muscular atrophy",
+    "score": 1000
+  },
+  "acute myeloid leukemia": {
+    "preferred_name": "acute myeloid leukemia",
+    "score": 1000
+  },
+  "malignancy": {
+    "preferred_name": "cancer",
+    "score": 1000
+  },
+  "muscle weakness": {
+    "preferred_name": "muscle weakness",
+    "score": 1000
+  },
+  "X-linked muscular dystrophy": {
+    "preferred_name": "macular dystrophy, x-linked",
+    "score": 94.33962264150944
+  },
+  "sarcolemma": {
+    "preferred_name": "sarcolemma",
+    "score": 1000
+  },
+  "neuronal nitric oxide synthase (nNOS)": {
+    "preferred_name": "nos1",
+    "score": 89.55223880597015
+  },
+  "arrhythmias": {
+    "preferred_name": "arrhythmia",
+    "score": 1000
+  },
+  "ivabradine": {
+    "preferred_name": "ivabradine",
+    "score": 1000
+  },
+  "heart failure": {
+    "preferred_name": "heart failure",
+    "score": 1000
+  },
+  "left ventricular ejection fraction": {
+    "preferred_name": "reduced left ventricular ejection fraction",
+    "score": 89.47368421052632
+  },
+  "EZH2": {
+    "preferred_name": "ezh2",
+    "score": 1000
+  },
+  "cancer": {
+    "preferred_name": "cancer",
+    "score": 1000
+  },
+  "utrophin": {
+    "preferred_name": "utrn",
+    "score": 1000
+  },
+  "mitochondrial activity": {
+    "preferred_name": "proton-transporting atpase activity, rotational mechanism",
+    "score": 86.27450980392157
+  },
+  "rapid progression": {
+    "preferred_name": "rapidly progressive",
+    "score": 1000
+  },
+  "lower limb weakness": {
+    "preferred_name": "lower limb muscle weakness",
+    "score": 1000
+  },
+  "Gowers' sign": {
+    "preferred_name": "gowers sign",
+    "score": 100.0
+  },
+  "myopathy": {
+    "preferred_name": "myopathy",
+    "score": 1000
+  },
+  "elevated serum creatine kinase": {
+    "preferred_name": "elevated circulating creatine kinase concentration",
+    "score": 1000
+  },
+  "dystrophic changes": {
+    "preferred_name": "trophic changes related to pain",
+    "score": 90.9090909090909
+  },
+  "muscle dysfunction": {
+    "preferred_name": "sleep abnormality",
+    "score": 85.71428571428572
+  },
+  "CD44": {
+    "preferred_name": "cd44",
+    "score": 1000
+  },
+  "MYH3": {
+    "preferred_name": "myh3",
+    "score": 1000
+  },
+  "neuromuscular disorder": {
+    "preferred_name": "neurovascular disorder",
+    "score": 90.9090909090909
+  },
+  "Eteplirsen": {
+    "preferred_name": "eteplirsen",
+    "score": 1000
+  },
+  "myocardial fibrosis": {
+    "preferred_name": "myocardial fibrosis",
+    "score": 1000
+  },
+  "Becker muscular dystrophy (BMD)": {
+    "preferred_name": "becker muscular dystrophy",
+    "score": 92.5925925925926
+  },
+  "renal impairment": {
+    "preferred_name": "diminished mental health",
+    "score": 90.9090909090909
+  },
+  "nephrotic-range proteinuria": {
+    "preferred_name": "nephrotic range proteinuria",
+    "score": 100.0
+  },
+  "elevated serum creatine kinase (CK) levels": {
+    "preferred_name": "elevated circulating creatine kinase concentration",
+    "score": 85.71428571428572
+  },
+  "spinal muscular atrophy (SMA)": {
+    "preferred_name": "proximal spinal muscular atrophy",
+    "score": 92.0
+  },
+  "X-linked progressive neurodegenerative disorder": {
+    "preferred_name": "neurodegeneration",
+    "score": 89.41176470588236
+  },
+  "delays in gross motor skills": {
+    "preferred_name": "delayed gross motor development",
+    "score": 88.88888888888889
+  },
+  "early loss of ambulation": {
+    "preferred_name": "loss of ambulation",
+    "score": 85.71428571428572
+  },
+  "pubertal delay": {
+    "preferred_name": "delayed puberty",
+    "score": 1000
+  },
+  "hypogonadism": {
+    "preferred_name": "hypogonadism",
+    "score": 1000
+  },
+  "disease progression": {
+    "preferred_name": "slowly progressive",
+    "score": 88.37209302325581
+  },
+  "progressive muscle wasting": {
+    "preferred_name": "progressive spinal muscular atrophy",
+    "score": 88.13559322033898
+  },
+  "regeneration": {
+    "preferred_name": "regeneration",
+    "score": 1000
+  },
+  "20-hydroxyecdysone": {
+    "preferred_name": "20-hydroxyecdysone",
+    "score": 1000
+  },
+  "muscular dystrophies": {
+    "preferred_name": "muscular dystrophy",
+    "score": 89.47368421052632
+  },
+  "CYTOR": {
+    "preferred_name": "cytor",
+    "score": 1000
+  },
+  "mitochondrial bioenergetics": {
+    "preferred_name": "mitochondrion organization",
+    "score": 86.27450980392157
+  },
+  "aging": {
+    "preferred_name": "obsolete aging",
+    "score": 90.9090909090909
+  },
+  "JAG1": {
+    "preferred_name": "jag1",
+    "score": 1000
+  },
+  "β-dystroglycan": {
+    "preferred_name": "dag1",
+    "score": 85.71428571428572
+  },
+  "attention-deficit/hyperactivity disorders": {
+    "preferred_name": "attention deficit hyperactivity disorder",
+    "score": 98.76543209876543
+  },
+  "scoliosis": {
+    "preferred_name": "scoliosis",
+    "score": 1000
+  },
+  "muscle-degenerating disease": {
+    "preferred_name": "distal amyotrophy",
+    "score": 86.79245283018868
+  },
+  "Utrophin": {
+    "preferred_name": "utrn",
+    "score": 1000
+  },
+  "blood": {
+    "preferred_name": "blood",
+    "score": 1000
+  },
+  "expression": {
+    "preferred_name": "depressive disorder",
+    "score": 90.0
+  },
+  "BMN 351": {
+    "preferred_name": "bmn-351",
+    "score": 100.0
+  },
+  "Duchenne's Muscular Dystrophy": {
+    "preferred_name": "duchenne muscular dystrophy",
+    "score": 96.42857142857143
+  },
+  "Becker Muscular Dystrophy (BMD)": {
+    "preferred_name": "becker muscular dystrophy",
+    "score": 92.5925925925926
+  },
+  "Okur-Chung Neurodevelopmental Syndrome": {
+    "preferred_name": "okur-chung neurodevelopmental syndrome",
+    "score": 1000
+  },
+  "CSNK2A1": {
+    "preferred_name": "csnk2a1",
+    "score": 1000
+  },
+  "autism": {
+    "preferred_name": "autism",
+    "score": 1000
+  },
+  "attention deficit disorders": {
+    "preferred_name": "attention deficit hyperactivity disorder",
+    "score": 98.11320754716981
+  },
+  "secretion": {
+    "preferred_name": "secretion of exocrine gland",
+    "score": 1000
+  },
+  "CCL5": {
+    "preferred_name": "ccl5",
+    "score": 1000
+  },
+  "YY1": {
+    "preferred_name": "yy1",
+    "score": 1000
+  },
+  "physical inactivity": {
+    "preferred_name": "lack of sufficient daily physical activity",
+    "score": 1000
+  },
+  "progressive": {
+    "preferred_name": "progressive",
+    "score": 1000
+  },
+  "gene regulation": {
+    "preferred_name": "regulation of gene expression",
+    "score": 1000
+  },
+  "Klotho": {
+    "preferred_name": "kl",
+    "score": 1000
+  },
+  "brain": {
+    "preferred_name": "insect adult cerebral ganglion",
+    "score": 1000
+  },
+  "tamoxifen": {
+    "preferred_name": "tamoxifen",
+    "score": 1000
+  },
+  "Fn14": {
+    "preferred_name": "fn1",
+    "score": 85.71428571428572
+  },
+  "satellite cell self-renewal": {
+    "preferred_name": "skeletal muscle satellite cell maintenance involved in skeletal muscle regeneration",
+    "score": 1000
+  },
+  "Notch signaling": {
+    "preferred_name": "signaling by notch",
+    "score": 90.9090909090909
+  },
+  "STAT3 signaling": {
+    "preferred_name": "signalling to stat3",
+    "score": 88.23529411764706
+  },
+  "STAT3": {
+    "preferred_name": "stat3",
+    "score": 1000
+  },
+  "premature differentiation": {
+    "preferred_name": "antigens, differentiation",
+    "score": 85.1063829787234
+  },
+  "muscular disorders": {
+    "preferred_name": "muscle tissue disorder",
+    "score": 97.14285714285714
+  },
+  "Muscular dystrophies": {
+    "preferred_name": "muscular dystrophy",
+    "score": 89.47368421052632
+  },
+  "sarcomere organization": {
+    "preferred_name": "sarcomere organization",
+    "score": 1000
+  },
+  "myomesin": {
+    "preferred_name": "myom1",
+    "score": 88.88888888888889
+  },
+  "myozenin": {
+    "preferred_name": "myoz1",
+    "score": 1000
+  },
+  "E3 ubiquitin-protein ligase rififylin": {
+    "preferred_name": "rlim",
+    "score": 89.85507246376811
+  },
+  "protein ubiquitination": {
+    "preferred_name": "protein ubiquitination",
+    "score": 1000
+  },
+  "glucocorticoid": {
+    "preferred_name": "glucocorticoids",
+    "score": 1000
+  },
+  "osteoporosis": {
+    "preferred_name": "osteoporosis",
+    "score": 1000
+  },
+  "testosterone": {
+    "preferred_name": "testosterone",
+    "score": 1000
+  },
+  "teriparatide": {
+    "preferred_name": "teriparatide",
+    "score": 1000
+  },
+  "ectoine": {
+    "preferred_name": "ectoine",
+    "score": 1000
+  },
+  "autophagy-related 5 (ATG5)": {
+    "preferred_name": "atg5",
+    "score": 88.37209302325581
+  },
+  "heat shock protein 70 (HSP70)": {
+    "preferred_name": "hspa6",
+    "score": 91.52542372881356
+  },
+  "mammalian target of rapamycin (mTOR)": {
+    "preferred_name": "mtor",
+    "score": 92.06349206349206
+  },
+  "left ventricular dysfunction": {
+    "preferred_name": "abnormal left ventricular function",
+    "score": 1000
+  },
+  "corticosteroids": {
+    "preferred_name": "adrenal cortex hormones",
+    "score": 1000
+  },
+  "EP2": {
+    "preferred_name": "lafora disease",
+    "score": 85.71428571428572
+  },
+  "EP4": {
+    "preferred_name": "action myoclonus-renal failure syndrome",
+    "score": 85.71428571428572
+  },
+  "muscle tissues": {
+    "preferred_name": "muscle tissue",
+    "score": 96.2962962962963
+  },
+  "duchenne muscular dystrophy": {
+    "preferred_name": "duchenne muscular dystrophy",
+    "score": 1000
+  },
+  "rare genetic disease": {
+    "preferred_name": "obsolete rare genetic eye disease",
+    "score": 90.9090909090909
+  },
+  "DMD expression": {
+    "preferred_name": "cd5 expression",
+    "score": 85.71428571428572
+  },
+  "rare diseases": {
+    "preferred_name": "obsolete rare disease",
+    "score": 1000
+  },
+  "respiratory impairment": {
+    "preferred_name": "respiratory insufficiency",
+    "score": 1000
+  },
+  "hydrogen sulfide (H2S)": {
+    "preferred_name": "hydrogen sulfide",
+    "score": 1000
+  },
+  "LC3": {
+    "preferred_name": "klc3",
+    "score": 85.71428571428572
+  },
+  "Pink1": {
+    "preferred_name": "pink1",
+    "score": 1000
+  },
+  "Mfn1": {
+    "preferred_name": "mfn1",
+    "score": 1000
+  },
+  "mtTFA": {
+    "preferred_name": "mt-ta",
+    "score": 88.88888888888889
+  },
+  "Prdx3": {
+    "preferred_name": "prdx3",
+    "score": 1000
+  },
+  "glutathione reductase": {
+    "preferred_name": "gsr",
+    "score": 1000
+  },
+  "peroxidase": {
+    "preferred_name": "pxdn",
+    "score": 85.71428571428572
+  },
+  "caspase-3": {
+    "preferred_name": "casp3",
+    "score": 100.0
+  },
+  "MyH7": {
+    "preferred_name": "myh7",
+    "score": 1000
+  },
+  "MyH4": {
+    "preferred_name": "myh4",
+    "score": 1000
+  },
+  "MyH2": {
+    "preferred_name": "myh2",
+    "score": 1000
+  },
+  "myogenin": {
+    "preferred_name": "myog",
+    "score": 1000
+  },
+  "Foxo1": {
+    "preferred_name": "foxo1",
+    "score": 1000
+  },
+  "MyoD": {
+    "preferred_name": "myo1d",
+    "score": 88.88888888888889
+  },
+  "brogidirsen": {
+    "preferred_name": "brogidirsen",
+    "score": 1000
+  },
+  "Short stature": {
+    "preferred_name": "short stature",
+    "score": 1000
+  },
+  "cognitive deficits": {
+    "preferred_name": "cognitive impairment",
+    "score": 1000
+  },
+  "behavioural changes": {
+    "preferred_name": "atypical behavior",
+    "score": 1000
+  },
+  "neuromuscular diseases": {
+    "preferred_name": "neuromuscular disease",
+    "score": 97.67441860465115
+  },
+  "Reduced forced vital capacity (FVC)": {
+    "preferred_name": "reduced forced vital capacity",
+    "score": 93.5483870967742
+  },
+  "Duchenne/Becker muscular dystrophy": {
+    "preferred_name": "duchenne muscular dystrophy",
+    "score": 88.52459016393442
+  },
+  "progressive muscular dystrophy": {
+    "preferred_name": "nonprogressive muscular atrophy",
+    "score": 88.52459016393442
+  },
+  "neuronal differentiation": {
+    "preferred_name": "neurod1",
+    "score": 96.0
+  },
+  "fetal abnormalities": {
+    "preferred_name": "abnormality of the dentition",
+    "score": 92.3076923076923
+  },
+  "intellectual disabilities": {
+    "preferred_name": "intellectual disability",
+    "score": 91.66666666666666
+  },
+  "ibuprofen": {
+    "preferred_name": "ibuprofen",
+    "score": 1000
+  },
+  "Dilated cardiomyopathy": {
+    "preferred_name": "dilated cardiomyopathy",
+    "score": 1000
+  },
+  "McLeod neuroacanthocytosis syndrome": {
+    "preferred_name": "mcleod neuroacanthocytosis syndrome",
+    "score": 1000
+  },
+  "Delandistrogene moxeparvovec": {
+    "preferred_name": "delandistrogene moxeparvovec",
+    "score": 1000
+  },
+  "fatal muscle wasting disease": {
+    "preferred_name": "distal amyotrophy",
+    "score": 85.71428571428572
+  },
+  "cognitive abnormalities": {
+    "preferred_name": "cognitive impairment",
+    "score": 90.9090909090909
+  },
+  "DNA repair": {
+    "preferred_name": "dna repair",
+    "score": 1000
+  },
+  "asymmetric cell divisions": {
+    "preferred_name": "asymmetric cell division",
+    "score": 97.95918367346938
+  },
+  "dystrophinopathies": {
+    "preferred_name": "qualitative or quantitative defects of dystrophin",
+    "score": 88.23529411764706
+  },
+  "Becker and Duchenne muscular dystrophy": {
+    "preferred_name": "obsolete duchenne and becker muscular dystrophy",
+    "score": 89.41176470588236
+  },
+  "anxiety": {
+    "preferred_name": "anxiety",
+    "score": 1000
+  },
+  "attention-deficit hyperactivity disorder (ADHD)": {
+    "preferred_name": "attention deficit hyperactivity disorder",
+    "score": 94.11764705882352
+  },
+  "obsessive-compulsive disorder (OCD)": {
+    "preferred_name": "compulsive behaviors",
+    "score": 93.5483870967742
+  },
+  "depression": {
+    "preferred_name": "depression",
+    "score": 1000
+  },
+  "autism spectrum disorder (ASD)": {
+    "preferred_name": "autism",
+    "score": 92.3076923076923
+  },
+  "pulmonary function": {
+    "preferred_name": "recurrent pneumonia",
+    "score": 86.48648648648648
+  },
+  "Dystrophinopathies": {
+    "preferred_name": "qualitative or quantitative defects of dystrophin",
+    "score": 88.23529411764706
+  },
+  "muscular weakness": {
+    "preferred_name": "muscle weakness",
+    "score": 1000
+  },
+  "low exercise tolerance": {
+    "preferred_name": "exercise intolerance",
+    "score": 88.88888888888889
+  },
+  "Myotonic Dystrophy Type 1": {
+    "preferred_name": "myotonic dystrophy type 1",
+    "score": 1000
+  },
+  "hyperlipidemia": {
+    "preferred_name": "hyperlipidemia",
+    "score": 1000
+  },
+  "vamorolone": {
+    "preferred_name": "vamorolone",
+    "score": 1000
+  },
+  "Vamorolone": {
+    "preferred_name": "vamorolone",
+    "score": 1000
+  },
+  "growth": {
+    "preferred_name": "growth",
+    "score": 1000
+  },
+  "weight gain": {
+    "preferred_name": "increased body weight",
+    "score": 1000
+  },
+  "insulin resistance": {
+    "preferred_name": "insulin resistance",
+    "score": 1000
+  },
+  "domagrozumab": {
+    "preferred_name": "domagrozumab",
+    "score": 1000
+  },
+  "myostatin": {
+    "preferred_name": "mstn",
+    "score": 1000
+  },
+  "Wnt7a": {
+    "preferred_name": "wnt7a",
+    "score": 1000
+  },
+  "neurotransmission": {
+    "preferred_name": "chemical synaptic transmission",
+    "score": 1000
+  },
+  "growth retardation": {
+    "preferred_name": "growth delay",
+    "score": 1000
+  },
+  "corticosteroid": {
+    "preferred_name": "corticosterone",
+    "score": 85.71428571428572
+  },
+  "vitamin D deficiency": {
+    "preferred_name": "decreased circulating vitamin d concentration",
+    "score": 1000
+  },
+  "systemic inflammation": {
+    "preferred_name": "systemic autoinflammation",
+    "score": 91.30434782608697
+  },
+  "vascular dysfunction": {
+    "preferred_name": "vestibular hyporeflexia",
+    "score": 85.71428571428572
+  },
+  "extracellular matrix": {
+    "preferred_name": "extracellular matrix",
+    "score": 1000
+  },
+  "membrane": {
+    "preferred_name": "membranous layer",
+    "score": 1000
+  },
+  "sarcospan": {
+    "preferred_name": "sspn",
+    "score": 1000
+  },
+  "cytoplasm": {
+    "preferred_name": "cytoplasm",
+    "score": 1000
+  },
+  "Duchenne and Becker muscular dystrophy": {
+    "preferred_name": "obsolete duchenne and becker muscular dystrophy",
+    "score": 89.41176470588236
+  },
+  "respiratory muscle weakness": {
+    "preferred_name": "respiratory insufficiency due to muscle weakness",
+    "score": 1000
+  },
+  "restrictive lung disease": {
+    "preferred_name": "restrictive ventilatory defect",
+    "score": 1000
+  },
+  "bone fragility": {
+    "preferred_name": "increased susceptibility to fractures",
+    "score": 1000
+  },
+  "spinal deformity": {
+    "preferred_name": "neuropathic spinal arthropathy",
+    "score": 88.23529411764706
+  },
+  "non-ambulatory": {
+    "preferred_name": "inability to walk",
+    "score": 1000
+  },
+  "smaller stature": {
+    "preferred_name": "short stature",
+    "score": 92.85714285714286
+  },
+  "necroptosis": {
+    "preferred_name": "execution phase of necroptosis",
+    "score": 1000
+  },
+  "skeletal muscle diseases": {
+    "preferred_name": "musculoskeletal system disorder",
+    "score": 89.36170212765957
+  },
+  "clinical heterogeneity": {
+    "preferred_name": "phenotypic variability",
+    "score": 1000
+  },
+  "respiratory failure": {
+    "preferred_name": "respiratory failure",
+    "score": 1000
+  },
+  "succinylcholine": {
+    "preferred_name": "succinylcholine",
+    "score": 1000
+  },
+  "malignant hyperthermia": {
+    "preferred_name": "malignant hyperthermia",
+    "score": 1000
+  },
+  "hyperkalemia": {
+    "preferred_name": "hyperkalemia",
+    "score": 1000
+  },
+  "golodirsen": {
+    "preferred_name": "golodirsen",
+    "score": 1000
+  },
+  "nuclear localization": {
+    "preferred_name": "nucleus localization",
+    "score": 90.0
+  },
+  "cardiac muscle": {
+    "preferred_name": "myocardium",
+    "score": 1000
+  },
+  "muscle wasting": {
+    "preferred_name": "muscular atrophy",
+    "score": 1000
+  },
+  "genetic disorder": {
+    "preferred_name": "tics",
+    "score": 85.71428571428572
+  },
+  "GSK3 inhibitors": {
+    "preferred_name": "gamma secretase inhibitors and modulators",
+    "score": 92.85714285714286
+  },
+  "GSK3": {
+    "preferred_name": "gsk3a",
+    "score": 88.88888888888889
+  },
+  "fatigue": {
+    "preferred_name": "fatigue",
+    "score": 1000
+  },
+  "congenital myopathies": {
+    "preferred_name": "thomsen and becker disease",
+    "score": 90.0
+  },
+  "myotube formation": {
+    "preferred_name": "tube formation",
+    "score": 90.32258064516128
+  },
+  "Fndc1": {
+    "preferred_name": "fndc1",
+    "score": 1000
+  },
+  "myoblast differentiation": {
+    "preferred_name": "myoblast differentiation",
+    "score": 1000
+  },
+  "mFNDC1": {
+    "preferred_name": "fndc1",
+    "score": 90.9090909090909
+  },
+  "FNDC1": {
+    "preferred_name": "fndc1",
+    "score": 1000
+  },
+  "acute muscle disease": {
+    "preferred_name": "central core myopathy",
+    "score": 87.17948717948718
+  },
+  "prednisone": {
+    "preferred_name": "prednisone",
+    "score": 1000
+  },
+  "Limb Girdle muscular dystrophy": {
+    "preferred_name": "limb-girdle muscular dystrophy",
+    "score": 1000
+  },
+  "muscle degradation": {
+    "preferred_name": "skeletal muscle atrophy",
+    "score": 86.48648648648648
+  },
+  "myogenesis": {
+    "preferred_name": "obsolete striated muscle fiber development",
+    "score": 1000
+  },
+  "Viltolarsen": {
+    "preferred_name": "viltolarsen",
+    "score": 1000
+  },
+  "viltolarsen": {
+    "preferred_name": "viltolarsen",
+    "score": 1000
+  },
+  "Hypertrophic cardiomyopathy": {
+    "preferred_name": "hypertrophic cardiomyopathy",
+    "score": 1000
+  },
+  "hypertrophic cardiomyopathy": {
+    "preferred_name": "hypertrophic cardiomyopathy",
+    "score": 1000
+  },
+  "respiratory function": {
+    "preferred_name": "respiratory insufficiency",
+    "score": 88.88888888888889
+  },
+  "sleep-disordered breathing": {
+    "preferred_name": "sleep-related breathing disorders",
+    "score": 88.13559322033898
+  },
+  "Obstructive sleep apnea syndrome": {
+    "preferred_name": "obstructive sleep apnea syndrome",
+    "score": 1000
+  },
+  "nocturnal hypoventilation": {
+    "preferred_name": "nocturnal hypoventilation",
+    "score": 1000
+  },
+  "OSAS": {
+    "preferred_name": "obstructive sleep apnea syndrome",
+    "score": 88.88888888888889
+  },
+  "eteplirsen": {
+    "preferred_name": "eteplirsen",
+    "score": 1000
+  },
+  "casimersen": {
+    "preferred_name": "casimersen",
+    "score": 1000
+  },
+  "chondroitin sulfate proteoglycan-4": {
+    "preferred_name": "cspg4",
+    "score": 100.0
+  },
+  "Givinostat": {
+    "preferred_name": "givinostat",
+    "score": 1000
+  },
+  "degenerative neuromuscular disease": {
+    "preferred_name": "neurodegeneration",
+    "score": 86.66666666666667
+  },
+  "Ang 1": {
+    "preferred_name": "amphetaminil",
+    "score": 88.88888888888889
+  },
+  "Chronic inflammation": {
+    "preferred_name": "chronic hepatitis",
+    "score": 86.95652173913044
+  },
+  "endothelial barrier dysfunction": {
+    "preferred_name": "impaired flow-mediated arterial dilatation",
+    "score": 85.18518518518519
+  },
+  "Muscular dystrophy": {
+    "preferred_name": "muscular dystrophy",
+    "score": 1000
+  },
+  "Emery-Dreifuss muscular dystrophy": {
+    "preferred_name": "emery-dreifuss muscular dystrophy",
+    "score": 1000
+  },
+  "emerin": {
+    "preferred_name": "emd",
+    "score": 1000
+  },
+  "Facioscapulohumeral muscular dystrophy": {
+    "preferred_name": "facioscapulohumeral muscular dystrophy 1",
+    "score": 1000
+  },
+  "oculopharyngeal muscular dystrophy": {
+    "preferred_name": "oculopharyngeal muscular dystrophy",
+    "score": 1000
+  },
+  "rhabdomyolysis": {
+    "preferred_name": "rhabdomyolysis",
+    "score": 1000
+  },
+  "ventricular fibrillation": {
+    "preferred_name": "ventricular fibrillation",
+    "score": 1000
+  },
+  "cardiac arrest": {
+    "preferred_name": "cardiac arrest",
+    "score": 1000
+  },
+  "hyperCKaemia": {
+    "preferred_name": "hyperkalemia",
+    "score": 91.66666666666666
+  },
+  "left ventricular impairment": {
+    "preferred_name": "abnormal left ventricular function",
+    "score": 1000
+  },
+  "waddling gait": {
+    "preferred_name": "waddling gait",
+    "score": 1000
+  },
+  "Gower's sign": {
+    "preferred_name": "gowers sign",
+    "score": 95.65217391304348
+  },
+  "myogenic commitment": {
+    "preferred_name": "establishment of viral latency",
+    "score": 92.3076923076923
+  },
+  "PTPN1": {
+    "preferred_name": "ptpn1",
+    "score": 1000
+  },
+  "PTPN2": {
+    "preferred_name": "ptpn2",
+    "score": 1000
+  },
+  "pulmonary functions": {
+    "preferred_name": "recurrent pneumonia",
+    "score": 87.17948717948718
+  },
+  "Pulmonary function": {
+    "preferred_name": "recurrent pneumonia",
+    "score": 86.48648648648648
+  },
+  "skeletal muscle atrophy": {
+    "preferred_name": "skeletal muscle atrophy",
+    "score": 1000
+  },
+  "Gastrointestinal disorders": {
+    "preferred_name": "abnormality of the gastrointestinal tract",
+    "score": 88.0
+  },
+  "immune response": {
+    "preferred_name": "immune response",
+    "score": 1000
+  },
+  "mitochondrial biogenesis": {
+    "preferred_name": "mitochondrion organization",
+    "score": 1000
+  },
+  "polyethylene glycol (PEG)": {
+    "preferred_name": "polyethylene glycol",
+    "score": 90.47619047619048
+  },
+  "prednisolone": {
+    "preferred_name": "prednisolone",
+    "score": 1000
+  },
+  "SJS": {
+    "preferred_name": "mac-leod-swyer-james-syndrome",
+    "score": 1000
+  },
+  "intravenous immunoglobulin": {
+    "preferred_name": "human immunoglobulin g",
+    "score": 91.22807017543859
+  },
+  "etanercept": {
+    "preferred_name": "etanercept",
+    "score": 1000
+  },
+  "methylprednisolone": {
+    "preferred_name": "methylprednisolone",
+    "score": 1000
+  },
+  "SJS-TEN": {
+    "preferred_name": "toxic epidermal necrolysis",
+    "score": 1000
+  },
+  "dexamethasone": {
+    "preferred_name": "dexamethasone",
+    "score": 1000
+  },
+  "IVIG": {
+    "preferred_name": "anti-sars-cov-2 immunoglobulin",
+    "score": 88.88888888888889
+  },
+  "cyclosporine": {
+    "preferred_name": "cyclosporine",
+    "score": 1000
+  },
+  "histone deacetylase 6": {
+    "preferred_name": "hdac6",
+    "score": 1000
+  },
+  "peroxiredoxin": {
+    "preferred_name": "prdx1",
+    "score": 92.85714285714286
+  },
+  "Limb-Girdle Muscular Dystrophy type 9 (LGMDR9)": {
+    "preferred_name": "limb-girdle muscular dystrophy, sgcd-related, dog",
+    "score": 90.32258064516128
+  },
+  "Fukutin-Related Protein (FKRP)": {
+    "preferred_name": "fkrp",
+    "score": 90.19607843137256
+  },
+  "Congenital Muscular Dystrophies type 1C (MDC1C)": {
+    "preferred_name": "congenital muscular dystrophy 1b",
+    "score": 85.36585365853658
+  },
+  "Walker-Warburg Syndrome (WWS)": {
+    "preferred_name": "muscular dystrophy-dystroglycanopathy, type a",
+    "score": 92.0
+  },
+  "Muscle-Eye-Brain diseases (MEBs)": {
+    "preferred_name": "muscle-eye-brain disease",
+    "score": 88.88888888888889
+  },
+  "muscle relaxation": {
+    "preferred_name": "relaxation of muscle",
+    "score": 91.89189189189189
+  },
+  "calcium-binding proteins": {
+    "preferred_name": "sdf4",
+    "score": 97.87234042553192
+  },
+  "obesity": {
+    "preferred_name": "obesity disorder",
+    "score": 1000
+  },
+  "IGF1": {
+    "preferred_name": "igf1",
+    "score": 1000
+  },
+  "FN1": {
+    "preferred_name": "fn1",
+    "score": 1000
+  },
+  "TNNI1": {
+    "preferred_name": "tnni1",
+    "score": 1000
+  },
+  "MYOD1": {
+    "preferred_name": "myod1",
+    "score": 1000
+  },
+  "IGF1R": {
+    "preferred_name": "igf1r",
+    "score": 1000
+  },
+  "UTRN": {
+    "preferred_name": "utrn",
+    "score": 1000
+  },
+  "CD9": {
+    "preferred_name": "cd9",
+    "score": 1000
+  },
+  "Flotillin": {
+    "preferred_name": "flot1",
+    "score": 90.0
+  },
+  "dysphagia": {
+    "preferred_name": "dysphagia",
+    "score": 1000
+  },
+  "intercellular communication": {
+    "preferred_name": "atrial septal defect",
+    "score": 87.27272727272728
+  },
+  "Spinal muscular atrophy (SMA)": {
+    "preferred_name": "proximal spinal muscular atrophy",
+    "score": 92.0
+  },
+  "enalapril": {
+    "preferred_name": "enalapril",
+    "score": 1000
+  },
+  "preserved left ventricular ejection fraction (LVEF)": {
+    "preferred_name": "reduced left ventricular ejection fraction",
+    "score": 85.71428571428572
+  },
+  "carvedilol": {
+    "preferred_name": "carvedilol",
+    "score": 1000
+  },
+  "eplerenone": {
+    "preferred_name": "eplerenone",
+    "score": 1000
+  },
+  "LTBP4": {
+    "preferred_name": "ltbp4",
+    "score": 1000
+  },
+  "left ventricular dilation": {
+    "preferred_name": "left ventricular dilatation",
+    "score": 96.15384615384616
+  },
+  "developmental delay": {
+    "preferred_name": "global developmental delay",
+    "score": 1000
+  },
+  "growth delay": {
+    "preferred_name": "growth delay",
+    "score": 1000
+  },
+  "cataract": {
+    "preferred_name": "cataract",
+    "score": 1000
+  },
+  "arterial hypertension": {
+    "preferred_name": "hypertension",
+    "score": 1000
+  },
+  "behavioral disorders": {
+    "preferred_name": "atypical behavior",
+    "score": 1000
+  },
+  "gastrointestinal complications": {
+    "preferred_name": "gastrointestinal duplication",
+    "score": 89.65517241379311
+  },
+  "plumbagin": {
+    "preferred_name": "plumbagin",
+    "score": 1000
+  },
+  "myoblast fusion": {
+    "preferred_name": "myoblast fusion",
+    "score": 1000
+  },
+  "NRIP": {
+    "preferred_name": "nrip1",
+    "score": 88.88888888888889
+  },
+  "cell fusion": {
+    "preferred_name": "cell-cell fusion",
+    "score": 1000
+  },
+  "actin-binding": {
+    "preferred_name": "actin binding",
+    "score": 100.0
+  },
+  "invadosome formation": {
+    "preferred_name": "obsolete invadopodium assembly",
+    "score": 85.71428571428572
+  },
+  "chronic pain": {
+    "preferred_name": "chronic pain",
+    "score": 1000
+  },
+  "Decreased PPTs": {
+    "preferred_name": "decreased prothrombin time",
+    "score": 92.3076923076923
+  },
+  "generalized hyperalgesia": {
+    "preferred_name": "generalized hyperreflexia",
+    "score": 85.71428571428572
+  },
+  "proximal muscle weakness": {
+    "preferred_name": "proximal muscle weakness",
+    "score": 1000
+  },
+  "progressive muscle deterioration": {
+    "preferred_name": "progressive neurologic deterioration",
+    "score": 87.5
+  },
+  "progressive skeletal muscle weakness": {
+    "preferred_name": "progressive muscle weakness",
+    "score": 85.71428571428572
+  },
+  "degenerating muscle fibers": {
+    "preferred_name": "muscle fiber atrophy",
+    "score": 94.11764705882352
+  },
+  "edema": {
+    "preferred_name": "edema",
+    "score": 1000
+  },
+  "vertebral fractures": {
+    "preferred_name": "fractured vertebra",
+    "score": 91.89189189189189
+  },
+  "progressive proximal weakness": {
+    "preferred_name": "progressive proximal muscle weakness",
+    "score": 89.23076923076923
+  },
+  "metabolic myopathies": {
+    "preferred_name": "metabolic myopathy",
+    "score": 89.47368421052632
+  },
+  "Exercise intolerance": {
+    "preferred_name": "exercise intolerance",
+    "score": 1000
+  },
+  "hypermobility Ehlers-Danlos syndrome": {
+    "preferred_name": "ehlers-danlos syndrome, hypermobility type",
+    "score": 94.28571428571428
+  },
+  "Joint hypermobility": {
+    "preferred_name": "joint hypermobility",
+    "score": 1000
+  },
+  "marfanoid syndromes": {
+    "preferred_name": "marfan syndrome",
+    "score": 88.23529411764706
+  },
+  "Osteogenesis imperfecta": {
+    "preferred_name": "osteogenesis imperfecta",
+    "score": 1000
+  },
+  "Down syndrome": {
+    "preferred_name": "down syndrome",
+    "score": 1000
+  },
+  "atlantoaxial instability": {
+    "preferred_name": "atlantoaxial instability",
+    "score": 1000
+  },
+  "Achondroplasia": {
+    "preferred_name": "achondroplasia",
+    "score": 1000
+  },
+  "skeletal dysplasia": {
+    "preferred_name": "skeletal dysplasia",
+    "score": 1000
+  },
+  "macrocephaly": {
+    "preferred_name": "macrocephaly",
+    "score": 1000
+  },
+  "short limb": {
+    "preferred_name": "limb undergrowth",
+    "score": 1000
+  },
+  "short stature": {
+    "preferred_name": "short stature",
+    "score": 1000
+  },
+  "Duchenne Muscular dystrophy": {
+    "preferred_name": "duchenne muscular dystrophy",
+    "score": 1000
+  },
+  "Charcot-Marie-Tooth type 1 neuropathy": {
+    "preferred_name": "charcot-marie-tooth disease type 1",
+    "score": 100.0
+  },
+  "neurogenic disorder": {
+    "preferred_name": "neutropenia",
+    "score": 92.3076923076923
+  },
+  "dystrophic disease": {
+    "preferred_name": "dystonic disorder",
+    "score": 88.23529411764706
+  },
+  "estrogen": {
+    "preferred_name": "estrogens",
+    "score": 1000
+  },
+  "estrogen receptor β (ERβ)": {
+    "preferred_name": "esr1",
+    "score": 85.71428571428572
+  },
+  "DPN": {
+    "preferred_name": "nadide",
+    "score": 1000
+  },
+  "myogenic differentiation 1 (MyoD-1)": {
+    "preferred_name": "myod1",
+    "score": 88.13559322033898
+  },
+  "myoblasts differentiation": {
+    "preferred_name": "myoblast differentiation",
+    "score": 97.95918367346938
+  },
+  "caveolae": {
+    "preferred_name": "caveola",
+    "score": 1000
+  },
+  "Caveolin": {
+    "preferred_name": "cav1",
+    "score": 88.88888888888889
+  },
+  "structural protein": {
+    "preferred_name": "structural-gp protein, bos taurus",
+    "score": 87.8048780487805
+  },
+  "transmembrane molecular transport": {
+    "preferred_name": "azole transmembrane transport",
+    "score": 87.09677419354838
+  },
+  "limb-girdle muscular dystrophy": {
+    "preferred_name": "limb-girdle muscular dystrophy",
+    "score": 1000
+  },
+  "caveolin-3": {
+    "preferred_name": "cav3",
+    "score": 100.0
+  },
+  "nitric oxide synthase (NOS)": {
+    "preferred_name": "nos1",
+    "score": 87.5
+  },
+  "skeletal muscle fibers": {
+    "preferred_name": "limb muscle",
+    "score": 85.71428571428572
+  },
+  "caveolin": {
+    "preferred_name": "cav1",
+    "score": 88.88888888888889
+  },
+  "NOS": {
+    "preferred_name": "nos1",
+    "score": 1000
+  },
+  "LUM": {
+    "preferred_name": "lum",
+    "score": 1000
+  },
+  "DCN": {
+    "preferred_name": "dcn",
+    "score": 1000
+  },
+  "COL1A1": {
+    "preferred_name": "col1a1",
+    "score": 1000
+  },
+  "Mitochondrial creatine kinase": {
+    "preferred_name": "ckmt2",
+    "score": 96.66666666666667
+  },
+  "respiration": {
+    "preferred_name": "cellular respiration",
+    "score": 1000
+  },
+  "versican": {
+    "preferred_name": "vcan",
+    "score": 1000
+  },
+  "α-methylprednisolone": {
+    "preferred_name": "methylprednisolone",
+    "score": 94.73684210526316
+  },
+  "high mobility group box 1 (HMGB1)": {
+    "preferred_name": "hmgb1",
+    "score": 89.28571428571429
+  },
+  "HMGB1": {
+    "preferred_name": "hmgb1",
+    "score": 1000
+  },
+  "elevated creatine kinase levels": {
+    "preferred_name": "elevated circulating creatine kinase concentration",
+    "score": 87.27272727272728
+  },
+  "muscle": {
+    "preferred_name": "muscle structure",
+    "score": 1000
+  },
+  "Sesn2": {
+    "preferred_name": "sesn2",
+    "score": 1000
+  },
+  "Pax7 expression": {
+    "preferred_name": "pax5 expression",
+    "score": 93.33333333333333
+  },
+  "Spinal muscular atrophy": {
+    "preferred_name": "proximal spinal muscular atrophy",
+    "score": 1000
+  },
+  "progressive skeletal muscle degeneration": {
+    "preferred_name": "progressive spinal muscular atrophy",
+    "score": 89.74358974358975
+  },
+  "MDs": {
+    "preferred_name": "myelodysplastic syndrome",
+    "score": 1000
+  },
+  "respiratory disorders": {
+    "preferred_name": "respiratory distress",
+    "score": 87.8048780487805
+  },
+  "Duchene muscular dystrophy": {
+    "preferred_name": "duchenne muscular dystrophy",
+    "score": 98.11320754716981
+  },
+  "dystrophin-associated proteins": {
+    "preferred_name": "dag1",
+    "score": 87.87878787878788
+  },
+  "mitochondrial dysfunction": {
+    "preferred_name": "abnormality of mitochondrial metabolism",
+    "score": 1000
+  },
+  "Amiodarone": {
+    "preferred_name": "amiodarone",
+    "score": 1000
+  },
+  "arrhythmia": {
+    "preferred_name": "cardiac rhythm disease",
+    "score": 1000
+  },
+  "amiodarone": {
+    "preferred_name": "amiodarone",
+    "score": 1000
+  },
+  "ABCB4": {
+    "preferred_name": "abcb4",
+    "score": 1000
+  },
+  "DSC2": {
+    "preferred_name": "dsc2",
+    "score": 1000
+  },
+  "renal failure": {
+    "preferred_name": "renal insufficiency",
+    "score": 1000
+  },
+  "coagulation disorders": {
+    "preferred_name": "abnormality of coagulation",
+    "score": 85.1063829787234
+  },
+  "degeneration": {
+    "preferred_name": "central nervous system degeneration",
+    "score": 85.71428571428572
+  },
+  "cardiac failure": {
+    "preferred_name": "congestive heart failure",
+    "score": 1000
+  },
+  "striated muscles": {
+    "preferred_name": "striated muscle tissue",
+    "score": 96.7741935483871
+  },
+  "Dystrophinopathy": {
+    "preferred_name": "qualitative or quantitative defects of dystrophin",
+    "score": 1000
+  },
+  "skeletal muscles": {
+    "preferred_name": "somatic muscle, invertebrate",
+    "score": 96.7741935483871
+  },
+  "Progressive muscle weakness": {
+    "preferred_name": "progressive muscle weakness",
+    "score": 1000
+  },
+  "Cathepsin K": {
+    "preferred_name": "ctsk",
+    "score": 1000
+  },
+  "myosin heavy chain 3": {
+    "preferred_name": "myh3",
+    "score": 1000
+  },
+  "cardiotoxin": {
+    "preferred_name": "cardiotoxins",
+    "score": 1000
+  },
+  "skeletal muscle loss": {
+    "preferred_name": "muscle of leg",
+    "score": 87.17948717948718
+  },
+  "CTSK": {
+    "preferred_name": "ctsk",
+    "score": 1000
+  },
+  "fall frequency": {
+    "preferred_name": "frequent falls",
+    "score": 85.71428571428572
+  },
+  "lipin1": {
+    "preferred_name": "lpin1",
+    "score": 90.9090909090909
+  },
+  "CFTR": {
+    "preferred_name": "cftr",
+    "score": 1000
+  },
+  "BRCA1": {
+    "preferred_name": "brca1",
+    "score": 1000
+  },
+  "tibialis anterior": {
+    "preferred_name": "tibialis anterior",
+    "score": 1000
+  },
+  "diaphragm muscles": {
+    "preferred_name": "diaphragm",
+    "score": 96.96969696969697
+  },
+  "global developmental delay": {
+    "preferred_name": "global developmental delay",
+    "score": 1000
+  },
+  "overweight": {
+    "preferred_name": "overweight",
+    "score": 1000
+  },
+  "malnutrition": {
+    "preferred_name": "malnutrition",
+    "score": 1000
+  },
+  "progressive cardiomyopathy": {
+    "preferred_name": "dilated cardiomyopathy",
+    "score": 86.27450980392157
+  },
+  "facioscapulohumeral muscular dystrophy": {
+    "preferred_name": "facioscapulohumeral muscular dystrophy 1",
+    "score": 1000
+  },
+  "polycythemia vera": {
+    "preferred_name": "acquired polycythemia vera",
+    "score": 1000
+  },
+  "histone deacetylase": {
+    "preferred_name": "hdac1",
+    "score": 95.0
+  },
+  "Left ventricular end-diastolic diameter": {
+    "preferred_name": "elevated left ventricular end-diastolic diameter",
+    "score": 89.65517241379311
+  },
+  "Tamoxifen": {
+    "preferred_name": "tamoxifen",
+    "score": 1000
+  },
+  "DMD cardiomyopathy": {
+    "preferred_name": "cardiomyopathy, dog",
+    "score": 88.88888888888889
+  },
+  "CXCL5": {
+    "preferred_name": "cxcl5",
+    "score": 1000
+  },
+  "mineralisation": {
+    "preferred_name": "obsolete biomineralization",
+    "score": 1000
+  },
+  "calcification": {
+    "preferred_name": "calcinosis",
+    "score": 1000
+  },
+  "damage response": {
+    "preferred_name": "dna damage response",
+    "score": 88.23529411764706
+  },
+  "ectopic calcification": {
+    "preferred_name": "ectopic calcification",
+    "score": 1000
+  },
+  "delayed puberty": {
+    "preferred_name": "delayed puberty",
+    "score": 1000
+  },
+  "diapocynin": {
+    "preferred_name": "apocynin",
+    "score": 88.88888888888889
+  },
+  "NOX": {
+    "preferred_name": "nox1",
+    "score": 85.71428571428572
+  },
+  "cell surface": {
+    "preferred_name": "cell surface",
+    "score": 1000
+  },
+  "protein-protein interactions": {
+    "preferred_name": "eri3",
+    "score": 88.52459016393442
+  },
+  "X-linked dilated cardiomyopathy": {
+    "preferred_name": "dilated cardiomyopathy 3b",
+    "score": 1000
+  },
+  "proper assembly": {
+    "preferred_name": "pre-replicative complex assembly",
+    "score": 86.66666666666667
+  },
+  "membrane expression": {
+    "preferred_name": "cell projection membrane",
+    "score": 86.48648648648648
+  },
+  "Periostin": {
+    "preferred_name": "postn",
+    "score": 1000
+  },
+  "transforming growth factor beta 1 (Tgf-β1) signalling pathway": {
+    "preferred_name": "signaling by tgf-beta receptor complex",
+    "score": 86.53846153846155
+  },
+  "tamoxifen (TX)": {
+    "preferred_name": "tamoxifen",
+    "score": 85.71428571428572
+  },
+  "proliferation of SCs": {
+    "preferred_name": "smooth muscle cell proliferation",
+    "score": 86.48648648648648
+  },
+  "HMOX1": {
+    "preferred_name": "hmox1",
+    "score": 1000
+  },
+  "constipation": {
+    "preferred_name": "constipation",
+    "score": 1000
+  },
+  "skeletal muscle function": {
+    "preferred_name": "skeletal muscle contraction",
+    "score": 86.27450980392157
+  },
+  "metabolism": {
+    "preferred_name": "metabolic process",
+    "score": 1000
+  },
+  "Rbm20": {
+    "preferred_name": "rbm20",
+    "score": 1000
+  },
+  "metabolic processes": {
+    "preferred_name": "metabolic process",
+    "score": 94.44444444444444
+  },
+  "mitochondrial dynamics": {
+    "preferred_name": "mitochondrial chromosome",
+    "score": 87.17948717948718
+  },
+  "Weakness": {
+    "preferred_name": "asthenia",
+    "score": 1000
+  },
+  "gastrointestinal pseudo-obstruction": {
+    "preferred_name": "intestinal pseudo-obstruction",
+    "score": 90.625
+  },
+  "urinary urgency": {
+    "preferred_name": "urinary urgency",
+    "score": 1000
+  },
+  "enuresis": {
+    "preferred_name": "enuresis",
+    "score": 1000
+  },
+  "Spinal Muscular Atrophy": {
+    "preferred_name": "proximal spinal muscular atrophy",
+    "score": 1000
+  },
+  "muscle atrophy": {
+    "preferred_name": "skeletal muscle atrophy",
+    "score": 1000
+  },
+  "outer mitochondrial": {
+    "preferred_name": "obsolete mitochondrial trna",
+    "score": 86.48648648648648
+  },
+  "CISD3": {
+    "preferred_name": "cisd3",
+    "score": 1000
+  },
+  "fatal muscle-wasting disease": {
+    "preferred_name": "distal amyotrophy",
+    "score": 85.71428571428572
+  },
+  "AhR": {
+    "preferred_name": "ahr",
+    "score": 1000
+  },
+  "creatine kinase": {
+    "preferred_name": "ckb",
+    "score": 93.75
+  },
+  "creatine kinase-MM": {
+    "preferred_name": "ckb",
+    "score": 85.71428571428572
+  },
+  "proto-oncogene tyrosine-protein kinase receptor (RET)": {
+    "preferred_name": "ros1",
+    "score": 85.41666666666666
+  },
+  "COL1A2": {
+    "preferred_name": "col1a2",
+    "score": 1000
+  },
+  "mTORC1": {
+    "preferred_name": "torc1 complex",
+    "score": 1000
+  },
+  "RagD": {
+    "preferred_name": "rragd",
+    "score": 88.88888888888889
+  },
+  "mTORC1 activity": {
+    "preferred_name": "cytoskeletal motor activity",
+    "score": 89.65517241379311
+  },
+  "SRP-9001": {
+    "preferred_name": "srp-9005",
+    "score": 87.5
+  },
+  "immune responses": {
+    "preferred_name": "immune response",
+    "score": 96.7741935483871
+  },
+  "sleep dysfunction": {
+    "preferred_name": "sleep abnormality",
+    "score": 1000
+  },
+  "diaphragmatic weakness": {
+    "preferred_name": "diaphragmatic weakness",
+    "score": 1000
+  },
+  "respiratory progression": {
+    "preferred_name": "hypoventilation",
+    "score": 88.88888888888889
+  },
+  "hypopnoeas": {
+    "preferred_name": "hypopnea",
+    "score": 88.88888888888889
+  },
+  "neurobehavioral problems": {
+    "preferred_name": "atypical behavior",
+    "score": 88.37209302325581
+  },
+  "psychiatric disorders": {
+    "preferred_name": "atypical behavior",
+    "score": 1000
+  },
+  "cytoskeleton": {
+    "preferred_name": "cytoskeleton",
+    "score": 1000
+  },
+  "extracellular matrix receptors": {
+    "preferred_name": "cd44",
+    "score": 92.06349206349206
+  },
+  "skeletal muscle disease": {
+    "preferred_name": "musculoskeletal system disorder",
+    "score": 91.30434782608697
+  },
+  "cardiac disease": {
+    "preferred_name": "heart disorder",
+    "score": 1000
+  },
+  "Benfotiamine": {
+    "preferred_name": "benfotiamine",
+    "score": 1000
+  },
+  "benfotiamine": {
+    "preferred_name": "benfotiamine",
+    "score": 1000
+  },
+  "Corticosteroid": {
+    "preferred_name": "corticosterone",
+    "score": 85.71428571428572
+  },
+  "respiratory dysfunctions": {
+    "preferred_name": "respiratory insufficiency",
+    "score": 85.71428571428572
+  },
+  "ADHD": {
+    "preferred_name": "attention deficit-hyperactivity disorder",
+    "score": 1000
+  },
+  "ASD": {
+    "preferred_name": "atrial septal defect",
+    "score": 1000
+  },
+  "OCD": {
+    "preferred_name": "compulsive behaviors",
+    "score": 1000
+  },
+  "CNS": {
+    "preferred_name": "central nervous system",
+    "score": 1000
+  },
+  "epilepsy": {
+    "preferred_name": "epilepsy",
+    "score": 1000
+  },
+  "histone lysine methyltransferase": {
+    "preferred_name": "kmt5b",
+    "score": 96.96969696969697
+  },
+  "SETDB1": {
+    "preferred_name": "setdb1",
+    "score": 1000
+  },
+  "muscle differentiation": {
+    "preferred_name": "muscle cell differentiation",
+    "score": 89.79591836734694
+  },
+  "nuclei": {
+    "preferred_name": "nucleoid",
+    "score": 85.71428571428572
+  },
+  "extracellular matrix remodeling": {
+    "preferred_name": "ecm1",
+    "score": 85.24590163934427
+  },
+  "Cas9": {
+    "preferred_name": "casc9",
+    "score": 88.88888888888889
+  },
+  "Cardiovascular disease": {
+    "preferred_name": "cardiovascular disorder",
+    "score": 1000
+  },
+  "stroke": {
+    "preferred_name": "cerebrovascular disorder",
+    "score": 1000
+  },
+  "proximal weakness": {
+    "preferred_name": "proximal muscle weakness",
+    "score": 87.17948717948718
+  },
+  "reduced endurance": {
+    "preferred_name": "typified by incomplete penetrance",
+    "score": 85.71428571428572
+  },
+  "CYP3A4": {
+    "preferred_name": "cyp3a4",
+    "score": 1000
+  },
+  "CYP3A5": {
+    "preferred_name": "cyp3a5",
+    "score": 1000
+  },
+  "UDP-glucuronosyltransferases": {
+    "preferred_name": "b3gat1",
+    "score": 94.33962264150944
+  },
+  "fibrotic diseases": {
+    "preferred_name": "breast fibrocystic disease",
+    "score": 88.88888888888889
+  },
+  "development": {
+    "preferred_name": "developmental process",
+    "score": 1000
+  },
+  "PANX1": {
+    "preferred_name": "panx1",
+    "score": 1000
+  },
+  "fusion": {
+    "preferred_name": "fusio",
+    "score": 90.9090909090909
+  },
+  "rhabdomyosarcoma (RMS)": {
+    "preferred_name": "rhabdomyosarcoma",
+    "score": 88.88888888888889
+  },
+  "RMS": {
+    "preferred_name": "progressive relapsing multiple sclerosis",
+    "score": 85.71428571428572
+  },
+  "cortex": {
+    "preferred_name": "cortex",
+    "score": 1000
+  },
+  "cerebellum": {
+    "preferred_name": "cerebellum",
+    "score": 1000
+  },
+  "water homeostasis": {
+    "preferred_name": "sterol homeostasis",
+    "score": 85.71428571428572
+  },
+  "behavioral disturbances": {
+    "preferred_name": "atypical behavior",
+    "score": 1000
+  },
+  "hypoventilation": {
+    "preferred_name": "hypoventilation",
+    "score": 1000
+  },
+  "RV dysfunction": {
+    "preferred_name": "functional abnormality of the gastrointestinal tract",
+    "score": 85.71428571428572
+  },
+  "slower progression": {
+    "preferred_name": "slowly progressive",
+    "score": 94.11764705882352
+  },
+  "Duchenne's muscular dystrophy (DMD)": {
+    "preferred_name": "duchenne muscular dystrophy",
+    "score": 90.0
+  },
+  "gastrointestinal implications": {
+    "preferred_name": "recurrent infection of the gastrointestinal tract",
+    "score": 85.71428571428572
+  },
+  "tumors": {
+    "preferred_name": "neoplasm",
+    "score": 90.9090909090909
+  },
+  "rhabdomyosarcoma": {
+    "preferred_name": "rhabdomyosarcoma",
+    "score": 1000
+  },
+  "Alanine": {
+    "preferred_name": "alanine",
+    "score": 1000
+  },
+  "epithelial mesenchymal transition": {
+    "preferred_name": "epithelial to mesenchymal transition",
+    "score": 100.0
+  },
+  "invasion": {
+    "preferred_name": "nasion",
+    "score": 85.71428571428572
+  },
+  "alanine": {
+    "preferred_name": "alanine",
+    "score": 1000
+  },
+  "taldefgrobep alfa": {
+    "preferred_name": "talditercept alfa",
+    "score": 1000
+  },
+  "late left ventricular systolic dysfunction": {
+    "preferred_name": "left ventricular systolic dysfunction",
+    "score": 93.67088607594937
+  },
+  "heart rate variability (HRV) abnormalities": {
+    "preferred_name": "abnormal heart rate variability",
+    "score": 87.32394366197182
+  },
+  "increased heart rate": {
+    "preferred_name": "tachycardia",
+    "score": 1000
+  },
+  "prolonged QT": {
+    "preferred_name": "prolonged prothrombin time",
+    "score": 91.66666666666666
+  },
+  "shortened PR intervals": {
+    "preferred_name": "shortened pr interval",
+    "score": 97.67441860465115
+  },
+  "ventricular arrhythmias": {
+    "preferred_name": "ventricular arrhythmia",
+    "score": 1000
+  },
+  "pneumonia": {
+    "preferred_name": "pneumonia",
+    "score": 1000
+  },
+  "Hypoventilation": {
+    "preferred_name": "hypoventilation",
+    "score": 1000
+  },
+  "cryptorchidism": {
+    "preferred_name": "cryptorchidism",
+    "score": 1000
+  },
+  "ARSH": {
+    "preferred_name": "arsh",
+    "score": 1000
+  },
+  "MAGEA4": {
+    "preferred_name": "magea4",
+    "score": 1000
+  },
+  "SHROOM2": {
+    "preferred_name": "shroom2",
+    "score": 1000
+  },
+  "USP9Y": {
+    "preferred_name": "usp9y",
+    "score": 1000
+  },
+  "UBA1": {
+    "preferred_name": "uba1",
+    "score": 1000
+  },
+  "BCORL1": {
+    "preferred_name": "bcorl1",
+    "score": 1000
+  },
+  "KDM6A": {
+    "preferred_name": "kdm6a",
+    "score": 1000
+  },
+  "vomiting": {
+    "preferred_name": "vomiting",
+    "score": 1000
+  },
+  "skeletal muscle-wasting disorder": {
+    "preferred_name": "generalized amyotrophy",
+    "score": 88.88888888888889
+  },
+  "increased inflammatory markers": {
+    "preferred_name": "increased inflammatory response",
+    "score": 85.24590163934427
+  },
+  "sarcolipin": {
+    "preferred_name": "sln",
+    "score": 1000
+  },
+  "Muscle pain": {
+    "preferred_name": "myalgia",
+    "score": 1000
+  },
+  "balance": {
+    "preferred_name": "postural instability",
+    "score": 87.5
+  },
+  "left ventricular ejection fraction <50%": {
+    "preferred_name": "abnormal left ventricular ejection fraction",
+    "score": 87.5
+  },
+  "dimenhydrinate": {
+    "preferred_name": "dimenhydrinate",
+    "score": 1000
+  },
+  "8-chlorotheophylline": {
+    "preferred_name": "8-chlorotheophylline",
+    "score": 1000
+  },
+  "Nrf2": {
+    "preferred_name": "nr2f2",
+    "score": 88.88888888888889
+  },
+  "increased heart rate (HR)": {
+    "preferred_name": "tachycardia",
+    "score": 93.02325581395348
+  },
+  "decreased blood pressure (BP)": {
+    "preferred_name": "increased blood pressure",
+    "score": 86.27450980392157
+  },
+  "decreased HR": {
+    "preferred_name": "decreased waist to hip ratio",
+    "score": 96.0
+  },
+  "walking ability": {
+    "preferred_name": "gait disturbance",
+    "score": 90.9090909090909
+  },
+  "progressive functional deterioration": {
+    "preferred_name": "progressive neurologic deterioration",
+    "score": 88.23529411764706
+  },
+  "respiratory insufficiency": {
+    "preferred_name": "respiratory insufficiency",
+    "score": 1000
+  },
+  "Neuromuscular disorders": {
+    "preferred_name": "neurovascular disorder",
+    "score": 88.88888888888889
+  },
+  "amyotrophic lateral sclerosis": {
+    "preferred_name": "amyotrophic lateral sclerosis",
+    "score": 1000
+  },
+  "proteolytic degradation": {
+    "preferred_name": "proteoglycan catabolic process",
+    "score": 89.36170212765957
+  },
+  "E3 ubiquitin ligases": {
+    "preferred_name": "prkn",
+    "score": 97.43589743589743
+  },
+  "BiP": {
+    "preferred_name": "mbip",
+    "score": 85.71428571428572
+  },
+  "mitochondrial Ca 2+ uptake": {
+    "preferred_name": "micu2",
+    "score": 90.9090909090909
+  },
+  "givinostat": {
+    "preferred_name": "givinostat",
+    "score": 1000
+  },
+  "diarrhoea": {
+    "preferred_name": "diarrhea",
+    "score": 1000
+  },
+  "muscular dystrophy (MD)": {
+    "preferred_name": "muscular dystrophy",
+    "score": 92.3076923076923
+  },
+  "AP-13": {
+    "preferred_name": "7-(2-(4-hydroxyphenethylamino)cyclopentyl)heptanoic acid",
+    "score": 90.9090909090909
+  },
+  "tissue regeneration": {
+    "preferred_name": "tissue regeneration",
+    "score": 1000
+  },
+  "MD": {
+    "preferred_name": "menkes disease",
+    "score": 1000
+  },
+  "muscle fiber necrosis": {
+    "preferred_name": "muscle fiber necrosis",
+    "score": 1000
+  },
+  "LEDT": {
+    "preferred_name": "telbivudine",
+    "score": 85.71428571428572
+  },
+  "Beclin": {
+    "preferred_name": "becn1",
+    "score": 85.71428571428572
+  },
+  "IDE": {
+    "preferred_name": "imlifidase",
+    "score": 85.71428571428572
+  },
+  "sudden death": {
+    "preferred_name": "sudden death",
+    "score": 1000
+  },
+  "catalase": {
+    "preferred_name": "cat",
+    "score": 1000
+  },
+  "Duchenne and Becker Muscular Dystrophy (BMD)": {
+    "preferred_name": "obsolete duchenne and becker muscular dystrophy",
+    "score": 85.39325842696628
+  },
+  "X-linked dilated cardiomyopathy (XL-DCM)": {
+    "preferred_name": "dilated cardiomyopathy 3b",
+    "score": 89.85507246376811
+  },
+  "asthenia": {
+    "preferred_name": "asthenia",
+    "score": 1000
+  },
+  "Metformin": {
+    "preferred_name": "metformin",
+    "score": 1000
+  },
+  "type 2 diabetes": {
+    "preferred_name": "type 2 diabetes mellitus",
+    "score": 1000
+  },
+  "metformin": {
+    "preferred_name": "metformin",
+    "score": 1000
+  },
+  "lactic acidosis": {
+    "preferred_name": "lactic acidosis",
+    "score": 1000
+  },
+  "prolyl-hydroxylase": {
+    "preferred_name": "p3h1",
+    "score": 90.0
+  },
+  "anemia": {
+    "preferred_name": "anemia",
+    "score": 1000
+  },
+  "Fhl2": {
+    "preferred_name": "fhl2",
+    "score": 1000
+  },
+  "fhl2b": {
+    "preferred_name": "fhl2",
+    "score": 88.88888888888889
+  },
+  "histone acetyltransferases (HATs)": {
+    "preferred_name": "hat1",
+    "score": 86.20689655172413
+  },
+  "respiratory weakness": {
+    "preferred_name": "respiratory insufficiency due to muscle weakness",
+    "score": 85.1063829787234
+  },
+  "Parthenolide (PTL)": {
+    "preferred_name": "parthenolide",
+    "score": 85.71428571428572
+  },
+  "limb-girdle muscular dystrophy type 2A": {
+    "preferred_name": "autosomal recessive limb-girdle muscular dystrophy type 2a",
+    "score": 1000
+  },
+  "CAPN3": {
+    "preferred_name": "capn3",
+    "score": 1000
+  },
+  "abnormal electrocardiogram (ECG)": {
+    "preferred_name": "abnormal ekg",
+    "score": 92.85714285714286
+  },
+  "left ventricular end-diastolic volume index": {
+    "preferred_name": "increased left ventricular end-diastolic volume",
+    "score": 91.11111111111111
+  },
+  "Dilated cardiomyopathy (DCM)": {
+    "preferred_name": "dilated cardiomyopathy",
+    "score": 91.66666666666666
+  },
+  "left ventricular ejection fraction (EF)": {
+    "preferred_name": "abnormal left ventricular ejection fraction",
+    "score": 87.5
+  },
+  "decreased EF": {
+    "preferred_name": "decreased circulating ige concentration",
+    "score": 88.0
+  },
+  "increased EF": {
+    "preferred_name": "increased glomerular filtration rate",
+    "score": 88.0
+  },
+  "DCM": {
+    "preferred_name": "diffuse cutaneous mastocytosis",
+    "score": 1000
+  },
+  "HPGDS": {
+    "preferred_name": "hpgds",
+    "score": 1000
+  },
+  "myocardium": {
+    "preferred_name": "myocardium",
+    "score": 1000
+  },
+  "skeletal muscle disorders": {
+    "preferred_name": "skeletal muscle disorder",
+    "score": 97.95918367346938
+  },
+  "CTGF": {
+    "preferred_name": "ccn2",
+    "score": 1000
+  },
+  "glucocorticoid receptor": {
+    "preferred_name": "nr3c1",
+    "score": 1000
+  },
+  "cardiomyopathies": {
+    "preferred_name": "cardiomyopathy",
+    "score": 1000
+  },
+  "motor neuron diseases": {
+    "preferred_name": "motor neuron disorder",
+    "score": 97.5609756097561
+  },
+  "infection": {
+    "preferred_name": "infectious disease",
+    "score": 1000
+  },
+  "acute liver disease": {
+    "preferred_name": "liver abscess (disease)",
+    "score": 85.0
+  },
+  "pseudohypertrophic muscular dystrophy": {
+    "preferred_name": "becker muscular dystrophy",
+    "score": 91.35802469135803
+  },
+  "UDCs": {
+    "preferred_name": "sarcoursodeoxycholic acid",
+    "score": 1000
+  },
+  "myosin heavy chain": {
+    "preferred_name": "myh1",
+    "score": 94.73684210526316
+  },
+  "CD90": {
+    "preferred_name": "cd9",
+    "score": 85.71428571428572
+  },
+  "ATL1102": {
+    "preferred_name": "atl1102",
+    "score": 1000
+  },
+  "CD49d": {
+    "preferred_name": "itga4",
+    "score": 1000
+  },
+  "weakess": {
+    "preferred_name": "asthenia",
+    "score": 93.33333333333333
+  },
+  "skin discoloration": {
+    "preferred_name": "lip discoloration",
+    "score": 85.71428571428572
+  },
+  "neuronal nitric oxide synthase (NOS1)": {
+    "preferred_name": "nos1",
+    "score": 89.55223880597015
+  },
+  "NOS1": {
+    "preferred_name": "nos1",
+    "score": 1000
+  },
+  "ventricular arrhythmia": {
+    "preferred_name": "ventricular arrhythmia",
+    "score": 1000
+  },
+  "Becker muscular dystrophies (BMD)": {
+    "preferred_name": "becker muscular dystrophy",
+    "score": 85.71428571428572
+  },
+  "dilated cardiomyopathy (DCM)": {
+    "preferred_name": "dilated cardiomyopathy",
+    "score": 91.66666666666666
+  },
+  "left ventricular (LV) systolic dysfunction": {
+    "preferred_name": "left ventricular systolic dysfunction",
+    "score": 96.1038961038961
+  },
+  "Creatine kinase (CK)": {
+    "preferred_name": "ckb",
+    "score": 91.42857142857143
+  },
+  "transcription factor EB (TFEB)": {
+    "preferred_name": "tfeb",
+    "score": 90.19607843137256
+  },
+  "FoxO1": {
+    "preferred_name": "foxo1",
+    "score": 1000
+  },
+  "FoxO3a": {
+    "preferred_name": "foxo3",
+    "score": 1000
+  },
+  "Nuclear localization of TFEB": {
+    "preferred_name": "nuclear pore localization",
+    "score": 86.79245283018868
+  },
+  "TFEB": {
+    "preferred_name": "tfeb",
+    "score": 1000
+  },
+  "gingivitis": {
+    "preferred_name": "gingivitis",
+    "score": 1000
+  },
+  "halitosis": {
+    "preferred_name": "halitosis",
+    "score": 1000
+  },
+  "malocclusions": {
+    "preferred_name": "dental malocclusion",
+    "score": 96.0
+  },
+  "degenerative muscle diseases": {
+    "preferred_name": "degenerative liver disease",
+    "score": 85.18518518518519
+  },
+  "ECT2": {
+    "preferred_name": "ect2",
+    "score": 1000
+  },
+  "TYMS": {
+    "preferred_name": "tyms",
+    "score": 1000
+  },
+  "MAGEL2": {
+    "preferred_name": "magel2",
+    "score": 1000
+  },
+  "HLA-DMA": {
+    "preferred_name": "hla-dma",
+    "score": 1000
+  },
+  "SERPINH1": {
+    "preferred_name": "serpinh1",
+    "score": 1000
+  },
+  "TNNT2": {
+    "preferred_name": "tnnt2",
+    "score": 1000
+  },
+  "ASB2": {
+    "preferred_name": "asb2",
+    "score": 1000
+  },
+  "LEPREL1": {
+    "preferred_name": "p3h2",
+    "score": 1000
+  },
+  "COL6A3": {
+    "preferred_name": "col6a3",
+    "score": 1000
+  },
+  "COL3A1": {
+    "preferred_name": "col3a1",
+    "score": 1000
+  },
+  "POSTN": {
+    "preferred_name": "postn",
+    "score": 1000
+  },
+  "TIMP1": {
+    "preferred_name": "timp1",
+    "score": 1000
+  },
+  "THBS2": {
+    "preferred_name": "thbs2",
+    "score": 1000
+  },
+  "SPP1": {
+    "preferred_name": "spp1",
+    "score": 1000
+  },
+  "zoledronate": {
+    "preferred_name": "zoledronic acid",
+    "score": 1000
+  },
+  "glucocorticoid-induced osteoporosis": {
+    "preferred_name": "glucocorticoid-induced osteoporosis",
+    "score": 1000
+  },
+  "Social anxieties": {
+    "preferred_name": "social anxiety",
+    "score": 86.66666666666667
+  },
+  "CDKN2A": {
+    "preferred_name": "cdkn2a",
+    "score": 1000
+  },
+  "CDKN2B": {
+    "preferred_name": "cdkn2b",
+    "score": 1000
+  },
+  "Heart disease": {
+    "preferred_name": "heart disorder",
+    "score": 1000
+  },
+  "dystrophic cardiomyopathy": {
+    "preferred_name": "hypertrophic cardiomyopathy",
+    "score": 88.46153846153845
+  },
+  "severe acute respiratory distress syndrome": {
+    "preferred_name": "acute respiratory distress syndrome",
+    "score": 90.9090909090909
+  },
+  "ferroportin": {
+    "preferred_name": "slc40a1",
+    "score": 91.66666666666666
+  },
+  "ferritin": {
+    "preferred_name": "fth1",
+    "score": 88.88888888888889
+  },
+  "transferrin receptor": {
+    "preferred_name": "tfrc",
+    "score": 1000
+  },
+  "deferoxamine": {
+    "preferred_name": "deferoxamine",
+    "score": 1000
+  },
+  "pioglitazone": {
+    "preferred_name": "pioglitazone",
+    "score": 1000
+  },
+  "HDAC2": {
+    "preferred_name": "hdac2",
+    "score": 1000
+  },
+  "aromatic L -amino acid decarboxylase deficiency": {
+    "preferred_name": "aromatic l-amino acid decarboxylase deficiency",
+    "score": 100.0
+  },
+  "genetic disorders": {
+    "preferred_name": "hereditary disease",
+    "score": 96.96969696969697
+  },
+  "terbinafine": {
+    "preferred_name": "terbinafine",
+    "score": 1000
+  },
+  "dermatophytosis": {
+    "preferred_name": "dermatophytosis",
+    "score": 1000
+  },
+  "hydrogen sulfide (H 2 S)": {
+    "preferred_name": "hydrogen sulfide",
+    "score": 85.71428571428572
+  },
+  "muscle dystrophy": {
+    "preferred_name": "muscular dystrophy",
+    "score": 88.23529411764706
+  },
+  "skeletal muscle degeneration": {
+    "preferred_name": "spinal muscular atrophy",
+    "score": 85.18518518518519
+  },
+  "positioning of nuclei": {
+    "preferred_name": "nuclear migration",
+    "score": 93.02325581395348
+  },
+  "centronuclear myopathies": {
+    "preferred_name": "centronuclear myopathy",
+    "score": 91.30434782608697
+  },
+  "Muscle": {
+    "preferred_name": "muscle structure",
+    "score": 1000
+  },
+  "gene therapy": {
+    "preferred_name": "rgg0853",
+    "score": 85.71428571428572
+  },
+  "Danon disease": {
+    "preferred_name": "danon disease",
+    "score": 1000
+  },
+  "Fabry disease": {
+    "preferred_name": "fabry disease",
+    "score": 1000
+  },
+  "CD133 + cells": {
+    "preferred_name": "autologous peripheral blood-derived cd34+ cells",
+    "score": 85.71428571428572
+  },
+  "mesenchymal stem cells": {
+    "preferred_name": "human umbilical cord mesenchymal stem cells",
+    "score": 89.36170212765957
+  },
+  "brain abnormalities": {
+    "preferred_name": "abnormal rib morphology",
+    "score": 88.88888888888889
+  },
+  "Merosin": {
+    "preferred_name": "lama2",
+    "score": 1000
+  },
+  "merosin-deficient congenital muscular dystrophy type 1A": {
+    "preferred_name": "congenital merosin-deficient muscular dystrophy 1a",
+    "score": 1000
+  },
+  "peripheral neuropathy": {
+    "preferred_name": "peripheral neuropathy",
+    "score": 1000
+  },
+  "MDC1A": {
+    "preferred_name": "congenital merosin-deficient muscular dystrophy 1a",
+    "score": 1000
+  },
+  "peripheral nerve involvement": {
+    "preferred_name": "increased peripheral nerve cross sectional area",
+    "score": 85.71428571428572
+  },
+  "LAMA2": {
+    "preferred_name": "lama2",
+    "score": 1000
+  },
+  "myopathic changes": {
+    "preferred_name": "myopathy",
+    "score": 1000
+  },
+  "merosin": {
+    "preferred_name": "lama2",
+    "score": 1000
+  },
+  "hearing loss": {
+    "preferred_name": "hearing impairment",
+    "score": 1000
+  },
+  "POU3F4": {
+    "preferred_name": "pou3f4",
+    "score": 1000
+  },
+  "limb-girdle muscular dystrophies": {
+    "preferred_name": "limb-girdle muscular dystrophy",
+    "score": 93.5483870967742
+  },
+  "dysferlinopathy": {
+    "preferred_name": "qualitative or quantitative defects of dysferlin",
+    "score": 1000
+  },
+  "dystrophins": {
+    "preferred_name": "dmd",
+    "score": 95.23809523809523
+  },
+  "Necroptosis": {
+    "preferred_name": "execution phase of necroptosis",
+    "score": 1000
+  },
+  "receptor-interacting protein kinase (RIPK) 3": {
+    "preferred_name": "ripk1",
+    "score": 91.13924050632912
+  },
+  "RIPK3": {
+    "preferred_name": "ripk3",
+    "score": 1000
+  },
+  "diaphragm": {
+    "preferred_name": "diaphragm",
+    "score": 1000
+  },
+  "Ripk1": {
+    "preferred_name": "ripk1",
+    "score": 1000
+  },
+  "Ripk3": {
+    "preferred_name": "ripk3",
+    "score": 1000
+  },
+  "muscular dystrophie": {
+    "preferred_name": "muscular dystrophy",
+    "score": 91.89189189189189
+  },
+  "motor functional decline": {
+    "preferred_name": "functional motor deficit",
+    "score": 87.5
+  },
+  "Sp1": {
+    "preferred_name": "sp1",
+    "score": 1000
+  },
+  "Sp1 phosphorylation": {
+    "preferred_name": "phosphorylation",
+    "score": 88.23529411764706
+  },
+  "Esrrg": {
+    "preferred_name": "esrrg",
+    "score": 1000
+  },
+  "growth hormone": {
+    "preferred_name": "somatotropin",
+    "score": 1000
+  },
+  "vertebral fracture": {
+    "preferred_name": "fractured vertebra",
+    "score": 94.44444444444444
+  },
+  "CK-MM": {
+    "preferred_name": "ckm",
+    "score": 88.88888888888889
+  },
+  "wasting of the muscles": {
+    "preferred_name": "pectoralis amyotrophy",
+    "score": 90.9090909090909
+  },
+  "SMA": {
+    "preferred_name": "proximal spinal muscular atrophy",
+    "score": 1000
+  },
+  "left ventricular dysfunction (LVD)": {
+    "preferred_name": "abnormal left ventricular function",
+    "score": 93.33333333333333
+  },
+  "Duchenne muscle dystrophy": {
+    "preferred_name": "duchenne muscular dystrophy",
+    "score": 92.3076923076923
+  },
+  "spinal cord injury": {
+    "preferred_name": "spinal cord injury",
+    "score": 1000
+  },
+  "inversion": {
+    "preferred_name": "diminishment of relationship seeking",
+    "score": 85.71428571428572
+  },
+  "DMD (Duchenne Muscular Dystrophy)": {
+    "preferred_name": "duchenne muscular dystrophy",
+    "score": 93.10344827586206
+  },
+  "SMA (Spinal Muscular Atrophy)": {
+    "preferred_name": "proximal spinal muscular atrophy",
+    "score": 92.0
+  },
+  "liver failure": {
+    "preferred_name": "liver failure",
+    "score": 1000
+  },
+  "kidney failure": {
+    "preferred_name": "kidney failure",
+    "score": 1000
+  },
+  "femur bone density": {
+    "preferred_name": "low femoral bone density",
+    "score": 90.0
+  },
+  "speech delay": {
+    "preferred_name": "delayed speech and language development",
+    "score": 1000
+  },
+  "speech and language difficulties (SLD)": {
+    "preferred_name": "delayed speech and language development",
+    "score": 94.11764705882352
+  },
+  "suvodirsen": {
+    "preferred_name": "suvodirsen",
+    "score": 1000
+  },
+  "pericardial effusion": {
+    "preferred_name": "pericardial effusion",
+    "score": 1000
+  },
+  "acute respiratory distress syndrome (ARDS)": {
+    "preferred_name": "acute respiratory distress syndrome",
+    "score": 93.33333333333333
+  },
+  "severe diffuse alveolar damage": {
+    "preferred_name": "diffuse alveolar damage",
+    "score": 86.79245283018868
+  },
+  "Dimethyl fumarate (DMF)": {
+    "preferred_name": "dimethyl fumarate",
+    "score": 89.47368421052632
+  },
+  "multiple sclerosis": {
+    "preferred_name": "multiple sclerosis",
+    "score": 1000
+  },
+  "psoriasis": {
+    "preferred_name": "psoriasis",
+    "score": 1000
+  },
+  "nuclear erythroid 2-related factor 2": {
+    "preferred_name": "nfe2l1",
+    "score": 88.60759493670886
+  },
+  "pro-mitochondrial effects": {
+    "preferred_name": "mitochondrial propionyl-coa carboxylase defect",
+    "score": 85.71428571428572
+  },
+  "death in early adulthood": {
+    "preferred_name": "death in early adulthood",
+    "score": 1000
+  },
+  "oestrogen receptor": {
+    "preferred_name": "esr1",
+    "score": 91.89189189189189
+  },
+  "fall": {
+    "preferred_name": "falls",
+    "score": 88.88888888888889
+  },
+  "respiratory infections": {
+    "preferred_name": "respiratory tract infection",
+    "score": 1000
+  },
+  "rectal perforation": {
+    "preferred_name": "rectal perforation",
+    "score": 1000
+  },
+  "metabolic acidosis": {
+    "preferred_name": "metabolic acidosis",
+    "score": 1000
+  },
+  "DT-DEC01": {
+    "preferred_name": "dt-dec01",
+    "score": 1000
+  },
+  "mild restrictive lung disease": {
+    "preferred_name": "restrictive pulmonary disease",
+    "score": 90.56603773584906
+  },
+  "creatine kinase (CK)": {
+    "preferred_name": "ckb",
+    "score": 91.42857142857143
+  },
+  "skeletal muscle tissues": {
+    "preferred_name": "skeletal muscle tissue",
+    "score": 97.77777777777777
+  },
+  "recombinant human Growth Hormone (rhGH)": {
+    "preferred_name": "somatotropin",
+    "score": 92.7536231884058
+  },
+  "Duchene Muscular Dystrophy (DMD)": {
+    "preferred_name": "duchenne muscular dystrophy",
+    "score": 91.22807017543859
+  },
+  "Deflzacort": {
+    "preferred_name": "deflazacort",
+    "score": 95.23809523809523
+  },
+  "growth failure": {
+    "preferred_name": "growth delay",
+    "score": 1000
+  },
+  "FAPs": {
+    "preferred_name": "anterior parolfactory sulcus",
+    "score": 85.71428571428572
+  },
+  "Myotonic Dystrophy": {
+    "preferred_name": "myotonic dystrophy",
+    "score": 1000
+  },
+  "Bone age delay": {
+    "preferred_name": "delayed skeletal maturation",
+    "score": 93.33333333333333
+  },
+  "SMN1": {
+    "preferred_name": "smn1",
+    "score": 1000
+  },
+  "right ventricular (RV) systolic dysfunction": {
+    "preferred_name": "left ventricular systolic dysfunction",
+    "score": 87.17948717948718
+  },
+  "left ventricular systolic dysfunction": {
+    "preferred_name": "left ventricular systolic dysfunction",
+    "score": 1000
+  },
+  "acute heart failure": {
+    "preferred_name": "acute hepatic failure",
+    "score": 90.0
+  },
+  "cardiogenic shock": {
+    "preferred_name": "cardiogenic shock",
+    "score": 1000
+  },
+  "Pax7": {
+    "preferred_name": "pax7",
+    "score": 1000
+  },
+  "Ki67": {
+    "preferred_name": "mki67",
+    "score": 88.88888888888889
+  },
+  "decreased muscle mass": {
+    "preferred_name": "decreased muscle mass",
+    "score": 1000
+  },
+  "decreased muscle function": {
+    "preferred_name": "immunodeficiency",
+    "score": 88.0
+  },
+  "joint contractures": {
+    "preferred_name": "joint contracture",
+    "score": 97.14285714285714
+  },
+  "X-chromosomal disorder": {
+    "preferred_name": "chromosomal disorder",
+    "score": 95.23809523809523
+  },
+  "cardiopathy": {
+    "preferred_name": "cardiomyopathy",
+    "score": 88.0
+  },
+  "thoracic kyphosis": {
+    "preferred_name": "thoracic kyphosis",
+    "score": 1000
+  },
+  "lumbar lordosis": {
+    "preferred_name": "lumbar hyperlordosis",
+    "score": 1000
+  },
+  "Respiratory failure": {
+    "preferred_name": "respiratory failure",
+    "score": 1000
+  },
+  "left ventricular failure": {
+    "preferred_name": "abnormal left ventricular function",
+    "score": 1000
+  },
+  "progressive and fatal muscle weakness": {
+    "preferred_name": "progressive distal muscle weakness",
+    "score": 90.14084507042254
+  },
+  "receptor activator of nuclear factor kappa-B ligand (RANKL)": {
+    "preferred_name": "tnfrsf11a",
+    "score": 87.12871287128714
+  },
+  "LV myocardial fibrosis": {
+    "preferred_name": "myocardial fibrosis",
+    "score": 92.6829268292683
+  },
+  "Memory impairments": {
+    "preferred_name": "memory impairment",
+    "score": 97.14285714285714
+  },
+  "bone marrow": {
+    "preferred_name": "bone marrow",
+    "score": 1000
+  },
+  "Toll-like receptor (TLR) 4": {
+    "preferred_name": "tlr4",
+    "score": 90.9090909090909
+  },
+  "Open bite": {
+    "preferred_name": "open bite",
+    "score": 1000
+  },
+  "malocclusion": {
+    "preferred_name": "dental malocclusion",
+    "score": 1000
+  },
+  "myotonic dystrophy type 1": {
+    "preferred_name": "myotonic dystrophy type 1",
+    "score": 1000
+  },
+  "macroglossia": {
+    "preferred_name": "macroglossia",
+    "score": 1000
+  },
+  "AOB": {
+    "preferred_name": "anterior open-bite malocclusion",
+    "score": 1000
+  },
+  "AOBS": {
+    "preferred_name": "anterior open-bite malocclusion",
+    "score": 85.71428571428572
+  },
+  "hypotonic jaw muscles": {
+    "preferred_name": "hypotonia",
+    "score": 86.48648648648648
+  },
+  "NS-089/NCNP-02": {
+    "preferred_name": "brogidirsen",
+    "score": 100.0
+  },
+  "ARHGEF3": {
+    "preferred_name": "arhgef3",
+    "score": 1000
+  },
+  "ROCK": {
+    "preferred_name": "rock1",
+    "score": 88.88888888888889
+  },
+  "hyperCKemia": {
+    "preferred_name": "isolated asymptomatic elevation of creatine phosphokinase",
+    "score": 95.23809523809523
+  },
+  "denosumab": {
+    "preferred_name": "denosumab",
+    "score": 1000
+  },
+  "left ventricular hypertrophy": {
+    "preferred_name": "left ventricular hypertrophy",
+    "score": 1000
+  },
+  "skeletal muscle wasting": {
+    "preferred_name": "generalized amyotrophy",
+    "score": 85.18518518518519
+  },
+  "Prednisone": {
+    "preferred_name": "prednisone",
+    "score": 1000
+  },
+  "wasting of muscles": {
+    "preferred_name": "pectoralis amyotrophy",
+    "score": 90.0
+  },
+  "IL34": {
+    "preferred_name": "il34",
+    "score": 1000
+  },
+  "Akt": {
+    "preferred_name": "akt1",
+    "score": 85.71428571428572
+  },
+  "Cystic Fibrosis": {
+    "preferred_name": "cystic fibrosis",
+    "score": 1000
+  },
+  "Cystic Fibrosis Transmembrane Conductance Regulator": {
+    "preferred_name": "cftrp1",
+    "score": 88.69565217391305
+  },
+  "pyrexia": {
+    "preferred_name": "fever",
+    "score": 1000
+  },
+  "cough": {
+    "preferred_name": "cough",
+    "score": 1000
+  },
+  "diarrhea": {
+    "preferred_name": "diarrhea",
+    "score": 1000
+  },
+  "alglucosidase alfa": {
+    "preferred_name": "alglucosidase alfa",
+    "score": 1000
+  },
+  "Pompe disease": {
+    "preferred_name": "glycogen storage disease ii",
+    "score": 1000
+  },
+  "avalglucosidase alfa": {
+    "preferred_name": "avalglucosidase alfa",
+    "score": 1000
+  },
+  "predonisolone": {
+    "preferred_name": "prednisolone",
+    "score": 96.0
+  },
+  "peroxisome proliferator-activated receptor γ coactivator 1-α": {
+    "preferred_name": "ppargc1b",
+    "score": 88.18897637795276
+  },
+  "Bnip3": {
+    "preferred_name": "bnip3",
+    "score": 1000
+  },
+  "Bcl2l13": {
+    "preferred_name": "bcl2l13",
+    "score": 1000
+  },
+  "increased fracture risk": {
+    "preferred_name": "recurrent fractures",
+    "score": 86.95652173913044
+  },
+  "PLAG1": {
+    "preferred_name": "plag1",
+    "score": 1000
+  },
+  "IGF2": {
+    "preferred_name": "igf2",
+    "score": 1000
+  },
+  "genetic diseases": {
+    "preferred_name": "hereditary disease",
+    "score": 96.7741935483871
+  },
+  "inhibit": {
+    "preferred_name": "serum sodium transport inhibitor",
+    "score": 87.5
+  },
+  "angiotensin-converting enzyme": {
+    "preferred_name": "ace",
+    "score": 96.66666666666667
+  },
+  "cytokine production": {
+    "preferred_name": "cytokine production",
+    "score": 1000
+  },
+  "EP80317": {
+    "preferred_name": "ep80317",
+    "score": 1000
+  },
+  "JMV2894": {
+    "preferred_name": "jmv2894",
+    "score": 1000
+  },
+  "Col1a1": {
+    "preferred_name": "col1a1",
+    "score": 1000
+  },
+  "decreased levels": {
+    "preferred_name": "decreased circulating total igm",
+    "score": 85.71428571428572
+  },
+  "CD68": {
+    "preferred_name": "cd68",
+    "score": 1000
+  },
+  "MEF2c": {
+    "preferred_name": "mef2c",
+    "score": 1000
+  },
+  "translocator protein": {
+    "preferred_name": "tspo",
+    "score": 1000
+  },
+  "contiguous gene deletion syndromes": {
+    "preferred_name": "x-linked myotubular myopathy-abnormal genitalia syndrome",
+    "score": 91.66666666666666
+  },
+  "Xp21 contiguous gene deletion syndrome": {
+    "preferred_name": "chromosome xp21 deletion syndrome",
+    "score": 1000
+  },
+  "GK": {
+    "preferred_name": "gk",
+    "score": 1000
+  },
+  "NR0B1": {
+    "preferred_name": "nr0b1",
+    "score": 1000
+  },
+  "CGDS": {
+    "preferred_name": "dorfman-chanarin disease",
+    "score": 85.71428571428572
+  },
+  "Development delay": {
+    "preferred_name": "global developmental delay",
+    "score": 94.44444444444444
+  },
+  "glycerol kinase deficiency": {
+    "preferred_name": "inborn glycerol kinase deficiency",
+    "score": 1000
+  },
+  "contiguous gene deletion syndrome Xp2.1": {
+    "preferred_name": "chromosome xp21 deletion syndrome",
+    "score": 96.1038961038961
+  },
+  "adrenal hypoplasia": {
+    "preferred_name": "chronic primary adrenal insufficiency",
+    "score": 1000
+  },
+  "attention-deficit hyperactivity disorder": {
+    "preferred_name": "attention deficit-hyperactivity disorder",
+    "score": 100.0
+  },
+  "sleep apnoea": {
+    "preferred_name": "sleep apnea",
+    "score": 1000
+  },
+  "DM-myotonic dystrophy": {
+    "preferred_name": "myotonic dystrophy type 1",
+    "score": 95.45454545454545
+  },
+  "CMD": {
+    "preferred_name": "coronary microvascular disorder",
+    "score": 1000
+  },
+  "DM": {
+    "preferred_name": "dermatomyositis",
+    "score": 1000
+  },
+  "Sleep-disordered breathing": {
+    "preferred_name": "sleep-related breathing disorders",
+    "score": 88.13559322033898
+  },
+  "TAK1": {
+    "preferred_name": "map3k7",
+    "score": 1000
+  },
+  "skeletal muscle mass": {
+    "preferred_name": "muscle of arm",
+    "score": 87.17948717948718
+  },
+  "progressive systemic muscle wasting": {
+    "preferred_name": "progressive spinal muscular atrophy",
+    "score": 85.29411764705883
+  },
+  "respiratory paralysis": {
+    "preferred_name": "respiratory paralysis",
+    "score": 1000
+  },
+  "parakeratosis": {
+    "preferred_name": "parakeratosis",
+    "score": 1000
+  },
+  "spongiosis": {
+    "preferred_name": "spongiosis",
+    "score": 1000
+  },
+  "drisapersen": {
+    "preferred_name": "drisapersen",
+    "score": 1000
+  },
+  "MK-8722": {
+    "preferred_name": "mk-7622",
+    "score": 85.71428571428572
+  },
+  "peroxisome proliferator-activated receptor ɣ coactivator-1⍺": {
+    "preferred_name": "ppargc1b",
+    "score": 89.60000000000001
+  },
+  "Map1lc3": {
+    "preferred_name": "map1lc3a",
+    "score": 93.33333333333333
+  },
+  "Sqstm1": {
+    "preferred_name": "sqstm1",
+    "score": 1000
+  },
+  "transcription factor EB": {
+    "preferred_name": "tfeb",
+    "score": 1000
+  },
+  "hypertrophic osteoarthropathy": {
+    "preferred_name": "primary hypertrophic osteoarthropathy",
+    "score": 87.87878787878788
+  },
+  "fragile X syndrome": {
+    "preferred_name": "fragile x syndrome",
+    "score": 1000
+  },
+  "cerebral cavernous malformations type 3": {
+    "preferred_name": "cerebral cavernous malformation 3",
+    "score": 1000
+  },
+  "multiple epiphyseal dysplasia type 6": {
+    "preferred_name": "epiphyseal dysplasia, multiple, 6",
+    "score": 100.0
+  },
+  "neurofibromatosis type 1": {
+    "preferred_name": "neurofibromatosis type 1",
+    "score": 1000
+  },
+  "Bethlem myopathy": {
+    "preferred_name": "bethlem myopathy 1a",
+    "score": 1000
+  },
+  "osteogenesis imperfecta type XV": {
+    "preferred_name": "osteogenesis imperfecta type 15",
+    "score": 1000
+  },
+  "Segawa syndrome": {
+    "preferred_name": "dystonia 5",
+    "score": 1000
+  },
+  "Chromosome 22q11.2 microduplication syndrome": {
+    "preferred_name": "chromosome 22q11.2 microduplication syndrome",
+    "score": 1000
+  },
+  "autosomal dominant lower extremity-predominant spinal muscular atrophy-1": {
+    "preferred_name": "autosomal dominant childhood-onset proximal spinal muscular atrophy without contractures",
+    "score": 100.0
+  },
+  "KBG syndrome": {
+    "preferred_name": "kbg syndrome",
+    "score": 1000
+  },
+  "DEC": {
+    "preferred_name": "dihydroergocristine",
+    "score": 85.71428571428572
+  },
+  "muscle contraction": {
+    "preferred_name": "muscle contraction",
+    "score": 1000
+  },
+  "myosin": {
+    "preferred_name": "myo5a",
+    "score": 85.71428571428572
+  },
+  "protect skeletal muscles": {
+    "preferred_name": "obsolete chymase activity",
+    "score": 87.5
+  },
+  "coordination": {
+    "preferred_name": "incoordination",
+    "score": 92.3076923076923
+  },
+  "production": {
+    "preferred_name": "reproduction",
+    "score": 90.9090909090909
+  },
+  "Creatine kinase": {
+    "preferred_name": "ckb",
+    "score": 93.75
+  },
+  "neurological disease": {
+    "preferred_name": "nervous system disorder",
+    "score": 1000
+  },
+  "hypotension": {
+    "preferred_name": "hypotension",
+    "score": 1000
+  },
+  "KCNQ5": {
+    "preferred_name": "kcnq5",
+    "score": 1000
+  },
+  "ETAA1": {
+    "preferred_name": "etaa1",
+    "score": 1000
+  },
+  "PARD6G": {
+    "preferred_name": "pard6g",
+    "score": 1000
+  },
+  "GALNTL6": {
+    "preferred_name": "galntl6",
+    "score": 1000
+  },
+  "MAN1A1": {
+    "preferred_name": "man1a1",
+    "score": 1000
+  },
+  "ADAMTS19": {
+    "preferred_name": "adamts19",
+    "score": 1000
+  },
+  "NCALD": {
+    "preferred_name": "ncald",
+    "score": 1000
+  },
+  "muscles": {
+    "preferred_name": "musculature",
+    "score": 1000
+  },
+  "progressive muscular weakness": {
+    "preferred_name": "progressive muscle weakness",
+    "score": 1000
+  },
+  "titin": {
+    "preferred_name": "ttn",
+    "score": 1000
+  },
+  "Limb-Girdle Muscular Dystrophy Type R1": {
+    "preferred_name": "pomgnt2-related limb-girdle muscular dystrophy r24",
+    "score": 96.1038961038961
+  },
+  "weakness of limbs": {
+    "preferred_name": "limb muscle weakness",
+    "score": 86.66666666666667
+  },
+  "Cardiomyopathy (CMP)": {
+    "preferred_name": "cardiomyopathy",
+    "score": 87.5
+  },
+  "myocardial late gadolinium enhancement (LGE)": {
+    "preferred_name": "myocardial late gadolinium enhancement",
+    "score": 95.0
+  },
+  "Parkinson's disease": {
+    "preferred_name": "parkinson disease",
+    "score": 1000
+  },
+  "PRKN": {
+    "preferred_name": "prkn",
+    "score": 1000
+  },
+  "PMP22": {
+    "preferred_name": "pmp22",
+    "score": 1000
+  },
+  "ion homeostasis": {
+    "preferred_name": "monoatomic ion homeostasis",
+    "score": 1000
+  },
+  "Heart failure": {
+    "preferred_name": "heart failure",
+    "score": 1000
+  },
+  "telomeric repeat-binding factor 2": {
+    "preferred_name": "terf2",
+    "score": 100.0
+  },
+  "TRF2": {
+    "preferred_name": "terf2",
+    "score": 88.88888888888889
+  },
+  "AQP4": {
+    "preferred_name": "aqp4",
+    "score": 1000
+  },
+  "sarcoglycanopathies": {
+    "preferred_name": "sarcoglycanopathy",
+    "score": 88.88888888888889
+  },
+  "dysferlinopathies": {
+    "preferred_name": "qualitative or quantitative defects of dysferlin",
+    "score": 87.5
+  },
+  "AQP1": {
+    "preferred_name": "aqp1",
+    "score": 1000
+  },
+  "Duchenne (DMD) muscular dystrophy": {
+    "preferred_name": "duchenne muscular dystrophy",
+    "score": 93.10344827586206
+  },
+  "Becker (BMD) muscular dystrophy": {
+    "preferred_name": "becker muscular dystrophy",
+    "score": 92.5925925925926
+  },
+  "MMD1": {
+    "preferred_name": "miyoshi muscular dystrophy 1",
+    "score": 1000
+  },
+  "muscle inflammation": {
+    "preferred_name": "myositis",
+    "score": 1000
+  },
+  "mild cognitive deficits": {
+    "preferred_name": "cognitive impairment",
+    "score": 87.8048780487805
+  },
+  "mild cognitive impairment": {
+    "preferred_name": "cognitive impairment",
+    "score": 88.88888888888889
+  },
+  "PYCARD": {
+    "preferred_name": "pycard",
+    "score": 1000
+  },
+  "RIPK2": {
+    "preferred_name": "ripk2",
+    "score": 1000
+  },
+  "CASP1": {
+    "preferred_name": "casp1",
+    "score": 1000
+  },
+  "MAP2K2": {
+    "preferred_name": "map2k2",
+    "score": 1000
+  },
+  "RPS6": {
+    "preferred_name": "rps6",
+    "score": 1000
+  },
+  "PDCD4": {
+    "preferred_name": "pdcd4",
+    "score": 1000
+  },
+  "TWIST1": {
+    "preferred_name": "twist1",
+    "score": 1000
+  },
+  "HIF1A": {
+    "preferred_name": "hif1a",
+    "score": 1000
+  },
+  "DBET": {
+    "preferred_name": "dbet",
+    "score": 1000
+  },
+  "MBNL1-AS1": {
+    "preferred_name": "mbnl1-as1",
+    "score": 1000
+  },
+  "MIR29B2CHG": {
+    "preferred_name": "mir29b2chg",
+    "score": 1000
+  },
+  "CCDC18-AS1": {
+    "preferred_name": "ccdc18-as1",
+    "score": 1000
+  },
+  "FAM111A-DT": {
+    "preferred_name": "fam111a-dt",
+    "score": 1000
+  },
+  "GAS5": {
+    "preferred_name": "gas5",
+    "score": 1000
+  },
+  "LINC01290": {
+    "preferred_name": "linc01290",
+    "score": 1000
+  },
+  "ATP2B1-AS1": {
+    "preferred_name": "atp2b1-as1",
+    "score": 1000
+  },
+  "PSMB8-AS1": {
+    "preferred_name": "psmb8-as1",
+    "score": 1000
+  },
+  "COVID-19": {
+    "preferred_name": "covid-19",
+    "score": 1000
+  },
+  "regulation of cytoskeleton organization": {
+    "preferred_name": "regulation of cytoskeleton organization",
+    "score": 1000
+  },
+  "Yap1": {
+    "preferred_name": "yap1",
+    "score": 1000
+  },
+  "Sox9": {
+    "preferred_name": "sox9",
+    "score": 1000
+  },
+  "Rho": {
+    "preferred_name": "rho",
+    "score": 1000
+  },
+  "RAC": {
+    "preferred_name": "prac1",
+    "score": 85.71428571428572
+  },
+  "Wnt": {
+    "preferred_name": "wnt1",
+    "score": 85.71428571428572
+  },
+  "NRF2": {
+    "preferred_name": "nr2f2",
+    "score": 88.88888888888889
+  },
+  "heme oxygenase-1 (HO-1)": {
+    "preferred_name": "hmox1",
+    "score": 86.48648648648648
+  },
+  "muscle satellite cell differentiation": {
+    "preferred_name": "striated muscle cell differentiation",
+    "score": 90.41095890410959
+  },
+  "mitochondrial metabolism": {
+    "preferred_name": "mitochondrial dna metabolic process",
+    "score": 92.3076923076923
+  },
+  "angiogenesis": {
+    "preferred_name": "angiogenesis",
+    "score": 1000
+  },
+  "skeletal muscle ferroptosis": {
+    "preferred_name": "skeletal muscle fibrosis",
+    "score": 86.27450980392157
+  },
+  "SERPING1": {
+    "preferred_name": "serping1",
+    "score": 1000
+  },
+  "F13A1": {
+    "preferred_name": "f13a1",
+    "score": 1000
+  },
+  "C1S": {
+    "preferred_name": "c1s",
+    "score": 1000
+  },
+  "C1R": {
+    "preferred_name": "c1r",
+    "score": 1000
+  },
+  "HLA-DPA1": {
+    "preferred_name": "hla-dpa1",
+    "score": 1000
+  },
+  "GPR109A": {
+    "preferred_name": "hcar2",
+    "score": 1000
+  },
+  "DYSF": {
+    "preferred_name": "dysf",
+    "score": 1000
+  },
+  "SGCA": {
+    "preferred_name": "sgca",
+    "score": 1000
+  },
+  "TTN": {
+    "preferred_name": "ttn",
+    "score": 1000
+  },
+  "LMNA": {
+    "preferred_name": "lmna",
+    "score": 1000
+  },
+  "SGCB": {
+    "preferred_name": "sgcb",
+    "score": 1000
+  },
+  "COL6A1": {
+    "preferred_name": "col6a1",
+    "score": 1000
+  },
+  "DES": {
+    "preferred_name": "des",
+    "score": 1000
+  },
+  "CAV3": {
+    "preferred_name": "cav3",
+    "score": 1000
+  },
+  "FKRP": {
+    "preferred_name": "fkrp",
+    "score": 1000
+  },
+  "FKTN": {
+    "preferred_name": "fktn",
+    "score": 1000
+  },
+  "ANO5": {
+    "preferred_name": "ano5",
+    "score": 1000
+  },
+  "COL6A2": {
+    "preferred_name": "col6a2",
+    "score": 1000
+  },
+  "CLCN1": {
+    "preferred_name": "clcn1",
+    "score": 1000
+  },
+  "GNE": {
+    "preferred_name": "gne",
+    "score": 1000
+  },
+  "POMGNT1": {
+    "preferred_name": "pomgnt1",
+    "score": 1000
+  },
+  "POMGNT2": {
+    "preferred_name": "pomgnt2",
+    "score": 1000
+  },
+  "POMT2": {
+    "preferred_name": "pomt2",
+    "score": 1000
+  },
+  "SYNE1": {
+    "preferred_name": "syne1",
+    "score": 1000
+  },
+  "TCAP": {
+    "preferred_name": "tcap",
+    "score": 1000
+  },
+  "FLNC": {
+    "preferred_name": "flnc",
+    "score": 1000
+  },
+  "NLRP3": {
+    "preferred_name": "nlrp3",
+    "score": 1000
+  },
+  "less inflammation": {
+    "preferred_name": "sinusitis",
+    "score": 85.71428571428572
+  },
+  "cilostazol": {
+    "preferred_name": "cilostazol",
+    "score": 1000
+  },
+  "Idebenone": {
+    "preferred_name": "idebenone",
+    "score": 1000
+  },
+  "glutathione reductase (GR)": {
+    "preferred_name": "gsr",
+    "score": 93.33333333333333
+  },
+  "glutathione peroxidase (GPx)": {
+    "preferred_name": "gpx1",
+    "score": 88.0
+  },
+  "superoxide dismutase (SOD)": {
+    "preferred_name": "sod1",
+    "score": 86.95652173913044
+  },
+  "tumour necrosis factor (TNF)": {
+    "preferred_name": "tnf",
+    "score": 89.36170212765957
+  },
+  "autism spectrum disorders (ASD)": {
+    "preferred_name": "autistic behavior",
+    "score": 92.5925925925926
+  },
+  "attention deficit hyperactivity disorder (ADHD)": {
+    "preferred_name": "attention deficit hyperactivity disorder",
+    "score": 94.11764705882352
+  },
+  "obsessive-compulsive disorder": {
+    "preferred_name": "compulsive behaviors",
+    "score": 1000
+  },
+  "human skeletal muscle tissues": {
+    "preferred_name": "muscle of arm",
+    "score": 87.27272727272728
+  },
+  "muscle tissue": {
+    "preferred_name": "muscle tissue",
+    "score": 1000
+  },
+  "gait abnormalities": {
+    "preferred_name": "gait disturbance",
+    "score": 1000
+  },
+  "type 2 diabetes mellitus": {
+    "preferred_name": "type 2 diabetes mellitus",
+    "score": 1000
+  },
+  "severe myopathy": {
+    "preferred_name": "high myopia",
+    "score": 85.71428571428572
+  },
+  "μDys": {
+    "preferred_name": "elp1",
+    "score": 85.71428571428572
+  },
+  "heart muscle": {
+    "preferred_name": "myocardium",
+    "score": 1000
+  },
+  "Muscle wasting": {
+    "preferred_name": "skeletal muscle atrophy",
+    "score": 1000
+  },
+  "antigen presentation": {
+    "preferred_name": "antigen processing and presentation",
+    "score": 1000
+  },
+  "immune cell response": {
+    "preferred_name": "t cell mediated immunity",
+    "score": 90.9090909090909
+  },
+  "ONX-0914": {
+    "preferred_name": "pr-957",
+    "score": 100.0
+  },
+  "PSMB8": {
+    "preferred_name": "psmb8",
+    "score": 1000
+  },
+  "mitochondrial efficiency": {
+    "preferred_name": "phosphoenolpyruvate carboxykinase deficiency, mitochondrial",
+    "score": 85.18518518518519
+  },
+  "ATP6AP2": {
+    "preferred_name": "atp6ap2",
+    "score": 1000
+  },
+  "CTSS": {
+    "preferred_name": "ctss",
+    "score": 1000
+  },
+  "VIM": {
+    "preferred_name": "vim",
+    "score": 1000
+  },
+  "inflammatory response": {
+    "preferred_name": "inflammatory response",
+    "score": 1000
+  },
+  "Congestive heart failure": {
+    "preferred_name": "congestive heart failure",
+    "score": 1000
+  },
+  "X-linked dilated cardiomyopathy (XLDCM)": {
+    "preferred_name": "dilated cardiomyopathy 3b",
+    "score": 91.17647058823529
+  },
+  "serum vitamin D deficiency": {
+    "preferred_name": "decreased circulating vitamin d concentration",
+    "score": 86.95652173913044
+  },
+  "secretion of cytokines": {
+    "preferred_name": "cytokine production",
+    "score": 90.0
+  },
+  "pro-inflammatory response": {
+    "preferred_name": "inflammatory response",
+    "score": 91.30434782608697
+  },
+  "abnormal Ca 2+ homeostasis": {
+    "preferred_name": "abnormal homeostasis",
+    "score": 88.88888888888889
+  },
+  "myalgia": {
+    "preferred_name": "myalgia",
+    "score": 1000
+  },
+  "myoglobinuria": {
+    "preferred_name": "myoglobinuria",
+    "score": 1000
+  },
+  "arthritis": {
+    "preferred_name": "arthritic joint disease",
+    "score": 1000
+  },
+  "proteoglycans": {
+    "preferred_name": "prg3",
+    "score": 88.88888888888889
+  },
+  "ERG abnormalities": {
+    "preferred_name": "eeg abnormality",
+    "score": 94.11764705882352
+  },
+  "color vision losses": {
+    "preferred_name": "color vision defect",
+    "score": 87.17948717948718
+  },
+  "HDAC6": {
+    "preferred_name": "hdac6",
+    "score": 1000
+  },
+  "Smad3": {
+    "preferred_name": "smad3",
+    "score": 1000
+  },
+  "utrophin A": {
+    "preferred_name": "utrn",
+    "score": 88.88888888888889
+  },
+  "Upregulation": {
+    "preferred_name": "biological regulation",
+    "score": 90.9090909090909
+  },
+  "Ullrich congenital muscular dystrophy (UCMD)": {
+    "preferred_name": "ullrich congenital muscular dystrophy 1a",
+    "score": 93.67088607594937
+  },
+  "glycine": {
+    "preferred_name": "glycine",
+    "score": 1000
+  },
+  "degeneration of muscle fibers": {
+    "preferred_name": "muscle fiber atrophy",
+    "score": 92.5925925925926
+  },
+  "heart disease": {
+    "preferred_name": "heart disorder",
+    "score": 1000
+  },
+  "actin": {
+    "preferred_name": "cactin",
+    "score": 90.9090909090909
+  },
+  "gross motor delay": {
+    "preferred_name": "delayed gross motor development",
+    "score": 1000
+  },
+  "X-linked recessive inheritance pattern": {
+    "preferred_name": "x-linked recessive inheritance",
+    "score": 88.23529411764706
+  },
+  "slowing the disease progression": {
+    "preferred_name": "slowly progressive",
+    "score": 87.27272727272728
+  },
+  "Oxidative stress": {
+    "preferred_name": "increased reactive oxygen species production",
+    "score": 1000
+  },
+  "steroid-induced osteoporosis": {
+    "preferred_name": "glucocorticoid-induced osteoporosis",
+    "score": 1000
+  },
+  "shorter stature": {
+    "preferred_name": "short stature",
+    "score": 92.85714285714286
+  },
+  "spine fragility": {
+    "preferred_name": "fragile skin",
+    "score": 89.65517241379311
+  },
+  "developmental delays": {
+    "preferred_name": "global developmental delay",
+    "score": 97.43589743589743
+  },
+  "redox post-translational modifications (PTMs)": {
+    "preferred_name": "post-translational protein modification",
+    "score": 85.36585365853658
+  },
+  "proteins": {
+    "preferred_name": "pros1",
+    "score": 94.11764705882352
+  },
+  "NOX4": {
+    "preferred_name": "nox4",
+    "score": 1000
+  },
+  "congenital myopathy/dystrophy": {
+    "preferred_name": "congenital myotonic dystrophy",
+    "score": 86.20689655172413
+  },
+  "Steinert myotonic dystrophy": {
+    "preferred_name": "myotonic dystrophy type 1",
+    "score": 1000
+  },
+  "RONS": {
+    "preferred_name": "rice bran saccharide",
+    "score": 85.71428571428572
+  },
+  "Alk4": {
+    "preferred_name": "ak4",
+    "score": 85.71428571428572
+  },
+  "decreased bone mineral density (BMD)": {
+    "preferred_name": "reduced bone mineral density",
+    "score": 93.75
+  },
+  "PAX7": {
+    "preferred_name": "pax7",
+    "score": 1000
+  },
+  "myotonic dystrophy": {
+    "preferred_name": "myotonic dystrophy",
+    "score": 1000
+  },
+  "neurogenetic disorders": {
+    "preferred_name": "inherited kidney disorder",
+    "score": 90.9090909090909
+  },
+  "Neurofibromatosis type 1": {
+    "preferred_name": "neurofibromatosis type 1",
+    "score": 1000
+  },
+  "aggressive behavior": {
+    "preferred_name": "aggressive behavior",
+    "score": 1000
+  },
+  "NF1": {
+    "preferred_name": "neurofibromatosis type 1",
+    "score": 1000
+  },
+  "inherited degenerative disease": {
+    "preferred_name": "neurodegeneration",
+    "score": 85.71428571428572
+  },
+  "colchicine": {
+    "preferred_name": "colchicine",
+    "score": 1000
+  },
+  "MTs": {
+    "preferred_name": "mt1a",
+    "score": 85.71428571428572
+  },
+  "degenerative genetic myopathy": {
+    "preferred_name": "atrophic muscularis propria",
+    "score": 93.10344827586206
+  },
+  "Drp1": {
+    "preferred_name": "drap1",
+    "score": 88.88888888888889
+  },
+  "protein homeostasis": {
+    "preferred_name": "regulation of cellular ph",
+    "score": 91.89189189189189
+  },
+  "immune regulator": {
+    "preferred_name": "aire",
+    "score": 88.88888888888889
+  },
+  "MD skeletal muscle tissues": {
+    "preferred_name": "muscle of arm",
+    "score": 92.3076923076923
+  },
+  "FSHD": {
+    "preferred_name": "facioscapulohumeral muscular dystrophy 1",
+    "score": 1000
+  },
+  "insomnia": {
+    "preferred_name": "insomnia",
+    "score": 1000
+  },
+  "Immune-mediated necrotizing myopathy": {
+    "preferred_name": "immune-mediated necrotizing myopathy",
+    "score": 1000
+  },
+  "methotrexate": {
+    "preferred_name": "methotrexate",
+    "score": 1000
+  },
+  "X-linked myotubular myopathy": {
+    "preferred_name": "x-linked myotubular myopathy",
+    "score": 1000
+  },
+  "differentiation phase": {
+    "preferred_name": "sex differentiation",
+    "score": 90.0
+  },
+  "TAK1 phosphorylation": {
+    "preferred_name": "phosphorylation",
+    "score": 85.71428571428572
+  },
+  "pain": {
+    "preferred_name": "pain",
+    "score": 1000
+  },
+  "muscle stiffness": {
+    "preferred_name": "muscle stiffness",
+    "score": 1000
+  },
+  "Domagrozumab": {
+    "preferred_name": "domagrozumab",
+    "score": 1000
+  },
+  "abnormal force": {
+    "preferred_name": "abnormality of the face",
+    "score": 88.88888888888889
+  },
+  "TRPC6": {
+    "preferred_name": "trpc6",
+    "score": 1000
+  },
+  "PD": {
+    "preferred_name": "paget disease of the nipple",
+    "score": 1000
+  },
+  "innate immunity": {
+    "preferred_name": "innate immune response",
+    "score": 1000
+  },
+  "Cramp": {
+    "preferred_name": "cramp1",
+    "score": 90.9090909090909
+  },
+  "Ca 2+ signalling": {
+    "preferred_name": "camp-mediated signaling",
+    "score": 86.66666666666667
+  },
+  "mineralocorticoid receptor (MR)": {
+    "preferred_name": "nr3c2",
+    "score": 94.54545454545455
+  },
+  "spironolactone": {
+    "preferred_name": "spironolactone",
+    "score": 1000
+  },
+  "fibronectin": {
+    "preferred_name": "fn1",
+    "score": 91.66666666666666
+  },
+  "equinovarus deformities": {
+    "preferred_name": "equinovarus deformity",
+    "score": 90.9090909090909
+  },
+  "Obesity": {
+    "preferred_name": "obesity",
+    "score": 1000
+  },
+  "membrane localization": {
+    "preferred_name": "localization within membrane",
+    "score": 93.33333333333333
+  },
+  "Myostatin": {
+    "preferred_name": "mstn",
+    "score": 1000
+  },
+  "muscle hypertrophy": {
+    "preferred_name": "skeletal muscle hypertrophy",
+    "score": 1000
+  },
+  "heterozygous familial hypercholesteremia": {
+    "preferred_name": "homozygous familial hypercholesterolemia",
+    "score": 90.0
+  },
+  "PCSK9": {
+    "preferred_name": "pcsk9",
+    "score": 1000
+  },
+  "CMV-retinitis": {
+    "preferred_name": "cytomegalovirus retinitis",
+    "score": 100.0
+  },
+  "SMN2": {
+    "preferred_name": "smn2",
+    "score": 1000
+  },
+  "hereditary transthyretin amyloidosis": {
+    "preferred_name": "familial amyloid neuropathy",
+    "score": 90.0
+  },
+  "transthryretin": {
+    "preferred_name": "ttr",
+    "score": 96.2962962962963
+  },
+  "CD40": {
+    "preferred_name": "cd40",
+    "score": 1000
+  },
+  "limb-girdle muscular dystrophy (LGMD)": {
+    "preferred_name": "limb-girdle muscular dystrophy",
+    "score": 92.3076923076923
+  },
+  "retinal vascular occlusive disease": {
+    "preferred_name": "peripheral arterial stenosis",
+    "score": 86.66666666666667
+  },
+  "LGMD": {
+    "preferred_name": "limb-girdle muscular dystrophy",
+    "score": 1000
+  },
+  "facioscapulohumeral dystrophy": {
+    "preferred_name": "facioscapulohumeral muscular dystrophy",
+    "score": 1000
+  },
+  "vascular abnormalities": {
+    "preferred_name": "abnormality of the vasculature",
+    "score": 1000
+  },
+  "pregabalin": {
+    "preferred_name": "pregabalin",
+    "score": 1000
+  },
+  "axonal regeneration": {
+    "preferred_name": "axonal regeneration",
+    "score": 1000
+  },
+  "cardiomegaly": {
+    "preferred_name": "cardiomegaly",
+    "score": 1000
+  },
+  "ECG abnormalities": {
+    "preferred_name": "eeg abnormality",
+    "score": 94.11764705882352
+  },
+  "T wave inversion": {
+    "preferred_name": "t-wave inversion",
+    "score": 100.0
+  },
+  "gastrocnemius muscle": {
+    "preferred_name": "gastrocnemius",
+    "score": 1000
+  },
+  "Aspiration pneumonia": {
+    "preferred_name": "aspiration pneumonitis",
+    "score": 1000
+  },
+  "aspiration pneumonia": {
+    "preferred_name": "aspiration pneumonitis",
+    "score": 1000
+  },
+  "nocturnal hypoventilation (NH)": {
+    "preferred_name": "nocturnal hypoventilation",
+    "score": 94.33962264150944
+  },
+  "sleep abnormalities": {
+    "preferred_name": "abnormality of visual evoked potentials",
+    "score": 88.88888888888889
+  },
+  "transferrin receptor 1": {
+    "preferred_name": "tfr2",
+    "score": 95.45454545454545
+  },
+  "quadriceps": {
+    "preferred_name": "quadriceps femoris",
+    "score": 1000
+  },
+  "gastrocnemius": {
+    "preferred_name": "gastrocnemius",
+    "score": 1000
+  },
+  "attention-deficit/hyperactivity disorder (ADHD)": {
+    "preferred_name": "attention deficit hyperactivity disorder",
+    "score": 94.11764705882352
+  },
+  "speech/language delay": {
+    "preferred_name": "delayed speech and language development",
+    "score": 91.30434782608697
+  },
+  "STIM1": {
+    "preferred_name": "stim1",
+    "score": 1000
+  },
+  "Orai1": {
+    "preferred_name": "orai1",
+    "score": 1000
+  },
+  "Ca2+ homeostasis": {
+    "preferred_name": "dendritic cell homeostasis",
+    "score": 89.65517241379311
+  },
+  "X-linked ichthyosis": {
+    "preferred_name": "recessive x-linked ichthyosis",
+    "score": 1000
+  },
+  "STAC3": {
+    "preferred_name": "stac3",
+    "score": 1000
+  },
+  "junctophilin 1 (JP1)": {
+    "preferred_name": "jph1",
+    "score": 87.5
+  },
+  "autolysis": {
+    "preferred_name": "self proteolysis",
+    "score": 1000
+  },
+  "calpain-1": {
+    "preferred_name": "capn1",
+    "score": 100.0
+  },
+  "JP1": {
+    "preferred_name": "jph1",
+    "score": 85.71428571428572
+  },
+  "kynurenine (KYN) metabolism": {
+    "preferred_name": "kynurenine metabolic process",
+    "score": 91.30434782608697
+  },
+  "progressive degeneration": {
+    "preferred_name": "progressive neurologic deterioration",
+    "score": 90.56603773584906
+  },
+  "dystrophin-glycoprotein complex": {
+    "preferred_name": "dystrophin-associated glycoprotein complex",
+    "score": 100.0
+  },
+  "isolated cardiopathy": {
+    "preferred_name": "dilated cardiomyopathy",
+    "score": 85.71428571428572
+  },
+  "Cognitive impairment": {
+    "preferred_name": "cognitive impairment",
+    "score": 1000
+  },
+  "severity": {
+    "preferred_name": "severity",
+    "score": 1000
+  },
+  "myositis": {
+    "preferred_name": "myositis",
+    "score": 1000
+  },
+  "muscle fiber degeneration": {
+    "preferred_name": "muscle fiber atrophy",
+    "score": 1000
+  },
+  "Sphingosine-1-phosphate": {
+    "preferred_name": "sphingosine 1-phosphate",
+    "score": 1000
+  },
+  "SC proliferation": {
+    "preferred_name": "smooth muscle cell proliferation",
+    "score": 96.96969696969697
+  },
+  "TGFβ signaling": {
+    "preferred_name": "tnf signaling",
+    "score": 88.88888888888889
+  },
+  "Smad1": {
+    "preferred_name": "smad1",
+    "score": 1000
+  },
+  "Smad5": {
+    "preferred_name": "smad5",
+    "score": 1000
+  },
+  "bone morphogenetic protein 4 (BMP4)": {
+    "preferred_name": "bmp4",
+    "score": 91.80327868852459
+  },
+  "myocyte enhancer factor 2D": {
+    "preferred_name": "mef2d",
+    "score": 1000
+  },
+  "interleukin-6": {
+    "preferred_name": "il6",
+    "score": 100.0
+  },
+  "BMP4": {
+    "preferred_name": "bmp4",
+    "score": 1000
+  },
+  "miR-1": {
+    "preferred_name": "mir1-1",
+    "score": 90.9090909090909
+  },
+  "large heart": {
+    "preferred_name": "macrocephaly",
+    "score": 85.71428571428572
+  },
+  "circadian rhythm": {
+    "preferred_name": "circadian rhythm",
+    "score": 1000
+  },
+  "Bmal1": {
+    "preferred_name": "bmal1",
+    "score": 1000
+  },
+  "delayed cardiomyopathy": {
+    "preferred_name": "dilated cardiomyopathy",
+    "score": 90.9090909090909
+  },
+  "stress response": {
+    "preferred_name": "response to stress",
+    "score": 90.9090909090909
+  },
+  "SIRT6": {
+    "preferred_name": "sirt6",
+    "score": 1000
+  },
+  "Cerebral cavernous malformations": {
+    "preferred_name": "famililal cerebral cavernous malformations",
+    "score": 1000
+  },
+  "autism spectrum disorder": {
+    "preferred_name": "autistic behavior",
+    "score": 1000
+  },
+  "Stereotyped behavior": {
+    "preferred_name": "motor stereotypy",
+    "score": 1000
+  },
+  "restricted interests": {
+    "preferred_name": "fixated interests",
+    "score": 1000
+  },
+  "Deflazacort": {
+    "preferred_name": "deflazacort",
+    "score": 1000
+  },
+  "vitamin D": {
+    "preferred_name": "vitamin d",
+    "score": 1000
+  },
+  "HMEJ": {
+    "preferred_name": "human monocytic ehrlichiosis",
+    "score": 85.71428571428572
+  },
+  "p53": {
+    "preferred_name": "tp53",
+    "score": 85.71428571428572
+  },
+  "Ezutromid": {
+    "preferred_name": "ezutromid",
+    "score": 1000
+  },
+  "arylhydrocarbon receptor": {
+    "preferred_name": "ahr",
+    "score": 97.95918367346938
+  },
+  "slowed conduction velocities": {
+    "preferred_name": "decreased nerve conduction velocity",
+    "score": 90.32258064516128
+  },
+  "conduction": {
+    "preferred_name": "axin2",
+    "score": 94.73684210526316
+  },
+  "DMD disorder": {
+    "preferred_name": "mood disorder",
+    "score": 88.0
+  },
+  "mineralocorticoid receptor": {
+    "preferred_name": "nr3c2",
+    "score": 1000
+  },
+  "cataracts": {
+    "preferred_name": "cataract",
+    "score": 1000
+  },
+  "minor cognitive impairments": {
+    "preferred_name": "cognitive impairment",
+    "score": 85.1063829787234
+  },
+  "negative regulator of satellite cell function": {
+    "preferred_name": "negative regulation of satellite cell differentiation",
+    "score": 85.71428571428572
+  },
+  "CIPC": {
+    "preferred_name": "cipc",
+    "score": 1000
+  },
+  "dystrophic skeletal muscle": {
+    "preferred_name": "skeletal muscle atrophy",
+    "score": 85.71428571428572
+  },
+  "idebenone": {
+    "preferred_name": "idebenone",
+    "score": 1000
+  },
+  "physical activity": {
+    "preferred_name": "lack of sufficient daily physical activity",
+    "score": 94.44444444444444
+  },
+  "Pdgfrα": {
+    "preferred_name": "pdgfrb",
+    "score": 90.9090909090909
+  },
+  "Indigo": {
+    "preferred_name": "indigo",
+    "score": 1000
+  },
+  "chronic inflammatory diseases": {
+    "preferred_name": "bone inflammation disease",
+    "score": 85.18518518518519
+  },
+  "indigo": {
+    "preferred_name": "indigo",
+    "score": 1000
+  },
+  "autism spectrum disorders (ASDs)": {
+    "preferred_name": "autism",
+    "score": 88.88888888888889
+  },
+  "Duchenne's muscular dystrophy": {
+    "preferred_name": "duchenne muscular dystrophy",
+    "score": 96.42857142857143
+  },
+  "DMD disease": {
+    "preferred_name": "dyggve-melchior-clausen disease",
+    "score": 90.9090909090909
+  },
+  "respiratory insufficiencies": {
+    "preferred_name": "respiratory insufficiency",
+    "score": 92.3076923076923
+  },
+  "musculoskeletal disorder": {
+    "preferred_name": "musculoskeletal system disorder",
+    "score": 1000
+  },
+  "neridronate": {
+    "preferred_name": "neridronic acid",
+    "score": 1000
+  },
+  "reduced muscle fibrosis": {
+    "preferred_name": "reduced muscle fiber merosin",
+    "score": 86.27450980392157
+  },
+  "amygdala": {
+    "preferred_name": "amygdala",
+    "score": 1000
+  },
+  "reduced bone mineral density (BMD)": {
+    "preferred_name": "reduced bone mineral density",
+    "score": 93.33333333333333
+  },
+  "decrease in lean body mass": {
+    "preferred_name": "decreased body mass index",
+    "score": 86.27450980392157
+  },
+  "ursodeoxycholic acid (UDCA)": {
+    "preferred_name": "ursodeoxycholic acid",
+    "score": 88.88888888888889
+  },
+  "limited mobility": {
+    "preferred_name": "trismus",
+    "score": 88.88888888888889
+  },
+  "restrictive ventilatory defect": {
+    "preferred_name": "restrictive ventilatory defect",
+    "score": 1000
+  },
+  "splitting fibres": {
+    "preferred_name": "muscle fiber splitting",
+    "score": 96.7741935483871
+  },
+  "internalized nuclei": {
+    "preferred_name": "centrally nucleated skeletal muscle fibers",
+    "score": 86.48648648648648
+  },
+  "muscular degenerations": {
+    "preferred_name": "macular degeneration",
+    "score": 90.47619047619048
+  },
+  "histone deacetylase inhibitors": {
+    "preferred_name": "4-(dimethylamino)-n-[7-(hydroxyamino)-7-oxoheptyl]benzamide",
+    "score": 92.06349206349206
+  },
+  "abnormal behavior": {
+    "preferred_name": "atypical behavior",
+    "score": 87.17948717948718
+  },
+  "upper respiratory tract infection": {
+    "preferred_name": "recurrent upper respiratory tract infections",
+    "score": 98.50746268656717
+  },
+  "muscle fat degeneration": {
+    "preferred_name": "skeletal muscle atrophy",
+    "score": 90.47619047619048
+  },
+  "edasalonexent": {
+    "preferred_name": "edasalonexent",
+    "score": 1000
+  },
+  "oxandrolone": {
+    "preferred_name": "oxandrolone",
+    "score": 1000
+  },
+  "vitlolarsen": {
+    "preferred_name": "viltolarsen",
+    "score": 90.9090909090909
+  },
+  "asthma": {
+    "preferred_name": "asthma",
+    "score": 1000
+  },
+  "inflammatory bowel disease": {
+    "preferred_name": "inflammatory bowel disease",
+    "score": 1000
+  },
+  "muscle stem cell proliferation": {
+    "preferred_name": "muscle cell proliferation",
+    "score": 90.9090909090909
+  },
+  "interleukin (IL) 4": {
+    "preferred_name": "il4",
+    "score": 89.65517241379311
+  },
+  "IL13": {
+    "preferred_name": "il13",
+    "score": 1000
+  },
+  "muscle disease": {
+    "preferred_name": "scleral disorder",
+    "score": 85.71428571428572
+  },
+  "Heme oxygenase": {
+    "preferred_name": "hmox1",
+    "score": 93.33333333333333
+  },
+  "integrin alpha7": {
+    "preferred_name": "itga1",
+    "score": 90.32258064516128
+  },
+  "ryanodine receptor": {
+    "preferred_name": "ryr1",
+    "score": 94.73684210526316
+  },
+  "CD38": {
+    "preferred_name": "cd38",
+    "score": 1000
+  },
+  "congenital muscular dystrophy": {
+    "preferred_name": "congenital muscular dystrophy",
+    "score": 1000
+  },
+  "forced vital capacity (FVC)": {
+    "preferred_name": "reduced forced vital capacity",
+    "score": 85.18518518518519
+  },
+  "hypoxia": {
+    "preferred_name": "hypoxemia",
+    "score": 1000
+  },
+  "CAP-1002": {
+    "preferred_name": "ap-102",
+    "score": 85.71428571428572
+  },
+  "impaired glucose tolerance": {
+    "preferred_name": "impaired glucose tolerance",
+    "score": 1000
+  },
+  "lipid homeostasis": {
+    "preferred_name": "lipid homeostasis",
+    "score": 1000
+  },
+  "Acly": {
+    "preferred_name": "acly",
+    "score": 1000
+  },
+  "Fasn": {
+    "preferred_name": "fasn",
+    "score": 1000
+  },
+  "Gpam": {
+    "preferred_name": "gpam",
+    "score": 1000
+  },
+  "Pnpla3": {
+    "preferred_name": "pnpla3",
+    "score": 1000
+  },
+  "Scd1": {
+    "preferred_name": "scdp1",
+    "score": 88.88888888888889
+  },
+  "BMD2": {
+    "preferred_name": "becker muscular dystrophy",
+    "score": 85.71428571428572
+  },
+  "myoglobin": {
+    "preferred_name": "mb",
+    "score": 1000
+  },
+  "atelectasis": {
+    "preferred_name": "atelectasis",
+    "score": 1000
+  },
+  "Becker muscular dystrophies": {
+    "preferred_name": "becker muscular dystrophy",
+    "score": 92.3076923076923
+  },
+  "Duchenne muscular dystrophies": {
+    "preferred_name": "duchenne muscular dystrophy",
+    "score": 92.85714285714286
+  },
+  "cancers": {
+    "preferred_name": "cancer",
+    "score": 92.3076923076923
+  },
+  "tumours of the central nervous system": {
+    "preferred_name": "central nervous system neoplasm",
+    "score": 98.63013698630137
+  },
+  "PKCθ": {
+    "preferred_name": "diacylglycerol-dependent serine/threonine kinase activity",
+    "score": 85.71428571428572
+  },
+  "kinase": {
+    "preferred_name": "ecdysteroid 22-kinase activity",
+    "score": 85.71428571428572
+  },
+  "Compound 20 (C20)": {
+    "preferred_name": "1-(4-pyrrolidinoethoxyphenyl)-2-phenyl-7-methoxybenzosuberan",
+    "score": 86.66666666666667
+  },
+  "metabolic syndrome": {
+    "preferred_name": "abdominal obesity-metabolic syndrome",
+    "score": 1000
+  },
+  "dyslipidemia": {
+    "preferred_name": "abnormal circulating lipid concentration",
+    "score": 1000
+  },
+  "hepatic steatosis": {
+    "preferred_name": "hepatic steatosis",
+    "score": 1000
+  },
+  "restoration of protein expression": {
+    "preferred_name": "regulation of gene expression",
+    "score": 89.23076923076923
+  },
+  "human disease": {
+    "preferred_name": "human disease",
+    "score": 1000
+  },
+  "abnormal cTnI levels": {
+    "preferred_name": "abnormal circulating creatinine concentration",
+    "score": 86.95652173913044
+  },
+  "abnormal left ventricular ejection fraction (LVEF)": {
+    "preferred_name": "abnormal left ventricular ejection fraction",
+    "score": 94.5054945054945
+  },
+  "abnormal LVEF": {
+    "preferred_name": "abnormality of the liver",
+    "score": 88.88888888888889
+  },
+  "Histone deacetylase 4": {
+    "preferred_name": "hdac4",
+    "score": 1000
+  },
+  "TLR4": {
+    "preferred_name": "tlr4",
+    "score": 1000
+  },
+  "Duchenne (DMD) muscular dystrophies": {
+    "preferred_name": "duchenne muscular dystrophy",
+    "score": 86.66666666666667
+  },
+  "Becker (BMD) muscular dystrophies": {
+    "preferred_name": "becker muscular dystrophy",
+    "score": 85.71428571428572
+  },
+  "hereditary diseases": {
+    "preferred_name": "hereditary disease",
+    "score": 1000
+  },
+  "spinal muscular dystrophy": {
+    "preferred_name": "proximal spinal muscular atrophy",
+    "score": 91.66666666666666
+  },
+  "transcription termination": {
+    "preferred_name": "transcription antitermination",
+    "score": 92.5925925925926
+  },
+  "splicing": {
+    "preferred_name": "mrna cis splicing, via spliceosome",
+    "score": 1000
+  },
+  "RNA polymerase II elongation": {
+    "preferred_name": "ell",
+    "score": 88.88888888888889
+  },
+  "cell membrane": {
+    "preferred_name": "plasma membrane",
+    "score": 1000
+  },
+  "fragility": {
+    "preferred_name": "frailty",
+    "score": 87.5
+  },
+  "asymmetric cell division": {
+    "preferred_name": "asymmetric cell division",
+    "score": 1000
+  },
+  "cardiac arrhythmias": {
+    "preferred_name": "arrhythmia",
+    "score": 1000
+  },
+  "sunitinib": {
+    "preferred_name": "sunitinib",
+    "score": 1000
+  },
+  "ventricular hypertrophy": {
+    "preferred_name": "ventricular hypertrophy",
+    "score": 1000
+  },
+  "cardiac inflammation": {
+    "preferred_name": "chondritis",
+    "score": 85.71428571428572
+  },
+  "high mobility group box 1 (HMGB1) protein": {
+    "preferred_name": "hmgb1",
+    "score": 85.29411764705883
+  },
+  "limb girdle muscular dystrophy": {
+    "preferred_name": "limb-girdle muscular dystrophy",
+    "score": 1000
+  },
+  "cardiac abnormalities": {
+    "preferred_name": "abnormal heart morphology",
+    "score": 90.0
+  },
+  "calpainopathy": {
+    "preferred_name": "autosomal recessive limb-girdle muscular dystrophy type 2a",
+    "score": 1000
+  },
+  "dermatomyositis": {
+    "preferred_name": "dermatomyositis",
+    "score": 1000
+  },
+  "inclusion body myositis": {
+    "preferred_name": "inclusion body myositis",
+    "score": 1000
+  },
+  "Muscular Dystrophy": {
+    "preferred_name": "muscular dystrophy",
+    "score": 1000
+  },
+  "deviated lactate dehydrogenase levels": {
+    "preferred_name": "increased circulating lactate dehydrogenase concentration",
+    "score": 86.48648648648648
+  },
+  "Arhgef2": {
+    "preferred_name": "arhgef2",
+    "score": 1000
+  },
+  "NADPH oxidase 4 (NOX4)": {
+    "preferred_name": "nox4",
+    "score": 85.71428571428572
+  },
+  "central nervous system (CNS)": {
+    "preferred_name": "central nervous system",
+    "score": 91.66666666666666
+  },
+  "progressive muscle weakening": {
+    "preferred_name": "progressive muscle weakness",
+    "score": 87.27272727272728
+  },
+  "formation": {
+    "preferred_name": "biosynthetic process",
+    "score": 1000
+  },
+  "Lcn2": {
+    "preferred_name": "lcn2",
+    "score": 1000
+  },
+  "muscle failure": {
+    "preferred_name": "increased muscle fatiguability",
+    "score": 85.71428571428572
+  },
+  "MR signaling": {
+    "preferred_name": "mtor signalling",
+    "score": 88.88888888888889
+  },
+  "C-C motif chemokine receptor 2 (CCR2)": {
+    "preferred_name": "ccr2",
+    "score": 92.3076923076923
+  },
+  "meclozine": {
+    "preferred_name": "meclizine",
+    "score": 1000
+  },
+  "motion sickness": {
+    "preferred_name": "motion sickness",
+    "score": 1000
+  },
+  "phosphorylation of ERK1/2": {
+    "preferred_name": "phosphorylation of emi1",
+    "score": 87.5
+  },
+  "Cardiac disease": {
+    "preferred_name": "heart disorder",
+    "score": 1000
+  },
+  "Becker Muscular Dystrophy": {
+    "preferred_name": "becker muscular dystrophy",
+    "score": 1000
+  },
+  "mild intellectual disability": {
+    "preferred_name": "intellectual disability, mild",
+    "score": 100.0
+  },
+  "DYSTROPHIN": {
+    "preferred_name": "dmd",
+    "score": 1000
+  },
+  "loss of ambulation (LOA)": {
+    "preferred_name": "loss of ambulation",
+    "score": 90.0
+  },
+  "abnormal left ventricular (LV) function": {
+    "preferred_name": "abnormal left ventricular function",
+    "score": 95.77464788732395
+  },
+  "bloating": {
+    "preferred_name": "abdominal distention",
+    "score": 1000
+  },
+  "activation of Nrf2 signalling": {
+    "preferred_name": "positive regulation of erbb signaling pathway",
+    "score": 87.71929824561404
+  },
+  "GI function": {
+    "preferred_name": "functional abnormality of the gastrointestinal tract",
+    "score": 88.0
+  },
+  "Fragile X syndrome": {
+    "preferred_name": "fragile x syndrome",
+    "score": 1000
+  },
+  "FXS": {
+    "preferred_name": "fragile x syndrome",
+    "score": 1000
+  },
+  "2p25.3 deletion": {
+    "preferred_name": "3p- syndrome",
+    "score": 85.71428571428572
+  },
+  "TRPC1": {
+    "preferred_name": "trpc1",
+    "score": 1000
+  },
+  "TRPC3": {
+    "preferred_name": "trpc3",
+    "score": 1000
+  },
+  "Sliver-Russell syndrome": {
+    "preferred_name": "silver-russell syndrome",
+    "score": 95.65217391304348
+  },
+  "gross motor skill decline": {
+    "preferred_name": "delayed gross motor development",
+    "score": 86.27450980392157
+  },
+  "C3AR1": {
+    "preferred_name": "c3ar1",
+    "score": 1000
+  },
+  "TLR7": {
+    "preferred_name": "tlr7",
+    "score": 1000
+  },
+  "IRF8": {
+    "preferred_name": "irf8",
+    "score": 1000
+  },
+  "FYB": {
+    "preferred_name": "fyb1",
+    "score": 1000
+  },
+  "CD33": {
+    "preferred_name": "cd33",
+    "score": 1000
+  },
+  "TYROBP": {
+    "preferred_name": "tyrobp",
+    "score": 1000
+  },
+  "PLEK": {
+    "preferred_name": "plek",
+    "score": 1000
+  },
+  "AIF1": {
+    "preferred_name": "aif1",
+    "score": 1000
+  },
+  "LAPTM5": {
+    "preferred_name": "laptm5",
+    "score": 1000
+  },
+  "NT5E": {
+    "preferred_name": "nt5e",
+    "score": 1000
+  },
+  "LOX": {
+    "preferred_name": "lox",
+    "score": 1000
+  },
+  "ELN": {
+    "preferred_name": "eln",
+    "score": 1000
+  },
+  "IKZF1": {
+    "preferred_name": "ikzf1",
+    "score": 1000
+  },
+  "ADAMTS2": {
+    "preferred_name": "adamts2",
+    "score": 1000
+  },
+  "COL5A1": {
+    "preferred_name": "col5a1",
+    "score": 1000
+  },
+  "BCL2L1": {
+    "preferred_name": "bcl2l1",
+    "score": 1000
+  },
+  "CDK2": {
+    "preferred_name": "cdk2",
+    "score": 1000
+  },
+  "vastus lateralis": {
+    "preferred_name": "vastus lateralis",
+    "score": 1000
+  },
+  "Dilated cardiomyopathy 3B": {
+    "preferred_name": "des",
+    "score": 92.0
+  },
+  "DMD-related cardiomyopathy": {
+    "preferred_name": "dilated cardiomyopathy",
+    "score": 87.5
+  },
+  "Toll-like receptors": {
+    "preferred_name": "toll-like receptor 9",
+    "score": 92.3076923076923
+  },
+  "RyR2": {
+    "preferred_name": "ryr2",
+    "score": 1000
+  },
+  "LV dysfunction": {
+    "preferred_name": "decreased liver function",
+    "score": 90.32258064516128
+  },
+  "RYR1": {
+    "preferred_name": "ryr1",
+    "score": 1000
+  },
+  "Dp71 protein": {
+    "preferred_name": "cd7",
+    "score": 86.95652173913044
+  },
+  "cSrc tyrosine kinase (TK)": {
+    "preferred_name": "txk",
+    "score": 85.71428571428572
+  },
+  "skin rash": {
+    "preferred_name": "skin rash",
+    "score": 1000
+  },
+  "connexin-43": {
+    "preferred_name": "gja1",
+    "score": 100.0
+  },
+  "reduced left ventricular ejection fraction": {
+    "preferred_name": "reduced left ventricular ejection fraction",
+    "score": 1000
+  },
+  "Golodirsen": {
+    "preferred_name": "golodirsen",
+    "score": 1000
+  },
+  "Scoliosis": {
+    "preferred_name": "scoliosis",
+    "score": 1000
+  },
+  "interleukin 6": {
+    "preferred_name": "il6",
+    "score": 1000
+  },
+  "left ventricular non-compaction cardiomyopathy": {
+    "preferred_name": "left ventricular noncompaction",
+    "score": 1000
+  },
+  "rare cardiomyopathies": {
+    "preferred_name": "cardiomyopathy",
+    "score": 86.48648648648648
+  },
+  "neuromuscular syndromes": {
+    "preferred_name": "neuroocular syndrome",
+    "score": 88.37209302325581
+  },
+  "BMD/Duchenne muscular dystrophy (DMD)": {
+    "preferred_name": "duchenne muscular dystrophy",
+    "score": 87.09677419354838
+  },
+  "TUBA1A": {
+    "preferred_name": "tuba1a",
+    "score": 1000
+  },
+  "ankle contractures": {
+    "preferred_name": "ankle contracture",
+    "score": 97.14285714285714
+  },
+  "Gpr18": {
+    "preferred_name": "gpr18",
+    "score": 1000
+  },
+  "PTEN": {
+    "preferred_name": "pten",
+    "score": 1000
+  },
+  "Autophagosome formation": {
+    "preferred_name": "autophagosome assembly",
+    "score": 1000
+  },
+  "LC3B": {
+    "preferred_name": "lce3b",
+    "score": 88.88888888888889
+  },
+  "centralized myonuclei": {
+    "preferred_name": "centrally nucleated skeletal muscle fibers",
+    "score": 92.3076923076923
+  },
+  "kyphosis": {
+    "preferred_name": "kyphosis",
+    "score": 1000
+  },
+  "primary adrenal insufficiency": {
+    "preferred_name": "primary adrenal insufficiency",
+    "score": 1000
+  },
+  "hypovolaemia": {
+    "preferred_name": "hypovolemia",
+    "score": 95.65217391304348
+  },
+  "hyperpigmentation": {
+    "preferred_name": "hypopigmentation of the skin",
+    "score": 90.9090909090909
+  },
+  "drowsiness": {
+    "preferred_name": "drowsiness",
+    "score": 1000
+  },
+  "hypoglycaemia": {
+    "preferred_name": "hypoglycemia",
+    "score": 1000
+  },
+  "hyponatraemia": {
+    "preferred_name": "hyponatremia",
+    "score": 96.0
+  },
+  "hyperkalaemia": {
+    "preferred_name": "hyperkalemia",
+    "score": 96.0
+  },
+  "hypotonia": {
+    "preferred_name": "hypotonia",
+    "score": 1000
+  },
+  "calf hypertrophy": {
+    "preferred_name": "calf muscle hypertrophy",
+    "score": 1000
+  },
+  "positive Gower's sign": {
+    "preferred_name": "gowers sign",
+    "score": 95.0
+  },
+  "pseudohypertriglyceridemia": {
+    "preferred_name": "hyperglycerolemia",
+    "score": 1000
+  },
+  "glycerol kinase gene": {
+    "preferred_name": "gk2",
+    "score": 86.48648648648648
+  },
+  "probable congenital adrenal hypoplasia": {
+    "preferred_name": "congenital adrenal hypoplasia",
+    "score": 86.56716417910448
+  },
+  "hereditary muscular disease": {
+    "preferred_name": "hereditary neuromuscular disease",
+    "score": 91.52542372881356
+  },
+  "calcium homeostasis": {
+    "preferred_name": "calcium ion homeostasis",
+    "score": 90.47619047619048
+  },
+  "Mesenchymal stromal cells (MSCs)": {
+    "preferred_name": "human umbilical cord mesenchymal stem cells",
+    "score": 90.9090909090909
+  },
+  "platelet-derived growth factor receptors (PDGFRs)": {
+    "preferred_name": "pdgfrl",
+    "score": 87.91208791208791
+  },
+  "Inflammation": {
+    "preferred_name": "gastrointestinal inflammation",
+    "score": 88.88888888888889
+  },
+  "SeC": {
+    "preferred_name": "betahistine",
+    "score": 85.71428571428572
+  },
+  "terminal differentiation": {
+    "preferred_name": "cell development",
+    "score": 1000
+  },
+  "ErbB2": {
+    "preferred_name": "erbb2",
+    "score": 1000
+  },
+  "antifibrotic effects": {
+    "preferred_name": "antidiuretic agents",
+    "score": 85.0
+  },
+  "onset of left ventricular dysfunction": {
+    "preferred_name": "abnormal left ventricular function",
+    "score": 86.15384615384616
+  },
+  "cognitive impairments": {
+    "preferred_name": "cognitive impairment",
+    "score": 97.5609756097561
+  },
+  "H-PGDS": {
+    "preferred_name": "hpgds",
+    "score": 90.9090909090909
+  },
+  "cereblon": {
+    "preferred_name": "crbn",
+    "score": 1000
+  },
+  "compound 6": {
+    "preferred_name": "3-(5-nitrofuryl)-7-(5-nitrofurfurylidene)-3,3a,4,5,6,7-hexahydro-2h-indazole",
+    "score": 95.23809523809523
+  },
+  "inflammatory cytokines": {
+    "preferred_name": "ccl1",
+    "score": 85.71428571428572
+  },
+  "ankle plantar flexion contractures": {
+    "preferred_name": "plantar flexion contracture",
+    "score": 90.32258064516128
+  },
+  "decreased mobility": {
+    "preferred_name": "limitation of joint mobility",
+    "score": 85.71428571428572
+  },
+  "ambulation loss": {
+    "preferred_name": "loss of ambulation",
+    "score": 90.9090909090909
+  },
+  "dystroglycan": {
+    "preferred_name": "dag1",
+    "score": 92.3076923076923
+  },
+  "Galgt2": {
+    "preferred_name": "b4galnt2",
+    "score": 1000
+  },
+  "rescue of disease": {
+    "preferred_name": "rectal disorder",
+    "score": 88.23529411764706
+  },
+  "Titin": {
+    "preferred_name": "ttn",
+    "score": 1000
+  },
+  "myosin light chain": {
+    "preferred_name": "myl1",
+    "score": 94.73684210526316
+  },
+  "gelsolin": {
+    "preferred_name": "gsn",
+    "score": 1000
+  },
+  "degenerative muscle disease": {
+    "preferred_name": "degenerative liver disease",
+    "score": 86.79245283018868
+  },
+  "fenofibrate": {
+    "preferred_name": "fenofibrate",
+    "score": 1000
+  },
+  "MuRF1": {
+    "preferred_name": "smurf1",
+    "score": 90.9090909090909
+  },
+  "bone resorption": {
+    "preferred_name": "bone resorption",
+    "score": 1000
+  },
+  "bone formation": {
+    "preferred_name": "ossification",
+    "score": 1000
+  },
+  "osteocalcin": {
+    "preferred_name": "bglap",
+    "score": 1000
+  },
+  "sclerostin": {
+    "preferred_name": "sost",
+    "score": 1000
+  },
+  "Myo10": {
+    "preferred_name": "myo10",
+    "score": 1000
+  },
+  "progressive disorder": {
+    "preferred_name": "progressive",
+    "score": 1000
+  },
+  "Latent transforming growth factor β (TGFβ) binding protein 4 (LTBP4)": {
+    "preferred_name": "ltbp4",
+    "score": 85.0
+  },
+  "genetic muscle disease": {
+    "preferred_name": "hereditary skeletal muscle disorder",
+    "score": 1000
+  },
+  "Glucocorticoid-induced osteoporosis": {
+    "preferred_name": "glucocorticoid-induced osteoporosis",
+    "score": 1000
+  },
+  "alendronate": {
+    "preferred_name": "alendronic acid",
+    "score": 1000
+  },
+  "Motor disabilities": {
+    "preferred_name": "poor fine motor coordination",
+    "score": 87.17948717948718
+  },
+  "IL1RAPL": {
+    "preferred_name": "il1rapl1",
+    "score": 1000
+  },
+  "MAGEB1-4": {
+    "preferred_name": "mageb1",
+    "score": 85.71428571428572
+  },
+  "ROB": {
+    "preferred_name": "hrob",
+    "score": 85.71428571428572
+  },
+  "CXorf2": {
+    "preferred_name": "tex28",
+    "score": 1000
+  },
+  "AP3K7IP": {
+    "preferred_name": "tab1",
+    "score": 87.5
+  },
+  "FTHL1": {
+    "preferred_name": "fth1p1",
+    "score": 1000
+  },
+  "FAM47A": {
+    "preferred_name": "fam47a",
+    "score": 1000
+  },
+  "TMEM47": {
+    "preferred_name": "tmem47",
+    "score": 1000
+  },
+  "FAM47B": {
+    "preferred_name": "fam47b",
+    "score": 1000
+  },
+  "AMP-activated protein kinase": {
+    "preferred_name": "nuak2",
+    "score": 91.80327868852459
+  },
+  "H19": {
+    "preferred_name": "h19",
+    "score": 1000
+  },
+  "phosphorylation of DMD": {
+    "preferred_name": "phosphorylation of emi1",
+    "score": 88.88888888888889
+  },
+  "difficulty coughing": {
+    "preferred_name": "impaired mastication",
+    "score": 86.48648648648648
+  },
+  "low blood pressure": {
+    "preferred_name": "hypotension",
+    "score": 1000
+  },
+  "arthrosis": {
+    "preferred_name": "arthropathy",
+    "score": 1000
+  },
+  "abnormal branching": {
+    "preferred_name": "dyspnea",
+    "score": 88.88888888888889
+  },
+  "CXCL12": {
+    "preferred_name": "cxcl12",
+    "score": 1000
+  },
+  "CIP": {
+    "preferred_name": "cilp",
+    "score": 85.71428571428572
+  },
+  "Leukemia inhibitory factor": {
+    "preferred_name": "lif",
+    "score": 1000
+  },
+  "inhibiting differentiation": {
+    "preferred_name": "negative regulation of r7 cell differentiation",
+    "score": 86.20689655172413
+  },
+  "Wnt signaling": {
+    "preferred_name": "signaling by wnt",
+    "score": 89.65517241379311
+  },
+  "FGFR1": {
+    "preferred_name": "fgfr1",
+    "score": 1000
+  },
+  "microRNA-378a": {
+    "preferred_name": "mir378a",
+    "score": 100.0
+  },
+  "calsequestrin": {
+    "preferred_name": "casq1",
+    "score": 92.85714285714286
+  },
+  "DECs": {
+    "preferred_name": "diethylstilbestrol",
+    "score": 85.71428571428572
+  },
+  "SARS-CoV-2": {
+    "preferred_name": "covid-19",
+    "score": 1000
+  },
+  "α-klotho": {
+    "preferred_name": "kl",
+    "score": 85.71428571428572
+  },
+  "MDM2": {
+    "preferred_name": "mdm2",
+    "score": 1000
+  },
+  "GSK3A": {
+    "preferred_name": "gsk3a",
+    "score": 1000
+  },
+  "MAP2K3": {
+    "preferred_name": "map2k3",
+    "score": 1000
+  },
+  "dystrophin-associated glycoprotein complex": {
+    "preferred_name": "dag1",
+    "score": 87.17948717948718
+  },
+  "HDAC8": {
+    "preferred_name": "hdac8",
+    "score": 1000
+  },
+  "cytoskeleton organization": {
+    "preferred_name": "cytoskeleton organization",
+    "score": 1000
+  },
+  "(+)-halofuginone": {
+    "preferred_name": "halofuginone",
+    "score": 100.0
+  },
+  "peroxisome proliferator-activated receptor-gamma coactivator 1 α (PGC-1α)": {
+    "preferred_name": "ppargc1b",
+    "score": 89.85507246376811
+  },
+  "histone deacetylation": {
+    "preferred_name": "histone h4k12 deacetylase activity, hydrolytic mechanism",
+    "score": 87.5
+  },
+  "muscle degenerating disease": {
+    "preferred_name": "distal amyotrophy",
+    "score": 86.79245283018868
+  },
+  "Arntl": {
+    "preferred_name": "bmal1",
+    "score": 1000
+  },
+  "Cry1": {
+    "preferred_name": "cry1",
+    "score": 1000
+  },
+  "Cry2": {
+    "preferred_name": "cry2",
+    "score": 1000
+  },
+  "Nr1d2": {
+    "preferred_name": "nr1d2",
+    "score": 1000
+  },
+  "Ppargc1a": {
+    "preferred_name": "ppargc1a",
+    "score": 1000
+  },
+  "Esrra": {
+    "preferred_name": "esrra",
+    "score": 1000
+  },
+  "Dnm1l": {
+    "preferred_name": "dnm1l",
+    "score": 1000
+  },
+  "Opa1": {
+    "preferred_name": "opa1",
+    "score": 1000
+  },
+  "Becn1": {
+    "preferred_name": "becn1",
+    "score": 1000
+  },
+  "Per2": {
+    "preferred_name": "per2",
+    "score": 1000
+  },
+  "Nr1d1": {
+    "preferred_name": "nr1d1",
+    "score": 1000
+  },
+  "Sirt1": {
+    "preferred_name": "sirt1",
+    "score": 1000
+  },
+  "Map1lc3b": {
+    "preferred_name": "map1lc3b",
+    "score": 1000
+  },
+  "PPARGC1A": {
+    "preferred_name": "ppargc1a",
+    "score": 1000
+  },
+  "MAP1LC3BII": {
+    "preferred_name": "map1lc3b",
+    "score": 88.88888888888889
+  },
+  "SQSTM1": {
+    "preferred_name": "sqstm1",
+    "score": 1000
+  },
+  "BNIP3": {
+    "preferred_name": "bnip3",
+    "score": 1000
+  },
+  "biogenesis": {
+    "preferred_name": "lipid biosynthetic process",
+    "score": 85.71428571428572
+  },
+  "neuropsychiatric disorders": {
+    "preferred_name": "atypical behavior",
+    "score": 89.36170212765957
+  },
+  "aripiprazole": {
+    "preferred_name": "aripiprazole",
+    "score": 1000
+  },
+  "irritability": {
+    "preferred_name": "irritability",
+    "score": 1000
+  },
+  "hallucinations": {
+    "preferred_name": "hallucinations",
+    "score": 1000
+  },
+  "delusions": {
+    "preferred_name": "delusion",
+    "score": 1000
+  },
+  "primary muscle degeneration": {
+    "preferred_name": "spinal muscular atrophy",
+    "score": 86.79245283018868
+  },
+  "nusinersen": {
+    "preferred_name": "nusinersen",
+    "score": 1000
+  },
+  "onasemnogene abeparvovec": {
+    "preferred_name": "onasemnogene abeparvovec",
+    "score": 1000
+  },
+  "rare neuromuscular diseases": {
+    "preferred_name": "neuromuscular disease",
+    "score": 87.5
+  },
+  "RPL3L": {
+    "preferred_name": "rpl3l",
+    "score": 1000
+  },
+  "limb-girdle muscular dystrophy 3 (LGMDR3)": {
+    "preferred_name": "limb-girdle muscular dystrophy",
+    "score": 86.95652173913044
+  },
+  "autosomal recessive cutis laxa type 1C": {
+    "preferred_name": "cutis laxa with severe pulmonary, gastrointestinal and urinary anomalies",
+    "score": 1000
+  },
+  "redundant skin": {
+    "preferred_name": "redundant skin",
+    "score": 1000
+  },
+  "pulmonary emphysema": {
+    "preferred_name": "emphysema",
+    "score": 1000
+  },
+  "valvular heart disease": {
+    "preferred_name": "abnormal heart valve morphology",
+    "score": 1000
+  },
+  "autophagic dysregulation": {
+    "preferred_name": "abnormal autonomic nervous system physiology",
+    "score": 85.1063829787234
+  },
+  "β-glucans": {
+    "preferred_name": "glucans",
+    "score": 87.5
+  },
+  "immune function": {
+    "preferred_name": "immune system disorder",
+    "score": 90.9090909090909
+  },
+  "motor coordination": {
+    "preferred_name": "poor coordination",
+    "score": 91.42857142857143
+  },
+  "lung disease": {
+    "preferred_name": "abnormal lung morphology",
+    "score": 1000
+  },
+  "Restrictive lung disease": {
+    "preferred_name": "restrictive ventilatory defect",
+    "score": 1000
+  },
+  "muscle-wasting disease": {
+    "preferred_name": "distal amyotrophy",
+    "score": 88.37209302325581
+  },
+  "TPr": {
+    "preferred_name": "tpr",
+    "score": 1000
+  },
+  "vasoconstriction": {
+    "preferred_name": "vasoconstriction",
+    "score": 1000
+  },
+  "brain tumour": {
+    "preferred_name": "brain neoplasm",
+    "score": 1000
+  },
+  "severe progressive muscle degeneration": {
+    "preferred_name": "progressive spinal muscular atrophy",
+    "score": 86.8421052631579
+  },
+  "activation of the p53 DNA damage response": {
+    "preferred_name": "dna damage response, signal transduction by p53 class mediator",
+    "score": 94.87179487179486
+  },
+  "Vascular dysfunction": {
+    "preferred_name": "vestibular hyporeflexia",
+    "score": 85.71428571428572
+  },
+  "yes-associated protein (YAP)": {
+    "preferred_name": "yap1",
+    "score": 88.0
+  },
+  "Nuclear translocation": {
+    "preferred_name": "import into nucleus",
+    "score": 1000
+  },
+  "YAP": {
+    "preferred_name": "yap1",
+    "score": 85.71428571428572
+  },
+  "DMD-cardiomyopathy": {
+    "preferred_name": "cardiomyopathy, dog",
+    "score": 88.88888888888889
+  },
+  "LRP4": {
+    "preferred_name": "lrp4",
+    "score": 1000
+  },
+  "nNOS": {
+    "preferred_name": "proteosome-associated autoinflammatory syndrome",
+    "score": 85.71428571428572
+  },
+  "p16": {
+    "preferred_name": "pi16",
+    "score": 85.71428571428572
+  },
+  "phosphorylation": {
+    "preferred_name": "phosphorylation",
+    "score": 1000
+  },
+  "CACNA1S": {
+    "preferred_name": "cacna1s",
+    "score": 1000
+  },
+  "Striated muscle activator of rho signalling (STARS)": {
+    "preferred_name": "abra protein, human",
+    "score": 92.3076923076923
+  },
+  "actin-binding protein": {
+    "preferred_name": "dbnl",
+    "score": 95.45454545454545
+  },
+  "STARS": {
+    "preferred_name": "sars1",
+    "score": 88.88888888888889
+  },
+  "SRF": {
+    "preferred_name": "srf",
+    "score": 1000
+  },
+  "RHOA": {
+    "preferred_name": "rhoa",
+    "score": 1000
+  },
+  "MRTFA": {
+    "preferred_name": "mrtfa",
+    "score": 1000
+  },
+  "ERK": {
+    "preferred_name": "ephb2",
+    "score": 1000
+  },
+  "ERK signaling": {
+    "preferred_name": "erbb signaling pathway",
+    "score": 88.88888888888889
+  },
+  "Malnutrition": {
+    "preferred_name": "malnutrition",
+    "score": 1000
+  },
+  "pulmonary sepsis": {
+    "preferred_name": "pulmonic stenosis",
+    "score": 88.23529411764706
+  },
+  "acute respiratory distress": {
+    "preferred_name": "respiratory distress",
+    "score": 86.95652173913044
+  },
+  "microRNAs": {
+    "preferred_name": "glyburide",
+    "score": 88.88888888888889
+  },
+  "MicroRNAs": {
+    "preferred_name": "glyburide",
+    "score": 88.88888888888889
+  },
+  "miRNAs": {
+    "preferred_name": "recessive mitochondrial ataxia syndrome",
+    "score": 90.9090909090909
+  },
+  "muscle degenerative disease": {
+    "preferred_name": "degenerative liver disease",
+    "score": 86.79245283018868
+  },
+  "inability to walk": {
+    "preferred_name": "inability to walk",
+    "score": 1000
+  },
+  "interleukin (IL)-5": {
+    "preferred_name": "il5",
+    "score": 89.65517241379311
+  },
+  "vertebral compression fractures": {
+    "preferred_name": "vertebral compression fracture",
+    "score": 1000
+  },
+  "open bite": {
+    "preferred_name": "open bite",
+    "score": 1000
+  },
+  "progressive skeletal muscle wasting": {
+    "preferred_name": "progressive spinal muscular atrophy",
+    "score": 88.23529411764706
+  },
+  "signal transduction hub": {
+    "preferred_name": "abscisic acid-activated signaling pathway",
+    "score": 91.30434782608697
+  },
+  "Sarco/endoplasmic reticulum Ca2+-ATPase": {
+    "preferred_name": "p-type calcium transporter activity",
+    "score": 98.7012987012987
+  },
+  "pharmacological activation": {
+    "preferred_name": "pharmacologic actions",
+    "score": 86.95652173913044
+  },
+  "Becker muscular dystrophy (MD)": {
+    "preferred_name": "becker muscular dystrophy",
+    "score": 94.33962264150944
+  },
+  "heart failure (HF)": {
+    "preferred_name": "heart failure",
+    "score": 89.65517241379311
+  },
+  "Gingerol": {
+    "preferred_name": "gingerol",
+    "score": 1000
+  },
+  "locomotion": {
+    "preferred_name": "locomotion",
+    "score": 1000
+  },
+  "heme oxygenase 1": {
+    "preferred_name": "hmox1",
+    "score": 1000
+  },
+  "OCT4": {
+    "preferred_name": "mboat4",
+    "score": 88.88888888888889
+  },
+  "SOX2": {
+    "preferred_name": "sox2",
+    "score": 1000
+  },
+  "NANOG": {
+    "preferred_name": "nanog",
+    "score": 1000
+  },
+  "LIN28": {
+    "preferred_name": "lin28a",
+    "score": 1000
+  },
+  "KLF4": {
+    "preferred_name": "klf4",
+    "score": 1000
+  },
+  "muscle force generation": {
+    "preferred_name": "skeletal muscle atrophy",
+    "score": 85.71428571428572
+  },
+  "Domains R1-3": {
+    "preferred_name": "mecom",
+    "score": 86.95652173913044
+  },
+  "glycosylation": {
+    "preferred_name": "glycosylation",
+    "score": 1000
+  },
+  "GALGT2": {
+    "preferred_name": "b4galnt2",
+    "score": 1000
+  },
+  "α dystroglycan": {
+    "preferred_name": "dag1",
+    "score": 85.71428571428572
+  },
+  "joint contracture": {
+    "preferred_name": "joint contracture",
+    "score": 1000
+  },
+  "attention deficit disorder": {
+    "preferred_name": "attention deficit hyperactivity disorder",
+    "score": 1000
+  },
+  "West syndrome": {
+    "preferred_name": "epileptic spasm",
+    "score": 1000
+  },
+  "MLASA": {
+    "preferred_name": "myopathy, lactic acidosis, and sideroblastic anemia",
+    "score": 1000
+  },
+  "iPSCs": {
+    "preferred_name": "posterior subcentral sulcus",
+    "score": 88.88888888888889
+  },
+  "Edasalonexent": {
+    "preferred_name": "edasalonexent",
+    "score": 1000
+  },
+  "slowing of disease progression": {
+    "preferred_name": "slowly progressive",
+    "score": 88.88888888888889
+  },
+  "BTX-A": {
+    "preferred_name": "botulinum toxin type a",
+    "score": 1000
+  },
+  "muscle paralysis": {
+    "preferred_name": "ophthalmoplegia",
+    "score": 88.88888888888889
+  },
+  "severe respiratory muscle weakness": {
+    "preferred_name": "respiratory insufficiency due to muscle weakness",
+    "score": 88.52459016393442
+  },
+  "ventricular dysrhythmias": {
+    "preferred_name": "ventricular arrhythmia",
+    "score": 89.36170212765957
+  },
+  "phenylketonuria": {
+    "preferred_name": "phenylketonuria",
+    "score": 1000
+  },
+  "NAD-dependent deacetylase": {
+    "preferred_name": "nad-dependent protein lysine deacetylase activity",
+    "score": 86.20689655172413
+  },
+  "depressed left ventricular function": {
+    "preferred_name": "abnormal left ventricular function",
+    "score": 85.71428571428572
+  },
+  "isoproterenol": {
+    "preferred_name": "isoprenaline",
+    "score": 1000
+  },
+  "caffeine": {
+    "preferred_name": "caffeine",
+    "score": 1000
+  },
+  "adenylate cyclase": {
+    "preferred_name": "adcy1",
+    "score": 94.44444444444444
+  },
+  "skeletal muscle abnormalities": {
+    "preferred_name": "abnormality of the skeletal system",
+    "score": 86.27450980392157
+  },
+  "NFĸB activation": {
+    "preferred_name": "obsolete transforming growth factor beta activation",
+    "score": 86.66666666666667
+  },
+  "treated muscle": {
+    "preferred_name": "striated muscle tissue",
+    "score": 89.65517241379311
+  },
+  "retinal anomalies": {
+    "preferred_name": "abnormality of the kidney",
+    "score": 93.75
+  },
+  "disturbed contrast vision": {
+    "preferred_name": "color vision defect",
+    "score": 85.1063829787234
+  },
+  "gastroesophageal reflux": {
+    "preferred_name": "gastroesophageal reflux",
+    "score": 1000
+  },
+  "growth issues": {
+    "preferred_name": "growth abnormality",
+    "score": 96.0
+  },
+  "X-linked": {
+    "preferred_name": "x-linked inheritance",
+    "score": 1000
+  },
+  "bone fractures": {
+    "preferred_name": "bone fracture",
+    "score": 96.2962962962963
+  },
+  "zoledronic acid": {
+    "preferred_name": "zoledronic acid",
+    "score": 1000
+  },
+  "ALP": {
+    "preferred_name": "alpg",
+    "score": 85.71428571428572
+  },
+  "Zoledronic acid": {
+    "preferred_name": "zoledronic acid",
+    "score": 1000
+  },
+  "calcium": {
+    "preferred_name": "calcium",
+    "score": 1000
+  },
+  "calcitriol": {
+    "preferred_name": "calcitriol",
+    "score": 1000
+  },
+  "left ventricular (LV) dysfunction": {
+    "preferred_name": "abnormal left ventricular function",
+    "score": 94.91525423728814
+  },
+  "Duchenne muscular Dystrophies": {
+    "preferred_name": "duchenne muscular dystrophy",
+    "score": 92.85714285714286
+  },
+  "Becker muscular Dystrophies": {
+    "preferred_name": "becker muscular dystrophy",
+    "score": 92.3076923076923
+  },
+  "mitochondria": {
+    "preferred_name": "mitochondrion",
+    "score": 1000
+  },
+  "Mss51": {
+    "preferred_name": "mss51",
+    "score": 1000
+  },
+  "cystic fibrosis": {
+    "preferred_name": "cystic fibrosis",
+    "score": 1000
+  },
+  "dystrophin associated proteins": {
+    "preferred_name": "dag1",
+    "score": 87.87878787878788
+  },
+  "scAAV9.U7.ACCA": {
+    "preferred_name": "scaav9.u7.acca",
+    "score": 1000
+  },
+  "Osteoporosis": {
+    "preferred_name": "osteoporosis",
+    "score": 1000
+  },
+  "rAAVrh74.MHCK7.micro-dystrophin": {
+    "preferred_name": "delandistrogene moxeparvovec",
+    "score": 1000
+  },
+  "upper airway obstruction": {
+    "preferred_name": "upper airway obstruction",
+    "score": 1000
+  },
+  "RhoA": {
+    "preferred_name": "rhoa",
+    "score": 1000
+  },
+  "plasticity": {
+    "preferred_name": "spasticity",
+    "score": 90.0
+  },
+  "Adenylosuccinic acid": {
+    "preferred_name": "adenylosuccinic acid",
+    "score": 1000
+  },
+  "ASA": {
+    "preferred_name": "acetylsalicylic acid",
+    "score": 1000
+  },
+  "nuclear factor erythroid 2-related factor-2 (Nrf2)": {
+    "preferred_name": "nfe2l1",
+    "score": 92.3076923076923
+  },
+  "juvenile DM": {
+    "preferred_name": "juvenile dermatomyositis",
+    "score": 1000
+  },
+  "DDX58": {
+    "preferred_name": "rigi",
+    "score": 1000
+  },
+  "IFIH1": {
+    "preferred_name": "ifih1",
+    "score": 1000
+  },
+  "ISG15": {
+    "preferred_name": "isg15",
+    "score": 1000
+  },
+  "juvenile IIM": {
+    "preferred_name": "juvenile dermatomyositis",
+    "score": 86.95652173913044
+  },
+  "USP18": {
+    "preferred_name": "usp18",
+    "score": 1000
+  },
+  "OM": {
+    "preferred_name": "ocular melanoma",
+    "score": 1000
+  },
+  "prolonged bleeding time": {
+    "preferred_name": "prolonged bleeding time",
+    "score": 1000
+  },
+  "increased bleeding": {
+    "preferred_name": "prolonged bleeding time",
+    "score": 87.8048780487805
+  },
+  "severe mitral regurgitation": {
+    "preferred_name": "mitral regurgitation",
+    "score": 86.79245283018868
+  },
+  "tachycardic": {
+    "preferred_name": "tachycardia",
+    "score": 90.9090909090909
+  },
+  "hyperbilirubinemia": {
+    "preferred_name": "hyperbilirubinemia",
+    "score": 1000
+  },
+  "reduced ejection fraction": {
+    "preferred_name": "reduced left ventricular ejection fraction",
+    "score": 1000
+  },
+  "Nuclear factor of activated T-cells 5 (NFAT5)": {
+    "preferred_name": "nfat5",
+    "score": 92.5
+  },
+  "methylprednisolone (MP)": {
+    "preferred_name": "methylprednisolone",
+    "score": 92.3076923076923
+  },
+  "NFAT5": {
+    "preferred_name": "nfat5",
+    "score": 1000
+  },
+  "hydrocortisone (HC)": {
+    "preferred_name": "hydrocortisone",
+    "score": 90.32258064516128
+  },
+  "SLK": {
+    "preferred_name": "slk",
+    "score": 1000
+  },
+  "p38 signalling": {
+    "preferred_name": "pde3b signalling",
+    "score": 86.66666666666667
+  },
+  "BRD4": {
+    "preferred_name": "brd4",
+    "score": 1000
+  },
+  "Nuclear erythroid 2-related factor 2 (Nrf2)": {
+    "preferred_name": "nfe2l1",
+    "score": 88.09523809523809
+  },
+  "CD82": {
+    "preferred_name": "cd82",
+    "score": 1000
+  },
+  "PDE10A": {
+    "preferred_name": "pde10a",
+    "score": 1000
+  },
+  "PITPNA": {
+    "preferred_name": "pitpna",
+    "score": 1000
+  },
+  "cognitive dysfunction": {
+    "preferred_name": "congenital stationary cone dysfunction",
+    "score": 86.48648648648648
+  },
+  "excess inflammatory responses": {
+    "preferred_name": "decreased inflammatory response",
+    "score": 86.66666666666667
+  },
+  "Neutral sphingomyelinase 2/sphingomyelin phosphodiesterase 3": {
+    "preferred_name": "smpd2",
+    "score": 87.4074074074074
+  },
+  "DMDAC": {
+    "preferred_name": "mycobacterium avium complex disease",
+    "score": 88.88888888888889
+  },
+  "sarcomas": {
+    "preferred_name": "sarcoma",
+    "score": 93.33333333333333
+  },
+  "leukaemia's": {
+    "preferred_name": "leukemia",
+    "score": 91.66666666666666
+  },
+  "lymphomas": {
+    "preferred_name": "lymphoma",
+    "score": 94.11764705882352
+  },
+  "nervous system tumours": {
+    "preferred_name": "nervous system neoplasm",
+    "score": 97.67441860465115
+  },
+  "melanomas": {
+    "preferred_name": "melanoma",
+    "score": 94.11764705882352
+  },
+  "μUtrn": {
+    "preferred_name": "utrn",
+    "score": 88.88888888888889
+  },
+  "Femoral fractures": {
+    "preferred_name": "femur fracture",
+    "score": 96.96969696969697
+  },
+  "gait characteristics": {
+    "preferred_name": "pain characteristic",
+    "score": 87.17948717948718
+  },
+  "sleep-related breathing disorders": {
+    "preferred_name": "sleep-related breathing disorders",
+    "score": 1000
+  },
+  "obstructive sleep apnea": {
+    "preferred_name": "obstructive sleep apnea",
+    "score": 1000
+  },
+  "central sleep apnea": {
+    "preferred_name": "central sleep apnea",
+    "score": 1000
+  },
+  "onasemnogene abeparvovec-xioi": {
+    "preferred_name": "onasemnogene abeparvovec",
+    "score": 1000
+  },
+  "risdiplam": {
+    "preferred_name": "risdiplam",
+    "score": 1000
+  },
+  "reduced muscle grip strength": {
+    "preferred_name": "weakness of facial musculature",
+    "score": 86.20689655172413
+  },
+  "Peroxisome proliferator-activated receptor gamma coactivator-1alpha": {
+    "preferred_name": "ppargc1b",
+    "score": 92.53731343283582
+  },
+  "myoblast determination protein 1": {
+    "preferred_name": "myod1",
+    "score": 1000
+  },
+  "myocyte enhancer factor-2": {
+    "preferred_name": "mef2a",
+    "score": 98.0392156862745
+  },
+  "muscle structure": {
+    "preferred_name": "muscle structure",
+    "score": 1000
+  },
+  "dysferlin": {
+    "preferred_name": "dysf",
+    "score": 1000
+  },
+  "(-)-epicatechin": {
+    "preferred_name": "catechin",
+    "score": 1000
+  },
+  "NFAT5 nuclear translocation": {
+    "preferred_name": "import into nucleus",
+    "score": 87.5
+  },
+  "cell growth": {
+    "preferred_name": "cell growth",
+    "score": 1000
+  },
+  "Delayed puberty": {
+    "preferred_name": "delayed puberty",
+    "score": 1000
+  },
+  "NAD-degrading": {
+    "preferred_name": "nad catabolic process",
+    "score": 85.71428571428572
+  },
+  "nicotinamide adenine dinucleotide (NAD)": {
+    "preferred_name": "nad",
+    "score": 94.28571428571428
+  },
+  "Respiratory disease": {
+    "preferred_name": "respiratory distress",
+    "score": 87.17948717948718
+  },
+  "cellular processes": {
+    "preferred_name": "cell projection",
+    "score": 94.11764705882352
+  },
+  "senescence": {
+    "preferred_name": "obsolete senescence",
+    "score": 1000
+  },
+  "p19": {
+    "preferred_name": "abca4",
+    "score": 85.71428571428572
+  },
+  "ABT263": {
+    "preferred_name": "navitoclax",
+    "score": 1000
+  },
+  "myeloperoxidase (MPO)": {
+    "preferred_name": "mpo",
+    "score": 88.23529411764706
+  },
+  "hypochlorous acid (HOCl)": {
+    "preferred_name": "hypochlorous acid",
+    "score": 87.17948717948718
+  },
+  "myeloperoxidase": {
+    "preferred_name": "mpo",
+    "score": 1000
+  },
+  "life-shortening": {
+    "preferred_name": "limb undergrowth",
+    "score": 86.66666666666667
+  },
+  "lower left ventricular ejection fraction": {
+    "preferred_name": "reduced left ventricular ejection fraction",
+    "score": 87.8048780487805
+  },
+  "larger left ventricular end-diastolic volume": {
+    "preferred_name": "increased left ventricular end-diastolic volume",
+    "score": 87.91208791208791
+  },
+  "signalling pathway": {
+    "preferred_name": "signal transduction",
+    "score": 94.44444444444444
+  },
+  "Cell proliferation": {
+    "preferred_name": "cell population proliferation",
+    "score": 1000
+  },
+  "Erk1/2- signalling pathway": {
+    "preferred_name": "nod1/2 signaling pathway",
+    "score": 85.71428571428572
+  },
+  "local regulation": {
+    "preferred_name": "biological regulation",
+    "score": 86.48648648648648
+  },
+  "phosphodiesterases (PDEs)": {
+    "preferred_name": "pde4d",
+    "score": 88.37209302325581
+  },
+  "gait disturbances": {
+    "preferred_name": "gait disturbance",
+    "score": 1000
+  },
+  "gross motor delays": {
+    "preferred_name": "delayed gross motor development",
+    "score": 97.14285714285714
+  },
+  "reduced LV ejection fraction": {
+    "preferred_name": "reduced left ventricular ejection fraction",
+    "score": 94.33962264150944
+  },
+  "pneumothorax": {
+    "preferred_name": "pneumothorax",
+    "score": 1000
+  },
+  "cardiac myopathy": {
+    "preferred_name": "cardiomyopathy",
+    "score": 86.66666666666667
+  },
+  "SSPN": {
+    "preferred_name": "sspn",
+    "score": 1000
+  },
+  "catalpol": {
+    "preferred_name": "catalpol",
+    "score": 1000
+  },
+  "S1P signalling": {
+    "preferred_name": "pathogen-associated molecular pattern receptor signaling pathway",
+    "score": 85.71428571428572
+  },
+  "Duchenne or Becker muscular dystrophy": {
+    "preferred_name": "obsolete duchenne and becker muscular dystrophy",
+    "score": 85.71428571428572
+  },
+  "matrix metalloproteinase-1 (MMP-1)": {
+    "preferred_name": "mmp19",
+    "score": 88.13559322033898
+  },
+  "severe": {
+    "preferred_name": "severe",
+    "score": 1000
+  },
+  "gastrointestinal problems": {
+    "preferred_name": "intestinal polyposis",
+    "score": 87.5
+  },
+  "CPK": {
+    "preferred_name": "cmpk1",
+    "score": 85.71428571428572
+  },
+  "calcifications": {
+    "preferred_name": "subcutaneous calcification",
+    "score": 87.5
+  },
+  "HERC5": {
+    "preferred_name": "herc5",
+    "score": 1000
+  },
+  "SKP2": {
+    "preferred_name": "skp2",
+    "score": 1000
+  },
+  "FBXW5": {
+    "preferred_name": "fbxw5",
+    "score": 1000
+  },
+  "ZNF362": {
+    "preferred_name": "znf362",
+    "score": 1000
+  },
+  "ATAT1": {
+    "preferred_name": "atat1",
+    "score": 1000
+  },
+  "SPI1": {
+    "preferred_name": "spi1",
+    "score": 1000
+  },
+  "TCF12": {
+    "preferred_name": "tcf12",
+    "score": 1000
+  },
+  "ABCF2": {
+    "preferred_name": "abcf2",
+    "score": 1000
+  },
+  "colonic smooth muscle contractility": {
+    "preferred_name": "colon smooth muscle contraction",
+    "score": 87.87878787878788
+  },
+  "peristalsis": {
+    "preferred_name": "peristalsis",
+    "score": 1000
+  },
+  "PBMT": {
+    "preferred_name": "phytobacteriomycin",
+    "score": 85.71428571428572
+  },
+  "tongue hypertrophy": {
+    "preferred_name": "macroglossia",
+    "score": 1000
+  },
+  "dysarthria": {
+    "preferred_name": "dysarthria",
+    "score": 1000
+  },
+  "DOCK3": {
+    "preferred_name": "dock3",
+    "score": 1000
+  },
+  "asymmetric dimethylarginine (ADMA)": {
+    "preferred_name": "n,n-dimethylarginine",
+    "score": 91.52542372881356
+  },
+  "dimethylarginine dimethylaminohydrolase 1 (DDAH)": {
+    "preferred_name": "ddah1",
+    "score": 94.25287356321839
+  },
+  "DDAH": {
+    "preferred_name": "hip dysplasia",
+    "score": 85.71428571428572
+  },
+  "motor regression": {
+    "preferred_name": "motor regression",
+    "score": 1000
+  },
+  "apocynin": {
+    "preferred_name": "apocynin",
+    "score": 1000
+  },
+  "NADPH oxidase": {
+    "preferred_name": "nad(p)h oxidase h2o2-forming activity",
+    "score": 1000
+  },
+  "carbenoxolone": {
+    "preferred_name": "carbenoxolone",
+    "score": 1000
+  },
+  "NADPH oxidase activity": {
+    "preferred_name": "nadph peroxidase activity",
+    "score": 93.61702127659575
+  },
+  "apoptosis": {
+    "preferred_name": "execution phase of apoptosis",
+    "score": 1000
+  },
+  "retina": {
+    "preferred_name": "retina",
+    "score": 1000
+  },
+  "myotonic dystrophy type 2": {
+    "preferred_name": "myotonic dystrophy type 2",
+    "score": 1000
+  },
+  "central nucleation": {
+    "preferred_name": "centrally nucleated skeletal muscle fibers",
+    "score": 87.5
+  },
+  "obstructive sleep apnea syndrome": {
+    "preferred_name": "obstructive sleep apnea syndrome",
+    "score": 1000
+  },
+  "snoring": {
+    "preferred_name": "snoring",
+    "score": 1000
+  },
+  "Developmental Delay": {
+    "preferred_name": "global developmental delay",
+    "score": 1000
+  },
+  "Long bone fracture rate": {
+    "preferred_name": "long-bone fracture",
+    "score": 87.8048780487805
+  },
+  "proliferating": {
+    "preferred_name": "proliferative region",
+    "score": 92.3076923076923
+  },
+  "differentiated": {
+    "preferred_name": "tumor grade 4, general grading system",
+    "score": 93.33333333333333
+  },
+  "megaconial congenital muscular dystrophy": {
+    "preferred_name": "megaconial type congenital muscular dystrophy",
+    "score": 1000
+  },
+  "Ullrich congenital muscular dystrophy": {
+    "preferred_name": "ullrich congenital muscular dystrophy 1a",
+    "score": 1000
+  },
+  "α-dystroglycanopathy": {
+    "preferred_name": "qualitative or quantitative defects of alpha-dystroglycan",
+    "score": 94.73684210526316
+  },
+  "Versican": {
+    "preferred_name": "vcan",
+    "score": 1000
+  },
+  "neuropsychiatric disturbance": {
+    "preferred_name": "atypical behavior",
+    "score": 88.46153846153845
+  },
+  "membrane repair": {
+    "preferred_name": "rough endoplasmic reticulum membrane",
+    "score": 88.88888888888889
+  },
+  "Celf2a": {
+    "preferred_name": "celf2",
+    "score": 90.9090909090909
+  },
+  "dyslipidemic": {
+    "preferred_name": "abnormal circulating lipid concentration",
+    "score": 91.66666666666666
+  },
+  "ERBB4": {
+    "preferred_name": "erbb4",
+    "score": 1000
+  },
+  "SOD1": {
+    "preferred_name": "sod1",
+    "score": 1000
+  },
+  "CNTF": {
+    "preferred_name": "cntf",
+    "score": 1000
+  },
+  "NCLX": {
+    "preferred_name": "ncl",
+    "score": 85.71428571428572
+  },
+  "Proximal muscle weakness": {
+    "preferred_name": "proximal muscle weakness",
+    "score": 1000
+  },
+  "Flexion contractures": {
+    "preferred_name": "flexion contracture",
+    "score": 1000
+  },
+  "Wasting of shoulder girdle": {
+    "preferred_name": "shoulder girdle muscle atrophy",
+    "score": 85.71428571428572
+  },
+  "Wasting of thigh muscles": {
+    "preferred_name": "proximal lower limb amyotrophy",
+    "score": 97.87234042553192
+  },
+  "severe dilated cardiomyopathy": {
+    "preferred_name": "dilated cardiomyopathy",
+    "score": 86.27450980392157
+  },
+  "difficulty climbing stairs": {
+    "preferred_name": "difficulty climbing stairs",
+    "score": 1000
+  },
+  "muscle fiber atrophy": {
+    "preferred_name": "muscle fiber atrophy",
+    "score": 1000
+  },
+  "interstitial fibrosis": {
+    "preferred_name": "tubulointerstitial fibrosis",
+    "score": 87.5
+  },
+  "neurological abnormalities": {
+    "preferred_name": "abnormality of the nervous system",
+    "score": 96.0
+  },
+  "this disease": {
+    "preferred_name": "contagious pustular dermatitis",
+    "score": 88.88888888888889
+  },
+  "sporadic inclusion-body myositis": {
+    "preferred_name": "inclusion body myositis",
+    "score": 100.0
+  },
+  "myotonic dystrophy types 1": {
+    "preferred_name": "myotonic dystrophy type 1",
+    "score": 98.0392156862745
+  },
+  "myotonic dystrophy types 2": {
+    "preferred_name": "myotonic dystrophy type 2",
+    "score": 98.0392156862745
+  },
+  "sarcoid myopathy": {
+    "preferred_name": "nemaline myopathy",
+    "score": 85.71428571428572
+  },
+  "finger flexor weakness": {
+    "preferred_name": "finger flexor weakness",
+    "score": 1000
+  },
+  "ACTA1": {
+    "preferred_name": "acta1",
+    "score": 1000
+  },
+  "CRYAB": {
+    "preferred_name": "cryab",
+    "score": 1000
+  },
+  "GAA": {
+    "preferred_name": "gaa",
+    "score": 1000
+  },
+  "HNRNPDL": {
+    "preferred_name": "hnrnpdl",
+    "score": 1000
+  },
+  "MYH7": {
+    "preferred_name": "myh7",
+    "score": 1000
+  },
+  "VCP": {
+    "preferred_name": "vcp",
+    "score": 1000
+  },
+  "progressive weakness": {
+    "preferred_name": "progressive muscle weakness",
+    "score": 85.1063829787234
+  },
+  "high serum creatine kinase": {
+    "preferred_name": "elevated circulating creatine kinase concentration",
+    "score": 1000
+  },
+  "synapse formation": {
+    "preferred_name": "sinapate biosynthetic process",
+    "score": 85.71428571428572
+  },
+  "biceps muscles": {
+    "preferred_name": "biceps brachii",
+    "score": 96.2962962962963
+  },
+  "Hypertension": {
+    "preferred_name": "hypertension",
+    "score": 1000
+  },
+  "Mild proteinuria": {
+    "preferred_name": "mild proteinuria",
+    "score": 1000
+  },
+  "hypercalciuria": {
+    "preferred_name": "hypercalciuria",
+    "score": 1000
+  },
+  "hypocalciuria": {
+    "preferred_name": "hypocalciuria",
+    "score": 1000
+  },
+  "hyperphosphaturia": {
+    "preferred_name": "hyperphosphaturia",
+    "score": 1000
+  },
+  "hyperuricosuria": {
+    "preferred_name": "hyperuricosuria",
+    "score": 1000
+  },
+  "hyperuricemia": {
+    "preferred_name": "hyperuricemia",
+    "score": 1000
+  },
+  "elevated PTH levels": {
+    "preferred_name": "elevated circulating luteinizing hormone level",
+    "score": 88.88888888888889
+  },
+  "PTH": {
+    "preferred_name": "pth",
+    "score": 1000
+  },
+  "insulin-like growth factor-binding protein 2": {
+    "preferred_name": "igfbp2",
+    "score": 100.0
+  },
+  "matrix metalloproteinase 12": {
+    "preferred_name": "obsolete interstitial collagenase activity",
+    "score": 98.11320754716981
+  },
+  "CD23": {
+    "preferred_name": "fcer2",
+    "score": 88.88888888888889
+  },
+  "interleukin-22-binding protein": {
+    "preferred_name": "interleukin-18 binding protein",
+    "score": 93.33333333333333
+  },
+  "Follistatin": {
+    "preferred_name": "fst",
+    "score": 1000
+  },
+  "negative regulators of inflammatory response": {
+    "preferred_name": "negative regulation of inflammatory response",
+    "score": 95.45454545454545
+  },
+  "obsessive-compulsive disorders": {
+    "preferred_name": "compulsive behaviors",
+    "score": 98.30508474576271
+  },
+  "Cardiac arrhythmias": {
+    "preferred_name": "arrhythmia",
+    "score": 1000
+  },
+  "cardiac Purkinje fibers": {
+    "preferred_name": "cardiac purkinje fiber",
+    "score": 97.77777777777777
+  },
+  "Thoracolumbar kyphosis": {
+    "preferred_name": "thoracolumbar kyphosis",
+    "score": 1000
+  },
+  "Duchenne Muscle dystrophy": {
+    "preferred_name": "duchenne muscular dystrophy",
+    "score": 92.3076923076923
+  },
+  "end-stage heart failure": {
+    "preferred_name": "stage 5 chronic kidney disease",
+    "score": 86.95652173913044
+  },
+  "signaling role": {
+    "preferred_name": "ret signaling",
+    "score": 88.88888888888889
+  },
+  "autism spectrum disorders": {
+    "preferred_name": "autistic behavior",
+    "score": 1000
+  },
+  "nidogen": {
+    "preferred_name": "nid1",
+    "score": 87.5
+  },
+  "parvalbumin": {
+    "preferred_name": "pvalb",
+    "score": 1000
+  },
+  "rimeporide": {
+    "preferred_name": "rimeporide",
+    "score": 1000
+  },
+  "diabetes mellitus": {
+    "preferred_name": "diabetes mellitus",
+    "score": 1000
+  },
+  "ALDH1A1": {
+    "preferred_name": "aldh1a1",
+    "score": 1000
+  },
+  "ALDH1A3": {
+    "preferred_name": "aldh1a3",
+    "score": 1000
+  },
+  "ALDH1B1": {
+    "preferred_name": "aldh1b1",
+    "score": 1000
+  },
+  "ALDH2": {
+    "preferred_name": "aldh2",
+    "score": 1000
+  },
+  "ALDH3A2": {
+    "preferred_name": "aldh3a2",
+    "score": 1000
+  },
+  "ALDH7A1": {
+    "preferred_name": "aldh7a1",
+    "score": 1000
+  },
+  "ALDH8A1": {
+    "preferred_name": "aldh8a1",
+    "score": 1000
+  },
+  "ALDH9A1": {
+    "preferred_name": "aldh9a1",
+    "score": 1000
+  },
+  "tissue remodelling": {
+    "preferred_name": "tissue remodeling",
+    "score": 1000
+  },
+  "Limb contractures": {
+    "preferred_name": "limb joint contracture",
+    "score": 1000
+  },
+  "cerebral palsy": {
+    "preferred_name": "cerebral palsy",
+    "score": 1000
+  },
+  "MyHC": {
+    "preferred_name": "myc",
+    "score": 85.71428571428572
+  },
+  "age of ambulation loss": {
+    "preferred_name": "loss of ambulation",
+    "score": 90.0
+  }
+}

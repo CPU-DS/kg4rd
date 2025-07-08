@@ -1,0 +1,20 @@
+{
+    "molfunc": "molecular_function",
+    "Molecular function": "molecular_function",
+    "cellcomp": "cellular_component",
+    "Cellular component": "cellular_component",
+    "bioprocess": "biological_process",
+    "Biological process": "biological_process",
+    "pathway": "pathway",
+    "Pathway": "pathway",
+    "phenotype": "effect/phenotype",
+    "Phenotype": "effect/phenotype",
+    "anatomy": "anatomy",
+    "Anatomy": "anatomy",
+    "protein": "gene/protein",
+    "Protein": "gene/protein",
+    "drug": "drug",
+    "Drug": "drug",
+    "disease": "disease",
+    "Disease": "disease"
+}

@@ -13,6 +13,7 @@ df_dis['name'] = df_dis['name'].astype(str).apply(lambda x: x.lower())
 
 df_drug = pd.read_csv('data_synonyms/drugbank_synonyms_concat.csv')
 df_drug['name'] = df_drug['name'].astype(str).apply(lambda x: x.lower())
+df_drug['id'] = df_drug['id'].apply(lambda x: int(x.strip('DB'))).astype(str)
 
 df_go = pd.read_csv('data_synonyms/go_synonyms.csv')
 df_go['name'] = df_go['name'].astype(str).apply(lambda x: x.lower())
@@ -42,28 +43,31 @@ df_exp['name'] = df_exp['name'].astype(str).apply(lambda x: x.lower())
 def simple_search(name: str,
                   type_: str
     ) -> Optional[str]:
+    type_ = type_.lower()
     match type_:
-        case 'mf', 'cc', 'bp', 'Cellular component', 'Molecular function', 'Biological process':
+        case 'molfunc' | 'cellcomp' | 'bioprocess' | 'cellular component' | 'molecular function' | 'biological process':
             df = df_go
-        case 'dis', 'Disease':
+        case 'disease':
             df = df_dis
-        case 'drug', 'Drug':
+        case 'drug':
             df = df_drug
-        case 'phe', 'Phenotype':
+        case 'phenotype':
             df = df_phe
-        case 'ana', 'Anatomy':
+        case 'anatomy':
             df = df_ana
-        case 'prot', 'Protein':
+        case 'protein':
             df = df_prot
-        case 'path', 'Pathway':
+        case 'pathway':
             df = df_path
-        case 'exp', 'Exposure':
+        case 'exposure':
             df = df_exp
+        case _:
+            return None
 
     name = name.lower()
     if len(ids := df[df['name'] == name]['id'].values) == 0:
         return None
-    return ids[0]
+    return str(ids[0])
 
 if __name__ == '__main__':
     print(simple_search('Muscular Dystrophy, Duchenne', 'dis'))

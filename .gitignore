@@ -28,4 +28,3 @@ models/
 checkpoints/
 wandb/
 swanlog/
-experimental/
