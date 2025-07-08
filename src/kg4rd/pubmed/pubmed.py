@@ -9,7 +9,6 @@ from dataclasses import dataclass
 import re
 import os
 import time
-
 import requests
 from bs4 import BeautifulSoup
 from loguru import logger
@@ -17,7 +16,6 @@ import pandas as pd
 from tqdm import tqdm
 from glob import glob
 from retry import retry
-
 from type import Markdown
 
 

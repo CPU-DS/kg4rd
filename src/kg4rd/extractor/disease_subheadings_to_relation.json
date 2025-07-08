@@ -1,0 +1,78 @@
+{
+  "complications": [
+    "Disease - Phenotype (positive)",
+    "Phenotype - Phenotype",
+    "Disease - Disease"
+  ],
+  "drug therapy": [
+    "Drug - Disease (indication)",
+    "Drug - Disease (off-label use)",
+    "Drug - Disease (contraindication)",
+    "Drug - Phenotype",
+    "Drug - Protein",
+    "Drug - Drug"
+  ],
+  "enzymology": [
+    "Molecular function - Protein",
+    "Biological process - Protein",
+    "Pathway - Protein",
+    "Protein - Protein",
+    "Disease - Protein"
+  ],
+  "genetics": [
+    "Disease - Protein",
+    "Phenotype - Protein",
+    "Anatomy - Protein (present)",
+    "Anatomy - Protein (absent)"
+  ],
+  "immunology": [
+    "Disease - Protein",
+    "Phenotype - Protein",
+    "Protein - Protein",
+    "Biological process - Protein",
+    "Cellular component - Protein"
+  ],
+  "metabolism": [
+    "Biological process - Protein",
+    "Molecular function - Protein",
+    "Pathway - Protein",
+    "Disease - Protein",
+    "Disease - Phenotype (positive)",
+    "Exposure - Protein",
+    "Exposure - Biological process"
+  ],
+  "pathology": [
+    "Disease - Phenotype (positive)",
+    "Disease - Protein",
+    "Anatomy - Protein (present)",
+    "Anatomy - Protein (absent)",
+    "Biological process - Protein",
+    "Cellular component - Protein"
+  ],
+  "physiopathology": [
+    "Disease - Protein",
+    "Biological process - Protein",
+    "Molecular function - Protein",
+    "Disease - Phenotype (positive)",
+    "Pathway - Protein",
+    "Disease - Phenotype (positive)",
+    "Anatomy - Protein (present)",
+    "Anatomy - Protein (absent)"
+  ],
+  "therapy": [
+    "Drug - Disease (indication)",
+    "Drug - Disease (off-label use)",
+    "Drug - Disease (contraindication)",
+    "Drug - Protein",
+    "Drug - Phenotype"
+  ],
+  "prevention and control": [
+    "Drug - Disease (off-label use)",
+    "Exposure - Disease",
+    "Exposure - Biological process",
+    "Exposure - Protein",
+    "Drug - Disease (indication)",
+    "Disease - Phenotype (positive)",
+    "Disease - Protein"
+  ]
+}

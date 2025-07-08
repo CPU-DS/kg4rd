@@ -5,7 +5,6 @@
 # Description: 获取罕见病 MeSH ID
 
 import pandas as pd
-import matplotlib.pyplot as plt
 import numpy as np
 import requests
 from bs4 import BeautifulSoup
@@ -49,22 +48,20 @@ def wait_for_download(func, *args, **kwargs):
 
 if __name__ == '__main__':
     df_orphanet_mondo_ref = pd.read_csv('data/mondo/mondo_references.csv').query('ontology == "Orphanet"')
+    df_orphanet_mondo_ref.reset_index(drop=True, inplace=True)
     df_orphanet_mondo_ref['ontology_id'] = df_orphanet_mondo_ref['ontology_id'].astype(int).astype(str)
-    
+
     data = []
-    no_mesh_count = 0
-    deleted_count = 0
+
     for _, row in tqdm(df_orphanet_mondo_ref.iterrows(), total=len(df_orphanet_mondo_ref)):
         code = row['ontology_id']
         resp = wait_for_download(get_mesh, code)
-        mesh_name = None
         if resp is None:
-            deleted_count += 1
-            continue
-        (name, mesh) = resp.values()
-        if mesh is None:
-            no_mesh_count += 1
+            name, mesh = None, None
         else:
+            (name, mesh) = resp.values()
+        mesh_name = None
+        if mesh is not None:
             mesh_name = wait_for_download(get_mesh_name, mesh)
         data.append({'code': code, 'name': name, 'mesh': mesh, 'mesh_name': mesh_name})
     pd.DataFrame(data).to_csv('data/orphanet/orphanet_mesh.csv', index=False)

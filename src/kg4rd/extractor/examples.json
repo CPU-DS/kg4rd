@@ -1,0 +1,61 @@
+[
+  {
+    "abstract_text": "Accurate estimation of gait characteristics, including step length, step velocity, and travel distance, is critical for assessing mobility in toddlers, children, and teens with Duchenne muscular dystrophy (DMD) and typically developing (TD) peers. This study introduces a novel method leveraging Fast Fourier Transform (FFT)-derived step frequency from a single waist-worn consumer-grade accelerometer to predict gait parameters efficiently. The proposed FFT-based step frequency detection approach, combined with regression-derived stride length estimation, enables precise measurement of temporospatial gait features across various walking and running speeds. Our model, developed from a diverse cohort of children aged 3-16, demonstrated high accuracy in step length estimation (R2=0.92, RMSE=0.06 m) using only step frequency and height as inputs. Comparative analysis with ground-truth observations and AI-driven Walk4Me models validated the FFT-based method, showing strong agreement across step count, step frequency, step length, step velocity, and travel distance metrics. The results highlight the feasibility of using widely available mobile devices for gait assessment in real-world settings, offering a scalable solution for monitoring disease progression and mobility changes in individuals with DMD. Future work will focus on refining model performance and expanding applicability to additional movement disorders.",
+    "output_data": []
+  },
+  {
+    "abstract_text": "Mutations in the dystrophin gene (DMD) cause the severe muscle-wasting disease Duchenne muscular dystrophy (DMD). Additionally, there is a high incidence of intellectual disability and neurobehavioural comorbidities in individuals with DMD. Similar behavioural abnormalities are found in mdx dystrophic mouse models. Unlike muscle, several dystrophin isoforms are expressed in the human brain, but a detailed map of regional and cellular localisation of dystrophin isoforms is missing. This is crucial in understanding the neuropathology of DMD individuals, and for evaluating the translatability of pre-clinical findings in DMD mouse models receiving genetic therapy interventions. Here, we provide a comprehensive dystrophin expression profile in human brains from early development to adulthood. We reveal expression of dp427p2, dp427c, dp427m and dp40 isoforms in human embryonic brains, not previously reported. We also detected dp427p2 expression and developmental regulation in human brain across the lifespan. In addition we showed by in situ hybridisation that dp140 was greatly downregulated in adult brains. Importantly, our data also demonstrate expression of DMD transcripts in human motor neurons and co-expression of different dystrophin isoforms within single neurons in both developing and adult brains. Finally, we show localisation of DMD transcripts with GAD1+ GABAergic-associated transcripts in neurons including cerebellar Purkinje cells and interneurons, as well as in the majority of neocortical and hippocampal SLC17A7+ glutamatergic neurons, suggesting a role for dystrophin in signalling at the neuronal inhibitory and excitatory synapses.",
+    "output_data": [
+      {
+        "subject": "Duchenne muscular dystrophy",
+        "predicate": "Disease - Phenotype (positive)",
+        "object": "serve muscle-wasting"
+      },
+      {
+        "subject": "Duchenne muscular dystrophy",
+        "predicate": "Disease - Phenotype (positive)",
+        "object": "intellectual disability"
+      },
+      {
+        "subject": "Duchenne muscular dystrophy",
+        "predicate": "Disease - Phenotype (positive)",
+        "object": "neurobehavioural comorbidities"
+      },
+      {
+        "subject": "Duchenne muscular dystrophy",
+        "predicate": "Disease - Protein",
+        "object": "dystrophin"
+      },
+      {
+        "subject": "signaling at neuronal inhibitory and excitatory synapses",
+        "predicate": "Biological process - Protein",
+        "object": "dystrophin"
+      }
+    ]
+  },
+  {
+    "abstract_text": "Introduction: Duchenne muscular dystrophy (DMD) is an X-linked recessive disorder caused by mutations in the dystrophin gene. These mutations result in the absence or reduced levels of dystrophin protein, leading to progressive skeletal and cardiac muscle deterioration. Cardiomyopathy is almost universally present in patients with DMD who survive into their third decade of life. The clinical onset of cardiac dysfunction is often asymptomatic and typically identified during routine evaluations. Acute deterioration of cardiac function in DMD patients is rarely reported in the medical literature. Case presentation: We report the case of a 13-year-old boy with DMD and preserved left ventricular (LV) function who presented with severe retrosternal chest pain and electrocardiographic (ECG) abnormalities. Laboratory testing revealed significantly elevated troponin levels, though coronary CT angiography (CTA) was normal. Cardiac magnetic resonance imaging (CMR) confirmed diffuse active myocarditis, demonstrating inflammation and fibrosis involving both the septal and lateral walls-a pattern of fibrosis atypical for Duchenne cardiomyopathy. Conclusion: Diffuse active myocardial injury with the pattern of active myocarditis is one of the causes of rapid deterioration of LV dysfunction in Duchenne cardiomyopathy and can be detected by CMR.",
+    "output_data": [
+      {
+        "subject": "Duchenne muscular dystrophy",
+        "predicate": "Disease - Phenotype (positive)",
+        "object": "skeletal muscle deterioration"
+      },
+      {
+        "subject": "Duchenne muscular dystrophy",
+        "predicate": "Disease - Phenotype (positive)",
+        "object": "cardiac muscle deterioration"
+      },
+      {
+        "subject": "Duchenne muscular dystrophy",
+        "predicate": "Disease - Phenotype (positive)",
+        "object": "cardiomyopathy"
+      },
+      {
+        "subject": "Duchenne muscular dystrophy",
+        "predicate": "Disease - Phenotype (positive)",
+        "object": "X-linked recessive disorder"
+      }
+    ]
+  }
+]

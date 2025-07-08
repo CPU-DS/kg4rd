@@ -1,3 +1,9 @@
+# -*- coding: utf-8 -*-
+# Create Date: 2025/06/08
+# Author: chenhongli
+# File Name: ppi.py
+# Description: 蛋白质相互作用数据
+
 import pandas
 import tqdm
 info_csv = pandas.read_csv("data/ppi/9606.protein.info.v12.0.txt", sep='\t')

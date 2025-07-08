@@ -40,24 +40,24 @@ df_exp = pd.read_csv('data_synonyms/ctd_synonyms.csv')
 df_exp['name'] = df_exp['name'].astype(str).apply(lambda x: x.lower())
 
 def simple_search(name: str,
-                  type_: Literal['mf', 'cc', 'bp', 'dis', 'drug', 'phe', 'ana', 'prot', 'path', 'exp']
+                  type_: str
     ) -> Optional[str]:
     match type_:
-        case 'mf', 'cc', 'bp':
+        case 'mf', 'cc', 'bp', 'Cellular component', 'Molecular function', 'Biological process':
             df = df_go
-        case 'dis':
+        case 'dis', 'Disease':
             df = df_dis
-        case 'drug':
+        case 'drug', 'Drug':
             df = df_drug
-        case 'phe':
+        case 'phe', 'Phenotype':
             df = df_phe
-        case 'ana':
+        case 'ana', 'Anatomy':
             df = df_ana
-        case 'prot':
+        case 'prot', 'Protein':
             df = df_prot
-        case 'path':
+        case 'path', 'Pathway':
             df = df_path
-        case 'exp':
+        case 'exp', 'Exposure':
             df = df_exp
 
     name = name.lower()

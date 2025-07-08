@@ -5,7 +5,6 @@
 # Description: 中间类型
 
 from typing import Any
-
 import html2text
 
 
