@@ -67,7 +67,7 @@ def simple_search(name: str,
     name = name.lower()
     if len(ids := df[df['name'] == name]['id'].values) == 0:
         return None
-    return str(ids[0])
+    return 'kg4rd:' + str(ids[0])
 
 if __name__ == '__main__':
     print(simple_search('Muscular Dystrophy, Duchenne', 'dis'))
