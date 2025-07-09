@@ -16,6 +16,8 @@ from typing import Generic, TypeVar, TypedDict
 import os
 from loguru import logger
 from retry import retry
+from shortuuid import uuid
+
 
 os.environ['HTTP_PROXY'] = 'http://127.0.0.1:7890'
 os.environ['HTTPS_PROXY'] = 'http://127.0.0.1:7890'
@@ -169,6 +171,8 @@ def extract(mesh_id: str):
         except Exception as e:
             raise e
         else:
+            for r in extracted_relations:
+                r['uid'] = f'{mesh_id}:{row["pmid"]}:{str(uuid4())}'
             results.append({
                 'pmid': row['pmid'],
                 'index': idx,

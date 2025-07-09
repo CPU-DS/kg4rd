@@ -10,6 +10,7 @@ import re
 import pandas as pd
 import os
 from tqdm import tqdm
+from shortuuid import uuid
 sys.path.append('src/kg4rd')
 
 from synonyms.simple_search import simple_search
@@ -21,63 +22,6 @@ node_type_name_map = json.load(open('src/kg4rd/extractor/node_type_name_map.json
 exists_edges = pd.read_csv('src/kg4rd/kg/kg.csv')
 exists_nodes = pd.read_csv('src/kg4rd/kg/nodes.csv')
 
-triples = []
-report = {
-    '摘要数': len(dmd),
-    '抽取到的三元组总数': 0,
-    '抽取到的三元组去重后总数': 0,
-    '双侧均未获取到同义词': 0,
-    '双侧均获取到同义词': 0,
-    '双侧均获取到id': 0,
-    '关系不在限定范围内': 0,
-    '已存在的三元组': 0,
-    '新加入的三元组': 0,
-    '新加入的三元组(双侧实体均已经存在)': 0,
-}
-unique_triples = set()
-
-for result in tqdm(dmd):
-    for triple in result['extracted_relations']:
-        report['抽取到的三元组总数'] += 1
-        
-        subject = triple['subject']
-        object_ = triple['object']
-        relation = triple['predicate']
-        
-        unique_triples.add((subject, relation, object_))
-        
-for subject, relation, object_ in tqdm(unique_triples):
-    report['抽取到的三元组去重后总数'] += 1
-    
-    rs = re.sub(r'\s*\([^)]*\)', '', relation)
-    rs = [r.strip() for r in rs.split('-')]
-    
-    subject_preferred_name = synonyms.get(subject, {}).get('preferred_name', None)
-    object_preferred_name = synonyms.get(object_, {}).get('preferred_name', None)
-    
-    if subject_preferred_name is None and object_preferred_name is None:
-        report['双侧均未获取到同义词'] += 1
-    elif subject_preferred_name is not None and object_preferred_name is not None:
-        report['双侧均获取到同义词'] += 1
-        
-        subject_id = simple_search(subject_preferred_name, rs[0])
-        subject_type = node_type_name_map.get(rs[0])
-        object_id = simple_search(object_preferred_name, rs[1])
-        object_type = node_type_name_map.get(rs[1])
-        
-        if subject_id is not None and object_id is not None:
-            report['双侧均获取到id'] += 1
-            if relation_type_name_map.get(relation, None) is None:
-                report['关系不在限定范围内'] += 1
-            else:
-                triples.append({
-                    'relation': relation_type_name_map[relation],
-                    'x_type': subject_type,
-                    'y_type': object_type,
-                    'x_id': subject_id,
-                    'y_id': object_id
-                })
-            
 existing_edges_set = set(
     (row.relation, str(row.x_id), str(row.y_id), row.x_type, row.y_type)
     for row in exists_edges.itertuples(index=False)
@@ -88,45 +32,106 @@ existing_nodes_set = set(
     for row in exists_nodes.itertuples(index=False)
 )
 
-triples_node_exist = []
+original_triples = []
+approved_triples = []
+approved_triples_node_exist = []
 
-for triple in tqdm(triples):
-    relation, x_id, y_id, x_type, y_type = triple['relation'], triple['x_id'], triple['y_id'], triple['x_type'], triple['y_type']
-    
-    if (relation, x_id, y_id, x_type, y_type) in existing_edges_set:
-        report['已存在的三元组'] += 1
-    else:
-        report['新加入的三元组'] += 1
+for result in tqdm(dmd):
+    for triple in result['extracted_relations']:
         
-        if (x_id, x_type) in existing_nodes_set and (y_id, y_type) in existing_nodes_set:
-            report['新加入的三元组(双侧实体均已经存在)'] += 1
-            triples_node_exist.append(triple)
+        subject = triple['subject']
+        object_ = triple['object']
+        relation = triple['predicate']
         
-print(report)
-
-df_triples = pd.DataFrame(triples)
-df_triples.to_csv('src/kg4rd/extractor/experimental_dmd/new_triples_dmd.csv', index=False)
-
-pd.DataFrame(triples_node_exist).to_csv('src/kg4rd/extractor/experimental_dmd/new_triples_dmd_node_exist.csv', index=False)
-
-# relation_type_name_map_reverse = {v: k for k, v in relation_type_name_map.items()}
-# df_triples['relation_r'] = df_triples['relation'].apply(lambda x: relation_type_name_map_reverse[x])
-
-# res = df_triples['relation_r'].value_counts()
-# print(res)
-
-# count = 0
-# for triple in tqdm(triples_node_exist):
-#     relation, x_id, y_id = triple['relation'], str(triple['x_id']), str(triple['y_id'])
-#     rs = [r.strip() for r in relation.split('_')]
+        original_triples.append({
+            'subject': subject,
+            'object': object_,
+            'relation': relation,
+            'uid': triple['uid'],
+            'status': ''
+        })
     
-#     if 'disease' in rs:
-#         loc = rs.index('disease')
-#         if loc == 0:
-#             if x_id == '10679':  # DMD
-#                 count += 1
-#         else:
-#             if x_id == '10679':
-#                 count += 1
+        rs = re.sub(r'\s*\([^)]*\)', '', relation)
+        rs = [r.strip() for r in rs.split('-')]
+        
+        subject_preferred_name = synonyms.get(subject, {}).get('preferred_name', None)
+        object_preferred_name = synonyms.get(object_, {}).get('preferred_name', None)
+        
+        
+        if subject_preferred_name is None and object_preferred_name is None:
+            original_triples[-1]['status'] = 'TWO_SIDE_NO_SYNONYM'
+        elif subject_preferred_name is None or object_preferred_name is None:
+            original_triples[-1]['status'] = 'ONLY_ONE_SIDE_SYNONYM'
+        elif subject_preferred_name is not None and object_preferred_name is not None:
             
-# print(f'直接和DMD有关的三元组有{count}个')
+            subject_id = simple_search(subject_preferred_name, rs[0])
+            subject_type = node_type_name_map.get(rs[0])
+            object_id = simple_search(object_preferred_name, rs[1])
+            object_type = node_type_name_map.get(rs[1])
+            
+            if subject_id is not None and object_id is not None:
+                if (relation_type := relation_type_name_map.get(relation, None)) is None:
+                    original_triples[-1]['status'] = 'ERROR_RELATION_TYPE'
+                else:
+                    if (relation_type, subject_id, object_id, subject_type, object_type) in existing_edges_set:
+                        original_triples[-1]['status'] = 'KG_ALREADY_EXISTS'
+                    else:
+                        original_triples[-1]['status'] = 'APPROVED'
+                        if (subject_id, subject_type) in existing_nodes_set and (object_id, object_type) in existing_nodes_set:
+                            original_triples[-1]['status'] = 'APPROVED(NODE_ALL_EXISTS)'
+                            approved_triples_node_exist.append({
+                                'relation': relation_type,
+                                'x_type': subject_type,
+                                'y_type': object_type,
+                                'x_id': subject_id,
+                                'y_id': object_id,
+                                'uid': triple['uid'],
+                            })
+                        approved_triples.append({
+                            'relation': relation_type_name_map[relation],
+                            'x_type': subject_type,
+                            'y_type': object_type,
+                            'x_id': subject_id,
+                            'y_id': object_id,
+                            'uid': triple['uid'],
+                        })
+            else:
+                original_triples[-1]['status'] = 'NO_ID'
+
+df_original_triples = pd.DataFrame(original_triples)
+df_approved_triples = pd.DataFrame(approved_triples)
+df_approved_triples_node_exist = pd.DataFrame(approved_triples_node_exist)
+
+print('摘要数: ', len(dmd))
+len_original_triples = len(df_original_triples)
+print('抽取到的三元组总数: ', len_original_triples)
+
+len_two_side_no_synonym = len(df_original_triples[df_original_triples['status'] == 'TWO_SIDE_NO_SYNONYM'])
+print('双侧均未获取到同义词: ', len_two_side_no_synonym)
+
+len_only_one_side_synonym = len(df_original_triples[df_original_triples['status'] == 'ONLY_ONE_SIDE_SYNONYM'])
+print('双侧仅获取到一侧同义词: ', len_only_one_side_synonym)
+
+print('双侧均获取到同义词: ', len_original_triples - len_two_side_no_synonym - len_only_one_side_synonym)
+
+len_no_id = len(df_original_triples[df_original_triples['status'] == 'NO_ID'])
+print('单侧或双侧未获取到id: ', len_no_id)
+
+print('双侧均获取到id: ', len_original_triples - len_two_side_no_synonym - len_only_one_side_synonym - len_no_id)
+
+print('关系不在限定范围内: ', len(df_original_triples[df_original_triples['status'] == 'ERROR_RELATION_TYPE']))
+
+print('三元组已存在: ', len(df_original_triples[df_original_triples['status'] == 'KG_ALREADY_EXISTS']))
+
+print('新加入的三元组(去重前): ', len(df_approved_triples))
+print('新加入的三元组(双侧实体均已存在)(去重前): ', len(df_approved_triples_node_exist))
+
+df_approved_triples.drop_duplicates(subset=['relation', 'x_id', 'y_id', 'x_type', 'y_type'], inplace=True, keep='first')
+df_approved_triples_node_exist.drop_duplicates(subset=['relation', 'x_id', 'y_id', 'x_type', 'y_type'], inplace=True, keep='first')
+
+print('新加入的三元组(去重后): ', len(df_approved_triples))
+print('新加入的三元组(双侧实体均已存在)(去重后): ', len(df_approved_triples_node_exist))
+
+df_original_triples.to_csv('src/kg4rd/extractor/experimental_dmd/original_triples.csv', index=False)
+df_approved_triples.to_csv('src/kg4rd/extractor/experimental_dmd/approved_triples.csv', index=False)
+df_approved_triples_node_exist.to_csv('src/kg4rd/extractor/experimental_dmd/approved_triples_node_exist.csv', index=False)
