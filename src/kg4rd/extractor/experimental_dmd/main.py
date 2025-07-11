@@ -55,7 +55,9 @@ for result in tqdm(dmd):
         rs = [r.strip() for r in rs.split('-')]
         
         subject_preferred_name = synonyms.get(subject, {}).get('preferred_name', None)
+        subject_preferred_name_score = synonyms.get(subject, {}).get('score', None)
         object_preferred_name = synonyms.get(object_, {}).get('preferred_name', None)
+        object_preferred_name_score = synonyms.get(object_, {}).get('score', None)
         
         
         if subject_preferred_name is None and object_preferred_name is None:
@@ -77,24 +79,22 @@ for result in tqdm(dmd):
                         original_triples[-1]['status'] = 'KG_ALREADY_EXISTS'
                     else:
                         original_triples[-1]['status'] = 'APPROVED'
-                        if (subject_id, subject_type) in existing_nodes_set and (object_id, object_type) in existing_nodes_set:
-                            original_triples[-1]['status'] = 'APPROVED(NODE_ALL_EXISTS)'
-                            approved_triples_node_exist.append({
+                        at = {
                                 'relation': relation_type,
                                 'x_type': subject_type,
                                 'y_type': object_type,
                                 'x_id': subject_id,
                                 'y_id': object_id,
                                 'uid': triple['uid'],
-                            })
-                        approved_triples.append({
-                            'relation': relation_type_name_map[relation],
-                            'x_type': subject_type,
-                            'y_type': object_type,
-                            'x_id': subject_id,
-                            'y_id': object_id,
-                            'uid': triple['uid'],
-                        })
+                                'x_preferred_name': subject_preferred_name,
+                                'y_preferred_name': object_preferred_name,
+                                'x_preferred_name_score': subject_preferred_name_score,
+                                'y_preferred_name_score': object_preferred_name_score,
+                            }
+                        if (subject_id, subject_type) in existing_nodes_set and (object_id, object_type) in existing_nodes_set:
+                            original_triples[-1]['status'] = 'APPROVED(NODE_ALL_EXISTS)'
+                            approved_triples_node_exist.append(at)
+                        approved_triples.append(at)
             else:
                 original_triples[-1]['status'] = 'NO_ID'
 

@@ -1005,7 +1005,7 @@ requires-dist = [
     { name = "swanlab", specifier = ">=0.6.4" },
     { name = "tqdm", specifier = ">=4.67.1" },
     { name = "transformers", specifier = ">=4.52.4" },
-    { name = "unike", specifier = ">=3.0.4" },
+    { name = "unike", specifier = "==3.1.2" },
 ]
 
 [[package]]
@@ -2172,15 +2172,15 @@ wheels = [
 
 [[package]]
 name = "rich"
-version = "14.0.0"
+version = "13.9.4"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "markdown-it-py" },
     { name = "pygments" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/a1/53/830aa4c3066a8ab0ae9a9955976fb770fe9c6102117c8ec4ab3ea62d89e8/rich-14.0.0.tar.gz", hash = "sha256:82f1bc23a6a21ebca4ae0c45af9bdbc492ed20231dcb63f297d6d1021a9d5725", size = 224078 }
+sdist = { url = "https://files.pythonhosted.org/packages/ab/3a/0316b28d0761c6734d6bc14e770d85506c986c85ffb239e688eeaab2c2bc/rich-13.9.4.tar.gz", hash = "sha256:439594978a49a09530cff7ebc4b5c7103ef57baf48d5ea3184f21d9a2befa098", size = 223149 }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/0d/9b/63f4c7ebc259242c89b3acafdb37b41d1185c07ff0011164674e9076b491/rich-14.0.0-py3-none-any.whl", hash = "sha256:1c9491e1951aac09caffd42f448ee3d04e58923ffe14993f6e83068dc395d7e0", size = 243229 },
+    { url = "https://files.pythonhosted.org/packages/19/71/39c7c0d87f8d4e6c020a393182060eaefeeae6c01dab6a84ec346f2567df/rich-13.9.4-py3-none-any.whl", hash = "sha256:6049d5e6ec054bf2779ab3358186963bac2ea89175919d699e378b99738c2a90", size = 242424 },
 ]
 
 [[package]]
@@ -2524,26 +2524,29 @@ wheels = [
 
 [[package]]
 name = "swanlab"
-version = "0.6.4"
+version = "0.6.6"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "boto3" },
     { name = "botocore" },
     { name = "click" },
+    { name = "platformdirs" },
+    { name = "protobuf" },
     { name = "psutil" },
     { name = "pydantic" },
     { name = "pyecharts" },
     { name = "pynvml" },
     { name = "pyyaml" },
     { name = "requests" },
+    { name = "rich" },
     { name = "setuptools" },
     { name = "swankit" },
     { name = "urllib3" },
     { name = "wrapt" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/e2/ef/ca99701801abd5fbb8b792be5af16016045ca5f2f1f034d1aebd73094c7d/swanlab-0.6.4.tar.gz", hash = "sha256:1e9278238cce43f1eeca7caf1e8488f1550f3b143b1e783402808dd0a5856f8a", size = 377309 }
+sdist = { url = "https://files.pythonhosted.org/packages/33/eb/d71d3c823f07c78d6e1c38636cc4e93197a737d6c021d1401dacaeebb193/swanlab-0.6.6.tar.gz", hash = "sha256:620e9c54ad22661637c5c5ea5ff6504e70bca354c85ed45b1a89a4dd47ccfd58", size = 402424 }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/f7/23/a4316595242bb58421d56b8485c862f021f2451a548ad5a3fb16ae11f8a4/swanlab-0.6.4-py3-none-any.whl", hash = "sha256:75f56f5d50f4e445cdeff26bcb4c4343a13b9095d7313ba57cff0e8905306518", size = 261909 },
+    { url = "https://files.pythonhosted.org/packages/d2/6e/7cb4cbbbadd16b82884323dd087591ed9931d3f502d7584c1eef9215e67a/swanlab-0.6.6-py3-none-any.whl", hash = "sha256:8b86e11d8791b5256c36de34549cea396170933a21b8a2c1ff7cefd63e260213", size = 278038 },
 ]
 
 [[package]]
@@ -2796,7 +2799,7 @@ wheels = [
 
 [[package]]
 name = "unike"
-version = "3.0.4"
+version = "3.1.2"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "accelerate" },
@@ -2805,13 +2808,14 @@ dependencies = [
     { name = "packaging" },
     { name = "pandas", version = "2.1.0", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.12'" },
     { name = "pandas", version = "2.3.0", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.12'" },
+    { name = "swanlab" },
     { name = "torchdata" },
     { name = "tqdm" },
     { name = "wandb" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/2d/9d/5c0f67aaac68da3febb6a1003898418408e9c2568438f17fc15432274721/unike-3.0.4.tar.gz", hash = "sha256:6b8d97cbce2906c144e4d94965b6b2ffa8b384c99db57a19b05bd6fe2bab962e", size = 100952 }
+sdist = { url = "https://files.pythonhosted.org/packages/12/de/f557e76f83ea9d01b4af480f51f8306834d7938eb7a5cd12fc3decd9f655/unike-3.1.2.tar.gz", hash = "sha256:2a33b5addf18d5599095ea4068e4941ca4a54ee17bded8383a5ee5d3d71aaa1e", size = 115668 }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/4e/31/00448c34ddf6ed777fdb7da8339b6baa698e3b82619b514c7acea7be71ae/unike-3.0.4-py3-none-any.whl", hash = "sha256:37253457baa8766e7d18df379ffec3bb13be5a4a451eadcca4c45e17e99d66b1", size = 101576 },
+    { url = "https://files.pythonhosted.org/packages/b9/49/8ea36dcb62570795bd0b95c95846c062dd05364f457604949848b4c85b33/unike-3.1.2-py3-none-any.whl", hash = "sha256:47aca262a7dc2272a337305f0e9934a40eae9f7524b8e155cae4fe520d6fbb79", size = 103586 },
 ]
 
 [[package]]

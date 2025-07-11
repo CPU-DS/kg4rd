@@ -1,41 +1,41 @@
 # -*- coding: utf-8 -*-
-# Create Date: 2025/06/25
+# Create Date: 2025/07/10
 # Author: wangtao <wangtao.cpu@gmail.com>
-# File Name: transe.py
-# Description: kg4rd TransE experimental dmd 模型测试
+# File Name: complex.py
+# Description: kg4rd ComplEx experimental dmd 模型测试
 
+from unike.utils import WandbLogger
 from unike.data import KGEDataLoader, BernSampler, TradTestSampler
-from unike.module.model import TransE
-from unike.module.loss import MarginLoss
+from unike.module.model import ComplEx
+from unike.module.loss import SoftplusLoss
 from unike.module.strategy import NegativeSampling
 from unike.config import Trainer, Tester
-from unike.utils import WandbLogger
 
 wandb_logger = WandbLogger(
 	project="kg4rd",
-	name="kg4rd-TransE-dmdexp",
+	name="kg4rd-ComplEx-dmdexp",
 	config=dict(
 		in_path = 'src/kg4rd/extractor/experimental_dmd/kge/data/',
 		batch_size = 1024,
-		neg_ent = 10,
+		neg_ent = 25,
 		test = True,
-		test_batch_size = 256,
+		test_batch_size = 10,
 		num_workers = 16,
-		dim = 50,
-		p_norm = 1,
-		norm_flag = True,
-		margin = 1.0,
+		dim = 200,
+		regul_rate = 1.0,
+        use_tqdm = True,
 		use_gpu = True,
-		device = "cuda:0",
+		device = 'cuda:1',
 		epochs = 500,
-		lr = 0.01,
+		lr = 0.5,
+		opt_method = 'adagrad',
 		valid_interval = 50,
 		log_interval = 1,
 		save_interval = 50,
-		save_path = "src/kg4rd/extractor/experimental_dmd/kge/checkpoints/transe/transe.pth",
-		delta = 0.01,
+		save_path = 'src/kg4rd/extractor/experimental_dmd/kge/checkpoints/complex/complex.pth',
 		use_early_stopping = True
-	)
+	),
+	use='swanlab'
 )
 
 config = wandb_logger.config
@@ -52,46 +52,47 @@ dataloader = KGEDataLoader(
 	test_sampler = TradTestSampler
 )
 
-transe = TransE(
+complEx = ComplEx(
 	ent_tol = dataloader.get_ent_tol(),
 	rel_tol = dataloader.get_rel_tol(),
-	dim = config.dim, 
-	p_norm = config.p_norm, 
-	norm_flag = config.norm_flag
+	dim = config.dim
 )
 
 model = NegativeSampling(
-	model = transe, 
-	loss = MarginLoss(margin = config.margin),
+	model = complEx, 
+	loss = SoftplusLoss(), 
+	regul_rate = config.regul_rate
 )
 
 tester = Tester(
-    model = transe, 
+    model = complEx, 
     data_loader = dataloader, 
-    use_gpu = config.use_gpu,
+    use_tqdm = config.use_tqdm,
+    use_gpu = config.use_gpu, 
     device = config.device
 )
 
 tester.set_hits(new_hits=[1, 3, 10, 30, 50])
 
+
 trainer = Trainer(
     model = model, 
-    data_loader = dataloader.train_dataloader(),
-	epochs = config.epochs, 
-    lr = config.lr, 
+    data_loader = dataloader.train_dataloader(), 
+    epochs = config.epochs,
+	lr = config.lr, 
+    opt_method = config.opt_method, 
     use_gpu = config.use_gpu, 
     device = config.device,
 	tester = tester, 
     test = config.test, 
     valid_interval = config.valid_interval,
-	log_interval = config.log_interval,
+    log_interval = config.log_interval, 
     save_interval = config.save_interval,
-	save_path = config.save_path, 
-    delta = config.delta,
+    save_path = config.save_path, 
     use_wandb = True,
-    use_early_stopping=config.use_early_stopping,
+    use_early_stopping = config.use_early_stopping
 )
 
-if __name__ == '__main__':
-	trainer.run()
-	wandb_logger.finish()
+if __name__ == "__main__":
+    trainer.run()
+    wandb_logger.finish()

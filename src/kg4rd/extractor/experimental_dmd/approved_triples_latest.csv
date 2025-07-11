@@ -1,0 +1,334 @@
+relation,x_type,y_type,x_id,y_id,uid,x_preferred_name,y_preferred_name,x_preferred_name_score,y_preferred_name_score
+disease_phenotype_positive,disease,effect/phenotype,kg4rd:10679,kg4rd:1249,:40400011:8cxiHTfHEbuMJ5cudTfhtn,duchenne muscular dystrophy,intellectual disability,1000.0,1000.0
+anatomy_protein_present,anatomy,gene/protein,kg4rd:15230,kg4rd:1756,:40368879:KSNJHm4UB6yne29TsVe6b2,dorsal vessel heart,dmd,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:10679,kg4rd:1431,:40366239:52d5FmoktMw9P8H9yRsyEL,duchenne muscular dystrophy,cs,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:10679,kg4rd:9780,:40361216:QW9DbX3U4yc8iP2ugNLKfx,duchenne muscular dystrophy,piezo1,1000.0,1000.0
+disease_phenotype_positive,disease,effect/phenotype,kg4rd:10679,kg4rd:3287,:40359883:JrogmgpD3XR4BMnqfQWogW,duchenne muscular dystrophy,abnormality of mitochondrial metabolism,1000.0,1000.0
+disease_phenotype_positive,disease,effect/phenotype,kg4rd:10679,kg4rd:1644,:40203679:B6c2NfrbmQUEti6oQYc5vk,duchenne muscular dystrophy,dilated cardiomyopathy,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:10679,kg4rd:23411,:40195304:gE7Xu5hLF966xvk6Ez4Xmj,duchenne muscular dystrophy,sirt1,1000.0,1000.0
+disease_disease,disease,disease,kg4rd:10679,kg4rd:19056,:40167615:V2iACj39w4LjcSTisUMBDn,duchenne muscular dystrophy,neuromuscular disease,1000.0,1000.0
+disease_phenotype_positive,disease,effect/phenotype,kg4rd:10679,kg4rd:25406,:40102886:j8eaWLaoCwaR2nnDMmNK9c,duchenne muscular dystrophy,asthenia,1000.0,1000.0
+disease_phenotype_positive,disease,effect/phenotype,kg4rd:19079,kg4rd:25406,:40102886:HuLBma2F6Y754Vs6sNmdE9,proximal spinal muscular atrophy,asthenia,1000.0,1000.0
+disease_disease,disease,disease,kg4rd:10679,kg4rd:15667,:40101139:idXW6bW58MwJtfJwmt3ijV,duchenne muscular dystrophy,acute myeloid leukemia,1000.0,1000.0
+disease_phenotype_positive,disease,effect/phenotype,kg4rd:10679,kg4rd:3678,:40051007:7XFY2N4yS5TSkAfCWSiuyg,duchenne muscular dystrophy,rapidly progressive,1000.0,1000.0
+disease_phenotype_positive,disease,effect/phenotype,kg4rd:16147,kg4rd:7340,:40051007:DN2GavR7Bef6bTxXKoLddy,qualitative or quantitative defects of dystrophin,lower limb muscle weakness,1000.0,1000.0
+disease_phenotype_positive,disease,effect/phenotype,kg4rd:5336,kg4rd:3236,:40051007:TPghwo9TViwh4Egja3WN7H,myopathy,elevated circulating creatine kinase concentration,1000.0,1000.0
+disease_phenotype_positive,disease,effect/phenotype,kg4rd:10679,kg4rd:1685,:40008976:gQBGVzVrQYni4s2BQkeLEe,duchenne muscular dystrophy,myocardial fibrosis,1000.0,1000.0
+disease_phenotype_positive,disease,effect/phenotype,kg4rd:10679,kg4rd:2650,:39945205:dRAsbDzqtFh9vibjko8nMA,duchenne muscular dystrophy,scoliosis,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:10679,kg4rd:7402,:39939773:V3LbftQCzrEjTDiNm4CLhz,duchenne muscular dystrophy,utrn,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:14893,kg4rd:1457,:39915227:EvH3deJ2QVqJtQp43rxNMt,okur-chung neurodevelopmental syndrome,csnk2a1,1000.0,1000.0
+disease_phenotype_positive,disease,effect/phenotype,kg4rd:10679,kg4rd:6000023,:39894866:NwKwwqg8RoDtHyRgYDv7uM,duchenne muscular dystrophy,lack of sufficient daily physical activity,1000.0,1000.0
+disease_phenotype_positive,disease,effect/phenotype,kg4rd:10679,kg4rd:3676,:39889824:mJMtxFuQMptZFubfpsUa6Z,duchenne muscular dystrophy,progressive,1000.0,1000.0
+bioprocess_protein,biological_process,gene/protein,kg4rd:10468,kg4rd:9365,:39889824:Vcd9N4B8RHXLsvbNkEFCnt,regulation of gene expression,kl,1000.0,1000.0
+bioprocess_protein,biological_process,gene/protein,kg4rd:16567,kg4rd:58529,:39865125:3Pkh3jbtktihyka4a8a98z,protein ubiquitination,myoz1,1000.0,1000.0
+disease_phenotype_positive,disease,effect/phenotype,kg4rd:10679,kg4rd:25464,:39806512:KYgvPQ5NjGeJpFWCshq2kn,duchenne muscular dystrophy,increased reactive oxygen species production,1000.0,1000.0
+disease_phenotype_positive,disease,effect/phenotype,kg4rd:10679,kg4rd:4322,:39792921:mYo3Juk69pDcwiXtEjPD4H,duchenne muscular dystrophy,short stature,1000.0,1000.0
+disease_phenotype_positive,disease,effect/phenotype,kg4rd:10679,kg4rd:708,:39792584:MVBp9JQ7DvHaAXdH4i3HrF,duchenne muscular dystrophy,atypical behavior,1000.0,1000.0
+disease_phenotype_positive,disease,effect/phenotype,kg4rd:16147,kg4rd:739,:39719374:4MSSeN5cnEamZQenv9jJZ5,qualitative or quantitative defects of dystrophin,anxiety,1000.0,1000.0
+disease_phenotype_positive,disease,effect/phenotype,kg4rd:10679,kg4rd:3077,:39716324:RfkyBdtD9MS8pxnhUHMn6H,duchenne muscular dystrophy,hyperlipidemia,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:10679,kg4rd:7476,:39702274:n6UTkR8UhXr4Y4YbR4Jfjy,duchenne muscular dystrophy,wnt7a,1000.0,1000.0
+disease_phenotype_positive,disease,effect/phenotype,kg4rd:10679,kg4rd:1510,:39669499:5bhD4KB8URT3D69ZJ3rkRy,duchenne muscular dystrophy,growth delay,1000.0,1000.0
+disease_phenotype_positive,disease,effect/phenotype,kg4rd:10679,kg4rd:100512,:39669499:fu4ci8oxKM2LaiTkGXiuGW,duchenne muscular dystrophy,decreased circulating vitamin d concentration,1000.0,1000.0
+disease_phenotype_positive,disease,effect/phenotype,kg4rd:10679,kg4rd:2659,:39648958:7Z8ZdSakG5Eehi4shmeeuR,duchenne muscular dystrophy,increased susceptibility to fractures,1000.0,1000.0
+disease_phenotype_positive,disease,effect/phenotype,kg4rd:10679,kg4rd:2540,:39630734:FyrbtC7xNZwwSgdRCumb6k,duchenne muscular dystrophy,inability to walk,1000.0,1000.0
+disease_phenotype_positive,disease,effect/phenotype,kg4rd:10311,kg4rd:3812,:39621041:4kueP7cyYR3oB466eKceL2,becker muscular dystrophy,phenotypic variability,1000.0,1000.0
+phenotype_protein,effect/phenotype,gene/protein,kg4rd:3202,kg4rd:1756,:39595988:ZaYrLNrJ5E3EXNoVWxbzYT,muscular atrophy,dmd,1000.0,1000.0
+disease_disease,disease,disease,kg4rd:10311,kg4rd:16147,:39561886:VAhyfJ4KeusPWRR7iLxnib,becker muscular dystrophy,qualitative or quantitative defects of dystrophin,1000.0,1000.0
+disease_disease,disease,disease,kg4rd:10679,kg4rd:16147,:39561886:WpUVHqCoo8Mc4XpJT3xL8M,duchenne muscular dystrophy,qualitative or quantitative defects of dystrophin,1000.0,1000.0
+disease_disease,disease,disease,kg4rd:10679,kg4rd:5045,:39534979:DeexuY93gN7eoNLQVocXHf,duchenne muscular dystrophy,hypertrophic cardiomyopathy,1000.0,1000.0
+disease_disease,disease,disease,kg4rd:10679,kg4rd:7147,:39531786:f5T76BgQYqqxWytAikb6sk,duchenne muscular dystrophy,obstructive sleep apnea syndrome,1000.0,1000.0
+disease_phenotype_positive,disease,effect/phenotype,kg4rd:10679,kg4rd:2877,:39531786:e7pAxCrMQuwWAvEopD6dnN,duchenne muscular dystrophy,nocturnal hypoventilation,1000.0,1000.0
+disease_phenotype_positive,disease,effect/phenotype,kg4rd:20121,kg4rd:3201,:39503119:QHj4FkgQwcStUiWoMFZBqh,muscular dystrophy,rhabdomyolysis,1000.0,1000.0
+phenotype_phenotype,effect/phenotype,effect/phenotype,kg4rd:3201,kg4rd:1663,:39503119:cjgqV7jHFv4VkRQskmgKeS,rhabdomyolysis,ventricular fibrillation,1000.0,1000.0
+phenotype_phenotype,effect/phenotype,effect/phenotype,kg4rd:3201,kg4rd:1695,:39503119:5jnAUGDnBRzV4PpWdEo4MA,rhabdomyolysis,cardiac arrest,1000.0,1000.0
+phenotype_phenotype,effect/phenotype,effect/phenotype,kg4rd:2153,kg4rd:1663,:39503119:hLhoo2A22WUVnkhPAeJo9z,hyperkalemia,ventricular fibrillation,1000.0,1000.0
+phenotype_phenotype,effect/phenotype,effect/phenotype,kg4rd:2153,kg4rd:1695,:39503119:2DHwpLhG3EeEWnxf8wN4YX,hyperkalemia,cardiac arrest,1000.0,1000.0
+anatomy_protein_present,anatomy,gene/protein,kg4rd:14895,kg4rd:1756,:39499670:8KDLmfVv6kKAHmPRczBT82,"somatic muscle, invertebrate",dmd,1000.0,1000.0
+disease_phenotype_positive,disease,effect/phenotype,kg4rd:10311,kg4rd:2505,:39499670:nGeKckQ5mPw5XbYiGuzj4b,becker muscular dystrophy,loss of ambulation,1000.0,1000.0
+disease_phenotype_positive,disease,effect/phenotype,kg4rd:10311,kg4rd:5162,:39499670:3WYW8ycEBVgYCoujRqhSHQ,becker muscular dystrophy,abnormal left ventricular function,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:10679,kg4rd:6774,:39477543:WW66Qpm4Uj2GkHBg3dTrNc,duchenne muscular dystrophy,stat3,1000.0,1000.0
+anatomy_protein_absent,anatomy,gene/protein,kg4rd:14895,kg4rd:1756,:39415418:C2JqUKD4onYRG7sYkP4Z8D,"somatic muscle, invertebrate",dmd,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:10679,kg4rd:3479,:39390091:CRjpxpvYZiyBvMXveSCjpn,duchenne muscular dystrophy,igf1,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:10679,kg4rd:7135,:39390091:4V5xYukBARmur7weWyaB9S,duchenne muscular dystrophy,tnni1,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:10679,kg4rd:4654,:39390091:DjJexaoWz8xWhuut66u2Aa,duchenne muscular dystrophy,myod1,1000.0,1000.0
+disease_phenotype_positive,disease,effect/phenotype,kg4rd:10679,kg4rd:2015,:39362116:8UePaQSwb4s6k6Svat3sPX,duchenne muscular dystrophy,dysphagia,1000.0,1000.0
+disease_phenotype_positive,disease,effect/phenotype,kg4rd:10679,kg4rd:12532,:39317091:jScF39RqKVm6JuxwPX99Wk,duchenne muscular dystrophy,chronic pain,1000.0,1000.0
+disease_phenotype_positive,disease,effect/phenotype,kg4rd:10679,kg4rd:969,:39298449:mRjhTR5V3bURRxi7kRXo9C,duchenne muscular dystrophy,edema,1000.0,1000.0
+disease_phenotype_positive,disease,effect/phenotype,kg4rd:7037,kg4rd:2652,:39283673:h2gut4zepqcuCWugZNY3Ki,achondroplasia,skeletal dysplasia,1000.0,1000.0
+disease_phenotype_positive,disease,effect/phenotype,kg4rd:7037,kg4rd:4322,:39283673:Eeajg5QaWiKK8kSS45rL57,achondroplasia,short stature,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:10311,kg4rd:4060,:39192489:cDJbhXDzjaDNexGWRYEnAD,becker muscular dystrophy,lum,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:10311,kg4rd:1634,:39192489:VesaqH2wnMiStskaGEw75H,becker muscular dystrophy,dcn,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:10311,kg4rd:1277,:39192489:fiRjiUruT8njkCUma9nAUq,becker muscular dystrophy,col1a1,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:10679,kg4rd:1462,:39159389:Fue6txyXuHpcma4D5EqPbM,duchenne muscular dystrophy,vcan,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:10679,kg4rd:3146,:39158383:3r43d7HeBF6USQ6FWQcx4z,duchenne muscular dystrophy,hmgb1,1000.0,1000.0
+anatomy_protein_absent,anatomy,gene/protein,kg4rd:5090,kg4rd:1756,:39151676:egPqqybv9FQQkQvJHgBSwx,muscle structure,dmd,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:20121,kg4rd:83667,:39117956:FHd6rdeDGd9HQZ6VSNPQpb,muscular dystrophy,sesn2,1000.0,1000.0
+disease_phenotype_positive,disease,effect/phenotype,kg4rd:10679,kg4rd:1635,:39023735:26CdMXFFssG6RZvxjvrhay,duchenne muscular dystrophy,congestive heart failure,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:16147,kg4rd:1756,:39014877:6givg6FUnhvdQpwNYCHAtk,qualitative or quantitative defects of dystrophin,dmd,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:10679,kg4rd:1513,:39014877:byujgFXbT3JXpMLi3MgYYN,duchenne muscular dystrophy,ctsk,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:10679,kg4rd:4621,:39014877:YmzPqpccrWWEoUmvPp29Lu,duchenne muscular dystrophy,myh3,1000.0,1000.0
+disease_phenotype_positive,disease,effect/phenotype,kg4rd:10679,kg4rd:4395,:38999890:PdrXzciL4T3EUwGk6WzNzE,duchenne muscular dystrophy,malnutrition,1000.0,1000.0
+disease_phenotype_positive,disease,effect/phenotype,kg4rd:10311,kg4rd:1635,:38997055:9CEcNjBK3NSJaGhLveTh7A,becker muscular dystrophy,heart failure,1000.0,1000.0
+anatomy_protein_present,anatomy,gene/protein,kg4rd:5090,kg4rd:1756,:38965715:Cb8zTvrZrMJN48hGuYYzbM,muscle structure,dmd,1000.0,1000.0
+phenotype_protein,effect/phenotype,gene/protein,kg4rd:10766,kg4rd:6374,:38924558:ZusXzwCPG8cveph3LBoBdj,ectopic calcification,cxcl5,1000.0,1000.0
+disease_phenotype_positive,disease,effect/phenotype,kg4rd:10679,kg4rd:823,:38915199:AcyUH6faNXPBKKtRj3WLk3,duchenne muscular dystrophy,delayed puberty,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:10679,kg4rd:3162,:38867250:fLTFxY7nCYg24UgDTQor6J,duchenne muscular dystrophy,hmox1,1000.0,1000.0
+disease_phenotype_positive,disease,effect/phenotype,kg4rd:10679,kg4rd:3546,:38847487:7czb8iN9MuS7ot4r6LSqGP,duchenne muscular dystrophy,exercise intolerance,1000.0,1000.0
+disease_phenotype_positive,disease,effect/phenotype,kg4rd:10679,kg4rd:12,:38822858:dYUSJkCNKEdw6YzLsbvYyk,duchenne muscular dystrophy,urinary urgency,1000.0,1000.0
+disease_phenotype_positive,disease,effect/phenotype,kg4rd:10679,kg4rd:805,:38822858:ii5aPGEYc2ox9MrX3xRV77,duchenne muscular dystrophy,enuresis,1000.0,1000.0
+disease_phenotype_positive,disease,effect/phenotype,kg4rd:10679,kg4rd:9113,:38729626:eKDk8BchrrKg3rwUMePcDC,duchenne muscular dystrophy,diaphragmatic weakness,1000.0,1000.0
+disease_phenotype_positive,disease,effect/phenotype,kg4rd:10679,kg4rd:739,:38701157:cSA8RE7GzkRAv28aDGZuMN,duchenne muscular dystrophy,anxiety,1000.0,1000.0
+disease_disease,disease,disease,kg4rd:16147,kg4rd:5027,:38693632:ifTeudn8oYfKDaCNGbCd8h,qualitative or quantitative defects of dystrophin,epilepsy,1000.0,1000.0
+bioprocess_protein,biological_process,gene/protein,kg4rd:32502,kg4rd:24145,:38671506:AQ24VVZTiQpvSjd4jgDYkj,developmental process,panx1,1000.0,1000.0
+bioprocess_protein,biological_process,gene/protein,kg4rd:31099,kg4rd:24145,:38671506:dXrnH4RACoBp3WmuunpXUG,regeneration,panx1,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:10679,kg4rd:24145,:38671506:Moc6LL9dgJJZtheoAMgcgx,duchenne muscular dystrophy,panx1,1000.0,1000.0
+phenotype_phenotype,effect/phenotype,effect/phenotype,kg4rd:9113,kg4rd:2791,:38658324:cMgmaU9AZiiems9gpWxstX,diaphragmatic weakness,hypoventilation,1000.0,1000.0
+disease_phenotype_positive,disease,effect/phenotype,kg4rd:10679,kg4rd:2859,:38646787:K3cqFbT7iT6mebo6sSJ2hd,duchenne muscular dystrophy,rhabdomyosarcoma,1000.0,1000.0
+disease_phenotype_positive,disease,effect/phenotype,kg4rd:10679,kg4rd:1649,:38637619:SM64sUhQ9x3YqBxjBVAAnr,duchenne muscular dystrophy,tachycardia,1000.0,1000.0
+disease_phenotype_positive,disease,effect/phenotype,kg4rd:10679,kg4rd:4308,:38637619:RJzH9MASYRLBbmhPcfpx3Z,duchenne muscular dystrophy,ventricular arrhythmia,1000.0,1000.0
+disease_disease,disease,disease,kg4rd:10679,kg4rd:5249,:38630313:64DymYQVwKxWvMtC6SF8EY,duchenne muscular dystrophy,pneumonia,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:9047,kg4rd:347527,:38621993:CYGHsMYLNjTqB5Pq4vo2qv,cryptorchidism,arsh,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:9047,kg4rd:4103,:38621993:nLbecxwPzv76p2NxrVUP5S,cryptorchidism,magea4,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:9047,kg4rd:357,:38621993:iwJcqJAYXKgf3p6WBzayvi,cryptorchidism,shroom2,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:9047,kg4rd:8287,:38621993:gc5r25UUF6bCCrNhQo84bC,cryptorchidism,usp9y,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:9047,kg4rd:63035,:38621993:6ZuKV8ovA6gd6Woj2kUbyc,cryptorchidism,bcorl1,1000.0,1000.0
+disease_phenotype_positive,disease,effect/phenotype,kg4rd:10651,kg4rd:3713,:38507466:DWW3aGK2VzJeeqD8TQh4AU,menkes disease,muscle fiber necrosis,1000.0,1000.0
+phenotype_protein,effect/phenotype,gene/protein,kg4rd:1699,kg4rd:1756,:38484964:Aj6R7jcdTaqAfYZCP4Tps5,sudden death,dmd,1000.0,1000.0
+disease_phenotype_positive,disease,effect/phenotype,kg4rd:10679,kg4rd:1903,:38436872:FsvSqVMmfjqqhCYiKeEUJS,duchenne muscular dystrophy,anemia,1000.0,1000.0
+anatomy_protein_absent,anatomy,gene/protein,kg4rd:2349,kg4rd:27306,:38339125:SripQBq6KwC5WUEAtWBt4K,myocardium,hpgds,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:10679,kg4rd:27306,:38339125:dfPE4BpQHWksDv4aLy2CcQ,duchenne muscular dystrophy,hpgds,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:10311,kg4rd:1490,:38336890:afxw3MHPY8oZW3CMcufZHs,becker muscular dystrophy,ccn2,1000.0,1000.0
+disease_phenotype_positive,disease,effect/phenotype,kg4rd:10311,kg4rd:25406,:38324931:AShJ74HjdCsEXWffmJTRzh,becker muscular dystrophy,asthenia,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:10679,kg4rd:3676,:38271438:9euQEMkQqoZmh6HzuDz8i6,duchenne muscular dystrophy,itga4,1000.0,1000.0
+disease_phenotype_positive,disease,effect/phenotype,kg4rd:10679,kg4rd:230,:38193355:6wJFX7e4zWkGC4NUvWEFa5,duchenne muscular dystrophy,gingivitis,1000.0,1000.0
+disease_phenotype_positive,disease,effect/phenotype,kg4rd:10679,kg4rd:100812,:38193355:6dMuA4wvBXMASTxDgtV5yD,duchenne muscular dystrophy,halitosis,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:10679,kg4rd:960,:38179963:fNBTpCUTPyVApfV7xWGUsb,duchenne muscular dystrophy,cd44,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:10679,kg4rd:1894,:38179963:dEDKVZ5tkDQ6GiTjyhgroh,duchenne muscular dystrophy,ect2,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:10679,kg4rd:7298,:38179963:Xn8d98c6vUy9kXBWNXHfbP,duchenne muscular dystrophy,tyms,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:10679,kg4rd:54551,:38179963:8vTaya5kQ6SeVwCfJwsx2V,duchenne muscular dystrophy,magel2,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:10679,kg4rd:3108,:38179963:39EYsMVEMNDAxuuZF7o3r9,duchenne muscular dystrophy,hla-dma,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:10679,kg4rd:871,:38179963:2rhUcnnVddqoHJ7qy3AKQb,duchenne muscular dystrophy,serpinh1,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:10679,kg4rd:7139,:38179963:hMsmd8oHcvCitezFHZpiRb,duchenne muscular dystrophy,tnnt2,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:10679,kg4rd:51676,:38179963:6nEFoAZcJuBJTQwwb7p5ry,duchenne muscular dystrophy,asb2,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:10679,kg4rd:55214,:38179963:ZqEpVTmjhUi58kPDoJk6Tr,duchenne muscular dystrophy,p3h2,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:10679,kg4rd:1293,:38165583:bStxR7JUXA2AAWjZ7CFvfD,duchenne muscular dystrophy,col6a3,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:10679,kg4rd:1277,:38165583:ZSRYmi6gacbt4TBithciVH,duchenne muscular dystrophy,col1a1,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:10679,kg4rd:1281,:38165583:Ajqb9pc35rhhAuyv5MHSjS,duchenne muscular dystrophy,col3a1,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:10679,kg4rd:1278,:38165583:Cc2ob9k9WcDo4nCo66tmnR,duchenne muscular dystrophy,col1a2,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:10679,kg4rd:7076,:38165583:JXbyAQkAbEbYee7o8vg98z,duchenne muscular dystrophy,timp1,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:10679,kg4rd:7058,:38165583:JP4Xnv7ZxaLBCKnaqqTCvy,duchenne muscular dystrophy,thbs2,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:10679,kg4rd:6696,:38165583:cJTxguhJMAHdDKffrjos9h,duchenne muscular dystrophy,spp1,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:10679,kg4rd:1029,:38146684:Dk6WzDRo3nCcB6J4fbaH3U,duchenne muscular dystrophy,cdkn2a,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:10311,kg4rd:1029,:38146684:iFzYAkEZr2b3jpcCAup39D,becker muscular dystrophy,cdkn2a,1000.0,1000.0
+anatomy_protein_present,anatomy,gene/protein,kg4rd:5090,kg4rd:1029,:38146684:3yRcThU2CtLJon5izZNzpX,muscle structure,cdkn2a,1000.0,1000.0
+disease_disease,disease,disease,kg4rd:10679,kg4rd:5267,:38099842:6ovLicCxpTbYxBHJzT3xky,duchenne muscular dystrophy,heart disorder,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:10679,kg4rd:7037,:38078368:jcBHbecD58sVFeh8AD5TyW,duchenne muscular dystrophy,tfrc,1000.0,1000.0
+disease_phenotype_positive,disease,effect/phenotype,kg4rd:11925,kg4rd:9830,:37933889:UyvjSLKb5yDQefSVW9Cgqn,congenital merosin-deficient muscular dystrophy 1a,peripheral neuropathy,1000.0,1000.0
+disease_phenotype_positive,disease,effect/phenotype,kg4rd:11925,kg4rd:3198,:37933889:EWSAntKrhX353Dn5Xvxwzx,congenital merosin-deficient muscular dystrophy 1a,myopathy,1000.0,1000.0
+phenotype_protein,effect/phenotype,gene/protein,kg4rd:365,kg4rd:5456,:37929330:5fZjuh5bpVjkiR22D39CEP,hearing impairment,pou3f4,1000.0,1000.0
+anatomy_protein_present,anatomy,gene/protein,kg4rd:1103,kg4rd:11035,:37909859:29V8JoThX4Wv7DirpKL8Fw,diaphragm,ripk3,1000.0,1000.0
+disease_phenotype_positive,disease,effect/phenotype,kg4rd:10679,kg4rd:100613,:37740996:nLPjFVU7gPvj2hUhcyfXhW,duchenne muscular dystrophy,death in early adulthood,1000.0,1000.0
+disease_phenotype_positive,disease,effect/phenotype,kg4rd:10679,kg4rd:11947,:37724986:TEGXmWBfcgc9zhimcievs6,duchenne muscular dystrophy,respiratory tract infection,1000.0,1000.0
+disease_phenotype_positive,disease,effect/phenotype,kg4rd:10679,kg4rd:31371,:37724986:NPZktYs6EZMp3fi6SV6yuB,duchenne muscular dystrophy,rectal perforation,1000.0,1000.0
+disease_phenotype_positive,disease,effect/phenotype,kg4rd:10679,kg4rd:1942,:37724986:3RSWU9eLWWvJtTFEegZNzd,duchenne muscular dystrophy,metabolic acidosis,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:8056,kg4rd:1756,:37666691:PwpWBPohBfBvWrDyRcUsGP,myotonic dystrophy,dmd,1000.0,1000.0
+disease_disease,disease,disease,kg4rd:5252,kg4rd:4992,:37628775:CZPu6CeNmm2oJgwcrNTgeA,heart failure,cancer,1000.0,1000.0
+phenotype_protein,effect/phenotype,gene/protein,kg4rd:2505,kg4rd:1756,:37602688:e2rtoKVDab2NVdXcQyks2N,loss of ambulation,dmd,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:19079,kg4rd:6606,:37596438:Lj7HNUgog6vntwfGA8q3cF,proximal spinal muscular atrophy,smn1,1000.0,1000.0
+disease_phenotype_positive,disease,effect/phenotype,kg4rd:10679,kg4rd:3199,:37545256:NoRjDccqtq5Xx3xrXQyS47,duchenne muscular dystrophy,decreased muscle mass,1000.0,1000.0
+phenotype_phenotype,effect/phenotype,effect/phenotype,kg4rd:10807,kg4rd:689,:37334614:33qXkhRQmCz8ZEY4V3Pgau,open bite,dental malocclusion,1000.0,1000.0
+bioprocess_protein,biological_process,gene/protein,kg4rd:16236,kg4rd:50650,:37311604:8fxgsCuNU3j5B3pjbRhjxF,macroautophagy,arhgef3,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:10679,kg4rd:50650,:37311604:CtUfdw7h4fH8EAU2Nd9bwr,duchenne muscular dystrophy,arhgef3,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:10399,kg4rd:2710,:37091526:Knhydz3YWgCLkJmYdAXd2U,chromosome xp21 deletion syndrome,gk,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:10399,kg4rd:190,:37091526:FEinLDy8q8gktBexmVBQcF,chromosome xp21 deletion syndrome,nr0b1,1000.0,1000.0
+disease_phenotype_positive,disease,effect/phenotype,kg4rd:20121,kg4rd:10535,:37072321:P2vdRB4gyR8pTgju9gtDzK,muscular dystrophy,sleep apnea,1000.0,1000.0
+disease_phenotype_positive,disease,effect/phenotype,kg4rd:20121,kg4rd:2791,:37072321:2fkA4SDEJaqWE9S9QnbGSw,muscular dystrophy,hypoventilation,1000.0,1000.0
+disease_phenotype_positive,disease,effect/phenotype,kg4rd:44875,kg4rd:2791,:37072321:PmQE4izu49CBRszaXUQdcC,coronary microvascular disorder,hypoventilation,1000.0,1000.0
+disease_phenotype_positive,disease,effect/phenotype,kg4rd:16367,kg4rd:2791,:37072321:Yadayp3a3oWHqCs9ws6q8i,dermatomyositis,hypoventilation,1000.0,1000.0
+disease_phenotype_positive,disease,effect/phenotype,kg4rd:10651,kg4rd:2747,:37072321:bo6SsjrHnVwfecP4m5Rksy,menkes disease,respiratory insufficiency due to muscle weakness,1000.0,1000.0
+bioprocess_protein,biological_process,gene/protein,kg4rd:40007,kg4rd:6885,:37071470:oMAuJnAS9R6L8oLnRngCnG,growth,map3k7,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:10679,kg4rd:6885,:37071470:SixG5kw88wyBkdBjgGETBg,duchenne muscular dystrophy,map3k7,1000.0,1000.0
+disease_phenotype_positive,disease,effect/phenotype,kg4rd:10679,kg4rd:2203,:37063046:BZtnsRXaqvJLrxRmbwjNy2,duchenne muscular dystrophy,respiratory paralysis,1000.0,1000.0
+disease_phenotype_positive,disease,effect/phenotype,kg4rd:10679,kg4rd:1036,:37063046:JcnEuhdHgdBbiU78LABA3M,duchenne muscular dystrophy,parakeratosis,1000.0,1000.0
+disease_phenotype_positive,disease,effect/phenotype,kg4rd:10679,kg4rd:6001166,:37063046:YjapgaXNcvtrjgL9Jf9fN2,duchenne muscular dystrophy,spongiosis,1000.0,1000.0
+disease_phenotype_positive,disease,effect/phenotype,kg4rd:10679,kg4rd:2615,:36980233:9BmfTTwvxBHT5MjuJMv3ks,duchenne muscular dystrophy,hypotension,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:10679,kg4rd:54465,:36935420:L9hQfqsow4wh9Lu3pCCMJe,duchenne muscular dystrophy,etaa1,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:10679,kg4rd:84552,:36935420:bYP7vnCdFXJ9GmadZKd8vA,duchenne muscular dystrophy,pard6g,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:10679,kg4rd:442117,:36935420:e63bnxCatZ4dvZQXUhdiEA,duchenne muscular dystrophy,galntl6,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:10679,kg4rd:4121,:36935420:DyeKCY8ds4Uspt45rj5kxj,duchenne muscular dystrophy,man1a1,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:10679,kg4rd:171019,:36935420:FJZbgE6KxcWrbk9UJSFjn4,duchenne muscular dystrophy,adamts19,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:10679,kg4rd:83988,:36935420:mRNxjPAQ6EW4X6Zgm2oStR,duchenne muscular dystrophy,ncald,1000.0,1000.0
+anatomy_protein_present,anatomy,gene/protein,kg4rd:1015,kg4rd:7402,:36905929:WUdE4Ea5ztpAjqyttR6sKE,musculature,utrn,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:10679,kg4rd:358,:36675000:VqYe2Ttnbopw6ujTaL6g25,duchenne muscular dystrophy,aqp1,1000.0,1000.0
+bioprocess_protein,biological_process,gene/protein,kg4rd:51493,kg4rd:10413,:36609344:LDs4zLpZTE3HDW6HDfHgPm,regulation of cytoskeleton organization,yap1,1000.0,1000.0
+bioprocess_protein,biological_process,gene/protein,kg4rd:51493,kg4rd:6662,:36609344:PXuu2vqzcEd497vonAmTpm,regulation of cytoskeleton organization,sox9,1000.0,1000.0
+bioprocess_protein,biological_process,gene/protein,kg4rd:51493,kg4rd:6010,:36609344:A5dRFa37i6xdPnw6uyzctx,regulation of cytoskeleton organization,rho,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:10679,kg4rd:710,:36596079:cqjqvUi7QMkNMabf74qhqE,duchenne muscular dystrophy,serping1,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:10679,kg4rd:2162,:36596079:cavZUdase8s6wYtgsMN6u3,duchenne muscular dystrophy,f13a1,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:10679,kg4rd:716,:36596079:kRneMxkoNtfwsVbhncDm7s,duchenne muscular dystrophy,c1s,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:10679,kg4rd:715,:36596079:UNXxNtkbqs4bM8FKZFbY7k,duchenne muscular dystrophy,c1r,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:10679,kg4rd:3113,:36596079:ZP2RQhzKc3D7dukez9G6GH,duchenne muscular dystrophy,hla-dpa1,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:20121,kg4rd:6442,:36575883:7BWvpMuQJ8uDHh7aaMm5GL,muscular dystrophy,sgca,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:20121,kg4rd:79147,:36575883:96XdgPzabxq8wFaLTqQLvW,muscular dystrophy,fkrp,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:20121,kg4rd:203859,:36575883:oTXThTEfBL7kZFKMj6zGfP,muscular dystrophy,ano5,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:20121,kg4rd:1292,:36575883:oRGMSwfLP54uzKcMQMA8yo,muscular dystrophy,col6a2,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:20121,kg4rd:1180,:36575883:DduAuzPfEzbCk4MDQGCyQk,muscular dystrophy,clcn1,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:20121,kg4rd:10020,:36575883:9firhTtBUw9s3iGinfp64c,muscular dystrophy,gne,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:20121,kg4rd:84892,:36575883:4AtgCUAXnjax6mumH6oGaC,muscular dystrophy,pomgnt2,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:20121,kg4rd:2318,:36575883:Gn9TQPumZpL2dBKSFrshoe,muscular dystrophy,flnc,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:10679,kg4rd:10159,:36483550:dKxQfaNbXPgmAZ4M2oDd5Z,duchenne muscular dystrophy,atp6ap2,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:10679,kg4rd:1520,:36483550:WuSaMuFcUFjTrmg3JgMHwq,duchenne muscular dystrophy,ctss,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:10679,kg4rd:7431,:36483550:dPQtrrN8Ba4DY5tULh2UEC,duchenne muscular dystrophy,vim,1000.0,1000.0
+disease_phenotype_positive,disease,effect/phenotype,kg4rd:10679,kg4rd:25502,:36443054:AL762QkodSn962ze4y86oC,duchenne muscular dystrophy,overweight,1000.0,1000.0
+disease_phenotype_positive,disease,effect/phenotype,kg4rd:10679,kg4rd:518,:36404230:CirYL8gphd9H6pHNVDxkgP,duchenne muscular dystrophy,cataract,1000.0,1000.0
+phenotype_protein,effect/phenotype,gene/protein,kg4rd:3202,kg4rd:10013,:36402791:fG5AxDasnfRgtpcEGfFYkf,skeletal muscle atrophy,hdac6,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:10679,kg4rd:10013,:36402791:L2h9jRrMaDkWo3ym8oN3P4,duchenne muscular dystrophy,hdac6,1000.0,1000.0
+disease_disease,disease,disease,kg4rd:10679,kg4rd:4995,:36322201:iYkAAy5Lk5uLWpWCbxUZKK,duchenne muscular dystrophy,cardiovascular disorder,1000.0,1000.0
+disease_phenotype_positive,disease,effect/phenotype,kg4rd:10679,kg4rd:718,:36215287:Y7iUhgamhyr3LuE9huabE2,duchenne muscular dystrophy,aggressive behavior,1000.0,1000.0
+disease_phenotype_positive,disease,effect/phenotype,kg4rd:8030,kg4rd:100785,:36137167:W7zohba7oD8JSi6QUxGJrU,facioscapulohumeral muscular dystrophy 1,insomnia,1000.0,1000.0
+disease_phenotype_positive,disease,effect/phenotype,kg4rd:10311,kg4rd:3323,:36130887:MmttrSenTFBhS8M84bRZSb,becker muscular dystrophy,progressive muscle weakness,1000.0,1000.0
+disease_phenotype_positive,disease,effect/phenotype,kg4rd:16098,kg4rd:3701,:36130887:GELTdhomZstfViKrCTmPzg,immune-mediated necrotizing myopathy,proximal muscle weakness,1000.0,1000.0
+phenotype_protein,effect/phenotype,gene/protein,kg4rd:25406,kg4rd:1756,:36123393:TYT6fPeCxvpkd5GFVBJzwp,asthenia,dmd,1000.0,1000.0
+disease_phenotype_positive,disease,effect/phenotype,kg4rd:10679,kg4rd:12531,:36112314:mtKPUG7zHMHGwbK32eGGJ7,duchenne muscular dystrophy,pain,1000.0,1000.0
+disease_phenotype_positive,disease,effect/phenotype,kg4rd:10679,kg4rd:3552,:36112314:9LPqPPGtiqLFEvbrYwewUc,duchenne muscular dystrophy,muscle stiffness,1000.0,1000.0
+disease_disease,disease,disease,kg4rd:10679,kg4rd:5021,:36056946:ameGF2mcnSvmADY26rMU8q,duchenne muscular dystrophy,dilated cardiomyopathy,1000.0,1000.0
+disease_phenotype_positive,disease,effect/phenotype,kg4rd:10679,kg4rd:3712,:36012334:E6DpnVcgmWF9ssyTyxknAn,duchenne muscular dystrophy,skeletal muscle hypertrophy,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:19079,kg4rd:6607,:36012138:fAwPsKQSsAUKZVHyiF9xCs,proximal spinal muscular atrophy,smn2,1000.0,1000.0
+phenotype_protein,effect/phenotype,gene/protein,kg4rd:2505,kg4rd:6696,:36011296:iu33uRWVBMXaot7ehe9DpN,loss of ambulation,spp1,1000.0,1000.0
+phenotype_protein,effect/phenotype,gene/protein,kg4rd:2505,kg4rd:958,:36011296:EHksjQxjoBDe2zTKbgy25V,loss of ambulation,cd40,1000.0,1000.0
+phenotype_protein,effect/phenotype,gene/protein,kg4rd:2505,kg4rd:8425,:36011296:2gZTLykrDWmE8MyRrZDWZ5,loss of ambulation,ltbp4,1000.0,1000.0
+disease_phenotype_positive,disease,effect/phenotype,kg4rd:1347,kg4rd:2597,:36007191:BmFHj68Pb4cBhrxvcDrXk6,facioscapulohumeral muscular dystrophy,abnormality of the vasculature,1000.0,1000.0
+disease_phenotype_positive,disease,effect/phenotype,kg4rd:10679,kg4rd:2597,:36007191:AmbsrtzmGBaANtAvsnZDpc,duchenne muscular dystrophy,abnormality of the vasculature,1000.0,1000.0
+disease_phenotype_positive,disease,effect/phenotype,kg4rd:10679,kg4rd:1640,:35987773:jBPmdjFABJFEACKj88Luf7,duchenne muscular dystrophy,cardiomegaly,1000.0,1000.0
+disease_disease,disease,disease,kg4rd:20121,kg4rd:2572,:35973890:VsjkpN4AFeDWFjSBhhYki2,muscular dystrophy,aspiration pneumonitis,1000.0,1000.0
+disease_disease,disease,disease,kg4rd:10679,kg4rd:2572,:35973890:YiHCGnLrjurJsEpsZrRtCQ,duchenne muscular dystrophy,aspiration pneumonitis,1000.0,1000.0
+phenotype_protein,effect/phenotype,gene/protein,kg4rd:1324,kg4rd:246329,:35912995:jS6YdxvbRSLz5CtgGFkGDH,muscle weakness,stac3,1000.0,1000.0
+disease_phenotype_positive,disease,effect/phenotype,kg4rd:10679,kg4rd:100614,:35886926:bJCzQpV49Y6swLCmPoWXrW,duchenne muscular dystrophy,myositis,1000.0,1000.0
+anatomy_protein_absent,anatomy,gene/protein,kg4rd:6110636,kg4rd:1756,:35654209:UXn4LUDXQhWZJfJoz8CECe,insect adult cerebral ganglion,dmd,1000.0,1000.0
+disease_disease,disease,disease,kg4rd:10679,kg4rd:2081,:35614293:EK2iHh5MhAeqMuR5RQGBgz,duchenne muscular dystrophy,musculoskeletal system disorder,1000.0,1000.0
+disease_phenotype_positive,disease,effect/phenotype,kg4rd:10311,kg4rd:100543,:35367224:mxSvisqwA5KWjcnLcQZdnY,becker muscular dystrophy,cognitive impairment,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:10679,kg4rd:952,:35298089:i3bvgsiKA8stJTZsGqoX3n,duchenne muscular dystrophy,cd38,1000.0,1000.0
+disease_phenotype_positive,disease,effect/phenotype,kg4rd:10679,kg4rd:40270,:35273230:HKjpHvGioGrCafiSnCSTYs,duchenne muscular dystrophy,impaired glucose tolerance,1000.0,1000.0
+disease_phenotype_positive,disease,effect/phenotype,kg4rd:10679,kg4rd:100750,:35236763:T8jQr3AG2EXcrC9yVWFTrN,duchenne muscular dystrophy,atelectasis,1000.0,1000.0
+disease_phenotype_positive,disease,effect/phenotype,kg4rd:10679,kg4rd:2090,:35236763:EJNTKqKeR2qK9cD4dxXhEv,duchenne muscular dystrophy,pneumonia,1000.0,1000.0
+disease_disease,disease,disease,kg4rd:10679,kg4rd:816,:35215377:Bh5kwfUYRWk3YvnCn2DMhy,duchenne muscular dystrophy,abdominal obesity-metabolic syndrome,1000.0,1000.0
+disease_phenotype_positive,disease,effect/phenotype,kg4rd:10679,kg4rd:3119,:35215377:i5KP4B4JaGr47T88zKLLeq,duchenne muscular dystrophy,abnormal circulating lipid concentration,1000.0,1000.0
+disease_phenotype_positive,disease,effect/phenotype,kg4rd:10679,kg4rd:855,:35215377:3ZecbLoURyG8XypZCwcgx5,duchenne muscular dystrophy,insulin resistance,1000.0,1000.0
+disease_phenotype_positive,disease,effect/phenotype,kg4rd:10679,kg4rd:1397,:35215377:5rJ3HxsUbGcCsPFRFByE8h,duchenne muscular dystrophy,hepatic steatosis,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:10679,kg4rd:9759,:35170869:H3DM48fsVLXRkMnPy5jPAg,duchenne muscular dystrophy,hdac4,1000.0,1000.0
+phenotype_protein,effect/phenotype,gene/protein,kg4rd:1635,kg4rd:6774,:35157045:FxA8p9JuVRiP7FrxBiWtbS,congestive heart failure,stat3,1000.0,1000.0
+disease_phenotype_positive,disease,effect/phenotype,kg4rd:10679,kg4rd:1714,:35157045:2ft87Qq7noXqeqDzZXQyfs,duchenne muscular dystrophy,ventricular hypertrophy,1000.0,1000.0
+anatomy_protein_present,anatomy,gene/protein,kg4rd:6110636,kg4rd:1756,:35136951:df2DAQ2BRrCReLCXHPKQRy,insect adult cerebral ganglion,dmd,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:10679,kg4rd:9181,:35132805:bnLiFWagBYosca9ACYhMAg,duchenne muscular dystrophy,arhgef2,1000.0,1000.0
+phenotype_protein,effect/phenotype,gene/protein,kg4rd:100543,kg4rd:1756,:35064002:9otffHMfpZ24mMwkRgSMYU,cognitive impairment,dmd,1000.0,1000.0
+bioprocess_protein,biological_process,gene/protein,kg4rd:9058,kg4rd:1756,:35064002:VVC6TfqqTHYsdUgjEoTCYb,biosynthetic process,dmd,1000.0,1000.0
+anatomy_protein_present,anatomy,gene/protein,kg4rd:1015,kg4rd:3934,:35055145:W9xyw59Rtgo7mxx5TECgYu,musculature,lcn2,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:10679,kg4rd:3934,:35055145:njApWA2KnGLfxH2Epkzmpb,duchenne muscular dystrophy,lcn2,1000.0,1000.0
+disease_phenotype_positive,disease,effect/phenotype,kg4rd:10679,kg4rd:3713,:34964145:JGFzQJsWWmKc4QZCpGdCEb,duchenne muscular dystrophy,muscle fiber necrosis,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:10679,kg4rd:7220,:34930315:Q6hWpz5ewLHvvChxuXCiCw,duchenne muscular dystrophy,trpc1,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:10679,kg4rd:7222,:34930315:nsCCVR8MFVYCqA5awDVVuN,duchenne muscular dystrophy,trpc3,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:10679,kg4rd:719,:34922439:4DrumKRkPQrzzJZESnroPo,duchenne muscular dystrophy,c3ar1,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:10679,kg4rd:51284,:34922439:CNSVg6snjmu4goADGoYqrM,duchenne muscular dystrophy,tlr7,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:10679,kg4rd:3394,:34922439:DZoMmHmKW7VZ54oBZpGvGi,duchenne muscular dystrophy,irf8,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:10679,kg4rd:2533,:34922439:nwR67YQ4T7E3GvmKJkzsfm,duchenne muscular dystrophy,fyb1,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:10679,kg4rd:945,:34922439:DN64kkeAUGcFHqruqzvvV8,duchenne muscular dystrophy,cd33,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:10679,kg4rd:7305,:34922439:U8s7T6siMvrnjsKwvyEWSP,duchenne muscular dystrophy,tyrobp,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:10679,kg4rd:5341,:34922439:5vEuF7m3TcKiHm9bGDdJ3v,duchenne muscular dystrophy,plek,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:10679,kg4rd:199,:34922439:U5RAxN4Eb9WacbPUx2cERj,duchenne muscular dystrophy,aif1,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:10679,kg4rd:7805,:34922439:oJsSjTcCeutu3YKGWpuD6u,duchenne muscular dystrophy,laptm5,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:10679,kg4rd:4907,:34922439:Ny9oNnoypusqpB2S6bwtPE,duchenne muscular dystrophy,nt5e,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:10311,kg4rd:4015,:34922439:RRUe4oCJ8NAtWREqiA8XnE,becker muscular dystrophy,lox,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:10311,kg4rd:2006,:34922439:9JMeDh89uUqjiE5LQnCCV7,becker muscular dystrophy,eln,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:10311,kg4rd:5341,:34922439:NsqcA4T9VTqTikBRE8rG8Q,becker muscular dystrophy,plek,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:10311,kg4rd:10320,:34922439:3RLtu9x9Dby6fv9hpCS57h,becker muscular dystrophy,ikzf1,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:10311,kg4rd:1513,:34922439:UahTowoDKdtQXYrFuqzJLw,becker muscular dystrophy,ctsk,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:10311,kg4rd:7058,:34922439:GtDN5VNAb79qMc3m9etX89,becker muscular dystrophy,thbs2,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:10311,kg4rd:9509,:34922439:cmoLsvP8PPFpZ6KsJ7Uber,becker muscular dystrophy,adamts2,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:10311,kg4rd:1289,:34922439:ECR8qtGczYFVMoAVzF8S3F,becker muscular dystrophy,col5a1,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:10311,kg4rd:598,:34922439:SXE2LFYZJRFGZ8eK7cR4BX,becker muscular dystrophy,bcl2l1,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:10311,kg4rd:1017,:34922439:DEKrctByKQJsLUPRNTPQNk,becker muscular dystrophy,cdk2,1000.0,1000.0
+disease_disease,disease,disease,kg4rd:16147,kg4rd:10679,:34850383:GSSKf9EFHKRmjk7Ygvssdv,qualitative or quantitative defects of dystrophin,duchenne muscular dystrophy,1000.0,1000.0
+disease_phenotype_positive,disease,effect/phenotype,kg4rd:10679,kg4rd:12664,:34796900:YdXquGXbDZAvG3QfDSZ8oD,duchenne muscular dystrophy,reduced left ventricular ejection fraction,1000.0,1000.0
+disease_phenotype_positive,disease,effect/phenotype,kg4rd:16147,kg4rd:2650,:34787322:KBAzMeKzjUiGzyBatThQ6f,qualitative or quantitative defects of dystrophin,scoliosis,1000.0,1000.0
+disease_disease,disease,disease,kg4rd:18901,kg4rd:16147,:34764091:9EWequqryMTJRUXWuzLo9K,left ventricular noncompaction,qualitative or quantitative defects of dystrophin,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:10679,kg4rd:7273,:34569076:ZBCkpPnE3tKZKcYsGU9QHR,duchenne muscular dystrophy,ttn,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:10679,kg4rd:2934,:34569076:WTiGFXgHzqFyy6iv5jFE4M,duchenne muscular dystrophy,gsn,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:10679,kg4rd:2660,:34553378:gExpDPE3dZLAhehGKzkcNZ,duchenne muscular dystrophy,mstn,1000.0,1000.0
+bioprocess_protein,biological_process,gene/protein,kg4rd:45445,kg4rd:283120,:34454586:Mk7xKaH2pMcLA76CFtczM6,myoblast differentiation,h19,1000.0,1000.0
+disease_phenotype_positive,disease,effect/phenotype,kg4rd:10679,kg4rd:3326,:34453345:KHE3ePbKxqyveaGPU4S7aY,duchenne muscular dystrophy,myalgia,1000.0,1000.0
+disease_disease,disease,disease,kg4rd:10679,kg4rd:6816,:34453345:DgjCBf3UTv3E4ZKWksiNRK,duchenne muscular dystrophy,arthropathy,1000.0,1000.0
+bioprocess_protein,biological_process,gene/protein,kg4rd:6954,kg4rd:6387,:34424816:AzNjaCTKBvZWUugynffqD6,inflammatory response,cxcl12,1000.0,1000.0
+phenotype_protein,effect/phenotype,gene/protein,kg4rd:3287,kg4rd:1756,:34374652:e6MT4ysaR44eNk3uTM7kHZ,abnormality of mitochondrial metabolism,dmd,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:10679,kg4rd:55869,:34214631:7GzKSEE33G9HnkfyRpfHGA,duchenne muscular dystrophy,hdac8,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:18881,kg4rd:3146,:34078746:3GNcxiN8Ez52wUAbroYov3,myelodysplastic syndrome,hmgb1,1000.0,1000.0
+phenotype_protein,effect/phenotype,gene/protein,kg4rd:3202,kg4rd:3146,:34078746:JjcrNtbisd3Fkm9Wjat3DG,skeletal muscle atrophy,hmgb1,1000.0,1000.0
+phenotype_protein,effect/phenotype,gene/protein,kg4rd:1582,kg4rd:8425,:34071145:WUb3DWSuB2QVcBDhRCyWwg,redundant skin,ltbp4,1000.0,1000.0
+phenotype_protein,effect/phenotype,gene/protein,kg4rd:1654,kg4rd:8425,:34071145:mLnHVwpqjKXcsjeggmuTqm,abnormal heart valve morphology,ltbp4,1000.0,1000.0
+disease_phenotype_positive,disease,effect/phenotype,kg4rd:10679,kg4rd:2088,:34053847:mF8t7MfksmkZubddRfft28,duchenne muscular dystrophy,abnormal lung morphology,1000.0,1000.0
+bioprocess_protein,biological_process,gene/protein,kg4rd:42310,kg4rd:7175,:34048282:QCUdtdybDBpndnpUTgCPWp,vasoconstriction,tpr,1000.0,1000.0
+disease_phenotype_positive,disease,effect/phenotype,kg4rd:10679,kg4rd:30692,:34024777:BkGGn2kzCjupTiS5UVmvh8,duchenne muscular dystrophy,brain neoplasm,1000.0,1000.0
+anatomy_protein_present,anatomy,gene/protein,kg4rd:14895,kg4rd:7402,:33999469:PURe4bbY3S68r59BFRT8Nu,"somatic muscle, invertebrate",utrn,1000.0,1000.0
+disease_phenotype_positive,disease,effect/phenotype,kg4rd:10679,kg4rd:10807,:33826161:j4SddoJVpu2qrrdto6sTok,duchenne muscular dystrophy,open bite,1000.0,1000.0
+bioprocess_protein,biological_process,gene/protein,kg4rd:70085,kg4rd:124872,:33770101:MHE9rwtUwvjQNZqrzxSsmr,glycosylation,b4galnt2,1000.0,1000.0
+anatomy_protein_present,anatomy,gene/protein,kg4rd:15230,kg4rd:7402,:33770101:jLNssUDAWQJLZrBdZ9BPmr,dorsal vessel heart,utrn,1000.0,1000.0
+disease_phenotype_positive,disease,effect/phenotype,kg4rd:10679,kg4rd:1250,:33741226:LZ5LARpQNZXV3GqMvCNU8J,duchenne muscular dystrophy,epilepsy,1000.0,1000.0
+disease_phenotype_positive,disease,effect/phenotype,kg4rd:10679,kg4rd:11097,:33741226:EAHDs26NG9uQfGaEfBQue4,duchenne muscular dystrophy,epileptic spasm,1000.0,1000.0
+disease_phenotype_positive,disease,effect/phenotype,kg4rd:10679,kg4rd:1417,:33523015:Ksh4FXzQrNzH6zhj3oDdkE,duchenne muscular dystrophy,x-linked inheritance,1000.0,1000.0
+disease_phenotype_positive,disease,effect/phenotype,kg4rd:10679,kg4rd:939,:33471740:9BVNnApnMtUaukMCaSLJDK,duchenne muscular dystrophy,osteoporosis,1000.0,1000.0
+cellcomp_protein,cellular_component,gene/protein,kg4rd:5739,kg4rd:118490,:33423297:bbkdKJ6seLAM2hXzDT7moe,mitochondrion,mss51,1000.0,1000.0
+bioprocess_protein,biological_process,gene/protein,kg4rd:31099,kg4rd:1756,:33407808:Mpvn4SLYmhgUPwTw3Sgdjf,regeneration,dmd,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:8054,kg4rd:23586,:33314705:7yk55v8Qj5RhK2v3fFMHCK,juvenile dermatomyositis,rigi,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:8054,kg4rd:64135,:33314705:BLm4y8TJBMwTwyZhxJC6G8,juvenile dermatomyositis,ifih1,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:8054,kg4rd:9636,:33314705:J77AREvhL3SKZ5P2hAeaNL,juvenile dermatomyositis,isg15,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:6325,kg4rd:9636,:33314705:NJLsisy6c5oQbF57LxujnX,ocular melanoma,isg15,1000.0,1000.0
+disease_phenotype_positive,disease,effect/phenotype,kg4rd:10679,kg4rd:3010,:33309480:bmbFmUBW64KWH7jCCRSidr,duchenne muscular dystrophy,prolonged bleeding time,1000.0,1000.0
+bioprocess_protein,biological_process,gene/protein,kg4rd:45445,kg4rd:9748,:33259860:eCqr6PJzERoCZvxPFgwrow,myoblast differentiation,slk,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:10679,kg4rd:9748,:33259860:nLJmcYXZBGYksMrFNDRcsn,duchenne muscular dystrophy,slk,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:10679,kg4rd:23476,:33257646:M7nq6HkqzNEqbAqiGYye9X,duchenne muscular dystrophy,brd4,1000.0,1000.0
+anatomy_protein_present,anatomy,gene/protein,kg4rd:5090,kg4rd:23476,:33257646:2etq9f82x5PQBoXPyKmQRD,muscle structure,brd4,1000.0,1000.0
+anatomy_protein_absent,anatomy,gene/protein,kg4rd:1015,kg4rd:1756,:33246213:gc695aTu4QaqCbHkLWjBMX,musculature,dmd,1000.0,1000.0
+disease_phenotype_positive,disease,effect/phenotype,kg4rd:10679,kg4rd:2870,:33131659:bdW3kA22hvBD5AkvRE6gx9,duchenne muscular dystrophy,obstructive sleep apnea,1000.0,1000.0
+disease_phenotype_positive,disease,effect/phenotype,kg4rd:10679,kg4rd:10536,:33131659:5GZWnRmPTLyzVpHW9LkQMc,duchenne muscular dystrophy,central sleep apnea,1000.0,1000.0
+disease_phenotype_positive,disease,effect/phenotype,kg4rd:10679,kg4rd:100785,:33131659:gLe4qohSQZNgcJwXz7vCxA,duchenne muscular dystrophy,insomnia,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:10679,kg4rd:10725,:33114289:c9bNnTafStfYBZ4KXNpMLj,duchenne muscular dystrophy,nfat5,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:10679,kg4rd:5728,:33068545:M5zshszMWAvEUqrXDYoXvx,duchenne muscular dystrophy,pten,1000.0,1000.0
+disease_phenotype_positive,disease,effect/phenotype,kg4rd:10679,kg4rd:2020,:33002199:PoxwbcacsxvimdVysVJ6rf,duchenne muscular dystrophy,gastroesophageal reflux,1000.0,1000.0
+disease_phenotype_positive,disease,effect/phenotype,kg4rd:10679,kg4rd:2107,:32956714:XRnxSw9rXhCNKBQ9HDVKku,duchenne muscular dystrophy,pneumothorax,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:10679,kg4rd:51191,:32791870:mM4X7hPyoR4sjNJUWWk2dx,duchenne muscular dystrophy,herc5,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:10679,kg4rd:6502,:32791870:NcUmcAShY9CCzaypWQrRsM,duchenne muscular dystrophy,skp2,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:10679,kg4rd:54461,:32791870:XFwQSz8iAj5L5cZk3RhifQ,duchenne muscular dystrophy,fbxw5,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:10679,kg4rd:149076,:32791870:apz8WXyZpqxDJgL26DozCo,duchenne muscular dystrophy,znf362,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:10679,kg4rd:79969,:32791870:j2q7qwuMsq9rPSViT9Mk2M,duchenne muscular dystrophy,atat1,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:10679,kg4rd:6688,:32791870:JagdSx83ZzGHRDt7UXVwbW,duchenne muscular dystrophy,spi1,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:10679,kg4rd:6938,:32791870:cU8WQPGL2pPWLENYyfqNt4,duchenne muscular dystrophy,tcf12,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:10679,kg4rd:10061,:32791870:PHmnTdc37UezzmzG3AHzMN,duchenne muscular dystrophy,abcf2,1000.0,1000.0
+bioprocess_protein,biological_process,gene/protein,kg4rd:30432,kg4rd:1756,:32789934:BngFtAbRqwvviXL44rVkpf,peristalsis,dmd,1000.0,1000.0
+disease_phenotype_positive,disease,effect/phenotype,kg4rd:10679,kg4rd:158,:32772581:KDLdYApSwBGtac4MpZQDDJ,duchenne muscular dystrophy,macroglossia,1000.0,1000.0
+disease_phenotype_positive,disease,effect/phenotype,kg4rd:10679,kg4rd:1260,:32772581:jaqaG66Pn4pbAf3C9p9ubi,duchenne muscular dystrophy,dysarthria,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:10679,kg4rd:1795,:32766788:PxYynaaBpzH7syG3FrtPTo,duchenne muscular dystrophy,dock3,1000.0,1000.0
+disease_phenotype_positive,disease,effect/phenotype,kg4rd:10679,kg4rd:33044,:32758414:MZTQt98TjcvtAzqiNZ9eLj,duchenne muscular dystrophy,motor regression,1000.0,1000.0
+disease_phenotype_positive,disease,effect/phenotype,kg4rd:10679,kg4rd:25267,:32740854:Hkret5agmync4Xvs8xRdZk,duchenne muscular dystrophy,snoring,1000.0,1000.0
+disease_disease,disease,disease,kg4rd:10679,kg4rd:10651,:32738034:oUtpZT79vDcNeN6gfzboZX,duchenne muscular dystrophy,menkes disease,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:10679,kg4rd:2066,:32592467:Mcq2gfvjAPVs7XuQCNmnmK,duchenne muscular dystrophy,erbb4,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:10679,kg4rd:6647,:32592467:FfukU4VuPEgURy9wq95ZDM,duchenne muscular dystrophy,sod1,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:10679,kg4rd:1270,:32592467:DhGjdduCRNYYMsnx5Af845,duchenne muscular dystrophy,cntf,1000.0,1000.0
+disease_phenotype_positive,disease,effect/phenotype,kg4rd:10679,kg4rd:822,:32447503:HQxpK4qVuxb3Pad3E2eGEh,duchenne muscular dystrophy,hypertension,1000.0,1000.0
+disease_phenotype_positive,disease,effect/phenotype,kg4rd:10679,kg4rd:12595,:32447503:Mb5hsfKzXqyJ6KAiDgh7xF,duchenne muscular dystrophy,mild proteinuria,1000.0,1000.0
+disease_phenotype_positive,disease,effect/phenotype,kg4rd:10679,kg4rd:2150,:32447503:eGoKxScNrmasMoz73fqDv5,duchenne muscular dystrophy,hypercalciuria,1000.0,1000.0
+disease_phenotype_positive,disease,effect/phenotype,kg4rd:10679,kg4rd:3127,:32447503:Ev7eR2NpdWtF2FJMfeyVsD,duchenne muscular dystrophy,hypocalciuria,1000.0,1000.0
+disease_phenotype_positive,disease,effect/phenotype,kg4rd:10679,kg4rd:3109,:32447503:fPQxWVGf8S6R68P65ecmEA,duchenne muscular dystrophy,hyperphosphaturia,1000.0,1000.0
+disease_phenotype_positive,disease,effect/phenotype,kg4rd:10679,kg4rd:3149,:32447503:dfr3bBDEESWyqsPUVUFqMC,duchenne muscular dystrophy,hyperuricosuria,1000.0,1000.0
+disease_phenotype_positive,disease,effect/phenotype,kg4rd:10679,kg4rd:2149,:32447503:LYf4nhj7MUAQdui4f8yutf,duchenne muscular dystrophy,hyperuricemia,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:10679,kg4rd:10468,:32419339:jo2naDoVgH5tnfQhZcQyZS,duchenne muscular dystrophy,fst,1000.0,1000.0
+disease_phenotype_positive,disease,effect/phenotype,kg4rd:20121,kg4rd:739,:32222927:WXNffZSuB3D3cAvEgmXtWi,muscular dystrophy,anxiety,1000.0,1000.0
+disease_phenotype_positive,disease,effect/phenotype,kg4rd:20121,kg4rd:716,:32222927:DbGzuG3qVkeqpiGQMoHD5C,muscular dystrophy,depression,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:16147,kg4rd:5816,:32211681:WBGRNWxjbxD6Xo9PfSbtcC,qualitative or quantitative defects of dystrophin,pvalb,1000.0,1000.0
+disease_protein,disease,gene/protein,kg4rd:16147,kg4rd:7273,:32211681:BoHX9HwvhXJ5adMwUYciBg,qualitative or quantitative defects of dystrophin,ttn,1000.0,1000.0
+bioprocess_protein,biological_process,gene/protein,kg4rd:31099,kg4rd:216,:32157826:8tWbiTiN29e52XFShjP2Ax,regeneration,aldh1a1,1000.0,1000.0
+bioprocess_protein,biological_process,gene/protein,kg4rd:31099,kg4rd:220,:32157826:RDeZKC4GCTQUNzMgevfaRw,regeneration,aldh1a3,1000.0,1000.0
+bioprocess_protein,biological_process,gene/protein,kg4rd:31099,kg4rd:219,:32157826:44iw4XgcLxpc65ovxHQeV8,regeneration,aldh1b1,1000.0,1000.0
+bioprocess_protein,biological_process,gene/protein,kg4rd:31099,kg4rd:217,:32157826:fWGA3LyQgfLJ9QmjrXMqEk,regeneration,aldh2,1000.0,1000.0
+bioprocess_protein,biological_process,gene/protein,kg4rd:31099,kg4rd:224,:32157826:gNvwG4tWw29KWF2h5ktDK2,regeneration,aldh3a2,1000.0,1000.0
+bioprocess_protein,biological_process,gene/protein,kg4rd:31099,kg4rd:501,:32157826:FV7or8bQdgswq2MBBanUBM,regeneration,aldh7a1,1000.0,1000.0
+bioprocess_protein,biological_process,gene/protein,kg4rd:31099,kg4rd:64577,:32157826:nsjnBYuNefSTxvMYywN49o,regeneration,aldh8a1,1000.0,1000.0
+bioprocess_protein,biological_process,gene/protein,kg4rd:31099,kg4rd:223,:32157826:cLS3BgXmPupfnvuV3ZUYVY,regeneration,aldh9a1,1000.0,1000.0

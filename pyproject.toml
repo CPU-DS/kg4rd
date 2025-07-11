@@ -22,8 +22,8 @@ dependencies = [
     "matplotlib-inline==0.1.7",
     "scrapy>=2.13.2",
     "swanlab>=0.6.4",
-    "unike>=3.0.4",
     "google-genai",
     "retry>=0.9.2",
     "shortuuid>=1.0.13",
+    "unike==3.1.2",
 ]
