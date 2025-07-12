@@ -1,0 +1,51 @@
+head,rel,tail,in,head_ent,rel_ent,tail_ent,score
+27017,4,18522,False,Duchenne muscular dystrophy:disease,off-label use,Echothiophate:drug,0.13670825958251953
+27017,4,18449,False,Duchenne muscular dystrophy:disease,off-label use,Tretinoin:drug,0.12873268127441406
+27017,4,18454,False,Duchenne muscular dystrophy:disease,off-label use,Alprostadil:drug,0.10718107223510742
+27017,3,18522,False,Duchenne muscular dystrophy:disease,indication,Echothiophate:drug,0.05482006072998047
+27017,3,19253,False,Duchenne muscular dystrophy:disease,indication,Cyclosporine:drug,-0.03133106231689453
+27017,3,19391,True,Duchenne muscular dystrophy:disease,indication,Casimersen:drug,-0.041368961334228516
+27017,4,19155,False,Duchenne muscular dystrophy:disease,off-label use,Riboflavin:drug,-0.06453561782836914
+27017,4,18386,False,Duchenne muscular dystrophy:disease,off-label use,Acitretin:drug,-0.10243415832519531
+27017,3,18449,False,Duchenne muscular dystrophy:disease,indication,Tretinoin:drug,-0.12612676620483398
+27017,4,18485,False,Duchenne muscular dystrophy:disease,off-label use,Quinidine:drug,-0.13686561584472656
+27017,3,18485,False,Duchenne muscular dystrophy:disease,indication,Quinidine:drug,-0.13696765899658203
+27017,3,19274,False,Duchenne muscular dystrophy:disease,indication,Carbamazepine:drug,-0.1477370262145996
+27017,3,18341,False,Duchenne muscular dystrophy:disease,indication,Phenytoin:drug,-0.14938735961914062
+27017,4,19305,False,Duchenne muscular dystrophy:disease,off-label use,Phenobarbital:drug,-0.16701126098632812
+27017,4,19253,False,Duchenne muscular dystrophy:disease,off-label use,Cyclosporine:drug,-0.1947307586669922
+27017,3,18369,False,Duchenne muscular dystrophy:disease,indication,Clozapine:drug,-0.1952047348022461
+27017,3,18477,False,Duchenne muscular dystrophy:disease,indication,Tacrolimus:drug,-0.2031874656677246
+27017,3,19305,False,Duchenne muscular dystrophy:disease,indication,Phenobarbital:drug,-0.20421123504638672
+27017,3,19293,False,Duchenne muscular dystrophy:disease,indication,Zonisamide:drug,-0.2060537338256836
+27017,3,19269,False,Duchenne muscular dystrophy:disease,indication,Quinine:drug,-0.2069554328918457
+27017,3,19108,False,Duchenne muscular dystrophy:disease,indication,Paclitaxel:drug,-0.20751714706420898
+27017,4,18472,False,Duchenne muscular dystrophy:disease,off-label use,Cysteamine:drug,-0.20769262313842773
+27017,4,18341,False,Duchenne muscular dystrophy:disease,off-label use,Phenytoin:drug,-0.21599626541137695
+27017,3,18358,False,Duchenne muscular dystrophy:disease,indication,Amitriptyline:drug,-0.2163534164428711
+27017,4,18369,False,Duchenne muscular dystrophy:disease,off-label use,Clozapine:drug,-0.22325849533081055
+27017,3,18431,False,Duchenne muscular dystrophy:disease,indication,Verapamil:drug,-0.22982549667358398
+27017,3,18390,False,Duchenne muscular dystrophy:disease,indication,Chlorpromazine:drug,-0.23882436752319336
+27017,4,19274,False,Duchenne muscular dystrophy:disease,off-label use,Carbamazepine:drug,-0.24086332321166992
+27017,3,18385,False,Duchenne muscular dystrophy:disease,indication,Imipramine:drug,-0.24223756790161133
+27017,3,18549,False,Duchenne muscular dystrophy:disease,indication,Doxepin:drug,-0.24421215057373047
+27017,4,18431,False,Duchenne muscular dystrophy:disease,off-label use,Verapamil:drug,-0.24555015563964844
+27017,4,18385,False,Duchenne muscular dystrophy:disease,off-label use,Imipramine:drug,-0.24837923049926758
+27017,4,18328,False,Duchenne muscular dystrophy:disease,off-label use,Ascorbic acid:drug,-0.2533297538757324
+27017,4,18390,False,Duchenne muscular dystrophy:disease,off-label use,Chlorpromazine:drug,-0.2544407844543457
+27017,3,18562,False,Duchenne muscular dystrophy:disease,indication,Dexamethasone:drug,-0.2621273994445801
+27017,4,19269,False,Duchenne muscular dystrophy:disease,off-label use,Quinine:drug,-0.26218175888061523
+27017,4,19207,False,Duchenne muscular dystrophy:disease,off-label use,Escitalopram:drug,-0.2627720832824707
+27017,4,18358,False,Duchenne muscular dystrophy:disease,off-label use,Amitriptyline:drug,-0.2637782096862793
+27017,3,19207,False,Duchenne muscular dystrophy:disease,indication,Escitalopram:drug,-0.2640976905822754
+27017,4,18388,False,Duchenne muscular dystrophy:disease,off-label use,Fluoxetine:drug,-0.2665729522705078
+27017,3,18409,False,Duchenne muscular dystrophy:disease,indication,Methotrexate:drug,-0.2708120346069336
+27017,4,19293,False,Duchenne muscular dystrophy:disease,off-label use,Zonisamide:drug,-0.2731609344482422
+27017,3,18355,False,Duchenne muscular dystrophy:disease,indication,Valproic acid:drug,-0.27600574493408203
+27017,3,18504,False,Duchenne muscular dystrophy:disease,indication,Doxorubicin:drug,-0.27620410919189453
+27017,4,19495,False,Duchenne muscular dystrophy:disease,off-label use,Nicotinamide:drug,-0.27640295028686523
+27017,3,18567,False,Duchenne muscular dystrophy:disease,indication,Clomipramine:drug,-0.2767190933227539
+27017,3,18403,False,Duchenne muscular dystrophy:disease,indication,Ciprofloxacin:drug,-0.27727842330932617
+27017,3,18388,False,Duchenne muscular dystrophy:disease,indication,Fluoxetine:drug,-0.28002500534057617
+27017,4,18403,False,Duchenne muscular dystrophy:disease,off-label use,Ciprofloxacin:drug,-0.2876291275024414
+27017,4,18549,False,Duchenne muscular dystrophy:disease,off-label use,Doxepin:drug,-0.2890300750732422

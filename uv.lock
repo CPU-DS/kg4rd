@@ -1005,7 +1005,7 @@ requires-dist = [
     { name = "swanlab", specifier = ">=0.6.4" },
     { name = "tqdm", specifier = ">=4.67.1" },
     { name = "transformers", specifier = ">=4.52.4" },
-    { name = "unike", specifier = "==3.1.2" },
+    { name = "unike", specifier = "==3.1.4" },
 ]
 
 [[package]]
@@ -2799,7 +2799,7 @@ wheels = [
 
 [[package]]
 name = "unike"
-version = "3.1.2"
+version = "3.1.4"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "accelerate" },
@@ -2813,9 +2813,9 @@ dependencies = [
     { name = "tqdm" },
     { name = "wandb" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/12/de/f557e76f83ea9d01b4af480f51f8306834d7938eb7a5cd12fc3decd9f655/unike-3.1.2.tar.gz", hash = "sha256:2a33b5addf18d5599095ea4068e4941ca4a54ee17bded8383a5ee5d3d71aaa1e", size = 115668 }
+sdist = { url = "https://files.pythonhosted.org/packages/a9/58/2f4fcf81d72e29b703975e0ec42fbc8cf46a34b1dbcfcab7bcb037180018/unike-3.1.4.tar.gz", hash = "sha256:6a9e5c061701d8e1776f0c7b7968655553b02ff6a8125585f152cfe899e5d2cb", size = 115690 }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/b9/49/8ea36dcb62570795bd0b95c95846c062dd05364f457604949848b4c85b33/unike-3.1.2-py3-none-any.whl", hash = "sha256:47aca262a7dc2272a337305f0e9934a40eae9f7524b8e155cae4fe520d6fbb79", size = 103586 },
+    { url = "https://files.pythonhosted.org/packages/6e/90/a275a5098e071cd27554e3fbbec3fe49c35893381ca4d3362d4d0c0ee161/unike-3.1.4-py3-none-any.whl", hash = "sha256:696d37fd4bbdf192f4c55b8436c286f314ba5bd1f48ce4bfed9a665b799b77d8", size = 103626 },
 ]
 
 [[package]]
