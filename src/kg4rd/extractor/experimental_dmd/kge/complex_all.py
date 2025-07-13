@@ -13,10 +13,10 @@ from unike.config import Trainer
 
 wandb_logger = WandbLogger(
 	project="kg4rd",
-	name="kg4rd-ComplEx-dmdexp-all",
+	name="kg4rd-ComplEx-dmdexp-all-base",
 	config=dict(
 		in_path = 'src/kg4rd/extractor/experimental_dmd/kge/data/',
-		train_file = 'all2id.txt',
+		train_file = 'all2id_base.txt',
 		batch_size = 1024,
 		neg_ent = 25,
 		test = False,
@@ -31,7 +31,7 @@ wandb_logger = WandbLogger(
 		opt_method = 'adagrad',
 		log_interval = 1,
 		save_interval = 50,
-		save_path = 'src/kg4rd/extractor/experimental_dmd/kge/checkpoints/complex/all/complex.pth',
+		save_path = 'src/kg4rd/extractor/experimental_dmd/kge/checkpoints/complex/all/base/complex.pth',
 	),
 	use='swanlab'
 )

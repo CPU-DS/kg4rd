@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
-# Create Date: 2025/07/11
+# Create Date: 2025/07/12
 # Author: wangtao <wangtao.cpu@gmail.com>
-# File Name: rotate.py
-# Description: kg4rd RotatE experimental dmd 在整个图谱上训练
+# File Name: kge_rotate_all.py
+# Description: PrimeKG RotatE 在整个图谱上训练
 
 from unike.utils import WandbLogger
 from unike.data import KGEDataLoader, UniSampler
@@ -13,10 +13,10 @@ from unike.config import Trainer
 
 wandb_logger = WandbLogger(
 	project="kg4rd",
-	name="kg4rd-RotatE-dmdexp-all-base",
+	name="PrimeKG-RotatE-all",
 	config=dict(
-        in_path = 'src/kg4rd/extractor/experimental_dmd/kge/data/',
-		train_file = 'all2id_base.txt',
+        in_path = 'primekg/kg/',
+		train_file = 'all2id.txt',
 		batch_size = 1024,
 		neg_ent = 25,
 		test = False,
@@ -28,13 +28,13 @@ wandb_logger = WandbLogger(
 		regul_rate = 0.0,
         use_tqdm = True,
 		use_gpu = True,
-		device = 'cuda:3',
+		device = 'cuda:1',
 		epochs = 200,
 		lr = 2e-5,
 		opt_method = 'adam',
 		log_interval = 1,
 		save_interval = 50,
-		save_path = "src/kg4rd/extractor/experimental_dmd/kge/checkpoints/rotate/all/base/rotate.pth"
+		save_path = "src/primekg/checkpoints/rotate/all"
     ),
 	use='swanlab'
 )
