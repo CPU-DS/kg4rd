@@ -89,7 +89,7 @@ trainer = Trainer(
     log_interval = config.log_interval, 
     save_interval = config.save_interval,
     save_path = config.save_path, 
-    use_wandb = True,
+wandb_logger = wandb_logger,
     use_early_stopping = config.use_early_stopping
 )
 

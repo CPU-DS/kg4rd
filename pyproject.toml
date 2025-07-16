@@ -25,5 +25,5 @@ dependencies = [
     "google-genai",
     "retry>=0.9.2",
     "shortuuid>=1.0.13",
-    "unike==3.1.7",
+    "unike==3.2.3",
 ]
