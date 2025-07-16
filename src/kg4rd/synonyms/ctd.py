@@ -11,7 +11,7 @@ from tqdm import tqdm
 
 data = []
 
-path = 'data/ctd/CTD_chemicals.csv'
+path = 'data/data/ctd/CTD_chemicals.csv'
 with open(path, 'r') as f:
     lines = [line for line in f.readlines() if not line.startswith('#')]
     df = pd.read_csv(io.StringIO('\n'.join(lines)), 
@@ -41,4 +41,4 @@ with open(path, 'r') as f:
             
 df = pd.DataFrame(data)
 df = df.drop_duplicates(['id', 'name'])
-df.to_csv('data_synonyms/ctd_synonyms.csv', index=False)
+df.to_csv('data/data_synonyms/ctd_synonyms.csv', index=False)

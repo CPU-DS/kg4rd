@@ -44,7 +44,7 @@ with open('src/kg4rd/extractor/disease_subheadings_to_relation.json', 'r', encod
 with open('src/kg4rd/extractor/definition_of_relations.json', 'r', encoding='utf-8') as f:
     definition_of_relations = json.load(f)
         
-orphanet_mesh = pd.read_csv('data/orphanet/orphanet_mesh.csv')
+orphanet_mesh = pd.read_csv('data/data/orphanet/orphanet_mesh.csv')
 
 
 def extract_subheadings(heading, mesh_terms):
@@ -135,10 +135,10 @@ def extract(mesh_id: str):
     # heading = orphanet_mesh.query('mesh == @mesh_id')['mesh_name'].values[0]
     heading = 'Muscular Dystrophy, Duchenne'
 
-    # df = pd.read_csv(f'data_abstract/{mesh_id}.csv') 
+    # df = pd.read_csv(f'data/data_abstract/{mesh_id}.csv') 
     df = pd.read_excel('src/kg4rd/extractor/disease_DMD_abstracts.xlsx')
 
-    # save_file = f'data_abstract/result/{mesh_id}.json'
+    # save_file = f'data/data_abstract/result/{mesh_id}.json'
     save_file = f'src/kg4rd/extractor/dmd.json'
 
     if os.path.exists(save_file):

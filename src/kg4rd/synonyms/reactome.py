@@ -11,7 +11,7 @@ import os
 import json
 
 
-df_terms = pd.read_csv('data/reactome/ReactomePathways.txt', sep='\t', names=['reactome_id', 'reactome_name', 'species'])
+df_terms = pd.read_csv('data/data/reactome/ReactomePathways.txt', sep='\t', names=['reactome_id', 'reactome_name', 'species'])
 df_terms = df_terms.query('species=="Homo sapiens"')
 df_terms = df_terms.reset_index().drop('index',axis=1)
 
@@ -51,4 +51,4 @@ for i, line in tqdm(enumerate(df_terms.itertuples()), total=len(df_terms)):
 df = pd.DataFrame(data)
 df = df.drop_duplicates(['id', 'name'])
 df = df.drop(['index'], axis=1)
-df.to_csv('data_synonyms/reactome_synonyms.csv', index=False)
+df.to_csv('data/data_synonyms/reactome_synonyms.csv', index=False)

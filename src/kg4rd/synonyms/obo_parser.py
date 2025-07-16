@@ -103,11 +103,11 @@ class OBOParser:
 
 if __name__ == "__main__":
     OBO_PATH = [
-        ("data/go/go-basic.obo", "data_synonyms/go_synonyms.csv", None),
-        ("data/hdo/HumanDO.obo", "data_synonyms/do_synonyms.csv", "DOID"),
-        ("data/hpo/hp.obo", "data_synonyms/hpo_synonyms.csv", None),
-        ("data/mondo/mondo.obo", "data_synonyms/mondo_synonyms.csv", "MONDO"),
-        ("data/uberon/ext.obo", "data_synonyms/uberon_synonyms.csv", "UBERON"),
+        ("data/data/go/go-basic.obo", "data/data_synonyms/go_synonyms.csv", None),
+        ("data/data/hdo/HumanDO.obo", "data/data_synonyms/do_synonyms.csv", "DOID"),
+        ("data/data/hpo/hp.obo", "data/data_synonyms/hpo_synonyms.csv", None),
+        ("data/data/mondo/mondo.obo", "data/data_synonyms/mondo_synonyms.csv", "MONDO"),
+        ("data/data/uberon/ext.obo", "data/data_synonyms/uberon_synonyms.csv", "UBERON"),
     ]
 
     for obo_path, output_path, id_prefix in OBO_PATH:

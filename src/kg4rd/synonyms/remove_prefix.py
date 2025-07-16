@@ -6,18 +6,18 @@
 
 import pandas as pd
 
-df = pd.read_csv('data_synonyms/go_synonyms.csv')
+df = pd.read_csv('data/data_synonyms/go_synonyms.csv')
 df['id'] = df['id'].apply(lambda x: x.replace('GO:', '')).astype(int).astype(str)
-df.to_csv('data_synonyms/go_synonyms.csv', index=False)
+df.to_csv('data/data_synonyms/go_synonyms.csv', index=False)
 
-df = pd.read_csv('data_synonyms/hpo_synonyms.csv')
+df = pd.read_csv('data/data_synonyms/hpo_synonyms.csv')
 df['id'] = df['id'].apply(lambda x: x.replace('HP:', '')).astype(int).astype(str)
-df.to_csv('data_synonyms/hpo_synonyms.csv', index=False)
+df.to_csv('data/data_synonyms/hpo_synonyms.csv', index=False)
 
-df = pd.read_csv('data_synonyms/uberon_synonyms.csv')
+df = pd.read_csv('data/data_synonyms/uberon_synonyms.csv')
 df['id'] = df['id'].apply(lambda x: x.replace('UBERON:', '')).astype(int).astype(str)
-df.to_csv('data_synonyms/uberon_synonyms.csv', index=False)
+df.to_csv('data/data_synonyms/uberon_synonyms.csv', index=False)
 
-df = pd.read_csv('data_synonyms/mondo_synonyms_concat.csv')
+df = pd.read_csv('data/data_synonyms/mondo_synonyms_concat.csv')
 df['id'] = df['id'].apply(lambda x: x.replace('MONDO:', '')).astype(int).astype(str)
-df.to_csv('data_synonyms/mondo_synonyms_concat.csv', index=False)
+df.to_csv('data/data_synonyms/mondo_synonyms_concat.csv', index=False)

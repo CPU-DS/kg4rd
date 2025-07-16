@@ -7,14 +7,14 @@
 import pandas as pd
 
 
-df = pd.read_csv('data_synonyms/drugcentral_synonyms.csv', low_memory=False)
+df = pd.read_csv('data/data_synonyms/drugcentral_synonyms.csv', low_memory=False)
 df = df.query('not @df.cas_reg_no.isna()')
 df = df.sort_values(by=['id', 'preferred_name'])
 df['preferred_name'] = df['preferred_name'].apply(lambda x: True if x == 1.0 else x)
 
 
-db_vocab = pd.read_csv('data/vocab/drugbank_vocabulary.csv', low_memory=False)
+db_vocab = pd.read_csv('data/data/vocab/drugbank_vocabulary.csv', low_memory=False)
 
 df = pd.merge(df, db_vocab, 'inner', left_on='cas_reg_no', right_on='CAS').get(['id', 'name', 'preferred_name', 'DrugBank ID']).rename(columns={'DrugBank ID': 'drugbank_id'})
 
-df.to_csv('data_synonyms/drugcentral_synonyms_drugbank_id.csv', index=False)
+df.to_csv('data/data_synonyms/drugcentral_synonyms_drugbank_id.csv', index=False)

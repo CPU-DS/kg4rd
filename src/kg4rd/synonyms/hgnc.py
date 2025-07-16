@@ -9,12 +9,12 @@ import json
 from tqdm import tqdm
 
 
-gene_id_df = pd.read_csv('data/vocab/gene_names.csv', sep='\t').get(['Approved symbol', 'NCBI Gene ID(supplied by NCBI)']).drop_duplicates().dropna()
+gene_id_df = pd.read_csv('data/data/vocab/gene_names.csv', sep='\t').get(['Approved symbol', 'NCBI Gene ID(supplied by NCBI)']).drop_duplicates().dropna()
 gene_id_df = gene_id_df.rename(columns={'Approved symbol': 'symbol', 'NCBI Gene ID(supplied by NCBI)': 'id'})
 gene_id = dict(zip(gene_id_df['symbol'], gene_id_df['id']))
 
 data = []
-with open('data/hgnc/hgnc_complete_set.json', 'r') as f:
+with open('data/data/hgnc/hgnc_complete_set.json', 'r') as f:
     docs = json.load(f)['response']['docs']
     for line in tqdm(docs):
         symbol = line['symbol']
@@ -66,4 +66,4 @@ if not conflicting_names.empty:
     df = df[~df['name'].isin(conflicting_names['name'])]
 
 print(df.shape)
-df.to_csv('data_synonyms/hgnc_synonyms.csv', index=False)
+df.to_csv('data/data_synonyms/hgnc_synonyms.csv', index=False)

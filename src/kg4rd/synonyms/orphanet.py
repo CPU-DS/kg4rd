@@ -11,7 +11,7 @@ from tqdm import tqdm
 
 def method1():
     data = []
-    mondo_ref = 'data/mondo/mondo_references.csv'
+    mondo_ref = 'data/data/mondo/mondo_references.csv'
     orphanet_df = pd.read_csv(mondo_ref).query('ontology == "Orphanet"')
     for _, row in tqdm(orphanet_df.iterrows(), total=len(orphanet_df)):
         mondo_id = f'MONDO:{int(row["ontology_id"]):07d}'
@@ -42,11 +42,11 @@ def method1():
                     'mondo_id': mondo_id
                 })
 
-    pd.DataFrame(data).to_csv('data_synonyms/orphanet_synonyms.csv', index=False)
+    pd.DataFrame(data).to_csv('data/data_synonyms/orphanet_synonyms.csv', index=False)
 
 
 def method2():
-    df = pd.read_excel('data/orphanet/Orphanet_Nomenclature_Pack_EN/ORPHAnomenclature_MasterFile_en_2024.xlsx')
+    df = pd.read_excel('data/data/orphanet/Orphanet_Nomenclature_Pack_EN/ORPHAnomenclature_MasterFile_en_2024.xlsx')
     df['preferred_name'] = ''
     mask = pd.isna(df['Synonyms']) & (~pd.isna(df['ICDcodes']))
     df.loc[mask, 'Synonyms'] = df.loc[mask, 'PreferredTerm']
@@ -55,7 +55,7 @@ def method2():
     df = df.rename(columns={'ORPHAcode': 'id', 'PreferredTerm': 'name'})
     df['id'] = df['id'].astype(int)
     
-    mondo_ref = 'data/mondo/mondo_references.csv'
+    mondo_ref = 'data/data/mondo/mondo_references.csv'
     mondo_ref_df = pd.read_csv(mondo_ref).query('ontology == "Orphanet"')
     mondo_ref_df['ontology_id'] = mondo_ref_df['ontology_id'].astype(int)
     
@@ -65,7 +65,7 @@ def method2():
     df = df.drop(['ontology_id', 'ontology'], axis=1)
     df = df.rename(columns={'Synonyms': 'name'})
     
-    df.to_csv('data_synonyms/orphanet_synonyms.csv', index=False)
+    df.to_csv('data/data_synonyms/orphanet_synonyms.csv', index=False)
 
 
 if __name__ == "__main__":

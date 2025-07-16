@@ -47,7 +47,7 @@ def wait_for_download(func, *args, **kwargs):
     return response
 
 if __name__ == '__main__':
-    df_orphanet_mondo_ref = pd.read_csv('data/mondo/mondo_references.csv').query('ontology == "Orphanet"')
+    df_orphanet_mondo_ref = pd.read_csv('data/data/mondo/mondo_references.csv').query('ontology == "Orphanet"')
     df_orphanet_mondo_ref.reset_index(drop=True, inplace=True)
     df_orphanet_mondo_ref['ontology_id'] = df_orphanet_mondo_ref['ontology_id'].astype(int).astype(str)
 
@@ -64,4 +64,4 @@ if __name__ == '__main__':
         if mesh is not None:
             mesh_name = wait_for_download(get_mesh_name, mesh)
         data.append({'code': code, 'name': name, 'mesh': mesh, 'mesh_name': mesh_name})
-    pd.DataFrame(data).to_csv('data/orphanet/orphanet_mesh.csv', index=False)
+    pd.DataFrame(data).to_csv('data/data/orphanet/orphanet_mesh.csv', index=False)

@@ -10,7 +10,7 @@ import json
 from glob import glob
 from tqdm import tqdm
 
-ref_df = pd.read_csv('data_feature/MANE.GRCh38.v1.4.summary.tsv', sep='\t')
+ref_df = pd.read_csv('data/data_feature/MANE.GRCh38.v1.4.summary.tsv', sep='\t')
 
 type_count = {
     'notype': 0
@@ -34,7 +34,7 @@ def fna_parse(fna_file):
 
 data = []
 
-for folder in tqdm(glob('data_feature/gene/*')):
+for folder in tqdm(glob('data/data_feature/gene/*')):
     report_file = folder + '/data_report.jsonl'
     if not os.path.exists(report_file):
         type_ = 'notype'
@@ -72,4 +72,4 @@ for folder in tqdm(glob('data_feature/gene/*')):
         'RefSeq_nuc_seq': RefSeq_nuc_seq
     })
 
-pd.DataFrame(data).to_csv('data_feature/gene.csv', index=False)
+pd.DataFrame(data).to_csv('data/data_feature/gene.csv', index=False)

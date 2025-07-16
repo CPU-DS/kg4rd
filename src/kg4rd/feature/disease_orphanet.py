@@ -18,5 +18,5 @@ def get_summary(code: int) -> str:
 
 
 if __name__ == '__main__':
-    df_orphanet_mondo_ref = pd.read_csv('data/mondo/mondo_references.csv').query('ontology == "Orphanet"')
+    df_orphanet_mondo_ref = pd.read_csv('data/data/mondo/mondo_references.csv').query('ontology == "Orphanet"')
     df_orphanet_mondo_ref['ontology_id'] = df_orphanet_mondo_ref['ontology_id'].astype(int).astype(str)

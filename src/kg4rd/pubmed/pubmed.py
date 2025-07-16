@@ -85,12 +85,12 @@ def search_article_urls(term: str, max_count: int = None, filters: list[str] = N
 if __name__ == "__main__":
     exits = []
     
-    for f in glob('data_abstract/*.csv'):
+    for f in glob('data/data_abstract/*.csv'):
         filename = os.path.basename(f)
         exits.append(filename.split('.')[0])
     
     logger.info(f"exits: {exits}")
-    df = pd.read_csv('data/orphanet/orphanet_mesh.csv')
+    df = pd.read_csv('data/data/orphanet/orphanet_mesh.csv')
     for idx, row in df.iterrows():
         
         logger.info(f'{idx}/{len(df)}')
@@ -120,4 +120,4 @@ if __name__ == "__main__":
                         'mesh_terms': ";".join(article.mesh_terms),
                     })
             
-            pd.DataFrame(data).to_csv(f'data_abstract/{mesh}.csv', index=False)
+            pd.DataFrame(data).to_csv(f'data/data_abstract/{mesh}.csv', index=False)
