@@ -47,11 +47,11 @@ def download(gene_id):
     if response.status_code != 200:
         return False
     
-    zip_file = f'data/data_feature/gene/{gene_id}.zip'
+    zip_file = f'~/gene/{gene_id}.zip'
     with open(zip_file, 'wb') as f:
         f.write(response.content)
 
-    dir_ = f'data/data_feature/gene/{gene_id}'
+    dir_ = f'~/gene/{gene_id}'
     os.makedirs(dir_, exist_ok=True)
     with zipfile.ZipFile(zip_file, 'r') as zip_ref:
         zip_ref.extractall(dir_)
@@ -74,7 +74,7 @@ def wait_for_download(gene_id):
         time.sleep(60)
         
 from glob import glob
-li =[os.path.basename(file) for file in glob('data/data_feature/gene/*')]
+li =[os.path.basename(file) for file in glob('~/gene/*')]
 
 for id_ in tqdm(all_gene_id, total=len(all_gene_id)):
     if id_ in li:

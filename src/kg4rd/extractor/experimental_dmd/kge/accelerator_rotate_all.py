@@ -4,12 +4,6 @@
 # File Name: accelerator_rotate_all.py
 # Description: kg4rd RotatE experimental dmd 在整个图谱上训练
 
-# -*- coding: utf-8 -*-
-# Create Date: 2025/07/11
-# Author: wangtao <wangtao.cpu@gmail.com>
-# File Name: rotate.py
-# Description: kg4rd RotatE experimental dmd 在整个图谱上训练
-
 from unike.utils import WandbLogger
 from unike.data import KGEDataLoader, UniSampler
 from unike.module.model import RotatE
