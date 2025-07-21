@@ -11,11 +11,11 @@ from unike.module.strategy import NegativeSampling
 from unike.config import Trainer, Tester
 from unike.utils import WandbLogger
 
-wandb_logger = WandbLogger(
+wandb_logger = WandbLogger(endpoint='swanlab').set_config(
 	project="kg4rd",
 	name="kg4rd-TransE-dmdexp",
 	config=dict(
-		in_path = 'src/kg4rd/extractor/experimental_dmd/kge/data/',
+		in_path = 'src/kg4rd/extractor/experimental_dmd/kge_origin/data/',
 		batch_size = 1024,
 		neg_ent = 10,
 		test = True,
@@ -32,7 +32,7 @@ wandb_logger = WandbLogger(
 		valid_interval = 50,
 		log_interval = 1,
 		save_interval = 50,
-		save_path = "src/kg4rd/extractor/experimental_dmd/kge/checkpoints/transe/transe.pth",
+		save_path = "src/kg4rd/extractor/experimental_dmd/kge_origin/checkpoints/transe/transe.pth",
 		delta = 0.01,
 		use_early_stopping = True
 	)

@@ -15,7 +15,7 @@ wandb_logger = WandbLogger(endpoint='swanlab').set_config(
 	project="kg4rd",
 	name="kg4rd-RGCN-dmdexp",
 	config=dict(
-        in_path = 'src/kg4rd/extractor/experimental_dmd/kge/data/',
+        in_path = 'src/kg4rd/extractor/experimental_dmd/kge_origin/data/',
         batch_size = 128,
         neg_ent = 10,
         test = True,
@@ -32,7 +32,7 @@ wandb_logger = WandbLogger(endpoint='swanlab').set_config(
         valid_interval = 50,
         log_interval = 1,
         save_interval = 100,
-        save_path = 'src/kg4rd/extractor/experimental_dmd/kge/checkpoint/rgcn/rgcn.pth',
+        save_path = 'src/kg4rd/extractor/experimental_dmd/kge/checkpoint/kge_origin/rgcn.pth',
         use_early_stopping=True,
         use_accelerator=True
 	)

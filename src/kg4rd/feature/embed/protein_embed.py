@@ -67,8 +67,8 @@ if __name__ == "__main__":
             no_seq += 1
     np.savez_compressed('data/data_feature/protein_seq_embed.npz', sequence_ids=sequence_ids, ids=ids, embeddings=embeddings)
 
-    print(f"Total sequences processed: {len(sequence_ids)}")
-    print(f"Sequences with no protein found: {no_seq}")
-    print(f"Sequences that could not be processed: {no_processed}")
+    print(f"Total sequences processed: {len(sequence_ids)}")  # 19144
+    print(f"Sequences with no protein found: {no_seq}")  # 51
+    print(f"Sequences that could not be processed: {no_processed}")  # 159
     print("Protein sequence embedding completed.")
     

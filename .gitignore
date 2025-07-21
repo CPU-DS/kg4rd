@@ -19,8 +19,10 @@ papers/
 primekg/
 !src/primekg/
 data/
+data_*/
 test/
 kg/
+kg_*/
 models/
 checkpoints/
 wandb/

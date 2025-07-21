@@ -1,28 +1,27 @@
 # -*- coding: utf-8 -*-
-# Create Date: 2025/07/15
+# Create Date: 2025/07/10
 # Author: wangtao <wangtao.cpu@gmail.com>
-# File Name: accelerator_rotate_all.py
-# Description: kg4rd RotatE experimental dmd 在整个图谱上训练
+# File Name: rotate.py
+# Description: kg4rd RotatE experimental dmd 模型测试
 
 from unike.utils import WandbLogger
-from unike.data import KGEDataLoader, UniSampler
+from unike.data import KGEDataLoader, UniSampler, TradTestSampler
 from unike.module.model import RotatE
 from unike.module.loss import SigmoidLoss
 from unike.module.strategy import NegativeSampling
-from unike.config import Trainer, accelerator_prepare
+from unike.config import Trainer, Tester
 
-wandb_logger = WandbLogger(
+wandb_logger = WandbLogger(endpoint='swanlab').set_config(
 	project="kg4rd",
-	name="kg4rd-RotatE-dmdexp-all-multi",
-    endpoint='swanlab',
+	name="kg4rd-RotatE-dmdexp",
 	config=dict(
-        in_path = 'src/kg4rd/extractor/experimental_dmd/kge/data/',
-		train_file = 'all2id.txt',
-		batch_size = 8192,
-		neg_ent = 25,
-		test = False,
+        in_path = 'src/kg4rd/extractor/experimental_dmd/kge_origin/data/',
+		batch_size = 512,
+		neg_ent = 10,
+		test = True,
+		test_batch_size = 10,
   		num_workers = 16,
-		dim = 1024,
+		dim = 256,
 		margin = 6.0,
 		epsilon = 2.0,
 		adv_temperature = 2,
@@ -33,22 +32,25 @@ wandb_logger = WandbLogger(
 		epochs = 500,
 		lr = 2e-5,
 		opt_method = 'adam',
+  		valid_interval = 50,
 		log_interval = 1,
 		save_interval = 50,
-		save_path = "src/kg4rd/extractor/experimental_dmd/kge/checkpoints/rotate/all/multi/rotate.pth"
+		save_path = "src/kg4rd/extractor/experimental_dmd/kge_origin/checkpoints/rotate/rotate.pth",
+        use_early_stopping=True
     )
 )
 
 config = wandb_logger.config
 
 dataloader = KGEDataLoader(
-	in_path = config.in_path,
-	train_file = config.train_file,
+	in_path = config.in_path, 
 	batch_size = config.batch_size,
 	neg_ent = config.neg_ent,
 	test = config.test,
+	test_batch_size = config.test_batch_size,
 	num_workers = config.num_workers,
-	train_sampler = UniSampler
+	train_sampler = UniSampler,
+	test_sampler = TradTestSampler
 )
 
 rotate = RotatE(
@@ -65,26 +67,31 @@ model = NegativeSampling(
 	regul_rate = config.regul_rate
 )
 
-train_dataloader, model, accelerator = accelerator_prepare(
-    dataloader.train_dataloader(),
-    model,
-    wandb_logger=wandb_logger
+tester = Tester(
+    model = rotate, 
+    data_loader = dataloader, 
+    use_tqdm = config.use_tqdm,
+    use_gpu = config.use_gpu, 
+    device = config.device
 )
+
+tester.set_hits(new_hits=[1, 3, 10, 30, 50])
 
 trainer = Trainer(
     model = model, 
-    data_loader = train_dataloader, 
+    data_loader = dataloader.train_dataloader(), 
     epochs = config.epochs,
-    accelerator = accelerator,
 	lr = config.lr, 
     opt_method = config.opt_method, 
     use_gpu = config.use_gpu, 
     device = config.device,
+	tester = tester, 
     test = config.test, 
+    valid_interval = config.valid_interval,
 	log_interval = config.log_interval, 
     save_interval = config.save_interval,
 	save_path = config.save_path, 
-    wandb_logger = wandb_logger
+wandb_logger = wandb_logger
 )
 
 if __name__ == "__main__":

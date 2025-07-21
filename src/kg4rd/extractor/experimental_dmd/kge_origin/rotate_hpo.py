@@ -21,7 +21,7 @@ os.environ["https_proxy"] = "http://127.0.0.1:7890"
 data_loader_config = get_kge_data_loader_hpo_config()
 data_loader_config.update({
     'in_path': {
-        'value': os.path.join('src/kg4rd/extractor/experimental_dmd/kge/data/')
+        'value': os.path.join('src/kg4rd/extractor/experimental_dmd/kge_origin/data/')
     },
     'test_batch_size': {
         'value': 1
@@ -61,7 +61,7 @@ trainer_config.update({
         'value': 50
     },
     'save_path': {
-        'value': 'src/kg4rd/extractor/experimental_dmd/kge/checkpoints/hpo/rotate.pth'
+        'value': 'src/kg4rd/extractor/experimental_dmd/kge_origin/checkpoints/hpo/rotate.pth'
     }
 })
 print("trainer_config:")
