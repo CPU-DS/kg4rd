@@ -1116,6 +1116,7 @@ dependencies = [
     { name = "retry" },
     { name = "scikit-learn" },
     { name = "scrapy" },
+    { name = "seaborn" },
     { name = "shortuuid" },
     { name = "swanlab" },
     { name = "tqdm" },
@@ -1143,6 +1144,7 @@ requires-dist = [
     { name = "retry", specifier = ">=0.9.2" },
     { name = "scikit-learn", specifier = ">=1.7.0" },
     { name = "scrapy", specifier = ">=2.13.2" },
+    { name = "seaborn", specifier = ">=0.12.1" },
     { name = "shortuuid", specifier = ">=1.0.13" },
     { name = "swanlab", specifier = ">=0.6.4" },
     { name = "tqdm" },
@@ -2530,6 +2532,21 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/a7/50/c0cf8ac73fd3f642c5aa6eb2c317eaf0132637b451d90db8041bb65cb9ca/scrapy-2.13.2.tar.gz", hash = "sha256:19d984e82847ab08efa150dc329fa615c71f8e99bb97fd97a64a5c29e9a2d5d7", size = 1219338 }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/40/e3/52a938289d3956aec988353de6b9c2845da9d44cb45a60ddace6f8c99ef4/scrapy-2.13.2-py3-none-any.whl", hash = "sha256:6f29826da4f11ba9528336c698e6979e6a0861d6f897d0553f687cfe403d279e", size = 321661 },
+]
+
+[[package]]
+name = "seaborn"
+version = "0.12.1"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "matplotlib" },
+    { name = "numpy" },
+    { name = "pandas", version = "2.1.0", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.12'" },
+    { name = "pandas", version = "2.3.0", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.12'" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/cf/c6/e605f937d0301c1d00a159d55c96ae9edc1adf2fabec6dbc5e43333e5943/seaborn-0.12.1.tar.gz", hash = "sha256:bb1eb1d51d3097368c187c3ef089c0288ec1fe8aa1c69fb324c68aa1d02df4c1", size = 1429609 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/77/18/7354cb68dd7906d5a3118e0ed3e30c37502f9e6253139ecfcf4fa33af210/seaborn-0.12.1-py3-none-any.whl", hash = "sha256:a9eb39cba095fcb1e4c89a7fab1c57137d70a715a7f2eefcd41c9913c4d4ed65", size = 288222 },
 ]
 
 [[package]]
