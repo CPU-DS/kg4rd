@@ -15,13 +15,13 @@ wandb_logger = WandbLogger(endpoint='swanlab').set_config(
 	project="kg4rd",
 	name="kg4rd-TransE-dmdexp",
 	config=dict(
-		in_path = 'src/kg4rd/extractor/experimental_dmd/kge_origin/data/',
-		batch_size = 1024,
-		neg_ent = 10,
+		in_path = 'src/kg4rd/extractor/experimental_dmd/kge/data/',
+		batch_size = 256,
+		neg_ent = 25,
 		test = True,
-		test_batch_size = 256,
+		test_batch_size = 10,
 		num_workers = 16,
-		dim = 50,
+		dim = 100,
 		p_norm = 1,
 		norm_flag = True,
 		margin = 1.0,
@@ -32,7 +32,7 @@ wandb_logger = WandbLogger(endpoint='swanlab').set_config(
 		valid_interval = 50,
 		log_interval = 1,
 		save_interval = 50,
-		save_path = "src/kg4rd/extractor/experimental_dmd/kge_origin/checkpoints/transe/transe.pth",
+		save_path = "src/kg4rd/extractor/experimental_dmd/kge/checkpoints/transe/transe.pth",
 		delta = 0.01,
 		use_early_stopping = True
 	)
@@ -88,7 +88,7 @@ trainer = Trainer(
     save_interval = config.save_interval,
 	save_path = config.save_path, 
     delta = config.delta,
-wandb_logger = wandb_logger,
+	wandb_logger = wandb_logger,
     use_early_stopping=config.use_early_stopping,
 )
 

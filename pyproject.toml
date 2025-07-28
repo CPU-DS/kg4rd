@@ -29,4 +29,5 @@ dependencies = [
     "esm>=3.0.0.post2",
     "unike==3.2.6",
     "seaborn>=0.12.1",
+    "sentence-transformers>=5.0.0",
 ]

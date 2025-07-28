@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # Create Date: 2025/07/17
 # Author: wangtao <wangtao.cpu@gmail.com>
-# File Name: protein_embed.py
+# File Name: protein_seq_embed.py
 # Description: protein feature embedding
 
 import os
@@ -19,7 +19,6 @@ from tqdm import tqdm
 import torch
 
 client = ESM3.from_pretrained(ESM3_OPEN_SMALL, device="cuda:3")
-client_cpu = ESM3.from_pretrained(ESM3_OPEN_SMALL, device="cpu")
 
 def get_sequence_embedding(sequence):
     protein = ESMProtein(sequence)
@@ -33,7 +32,7 @@ def get_sequence_embedding(sequence):
         return None
 
 def get_prot_seq(ncbi_id: int, seq_name: str):
-    path = f'~/gene/{ncbi_id}/protein.faa'
+    path = f'/home/wangtao/gene/{ncbi_id}/protein.faa'
     if not os.path.exists(path):
         return None
     for record in SeqIO.parse(path, 'fasta'):
@@ -65,7 +64,10 @@ if __name__ == "__main__":
                 no_processed += 1
         else:
             no_seq += 1
-    np.savez_compressed('data/data_feature/protein_seq_embed.npz', sequence_ids=sequence_ids, ids=ids, embeddings=embeddings)
+    np.savez_compressed('data/data_feature/protein_seq_embed.npz', 
+                        sequence_ids=sequence_ids, 
+                        ids=ids, 
+                        embeddings=embeddings)
 
     print(f"Total sequences processed: {len(sequence_ids)}")  # 19144
     print(f"Sequences with no protein found: {no_seq}")  # 51
