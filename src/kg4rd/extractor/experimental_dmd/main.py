@@ -5,20 +5,19 @@
 # Description: DMD 三元组抽取结果分析
 
 import json
+import json5
 import sys
 import re
 import pandas as pd
-import os
 from tqdm import tqdm
-from shortuuid import uuid
 sys.path.append('src/kg4rd')
 
 from synonyms.simple_search import simple_search
 
 synonyms = json.load(open('src/kg4rd/extractor/experimental_dmd/synonyms.json'))
 dmd = json.load(open('src/kg4rd/extractor/experimental_dmd/dmd.json'))
-relation_type_name_map = json.load(open('src/kg4rd/extractor/relation_type_name_map.json'))
-node_type_name_map = json.load(open('src/kg4rd/extractor/node_type_name_map.json'))
+relation_type_name_map = json5.load(open('src/kg4rd/extractor/relation_type_name_map.json5'))
+node_type_name_map = json5.load(open('src/kg4rd/extractor/node_type_name_map.json5'))
 exists_edges = pd.read_csv('src/kg4rd/kg/kg.csv')
 exists_nodes = pd.read_csv('src/kg4rd/kg/nodes.csv')
 

@@ -4,45 +4,42 @@
 # File Name: extract.py
 # Description: 从 PubMed 中提取三元组
 
+import os
+import sys
+
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+
 import pandas as pd
 import json
-from google import genai
-from google.genai.types import GenerateContentConfig, ThinkingConfig
-from google.genai.types import HttpOptions
+import json5
 import time
-from pydantic import BaseModel
-from enum import Enum
-from typing import Generic, TypeVar, TypedDict
+from typing import Optional
 import os
 from loguru import logger
-from retry import retry
 from shortuuid import uuid
 
+from llm import LLM
 
 os.environ['HTTP_PROXY'] = 'http://127.0.0.1:7890'
 os.environ['HTTPS_PROXY'] = 'http://127.0.0.1:7890'
 
-
-T = TypeVar('T')
-
-SYSTEM_PROMPT = "You are an AI assistant specializing in biomedical information extraction. Your task is to extract strictly defined biomedical relationship triples (Subject, Predicate, Object) from the provided abstract, with a specific focus on information relevant to human disease drug repositioning."
-
-client = genai.Client(api_key=os.getenv('GEMINI_API_KEY'), http_options=HttpOptions(timeout=3*60*1000))
+with open('src/kg4rd/extractor/system_prompt.txt', 'rt', encoding='utf-8') as fp:
+    system_prompt = fp.read()
 
 with open('src/kg4rd/extractor/prompt.md', 'rt', encoding='utf-8') as fp:
     prompt = fp.read()
     
-with open('src/kg4rd/extractor/definition of node type.txt', 'rt', encoding='utf-8') as fp:
+with open('src/kg4rd/extractor/definition_of_node_type.txt', 'rt', encoding='utf-8') as fp:
     node_type = fp.read()
 
 with open('src/kg4rd/extractor/examples.json', 'r', encoding='utf-8') as f:
-    examples = json.load(f)
+    examples = json5.load(f)
 
-with open('src/kg4rd/extractor/disease_subheadings_to_relation.json', 'r', encoding='utf-8') as f:
-    disease_subheadings_to_relation = json.load(f)
+with open('src/kg4rd/extractor/disease_subheadings_to_relation.json5', 'r', encoding='utf-8') as f:
+    disease_subheadings_to_relation = json5.load(f)
 
-with open('src/kg4rd/extractor/definition_of_relations.json', 'r', encoding='utf-8') as f:
-    definition_of_relations = json.load(f)
+with open('src/kg4rd/extractor/definition_of_relations.json5', 'r', encoding='utf-8') as f:
+    definition_of_relations = json5.load(f)
         
 orphanet_mesh = pd.read_csv('data/data/orphanet/orphanet_mesh.csv')
 
@@ -71,15 +68,12 @@ def get_relations_from_subheadings(subheadings, disease_subheadings_to_relation)
     
     return all_relations
 
-
-class Triple(BaseModel, Generic[T]):
-    subject: str
-    predicate: T
-    object: str
-
-
-@retry(tries=5, delay=60)
-def extract_relations_with_gemini(abstract, relations, relations_with_definitions, prompt, examples:list[dict]=None):     
+def get_filled_prompt(
+    abstract,
+    relations_with_definitions, 
+    prompt, 
+    examples:Optional[list[dict]]=None
+):
     full_prompt = f"""{prompt}
 
 # Input Data
@@ -114,32 +108,18 @@ def extract_relations_with_gemini(abstract, relations, relations_with_definition
 
 # Output Data
 """
-
-    RelationType = Enum('RelationType', {name: name for name in relations})
-
-    response = client.models.generate_content(
-        model='gemini-2.5-flash',
-        contents=full_prompt,
-        config=GenerateContentConfig(
-            system_instruction=SYSTEM_PROMPT,
-            temperature=0.3,
-            response_mime_type="application/json",
-            response_schema=list[Triple[RelationType]]
-        )
-    )
-    return json.loads(response.text)
+    return full_prompt
 
 
-def extract(mesh_id: str):
+def extract(llm: LLM, mesh_id: str, max_abs: int = 300):
     
-    # heading = orphanet_mesh.query('mesh == @mesh_id')['mesh_name'].values[0]
-    heading = 'Muscular Dystrophy, Duchenne'
-
-    # df = pd.read_csv(f'data/data_abstract/{mesh_id}.csv') 
-    df = pd.read_excel('src/kg4rd/extractor/disease_DMD_abstracts.xlsx')
-
-    # save_file = f'data/data_abstract/result/{mesh_id}.json'
-    save_file = f'src/kg4rd/extractor/dmd.json'
+    heading = orphanet_mesh.query('mesh == @mesh_id')['mesh_name'].values[0]
+    csv_path = f'data/data_abstract/{mesh_id}.csv'
+    if not os.path.exists(csv_path):
+        logger.error(f"CSV file for {mesh_id} does not exist: {csv_path}")
+        return
+    df = pd.read_csv(f'data/data_abstract/{mesh_id}.csv') 
+    save_file = f'data/data_abstract/result/{mesh_id}.json'
 
     if os.path.exists(save_file):
         with open(save_file, 'r', encoding='utf-8') as f:
@@ -147,8 +127,8 @@ def extract(mesh_id: str):
     else:
         results = []
 
-    for idx, row in df.iterrows():
-        logger.info(f"处理第 {idx}/{len(df)}条")
+    for idx, row in df.head(max_abs).iterrows():
+        logger.info(f"处理 {mesh_id}: {heading} 第 {idx}/{len(df)}条")
         
         if any(item['index'] == idx for item in results):
             continue
@@ -164,15 +144,16 @@ def extract(mesh_id: str):
             definition = definition_of_relations[relation]
             relation_definitions.append(f"{(i+1)}.{relation}: {definition}")
         
-        relations_with_definitions = "\n".join(relation_definitions)        
+        relations_with_definitions = "\n".join(relation_definitions)
+        full_prompt = get_filled_prompt(abstract, relations_with_definitions, prompt, examples)      
 
         try:
-            extracted_relations = extract_relations_with_gemini(abstract, list(relations), relations_with_definitions, prompt, examples)
+            extracted_relations = llm.extract_relations(system_prompt, full_prompt, list(relations))
         except Exception as e:
             raise e
         else:
             for r in extracted_relations:
-                r['uid'] = f'{mesh_id}:{row["pmid"]}:{str(uuid4())}'
+                r['uid'] = f'{mesh_id}:{row["pmid"]}:{str(uuid())}'
             results.append({
                 'pmid': row['pmid'],
                 'index': idx,
@@ -193,4 +174,9 @@ def extract(mesh_id: str):
         json.dump(results, f, ensure_ascii=False, indent=2)
 
 if __name__ == '__main__':
-    extract('')
+    gemini = LLM.get_llm('gemini')
+    max_abs = 200
+    print(f'最大摘要数量: {max_abs}')
+    df = orphanet_mesh[orphanet_mesh['mesh'].notna()]
+    for _, row in df.iterrows():
+        extract(gemini, row['mesh'], max_abs=max_abs)

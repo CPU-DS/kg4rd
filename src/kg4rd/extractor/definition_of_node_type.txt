@@ -1,0 +1,8 @@
+Gene/Protein
+Disease
+Drug
+Phenotype
+Biological Process
+Molecular Function
+Cellular Component
+Pathway

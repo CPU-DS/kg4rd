@@ -30,4 +30,5 @@ dependencies = [
     "unike==3.2.6",
     "seaborn>=0.12.1",
     "sentence-transformers>=5.0.0",
+    "json5>=0.12.0",
 ]

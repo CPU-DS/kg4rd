@@ -20,10 +20,10 @@
     "Disease - Protein"
   ],
   "genetics": [
+    // "Anatomy - Protein (present)",
+    // "Anatomy - Protein (absent)",
     "Disease - Protein",
-    "Phenotype - Protein",
-    "Anatomy - Protein (present)",
-    "Anatomy - Protein (absent)"
+    "Phenotype - Protein"
   ],
   "immunology": [
     "Disease - Protein",
@@ -33,31 +33,31 @@
     "Cellular component - Protein"
   ],
   "metabolism": [
+    // "Exposure - Protein",
+    // "Exposure - Biological process",
     "Biological process - Protein",
     "Molecular function - Protein",
     "Pathway - Protein",
     "Disease - Protein",
     "Disease - Phenotype (positive)",
-    "Exposure - Protein",
-    "Exposure - Biological process"
   ],
   "pathology": [
     "Disease - Phenotype (positive)",
     "Disease - Protein",
-    "Anatomy - Protein (present)",
-    "Anatomy - Protein (absent)",
+    // "Anatomy - Protein (present)",
+    // "Anatomy - Protein (absent)",
     "Biological process - Protein",
     "Cellular component - Protein"
   ],
   "physiopathology": [
+    // "Anatomy - Protein (present)",
+    // "Anatomy - Protein (absent)",
     "Disease - Protein",
     "Biological process - Protein",
     "Molecular function - Protein",
     "Disease - Phenotype (positive)",
     "Pathway - Protein",
     "Disease - Phenotype (positive)",
-    "Anatomy - Protein (present)",
-    "Anatomy - Protein (absent)"
   ],
   "therapy": [
     "Drug - Disease (indication)",
@@ -68,9 +68,9 @@
   ],
   "prevention and control": [
     "Drug - Disease (off-label use)",
-    "Exposure - Disease",
-    "Exposure - Biological process",
-    "Exposure - Protein",
+    // "Exposure - Disease",
+    // "Exposure - Biological process",
+    // "Exposure - Protein",
     "Drug - Disease (indication)",
     "Disease - Phenotype (positive)",
     "Disease - Protein"
