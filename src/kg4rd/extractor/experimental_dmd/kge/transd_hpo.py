@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
-# Create Date: 2025/07/29
+# Create Date: 2025/08/01
 # Author: wangtao <wangtao.cpu@gmail.com>
-# File Name: transe_hpo.py
-# Description: transe hpo
+# File Name: transd_hpo.py
+# Description: transd hpo
 
 import pprint
 import os
 from unike.data import get_kge_data_loader_hpo_config
-from unike.module.model import get_transe_hpo_config
+from unike.module.model import get_transd_hpo_config
 from unike.module.loss import get_margin_loss_hpo_config
 from unike.module.strategy import get_negative_sampling_hpo_config
 from unike.config import get_tester_hpo_config
@@ -30,7 +30,7 @@ print("data_loader_config:")
 pprint.pprint(data_loader_config)
 print()
 
-kge_config = get_transe_hpo_config()
+kge_config = get_transd_hpo_config()
 print("kge_config:")
 pprint.pprint(kge_config)
 print()
@@ -46,12 +46,20 @@ pprint.pprint(strategy_config)
 print()
 
 tester_config = get_tester_hpo_config()
+tester_config.update({
+    'device_tester': {
+        'value': 'cuda:1'
+    }
+})
 print("tester_config:")
 pprint.pprint(tester_config)
 print()
 
 trainer_config = get_trainer_hpo_config()
 trainer_config.update({
+    'device_trainer': {
+        'value': 'cuda:1'
+    },
     'log_interval': {
         'value': 25
     },
@@ -59,7 +67,7 @@ trainer_config.update({
         'value': 100
     },
     'save_path': {
-        'value': 'src/kg4rd/extractor/experimental_dmd/kge/checkpoints/transe/hpo/transe.pth'
+        'value': 'src/kg4rd/extractor/experimental_dmd/kge/checkpoints/transd/hpo/transd.pth'
     },
     'epochs': {
         'value': 1000
@@ -70,7 +78,7 @@ pprint.pprint(trainer_config)
 print()
 
 sweep_config = set_hpo_config(
-    sweep_name = "kg4rd-TransE-hpo",
+    sweep_name = "kg4rd-TransD-hpo",
     data_loader_config = data_loader_config,
     kge_config = kge_config,
     loss_config = loss_config,

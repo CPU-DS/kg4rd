@@ -17,11 +17,9 @@ from typing import Optional
 import os
 from loguru import logger
 from shortuuid import uuid
+from tqdm import tqdm
 
 from llm import LLM
-
-os.environ['HTTP_PROXY'] = 'http://127.0.0.1:7890'
-os.environ['HTTPS_PROXY'] = 'http://127.0.0.1:7890'
 
 with open('src/kg4rd/extractor/system_prompt.txt', 'rt', encoding='utf-8') as fp:
     system_prompt = fp.read()
@@ -53,7 +51,7 @@ def extract_subheadings(heading, mesh_terms):
     subheadings = []
     for term in terms:
         if term.strip().startswith(heading) and "/" in term:
-            subheading = term.split("/", 1)[1].strip()
+            subheading = term.split("/", 1)[1].strip().replace("*", "")
             subheadings.append(subheading)
     
     return subheadings
@@ -116,7 +114,7 @@ def extract(llm: LLM, mesh_id: str, max_abs: int = 300):
     heading = orphanet_mesh.query('mesh == @mesh_id')['mesh_name'].values[0]
     csv_path = f'data/data_abstract/{mesh_id}.csv'
     if not os.path.exists(csv_path):
-        logger.error(f"CSV file for {mesh_id} does not exist: {csv_path}")
+        logger.warning(f"CSV file for {mesh_id} does not exist: {csv_path}")
         return
     df = pd.read_csv(f'data/data_abstract/{mesh_id}.csv') 
     save_file = f'data/data_abstract/result/{mesh_id}.json'
@@ -127,9 +125,9 @@ def extract(llm: LLM, mesh_id: str, max_abs: int = 300):
     else:
         results = []
 
-    for idx, row in df.head(max_abs).iterrows():
-        logger.info(f"处理 {mesh_id}: {heading} 第 {idx}/{len(df)}条")
-        
+    df_head = df.head(max_abs) if max_abs > 0 else df
+    for idx, row in tqdm(df_head.iterrows(), total=len(df_head), desc=f'{mesh_id}:{heading}'):
+
         if any(item['index'] == idx for item in results):
             continue
         
@@ -148,7 +146,13 @@ def extract(llm: LLM, mesh_id: str, max_abs: int = 300):
         full_prompt = get_filled_prompt(abstract, relations_with_definitions, prompt, examples)      
 
         try:
-            extracted_relations = llm.extract_relations(system_prompt, full_prompt, list(relations))
+            if pd.isna(abstract) or not abstract.strip():
+                abstract = None
+                extracted_relations = []
+            elif len(relations) == 0:
+                extracted_relations = []
+            else:
+                extracted_relations = llm.extract_relations(system_prompt, full_prompt, list(relations))
         except Exception as e:
             raise e
         else:
@@ -162,7 +166,11 @@ def extract(llm: LLM, mesh_id: str, max_abs: int = 300):
                 'mesh_terms':subheadings,
                 'abstract': abstract,
                 'extracted_relations': extracted_relations,
-                'relation_choices': list(relations)
+                'relation_choices': list(relations),
+                'llm': {
+                    'name': llm.name,
+                    **llm.config
+                }
             })
         finally:
             with open(save_file, 'w', encoding='utf-8') as f:
@@ -174,9 +182,15 @@ def extract(llm: LLM, mesh_id: str, max_abs: int = 300):
         json.dump(results, f, ensure_ascii=False, indent=2)
 
 if __name__ == '__main__':
-    gemini = LLM.get_llm('gemini')
+    import argparse
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-m', default='deepseek')
+    args = parser.parse_args()
+
+    llm = LLM.get_llm(args.m)
     max_abs = 200
-    print(f'最大摘要数量: {max_abs}')
-    df = orphanet_mesh[orphanet_mesh['mesh'].notna()]
-    for _, row in df.iterrows():
-        extract(gemini, row['mesh'], max_abs=max_abs)
+    df = orphanet_mesh[orphanet_mesh['mesh'].notna()].reset_index(drop=True)
+    for i, row in df.iterrows():
+        logger.info(f'{i}/{len(df)} - {row["mesh"]}:{row["mesh_name"]}')
+        extract(llm, row['mesh'], max_abs=max_abs)

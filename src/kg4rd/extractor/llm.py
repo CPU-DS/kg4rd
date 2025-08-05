@@ -8,11 +8,12 @@
 from google.genai.types import GenerateContentConfig
 from google import genai
 from google.genai.types import HttpOptions
+from openai import OpenAI
 from retry import retry
 import json
 from enum import Enum
 import os
-from typing import TypeVar, Generic, overload
+from typing import TypeVar, Generic, Any
 from pydantic import BaseModel
 from abc import ABC, abstractmethod
 
@@ -25,6 +26,10 @@ class Triple(BaseModel, Generic[T]):
 
 
 class LLM(ABC):
+
+    name: str
+    config: dict[str, Any]
+
     @abstractmethod
     def extract_relations(*args, **kwargs):
         raise NotImplementedError
@@ -34,27 +39,67 @@ class LLM(ABC):
         match name:
             case 'gemini':
                 return Gemini(*args, **kwargs)
+            case 'deepseek':
+                return DeepSeek(*args, **kwargs)
             case _:
                 return Gemini(*args, **kwargs)
     
 class Gemini(LLM):
+
+    name = 'gemini-2.5-flash'
+    config = {
+        'temperature': 0.3
+    }
+    
     def __init__(self):
         self.client = genai.Client(api_key=os.getenv('GEMINI_API_KEY'), http_options=HttpOptions(timeout=3*60*1000))
 
     @retry(tries=5, delay=60)
-    def extract_relations(self, system_prompt, full_prompt, relations):
+    def extract_relations(self, system_prompt, full_prompt, relations, *args, **kwargs):
         RelationType = Enum('RelationType', {name: name for name in relations})
 
         response = self.client.models.generate_content(
-            model='gemini-2.5-flash',
+            model=self.name,
             contents=full_prompt,
             config=GenerateContentConfig(
                 system_instruction=system_prompt,
-                temperature=0.3,
+                temperature=self.config['temperature'],
                 response_mime_type="application/json",
                 response_schema=list[Triple[RelationType]]
             )
         )
         return json.loads(str(response.text))
+    
+class DeepSeek(LLM):
 
+    name = 'deepseek-chat'
+    config = {
+        'temperature': 1.0,
+    }
 
+    def __init__(self):
+        self.client = OpenAI(api_key=os.getenv('DEEPSEEK_API_KEY'), base_url="https://api.deepseek.com")
+
+    @retry(tries=5, delay=60)
+    def extract_relations(self, system_prompt, full_prompt, *args, **kwargs):
+        response = self.client.chat.completions.create(
+            model=self.name,
+            messages=[
+                    {"role": "system", "content": system_prompt},
+                    {"role": "user", "content": full_prompt},
+                ],
+            stream=False,
+            temperature=self.config['temperature'],
+            response_format={
+                'type': 'json_object'
+            }
+        )
+        r = json.loads(str(response.choices[0].message.content))
+        if isinstance(r, list):
+            return r
+        elif isinstance(r, dict):  # maybe {'output_data': []}
+            ks = list(r.keys())
+            if isinstance((rs:= r[ks[0]]), list):
+                return rs
+        return []
+                

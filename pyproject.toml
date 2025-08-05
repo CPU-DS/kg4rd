@@ -27,8 +27,16 @@ dependencies = [
     "biopython>=1.85",
     "transformers==4.43",
     "esm>=3.0.0.post2",
-    "unike==3.2.6",
     "seaborn>=0.12.1",
     "sentence-transformers>=5.0.0",
     "json5>=0.12.0",
+    "openai>=1.97.1",
+    "torch-geometric>=2.6.1",
+    "unike==3.2.11",
+    "pyg-lib",
+    "torch-sparse",
 ]
+
+[tool.uv.sources]
+pyg-lib = { url = "https://data.pyg.org/whl/torch-2.1.0%2Bcu121/pyg_lib-0.3.1%2Bpt21cu121-cp311-cp311-linux_x86_64.whl" }
+torch-sparse = { url = "https://data.pyg.org/whl/torch-2.1.0%2Bcu121/torch_sparse-0.6.18%2Bpt21cu121-cp311-cp311-linux_x86_64.whl" }
