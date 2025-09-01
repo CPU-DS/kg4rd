@@ -14,10 +14,10 @@ sys.path.append('src/kg4rd')
 
 from synonyms.simple_search import simple_search
 
-synonyms = json.load(open('src/kg4rd/extractor/experimental_dmd/synonyms.json'))
-dmd = json.load(open('src/kg4rd/extractor/experimental_dmd/dmd.json'))
-relation_type_name_map = json5.load(open('src/kg4rd/extractor/relation_type_name_map.json5'))
-node_type_name_map = json5.load(open('src/kg4rd/extractor/node_type_name_map.json5'))
+synonyms = json.load(open('src/kg4rd/extract/experimental_dmd/synonyms.json'))
+dmd = json.load(open('src/kg4rd/extract/experimental_dmd/dmd.json'))
+relation_type_name_map = json5.load(open('src/kg4rd/extract/relation_type_name_map.json5'))
+node_type_name_map = json5.load(open('src/kg4rd/extract/node_type_name_map.json5'))
 exists_edges = pd.read_csv('src/kg4rd/kg/kg.csv')
 exists_nodes = pd.read_csv('src/kg4rd/kg/nodes.csv')
 
@@ -131,6 +131,6 @@ df_approved_triples_node_exist.drop_duplicates(subset=['relation', 'x_id', 'y_id
 print('新加入的三元组(去重后): ', len(df_approved_triples))
 print('新加入的三元组(双侧实体均已存在)(去重后): ', len(df_approved_triples_node_exist))
 
-df_original_triples.to_csv('src/kg4rd/extractor/experimental_dmd/original_triples.csv', index=False)
-df_approved_triples.to_csv('src/kg4rd/extractor/experimental_dmd/approved_triples.csv', index=False)
-df_approved_triples_node_exist.to_csv('src/kg4rd/extractor/experimental_dmd/approved_triples_node_exist.csv', index=False)
+df_original_triples.to_csv('src/kg4rd/extract/experimental_dmd/original_triples.csv', index=False)
+df_approved_triples.to_csv('src/kg4rd/extract/experimental_dmd/approved_triples.csv', index=False)
+df_approved_triples_node_exist.to_csv('src/kg4rd/extract/experimental_dmd/approved_triples_node_exist.csv', index=False)

@@ -18,27 +18,28 @@ import os
 from loguru import logger
 from shortuuid import uuid
 from tqdm import tqdm
+from typing import Any
 
 from llm import LLM
 
-with open('src/kg4rd/extractor/system_prompt.txt', 'rt', encoding='utf-8') as fp:
+with open('src/kg4rd/extract/system_prompt.md', 'rt', encoding='utf-8') as fp:
     system_prompt = fp.read()
 
-with open('src/kg4rd/extractor/prompt.md', 'rt', encoding='utf-8') as fp:
+with open('src/kg4rd/extract/prompt.md', 'rt', encoding='utf-8') as fp:
     prompt = fp.read()
     
-with open('src/kg4rd/extractor/definition_of_node_type.txt', 'rt', encoding='utf-8') as fp:
+with open('src/kg4rd/extract/definition_of_node_type.txt', 'rt', encoding='utf-8') as fp:
     node_type = fp.read()
 
-with open('src/kg4rd/extractor/examples.json', 'r', encoding='utf-8') as f:
+with open('src/kg4rd/extract/examples.json', 'r', encoding='utf-8') as f:
     examples = json5.load(f)
 
-with open('src/kg4rd/extractor/disease_subheadings_to_relation.json5', 'r', encoding='utf-8') as f:
+with open('src/kg4rd/extract/disease_subheadings_to_relation.json5', 'r', encoding='utf-8') as f:
     disease_subheadings_to_relation = json5.load(f)
 
-with open('src/kg4rd/extractor/definition_of_relations.json5', 'r', encoding='utf-8') as f:
+with open('src/kg4rd/extract/definition_of_relations.json5', 'r', encoding='utf-8') as f:
     definition_of_relations = json5.load(f)
-        
+
 orphanet_mesh = pd.read_csv('data/data/orphanet/orphanet_mesh.csv')
 
 
@@ -109,14 +110,16 @@ def get_filled_prompt(
     return full_prompt
 
 
-def extract(llm: LLM, mesh_id: str, max_abs: int = 300):
+def extract(llm: LLM, mesh_id: str, heading: str, max_abs: int = 300):
     
-    heading = orphanet_mesh.query('mesh == @mesh_id')['mesh_name'].values[0]
     csv_path = f'data/data_abstract/{mesh_id}.csv'
     if not os.path.exists(csv_path):
-        logger.warning(f"CSV file for {mesh_id} does not exist: {csv_path}")
+        # logger.warning(f"CSV file for {mesh_id} does not exist: {csv_path}")
         return
-    df = pd.read_csv(f'data/data_abstract/{mesh_id}.csv') 
+    if os.path.getsize(csv_path) <= 2:
+        # logger.warning(f"CSV file for {mesh_id} is empty: {csv_path}")
+        return
+    df = pd.read_csv(csv_path) 
     save_file = f'data/data_abstract/result/{mesh_id}.json'
 
     if os.path.exists(save_file):
@@ -126,12 +129,13 @@ def extract(llm: LLM, mesh_id: str, max_abs: int = 300):
         results = []
 
     df_head = df.head(max_abs) if max_abs > 0 else df
-    for idx, row in tqdm(df_head.iterrows(), total=len(df_head), desc=f'{mesh_id}:{heading}'):
+    phar = tqdm(df_head.iterrows(), total=len(df_head), desc=f'{mesh_id}:{heading}', position=1, leave=False)
+    for idx, row in phar:
 
         if any(item['index'] == idx for item in results):
             continue
         
-        abstract = row['abstract']
+        abstract: Any = row['abstract']
         mesh_terms = row['mesh_terms']        
            
         subheadings = extract_subheadings(heading, mesh_terms)
@@ -146,7 +150,7 @@ def extract(llm: LLM, mesh_id: str, max_abs: int = 300):
         full_prompt = get_filled_prompt(abstract, relations_with_definitions, prompt, examples)      
 
         try:
-            if pd.isna(abstract) or not abstract.strip():
+            if abstract is None or pd.isna(abstract) or not str(abstract).strip():
                 abstract = None
                 extracted_relations = []
             elif len(relations) == 0:
@@ -178,6 +182,7 @@ def extract(llm: LLM, mesh_id: str, max_abs: int = 300):
         
         time.sleep(2)
 
+    phar.close()
     with open(save_file, 'w', encoding='utf-8') as f:
         json.dump(results, f, ensure_ascii=False, indent=2)
 
@@ -191,6 +196,5 @@ if __name__ == '__main__':
     llm = LLM.get_llm(args.m)
     max_abs = 200
     df = orphanet_mesh[orphanet_mesh['mesh'].notna()].reset_index(drop=True)
-    for i, row in df.iterrows():
-        logger.info(f'{i}/{len(df)} - {row["mesh"]}:{row["mesh_name"]}')
-        extract(llm, row['mesh'], max_abs=max_abs)
+    for i, row in tqdm(df.iterrows(), total=len(df), position=0):
+        extract(llm, str(row.get('mesh')), str(row.get('mesh_name')), max_abs=max_abs)

@@ -2,7 +2,7 @@
 # Create Date: 2025/06/03
 # Author: wangtao <wangtao.cpu@gmail.com>
 # File Name: llm.py
-# Description: 大模型了类
+# Description: 大模型类
 
 
 from google.genai.types import GenerateContentConfig
@@ -94,7 +94,13 @@ class DeepSeek(LLM):
                 'type': 'json_object'
             }
         )
-        r = json.loads(str(response.choices[0].message.content))
+        r = response.choices[0].message.content
+        r = r.strip()
+        if not r:
+            return []
+        if not r.startswith('[') and r.endswith(']'):
+            r = '[' + r
+        r = json.loads(r)
         if isinstance(r, list):
             return r
         elif isinstance(r, dict):  # maybe {'output_data': []}

@@ -42,28 +42,40 @@ class DGI(nn.Module):
     def __init__(self, input_dim: int, hidden_dim: int = 512, output_dim: int = 256):
         super().__init__()
         self.encoder = GraphEncoder(input_dim, hidden_dim, output_dim)
-        self.discriminator = Discriminator(output_dim)
+        self.discriminator = Discriminator(output_dim * 2)
         
-    def corruption(self, x: torch.Tensor) -> torch.Tensor:
-        idx = torch.randperm(x.size(0))  # 生成负样本，随机打乱节点特征
-        return x[idx]
+        self.projection_head = nn.Sequential(
+            nn.Linear(output_dim, output_dim),
+            nn.ReLU(),
+            nn.Linear(output_dim, output_dim)
+        )
+        
+    def corruption(self, x: torch.Tensor, corruption_type: str = 'shuffle') -> torch.Tensor:
+        if corruption_type == 'dropout':  # 随机丢弃特征
+            return F.dropout(x, p=0.2, training=True)
+        elif corruption_type == 'gaussian':
+            noise = torch.randn_like(x) * 0.1  # 高斯噪声
+            return x + noise
+        else:
+            idx = torch.randperm(x.size(0)) # 打乱节点顺序
+            return x[idx]
     
     def forward(self, x: torch.Tensor, edge_index: torch.Tensor) -> tuple[torch.Tensor, torch.Tensor, torch.Tensor]:
         positive = self.encoder(x, edge_index)
+        positive_proj = self.projection_head(positive)
         
         corrupted_x = self.corruption(x)
         negative = self.encoder(corrupted_x, edge_index)
         
-        positive = positive.detach().requires_grad_(True)
-        negative = negative.detach().requires_grad_(True)
-        
         summary = torch.sigmoid(global_mean_pool(positive, torch.zeros(x.size(0), dtype=torch.long, device=x.device)))
         
-        return positive, negative, summary
+        return positive_proj, negative, summary
     
     def loss(self, positive: torch.Tensor, negative: torch.Tensor, summary: torch.Tensor) -> torch.Tensor:
-        pos_scores = self.discriminator(positive + summary) 
-        neg_scores = self.discriminator(negative + summary)
+        summary = summary.expand(positive.size(0), -1)
+        
+        pos_scores = self.discriminator(torch.cat([positive, summary], dim=1))  # 局部和全局特征拼接
+        neg_scores = self.discriminator(torch.cat([negative, summary], dim=1))
         
         pos_loss = F.binary_cross_entropy(pos_scores, torch.ones_like(pos_scores))
         neg_loss = F.binary_cross_entropy(neg_scores, torch.zeros_like(neg_scores))

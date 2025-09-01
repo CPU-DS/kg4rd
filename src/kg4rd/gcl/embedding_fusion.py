@@ -19,6 +19,7 @@ class EmbeddingFusion(nn.Module):
     def add_embedding_type(self, name: str, input_dim: int):
         self.projectors[name] = nn.Sequential(  # 通过线性层投影到目标维度
             nn.Linear(input_dim, self.target_dim),
+            nn.LayerNorm(self.target_dim),
             nn.ReLU(),
             nn.Dropout(0.1),
             nn.Linear(self.target_dim, self.target_dim)
@@ -36,7 +37,8 @@ class EmbeddingFusion(nn.Module):
         elif len(projected_embeddings) == 1:
             return projected_embeddings[0]
         else:  # 使用注意力加权
-            stacked = torch.stack(projected_embeddings, dim=1)  # (num_embeddings, dim)
-            attention_weights = F.softmax(torch.mean(stacked, dim=-1), dim=0)  # (num_embeddings)  ,dim=1
-            weighted = torch.sum(stacked * attention_weights.unsqueeze(-1), dim=1)  # (, dim)
+            stacked = torch.stack(projected_embeddings, dim=0)  # (num_embeddings, dim)
+            attention_scores = torch.matmul(stacked, stacked.transpose(0, 1))
+            attention_weights = F.softmax(attention_scores.mean(dim=1), dim=0)
+            weighted = torch.sum(stacked * attention_weights.unsqueeze(-1), dim=0)
             return weighted

@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Create Date: 2025/07/29
+# Create Date: 2025/08/05
 # Author: wangtao <wangtao.cpu@gmail.com>
 # File Name: accelerator_transe_all.py
 # Description: kg4rd TransE experimental dmd 在整个图谱上训练
@@ -8,29 +8,35 @@ from unike.data import KGEDataLoader, BernSampler
 from unike.module.model import TransE
 from unike.module.loss import MarginLoss
 from unike.module.strategy import NegativeSampling
-from unike.config import Trainer, Tester
+from unike.config import Trainer
 from unike.utils import WandbLogger
 
-wandb_logger = WandbLogger(endpoint='swanlab').set_config(
+wandb_logger = WandbLogger(endpoint='wandb').set_config(
 	project="kg4rd",
-	name="kg4rd-TransE-dmdexp-all-multi",
+	name="kg4rd-TransE-dmdexp-all",
 	config=dict(
-		in_path = 'src/kg4rd/extractor/experimental_dmd/kge/data/',
+		in_path = 'src/kg4rd/extract/experimental_dmd/kge/data/',
 		train_file = 'all2id.txt',
-		batch_size = 256,
-		neg_ent = 25,
+		batch_size = 128,
+		neg_ent = 64,
 		num_workers = 16,
 		dim = 100,
 		p_norm = 1,
 		norm_flag = True,
 		margin = 1.0,
-		epochs = 500,
-		lr = 0.01,
+		epochs = 1000,
+		lr = 0.1656335836843317,
+  		use_gpu = True,
+		device = 'cuda:3',
 		valid_interval = 50,
 		log_interval = 1,
 		save_interval = 50,
-		save_path = "src/kg4rd/extractor/experimental_dmd/kge/checkpoints/transe/all/multi/transe.pth",
-		delta = 0.01
+		save_path = "src/kg4rd/extract/experimental_dmd/kge/checkpoints/transe/all/multi/transe.pth",
+		delta = 0.0001,
+        l3_regul_rate = 0,
+        regul_rate = 0,
+        adv_temperature = 3,
+        opt_method = "adam",
 	)
 )
 
@@ -56,7 +62,9 @@ transe = TransE(
 
 model = NegativeSampling(
 	model = transe, 
-	loss = MarginLoss(margin = config.margin),
+	loss = MarginLoss(margin = config.margin, adv_temperature=config.adv_temperature),
+    l3_regul_rate=config.l3_regul_rate,
+    regul_rate=config.regul_rate
 )
 
 trainer = Trainer(
@@ -64,14 +72,17 @@ trainer = Trainer(
     data_loader = dataloader.train_dataloader(),
 	epochs = config.epochs, 
     lr = config.lr,
-    test = False, 
+    test = False,
+    opt_method = config.opt_method,
+    use_gpu = config.use_gpu, 
+    device = config.device,
     valid_interval = config.valid_interval,
 	log_interval = config.log_interval,
     save_interval = config.save_interval,
 	save_path = config.save_path, 
     delta = config.delta,
 	wandb_logger = wandb_logger,
-    use_accelerator=True
+    use_accelerator=False
 )
 
 if __name__ == '__main__':

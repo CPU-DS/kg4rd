@@ -16,7 +16,7 @@ Carefully study the provided entity types and relationship definitions. Pay clos
 ## Read Abstract Carefully
 Examine the abstract in detail to identify statements that clearly express any of the pre-defined relationships between entities.
 
-## Extract Valid Triples Only:
+## Extract Valid Triples Only
 Identify and extract all relationship triples that strictly match a defined 'predicate' and involve entities of the correct type. Ensure the following:
 
  - 'subject' and 'object' must be specific biomedical entities mentioned in the abstract and match one of the allowed entity types.

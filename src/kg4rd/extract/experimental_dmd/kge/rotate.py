@@ -15,7 +15,7 @@ wandb_logger = WandbLogger(endpoint='swanlab').set_config(
 	project="kg4rd",
 	name="kg4rd-RotatE-dmdexp",
 	config=dict(
-        in_path = 'src/kg4rd/extractor/experimental_dmd/kge/data/',
+        in_path = 'src/kg4rd/extract/experimental_dmd/kge/data/',
 		batch_size = 512,
 		neg_ent = 10,
 		test = True,
@@ -35,7 +35,7 @@ wandb_logger = WandbLogger(endpoint='swanlab').set_config(
   		valid_interval = 50,
 		log_interval = 1,
 		save_interval = 50,
-		save_path = "src/kg4rd/extractor/experimental_dmd/kge/checkpoints/rotate/rotate.pth",
+		save_path = "src/kg4rd/extract/experimental_dmd/kge/checkpoints/rotate/rotate.pth",
         use_early_stopping=True
     )
 )

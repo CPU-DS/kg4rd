@@ -17,7 +17,7 @@ from unike.config import set_hpo_config, start_hpo_train, set_hpo_hits
 data_loader_config = get_kge_data_loader_hpo_config()
 data_loader_config.update({
     'in_path': {
-        'value': os.path.join('src/kg4rd/extractor/experimental_dmd/kge/data/')
+        'value': os.path.join('src/kg4rd/extract/experimental_dmd/kge/data/')
     },
     'test_batch_size': {
         'value': 10
@@ -67,7 +67,7 @@ trainer_config.update({
         'value': 100
     },
     'save_path': {
-        'value': 'src/kg4rd/extractor/experimental_dmd/kge/checkpoints/transh/hpo/transh.pth'
+        'value': 'src/kg4rd/extract/experimental_dmd/kge/checkpoints/transh/hpo/transh.pth'
     },
     'epochs': {
         'value': 1000

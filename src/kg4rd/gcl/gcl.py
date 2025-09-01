@@ -51,34 +51,34 @@ class GCL:
             ])
         )
         
-    def prepare_embeddings(self):
+    def load_pre_embeddings(self):
         embedding_loader = NodeEmbeddingLoader()
-        self.adv_embeddings = embedding_loader.load_node_embeddings(self.nodes, self.device)
+        self.pre_embeddings, self.type_dims = embedding_loader.load_node_embeddings(self.nodes, self.device)
         
-    def prepare_fusion_model(self):
-        type_dims = {}  # 嵌入类型及维度
-
-        for node_embeddings in self.adv_embeddings.values():  # need improve
-            for embed_type, embedding in node_embeddings.items():
-                if embed_type not in type_dims:
-                    type_dims[embed_type] = embedding.shape[0]
-
-        for embed_type, dim in type_dims.items():
-            self.fusion_model.add_embedding_type(embed_type, dim)   
+    def init_fusion_model(self):
+        for embed_type, dim in self.type_dims.items():
+            self.fusion_model.add_embedding_type(embed_type, dim)
         
     def get_fused_embeddings(self, node_indices):
         embeddings = []
         
         for node_idx in node_indices:
-            if node_idx in self.adv_embeddings and self.adv_embeddings[node_idx]:
-                fused = self.fusion_model(self.adv_embeddings[node_idx])
+            if node_idx in self.pre_embeddings and self.pre_embeddings[node_idx]:
+                fused = self.fusion_model(self.pre_embeddings[node_idx])
                 embeddings.append(fused)
-            else:  
-                embeddings.append(torch.randn(self.target_dim, device=self.device) * 0.1)
+            else:
+                embeddings.append(torch.randn(self.target_dim, device=self.device, requires_grad=True) * 0.1)
 
         return torch.stack(embeddings)
         
-    def train(self, epochs: int = 100, lr: float = 0.001, batch_size: int = 1024, log_epoch: int = 1, save_epoch: int = 20):
+    def train(self, 
+              epochs: int = 100, 
+              lr: float = 0.001, 
+              batch_size: int = 1024, 
+              log_epoch: int = 1,
+              save_epoch: int = 20,
+              num_neighbors: list[int] = [10, 10],
+              save_dir: str = 'src/kg4rd/gcl/checkpoints'):
 
         optimizer = torch.optim.Adam(
             list(self.fusion_model.parameters()) + list(self.dgi_model.parameters()), 
@@ -99,15 +99,14 @@ class GCL:
 
         for epoch in range(epochs):
             
-            fused_embeddings = self.get_fused_embeddings(self.node_indices)  # (num_nodes, target_dim)    0 -> num_nodes-1
             data = Data(
-                x = fused_embeddings,
+                x = torch.zeros((len(self.node_indices), self.target_dim)),
                 edge_index = self.edge_index
             )
             
             train_loader = NeighborLoader(
                 data,
-                num_neighbors=[10, 10],
+                num_neighbors=num_neighbors,
                 batch_size=batch_size,
             )
             
@@ -115,7 +114,9 @@ class GCL:
             for batch in tqdm(train_loader, desc=f"Epoch {epoch+1}/{epochs}"):
                 batch = batch.to(self.device)
                 optimizer.zero_grad()
-
+                
+                batch.x = self.get_fused_embeddings(batch.n_id.cpu().numpy())  # 原来是全 0
+                
                 positive, negative, summary = self.dgi_model(batch.x, batch.edge_index)
                 loss = self.dgi_model.loss(positive, negative, summary)
                 
@@ -135,8 +136,10 @@ class GCL:
                 })
                 
             if (epoch + 1) % save_epoch == 0:
-                torch.save(self.dgi_model.state_dict(), f'src/kg4rd/gcl/checkpoints/dgi_model_{epoch+1}.pth')
-                torch.save(self.fusion_model.state_dict(), f'src/kg4rd/gcl/checkpoints/fusion_model_{epoch+1}.pth')
+                if not os.path.exists(save_dir):
+                    os.makedirs(save_dir)
+                torch.save(self.dgi_model.state_dict(), os.path.join(save_dir, f'dgi_model_{epoch+1}.pth'))
+                torch.save(self.fusion_model.state_dict(), os.path.join(save_dir, f'fusion_model_{epoch+1}.pth'))
         
     def get_embeddings(self) -> torch.Tensor:
         self.dgi_model.to(self.device)
@@ -159,11 +162,13 @@ class GCL:
 if __name__ == "__main__":
     wandb.init(project="kg4rd", name="gcl", config={
         "target_dim": 512,
-        "device": "cuda:3",
-        "batch_size": 1024,
-        "epochs": 1000,
+        "device": "cuda:0",
+        "batch_size": 128,
+        "epochs": 5000,
         "lr": 0.001,
-        "log_epoch": 1
+        "log_epoch": 1,
+        "save_epoch": 500,
+        "num_neighbors": [10, 10]
     })
     config = wandb.config
     
@@ -174,14 +179,15 @@ if __name__ == "__main__":
     )
 
     gcl.load_graph_data()
-    gcl.prepare_embeddings()
+    gcl.load_pre_embeddings()
     
-    gcl.prepare_fusion_model()
+    gcl.init_fusion_model()
     gcl.train(
         epochs=config.epochs,
         lr=config.lr,
         batch_size=config.batch_size,
-        log_epoch=config.log_epoch
+        log_epoch=config.log_epoch,
+        save_epoch=config.save_epoch
     )
-    
-    # gcl.save_embeddings('data/data_feature/node_embeddings.npz')
+
+    wandb.finish()

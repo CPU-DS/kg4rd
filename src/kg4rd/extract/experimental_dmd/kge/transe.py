@@ -15,7 +15,7 @@ wandb_logger = WandbLogger(endpoint='swanlab').set_config(
 	project="kg4rd",
 	name="kg4rd-TransE-dmdexp",
 	config=dict(
-		in_path = 'src/kg4rd/extractor/experimental_dmd/kge/data/',
+		in_path = 'src/kg4rd/extract/experimental_dmd/kge/data/',
 		batch_size = 256,
 		neg_ent = 25,
 		test = True,
@@ -32,7 +32,7 @@ wandb_logger = WandbLogger(endpoint='swanlab').set_config(
 		valid_interval = 50,
 		log_interval = 1,
 		save_interval = 50,
-		save_path = "src/kg4rd/extractor/experimental_dmd/kge/checkpoints/transe/transe.pth",
+		save_path = "src/kg4rd/extract/experimental_dmd/kge/checkpoints/transe/transe.pth",
 		delta = 0.01,
 		use_early_stopping = True
 	)
