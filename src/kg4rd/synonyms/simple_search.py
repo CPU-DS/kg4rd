@@ -4,8 +4,9 @@
 # File Name: simple_search.py
 # Description: 同义词查询
 
-from typing import Literal, Optional
+from typing import Optional
 
+from numpy import int_
 import pandas as pd
 
 df_dis = pd.read_csv('data/data_synonyms/mondo_synonyms_concat.csv')
@@ -42,20 +43,20 @@ df_exp['name'] = df_exp['name'].astype(str).apply(lambda x: x.lower())
 
 def simple_search(name: str,
                   type_: str
-    ) -> Optional[str]:
+    ) -> Optional[tuple[str, str, int]]:
     type_ = type_.lower()
     match type_:
-        case 'molfunc' | 'cellcomp' | 'bioprocess' | 'cellular component' | 'molecular function' | 'biological process':
+        case 'cellular_component' | 'molecular_function' | 'biological_process':
             df = df_go
         case 'disease':
             df = df_dis
         case 'drug':
             df = df_drug
-        case 'phenotype':
+        case 'effect/phenotype':
             df = df_phe
         case 'anatomy':
             df = df_ana
-        case 'protein':
+        case 'gene/protein':
             df = df_prot
         case 'pathway':
             df = df_path
@@ -65,9 +66,11 @@ def simple_search(name: str,
             return None
 
     name = name.lower()
-    if len(ids := df[df['name'] == name]['id'].values) == 0:
+    if len(ids := df[df['name'] == name]['id'].tolist()) == 0:  # 完全匹配
         return None
-    return 'kg4rd:' + str(ids[0])
+    id_ = ids[0]
+    preferred_name = df.query('id == @id_ and preferred_name == True')['name'].tolist()[0]
+    return 'kg4rd:' + str(id_), preferred_name, 1000  # 完全匹配为 1000 分
 
 if __name__ == '__main__':
-    print(simple_search('Muscular Dystrophy, Duchenne', 'dis'))
+    print(simple_search('Muscular Dystrophy, Duchenne', 'disease'))

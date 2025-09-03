@@ -31,7 +31,7 @@ class LLM(ABC):
     config: dict[str, Any]
 
     @abstractmethod
-    def extract_relations(*args, **kwargs):
+    def extract_relations(*args, **kwargs) -> list:
         raise NotImplementedError
     
     @staticmethod
@@ -55,7 +55,7 @@ class Gemini(LLM):
         self.client = genai.Client(api_key=os.getenv('GEMINI_API_KEY'), http_options=HttpOptions(timeout=3*60*1000))
 
     @retry(tries=5, delay=60)
-    def extract_relations(self, system_prompt, full_prompt, relations, *args, **kwargs):
+    def extract_relations(self, system_prompt, full_prompt, relations, *args, **kwargs) -> list:
         RelationType = Enum('RelationType', {name: name for name in relations})
 
         response = self.client.models.generate_content(
@@ -81,7 +81,7 @@ class DeepSeek(LLM):
         self.client = OpenAI(api_key=os.getenv('DEEPSEEK_API_KEY'), base_url="https://api.deepseek.com")
 
     @retry(tries=5, delay=60)
-    def extract_relations(self, system_prompt, full_prompt, *args, **kwargs):
+    def extract_relations(self, system_prompt, full_prompt, *args, **kwargs) -> list:
         response = self.client.chat.completions.create(
             model=self.name,
             messages=[
@@ -95,9 +95,9 @@ class DeepSeek(LLM):
             }
         )
         r = response.choices[0].message.content
+        if r is None or len(r.strip()) == 0:
+            return []   
         r = r.strip()
-        if not r:
-            return []
         if not r.startswith('[') and r.endswith(']'):
             r = '[' + r
         r = json.loads(r)
