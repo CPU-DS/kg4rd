@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 # Create Date: 2025/09/03
 # Author: wangtao <wangtao.cpu@gmail.com>
-# File Name: overview.py
-# Description: 抽取到的三元组分析
+# File Name: parse.py
+# Description: 抽取到的三元组处理
 
 import json
 import json5
@@ -34,7 +34,7 @@ existing_nodes_set = set(
 
 result_path = 'data/data_abstract/result'
 
-def parse(data):
+def parse(data: list[dict], name: str, save_df: bool = True):
     original_triples = []
     approved_triples = []
     approved_triples_node_exist = []
@@ -120,9 +120,15 @@ def parse(data):
         'approved triples node exist': len(df_approved_triples_node_exist),  # 可用的三元组数量(双侧节点已存在)(去重后)
     })
     
-    return {
-        'overview': overview,
-        'df_original_triples': df_original_triples,
-        'df_approved_triples': df_approved_triples,
-        'df_approved_triples_node_exist': df_approved_triples_node_exist,  # 最终可以添加的三元组
-    }
+    if save_df:
+        df_original_triples.to_csv(os.path.join('data/data_abstract/original_triples', f'{name}.csv'), index=False)
+        df_approved_triples.to_csv(os.path.join('data/data_abstract/approved_triples', f'{name}.csv'), index=False)
+        df_approved_triples_node_exist.to_csv(os.path.join('data/data_abstract/approved_triples_node_exist', f'{name}.csv'), index=False)  # 最后可用
+    
+    return overview
+    
+for file in os.listdir(result_path):
+    with open(os.path.join(result_path, file), 'r', encoding='utf-8') as f:
+        data = json.load(f)
+        overview = parse(data, file, save_df=True)
+        ...
