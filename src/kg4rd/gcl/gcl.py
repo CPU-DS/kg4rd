@@ -18,7 +18,6 @@ from torch.optim.lr_scheduler import CosineAnnealingLR
 from torch_geometric.data import Data
 from torch_geometric.loader import NeighborLoader
 import pandas as pd
-from sklearn.preprocessing import StandardScaler
 from tqdm import tqdm
 import wandb
 

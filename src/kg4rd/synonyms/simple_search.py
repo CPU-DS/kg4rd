@@ -8,13 +8,13 @@ from typing import Optional
 
 from numpy import int_
 import pandas as pd
+from functools import lru_cache
 
 df_dis = pd.read_csv('data/data_synonyms/mondo_synonyms_concat.csv')
 df_dis['name'] = df_dis['name'].astype(str).apply(lambda x: x.lower())
 
 df_drug = pd.read_csv('data/data_synonyms/drugbank_synonyms_concat.csv')
 df_drug['name'] = df_drug['name'].astype(str).apply(lambda x: x.lower())
-df_drug['id'] = df_drug['id'].apply(lambda x: int(x.strip('DB'))).astype(str)
 
 df_go = pd.read_csv('data/data_synonyms/go_synonyms.csv')
 df_go['name'] = df_go['name'].astype(str).apply(lambda x: x.lower())
@@ -41,10 +41,11 @@ df_path = pd.concat([df_path, df_path2])
 df_exp = pd.read_csv('data/data_synonyms/ctd_synonyms.csv')
 df_exp['name'] = df_exp['name'].astype(str).apply(lambda x: x.lower())
 
+@lru_cache(maxsize=None)
 def simple_search(name: str,
                   type_: str
     ) -> Optional[tuple[str, str, int]]:
-    type_ = type_.lower()
+    name, type_ = name.lower(), type_.lower()
     match type_:
         case 'cellular_component' | 'molecular_function' | 'biological_process':
             df = df_go
@@ -65,11 +66,14 @@ def simple_search(name: str,
         case _:
             return None
 
-    name = name.lower()
-    if len(ids := df[df['name'] == name]['id'].tolist()) == 0:  # 完全匹配
+    if len(ids := df.query('name == @name')['id'].tolist()) == 0:  # 完全匹配
         return None
     id_ = ids[0]
-    preferred_name = df.query('id == @id_ and preferred_name == True')['name'].tolist()[0]
+    try:
+        preferred_name = df.query('id == @id_ and preferred_name')['name'].tolist()[0]
+    except:
+        print(f"{id_} {name} {type_}")
+        return None
     return 'kg4rd:' + str(id_), preferred_name, 1000  # 完全匹配为 1000 分
 
 if __name__ == '__main__':

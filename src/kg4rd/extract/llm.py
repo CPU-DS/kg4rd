@@ -52,7 +52,7 @@ class Gemini(LLM):
     }
     
     def __init__(self):
-        self.client = genai.Client(api_key=os.getenv('GEMINI_API_KEY'), http_options=HttpOptions(timeout=3*60*1000))
+        self.client = genai.Client(api_key=os.getenv('GEMINI_API_KEY'), http_options=HttpOptions(timeout=3*60*1000))  # GOOGLE_API_KEY or GEMINI_API_KEY
 
     @retry(tries=5, delay=60)
     def extract_relations(self, system_prompt, full_prompt, relations, *args, **kwargs) -> list:

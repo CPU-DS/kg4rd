@@ -51,7 +51,7 @@ class NodeEmbeddingLoader:
 
                 for _, node_row in tqdm(type_nodes.iterrows(), total=type_nodes.shape[0], desc=f"{node_type}:{embed_file}"):  # 该类型下的所有 node
                     node_index = node_row['node_index']
-                    actual_id = int(str(node_row['node_id']).split(':')[1].replace('DB', ''))  # node_id 都是 kg4rd:id 的格式 (drug 带 DB 前缀)
+                    actual_id = int(str(node_row['node_id']).split(':')[1].replace('DB', ''))  # node_id 都是 kg4rd:id 的格式 (drug 带 DB 前缀, 只有这里要额外处理)
                     
                     if actual_id in id_to_embedding:
                         if node_index not in node_embeddings:
