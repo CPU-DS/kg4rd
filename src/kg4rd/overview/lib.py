@@ -6,10 +6,16 @@
 
 import matplotlib.pyplot as plt
 import pandas as pd
+import os
 
-nodes = pd.read_csv('../kg/nodes.csv', low_memory=False)
+plt.rcParams['figure.dpi'] = 150  # 提高图片分辨率
+plt.rcParams['font.family'] = 'serif'  # 设置字体
 
-_ref = pd.read_csv('../../../data/data/mondo/mondo_references.csv').astype({'mondo_id':int}).astype({'mondo_id':str})
+_c = os.path.dirname(__file__)
+
+nodes = pd.read_csv(os.path.join(_c, '../kg/nodes.csv'), low_memory=False)
+
+_ref = pd.read_csv(os.path.join(_c, '../../../data/data/mondo/mondo_references.csv')).astype({'mondo_id':int}).astype({'mondo_id':str})
 _all_disease_nodes = nodes.query('node_type == "disease"').copy()
 _all_disease_nodes['node_id'] = _all_disease_nodes['node_id'].apply(lambda x: str(x.lstrip('kg4rd:')))    
 
@@ -17,10 +23,7 @@ orphanets = pd.merge(_all_disease_nodes, _ref,'left', left_on='node_id', right_o
     'mondo_id', 'ontology', 'ontology_id', 'node_name', 'node_index'
 ]].query('ontology == "Orphanet"')
 
-def plot_degree_distribution(nodes: pd.DataFrame, edges: pd.DataFrame, type_: str, threshold: int = 500):
-    
-    plt.rcParams['figure.dpi'] = 150  # 提高图片分辨率
-    plt.rcParams['font.family'] = 'serif'  # 设置字体
+def plot_degree_distribution(edges: pd.DataFrame, type_: str, threshold: int = 500):
 
     all_type_nodes = nodes.query(f'node_type == "{type_}"')[['node_index']].astype({'node_index': int}).astype({'node_index': str})
 
@@ -81,10 +84,7 @@ def plot_degree_distribution(nodes: pd.DataFrame, edges: pd.DataFrame, type_: st
     plt.show()
 
   
-def plot_node_relation_distribution(nodes: pd.DataFrame, edges: pd.DataFrame, threshold: int = 500):
-    plt.rcParams['figure.dpi'] = 150
-    plt.rcParams['font.family'] = 'serif'
-
+def plot_node_relation_distribution(edges: pd.DataFrame, threshold: int = 500):
 
     head_relation = edges.groupby(['x_index', 'relation']).count().reset_index()['y_index']
     head_relation_threshold = head_relation <= threshold
@@ -141,7 +141,9 @@ def plot_node_relation_distribution(nodes: pd.DataFrame, edges: pd.DataFrame, th
     plt.show()
     
 
-def plot_drug_disease_distribution(nodes: pd.DataFrame, drug_disease: pd.DataFrame, threshold: int = 50):
+def plot_drug_disease_distribution(edges: pd.DataFrame, threshold: int = 50):
+    
+    drug_disease = edges.query('relation == "indication" or relation == "off-label use"')
     
     all_disease = nodes.query('node_type == "disease"')[['node_index']].astype({'node_index': int}).astype({'node_index': str})
 
@@ -165,9 +167,6 @@ def plot_drug_disease_distribution(nodes: pd.DataFrame, drug_disease: pd.DataFra
     filtered_olu = disease_olu_in_degree[olu]
     filtered_olu_count = (~olu).sum()
     filtered_olu_percent = (filtered_olu_count / len(disease_olu_in_degree)) * 100
-
-    plt.rcParams['figure.dpi'] = 150
-    plt.rcParams['font.family'] = 'serif'
 
     plt.figure(figsize=(14, 6))
 
@@ -206,7 +205,9 @@ def plot_drug_disease_distribution(nodes: pd.DataFrame, drug_disease: pd.DataFra
     plt.show()
 
 
-def plot_drug_orphanet_disease_distribution(orphanets: pd.DataFrame, drug_disease: pd.DataFrame, threshold: int = 50):
+def plot_drug_orphanet_disease_distribution(edges: pd.DataFrame, threshold: int = 50):
+    
+    drug_disease = edges.query('relation == "indication" or relation == "off-label use"')
 
     all_rare_disease = orphanets[['node_index']].astype({'node_index': int}).astype({'node_index': str})
 
@@ -229,9 +230,6 @@ def plot_drug_orphanet_disease_distribution(orphanets: pd.DataFrame, drug_diseas
     filtered_olu = disease_olu_in_degree[olu]
     filtered_olu_count = (~olu).sum()
     filtered_olu_percent = (filtered_olu_count / len(disease_olu_in_degree)) * 100
-
-    plt.rcParams['figure.dpi'] = 150
-    plt.rcParams['font.family'] = 'serif'
 
     plt.figure(figsize=(14, 6))
 

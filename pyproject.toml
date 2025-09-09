@@ -4,6 +4,9 @@ version = "0.1.0"
 description = ""
 readme = "README.md"
 requires-python = ">=3.11"
+authors = [
+    { name = "wangtao", email = "wangtao.cpu@gmail.com" },
+]
 dependencies = [
     "bs4>=0.0.2",
     "goatools>=1.4.12",
