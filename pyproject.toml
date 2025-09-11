@@ -38,6 +38,7 @@ dependencies = [
     "pyg-lib",
     "torch-sparse",
     "unike==3.2.12",
+    "langid>=1.1.6",
 ]
 
 [tool.uv.sources]
