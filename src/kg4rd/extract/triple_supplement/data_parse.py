@@ -11,8 +11,6 @@ import os
 import re
 import pandas as pd
 from tqdm import tqdm
-from pprint import pprint
-from typing import TypedDict
 sys.path.append('src/kg4rd')
 
 from synonyms.simple_search import simple_search
