@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
-# Create Date: 2025/09/09
+# Create Date: 2025/09/10
 # Author: wangtao <wangtao.cpu@gmail.com>
-# File Name: transe_eval.py
-# Description: 评估 TransE
+# File Name: transe.py
+# Description: 训练 TransE
 
-from unike.data import KGEDataLoader, BernSampler, TradTestSampler
+from unike.data import KGEDataLoader, BernSampler
 from unike.module.model import TransE
 from unike.module.loss import MarginLoss
 from unike.module.strategy import NegativeSampling
-from unike.config import Trainer, Tester
+from unike.config import Trainer
 from unike.utils import WandbLogger
 
 import yaml
@@ -30,15 +30,11 @@ wandb_logger = WandbLogger(endpoint='swanlab').set_config(
 dataloader = KGEDataLoader(
 	in_path = config['in_path'],
 	train_file=config['train_file'],
-	valid_file=config['valid_file'],
-	test_file=config['test_file'],
 	batch_size = config['batch_size'],
 	neg_ent = config['neg_ent'],
-	test = True,
-	test_batch_size = config['test_batch_size'],
+	test = False,
 	num_workers = config['num_workers'],
-	train_sampler = BernSampler,
-	test_sampler = TradTestSampler
+	train_sampler = BernSampler
 )
 
 transe = TransE(
@@ -54,31 +50,19 @@ model = NegativeSampling(
 	loss = MarginLoss(margin = config['margin'], adv_temperature = config['adv_temperature']),
 )
 
-tester = Tester(
-    model = transe, 
-    data_loader = dataloader, 
-    use_gpu = config['test_use_gpu'],
-    device = config['device']
-)
-
-tester.set_hits(new_hits=config['test_hits'])
-
 trainer = Trainer(
     model = model,
     opt_method = config['opt_method'],
     data_loader = dataloader.train_dataloader(),
 	epochs = config['epochs'], 
     lr = config['lr'],
-    test = True,
-    tester = tester, 
-    valid_interval = config['valid_interval'],
+	test = False,
 	log_interval = config['log_interval'],
     save_interval = config['save_interval'],
 	save_path = config['save_path'], 
     delta = config['delta'],
 	wandb_logger = wandb_logger,
-    use_accelerator = config['use_accelerator'],
-    use_early_stopping = config['use_early_stopping'],
+    use_accelerator = config['use_accelerator']
 )
 
 if __name__ == '__main__':

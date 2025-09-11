@@ -57,7 +57,7 @@ class NodeEmbeddingLoader:
                         if node_index not in node_embeddings:
                             node_embeddings[node_index] = {}
                         embedding = id_to_embedding[actual_id]
-                        node_embeddings[node_index][embed_type] = torch.tensor(embedding, dtype=torch.float32, requires_grad=True).to(device)  # 嵌入向量可以被训练
+                        node_embeddings[node_index][embed_type] = torch.tensor(embedding, dtype=torch.float32).to(device)
                         
                         if embed_type not in type_dims:
                             type_dims[embed_type] = embedding.shape[0]

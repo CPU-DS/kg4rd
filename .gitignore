@@ -26,3 +26,4 @@ models/
 checkpoints/
 wandb/
 swanlog/
+link_result/

@@ -16,10 +16,11 @@ class Discriminator(nn.Module):
         self.net = nn.Sequential(
             nn.Linear(input_dim, 512),
             nn.ReLU(),
+            nn.Dropout(0.1),
             nn.Linear(512, 256),
             nn.ReLU(),
-            nn.Linear(256, 1),
-            nn.Sigmoid()
+            nn.Dropout(0.1),
+            nn.Linear(256, 1)
         )
     
     def forward(self, x: torch.Tensor) -> torch.Tensor:
@@ -67,7 +68,8 @@ class DGI(nn.Module):
         corrupted_x = self.corruption(x)
         negative = self.encoder(corrupted_x, edge_index)
         
-        summary = torch.sigmoid(global_mean_pool(positive, torch.zeros(x.size(0), dtype=torch.long, device=x.device)))
+        batch_vector = torch.zeros(x.size(0), dtype=torch.long, device=x.device)
+        summary = torch.tanh(global_mean_pool(positive, batch_vector))
         
         return positive_proj, negative, summary
     
@@ -77,7 +79,13 @@ class DGI(nn.Module):
         pos_scores = self.discriminator(torch.cat([positive, summary], dim=1))  # 局部和全局特征拼接
         neg_scores = self.discriminator(torch.cat([negative, summary], dim=1))
         
-        pos_loss = F.binary_cross_entropy(pos_scores, torch.ones_like(pos_scores))
-        neg_loss = F.binary_cross_entropy(neg_scores, torch.zeros_like(neg_scores))
+        pos_loss = F.binary_cross_entropy_with_logits(
+            pos_scores.squeeze(), 
+            torch.ones_like(pos_scores.squeeze()) * 0.9
+        )
+        neg_loss = F.binary_cross_entropy_with_logits(
+            neg_scores.squeeze(), 
+            torch.zeros_like(neg_scores.squeeze()) + 0.1
+        )
         
         return pos_loss + neg_loss

@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 # Create Date: 2025/09/08
 # Author: wangtao <wangtao.cpu@gmail.com>
-# File Name: lib.py
-# Description: 公共方法
+# File Name: plot.py
+# Description: 绘图方法
 
 import matplotlib.pyplot as plt
 import pandas as pd

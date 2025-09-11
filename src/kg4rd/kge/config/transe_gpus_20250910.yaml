@@ -1,0 +1,28 @@
+# 多 GPU 训练 TransE 模型, 在补充后的整个图谱上训练
+# 2025/09/10 创建, 参照之前超参数调优的结果
+
+project: 'kg4rd'
+name: 'transe_gpus_20250910'
+
+in_path: 'src/kg4rd/kge/data/'
+train_file: 'all2id.txt'
+
+batch_size: 1024
+neg_ent: 64
+num_workers: 16
+dim: 200
+p_norm: 1
+norm_flag: True
+margin: 1.0
+epochs: 1000
+lr: 0.5383
+adv_temperature: 6.0
+opt_method: "Adagrad"
+
+train_use_gpu: False
+use_accelerator: True
+delta: 0.01
+
+log_interval: 1
+save_interval: 50
+save_path: "src/kg4rd/kge/checkpoints/transe_gpus_20250910.pth"

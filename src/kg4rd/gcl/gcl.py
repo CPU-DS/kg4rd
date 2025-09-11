@@ -14,12 +14,13 @@ from dgi import DGI
 
 import numpy as np
 import torch
+import torch.nn as nn
 from torch.optim.lr_scheduler import CosineAnnealingLR
 from torch_geometric.data import Data
 from torch_geometric.loader import NeighborLoader
 import pandas as pd
 from tqdm import tqdm
-import wandb
+import swanlab
 
 
 class GCL:
@@ -57,18 +58,43 @@ class GCL:
     def init_fusion_model(self):
         for embed_type, dim in self.type_dims.items():
             self.fusion_model.add_embedding_type(embed_type, dim)
+    
+    def init_node_embeddings(self):
+        num_nodes = len(self.node_indices)
+        self.learnable_embeddings = nn.Parameter(
+            torch.randn(num_nodes, self.target_dim, device=self.device) * 0.1
+        )
         
-    def get_fused_embeddings(self, node_indices):
-        embeddings = []
-        
-        for node_idx in node_indices:
+        self.has_pretrained = torch.zeros(num_nodes, dtype=torch.bool, device=self.device)  # mask
+        for node_idx in self.node_indices:  # self.node_indices 是连续的 
             if node_idx in self.pre_embeddings and self.pre_embeddings[node_idx]:
+                self.has_pretrained[node_idx] = True
+        
+    def get_node_embeddings(self, node_indices):
+        indices_tensor = torch.tensor(node_indices, device=self.device)
+        batch_has_pretrained = self.has_pretrained[indices_tensor]
+    
+        batch_embeddings = torch.zeros(len(node_indices), self.target_dim, device=self.device)
+        
+        pretrained_mask = batch_has_pretrained
+        if pretrained_mask.any():
+            pretrained_indices = indices_tensor[pretrained_mask]
+            pretrained_node_indices = [self.node_indices[int(idx)] for idx in pretrained_indices]
+            
+            fused_embeddings = []
+            for node_idx in pretrained_node_indices:
                 fused = self.fusion_model(self.pre_embeddings[node_idx])
-                embeddings.append(fused)
-            else:
-                embeddings.append(torch.randn(self.target_dim, device=self.device, requires_grad=True) * 0.1)
-
-        return torch.stack(embeddings)
+                fused_embeddings.append(fused)
+            
+            if fused_embeddings:
+                batch_embeddings[pretrained_mask] = torch.stack(fused_embeddings)
+        
+        learnable_mask = ~batch_has_pretrained
+        if learnable_mask.any():
+            learnable_indices = indices_tensor[learnable_mask]
+            batch_embeddings[learnable_mask] = self.learnable_embeddings[learnable_indices]
+        
+        return batch_embeddings
         
     def train(self, 
               epochs: int = 100, 
@@ -79,10 +105,14 @@ class GCL:
               num_neighbors: list[int] = [10, 10],
               save_dir: str = 'src/kg4rd/gcl/checkpoints'):
 
-        optimizer = torch.optim.Adam(
-            list(self.fusion_model.parameters()) + list(self.dgi_model.parameters()), 
-            lr=lr
-        )
+        self.init_fusion_model()        
+        self.init_node_embeddings()  # 从 pre_embeddings 到 learnable_embeddings
+
+        optimizer = torch.optim.Adam([
+            {'params': self.fusion_model.parameters(), 'lr': lr},
+            {'params': self.dgi_model.parameters(), 'lr': lr},
+            {'params': [self.learnable_embeddings], 'lr': lr * 0.1}
+        ])
         
         scheduler = CosineAnnealingLR(
             optimizer, 
@@ -114,7 +144,7 @@ class GCL:
                 batch = batch.to(self.device)
                 optimizer.zero_grad()
                 
-                batch.x = self.get_fused_embeddings(batch.n_id.cpu().numpy())  # 原来是全 0
+                batch.x = self.get_node_embeddings(batch.n_id.cpu().numpy())
                 
                 positive, negative, summary = self.dgi_model(batch.x, batch.edge_index)
                 loss = self.dgi_model.loss(positive, negative, summary)
@@ -128,7 +158,7 @@ class GCL:
             current_lr = scheduler.get_last_lr()[0]
             
             if (epoch + 1) % log_epoch == 0:
-                wandb.log({
+                swanlab.log({
                     "epoch": epoch + 1,
                     "loss": total_loss,
                     "learning_rate": current_lr
@@ -139,6 +169,7 @@ class GCL:
                     os.makedirs(save_dir)
                 torch.save(self.dgi_model.state_dict(), os.path.join(save_dir, f'dgi_model_{epoch+1}.pth'))
                 torch.save(self.fusion_model.state_dict(), os.path.join(save_dir, f'fusion_model_{epoch+1}.pth'))
+                torch.save(self.learnable_embeddings, os.path.join(save_dir, f'learnable_embeddings_{epoch+1}.pth'))
         
     def get_embeddings(self) -> torch.Tensor:
         self.dgi_model.to(self.device)
@@ -148,8 +179,8 @@ class GCL:
         self.fusion_model.eval()
         
         with torch.no_grad():
-            fused_embeddings = self.get_fused_embeddings(self.node_indices)
-            embeddings = self.dgi_model.encoder(fused_embeddings, self.edge_index)
+            embeddings = self.get_node_embeddings(self.node_indices)
+            embeddings = self.dgi_model.encoder(embeddings, self.edge_index)
             return embeddings
     
     def save_embeddings(self, save_path: str):
@@ -159,34 +190,33 @@ class GCL:
                             embeddings=embeddings.cpu().numpy())
 
 if __name__ == "__main__":
-    wandb.init(project="kg4rd", name="gcl", config={
+    run = swanlab.init(project="kg4rd", name="gcl", config={
         "target_dim": 512,
-        "device": "cuda:0",
-        "batch_size": 128,
+        "device": "cuda:1",
+        "batch_size": 512,
         "epochs": 5000,
         "lr": 0.001,
         "log_epoch": 1,
         "save_epoch": 500,
         "num_neighbors": [10, 10]
-    })
-    config = wandb.config
+    }, mode='cloud')
     
+    config = run.config
     
     gcl = GCL(
-        target_dim=config.target_dim,
-        device=config.device
+        target_dim=config['target_dim'],
+        device=config['device']
     )
 
     gcl.load_graph_data()
     gcl.load_pre_embeddings()
     
-    gcl.init_fusion_model()
     gcl.train(
-        epochs=config.epochs,
-        lr=config.lr,
-        batch_size=config.batch_size,
-        log_epoch=config.log_epoch,
-        save_epoch=config.save_epoch
+        epochs=config['epochs'],
+        lr=config['lr'],
+        batch_size=config['batch_size'],
+        log_epoch=config['log_epoch'],
+        save_epoch=config['save_epoch']
     )
 
-    wandb.finish()
+    swanlab.finish()
