@@ -21,7 +21,7 @@ df_disease_mondo = df_disease_mondo[df_disease_mondo['definition'].notna()][['mo
 
 ids = list(map(int, df_disease_mondo['mondo_id'].tolist()))
 defs = df_disease_mondo['definition'].tolist()
-embeddings = model.encode(defs, show_progress_bar=True, device='cuda')
+embeddings = model.encode(defs, show_progress_bar=True, device='cuda:0', batch_size=64)
 
 np.savez_compressed('data/data_feature/disease_def_embed.npz', 
                     ids=ids, 

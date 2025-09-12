@@ -21,7 +21,7 @@ df_disease_umls = df_disease_umls[df_disease_umls['description'].notna()][['mond
 
 ids = list(map(int, df_disease_umls['mondo_id'].tolist()))
 defs = df_disease_umls['description'].tolist()
-embeddings = model.encode(defs, show_progress_bar=True, device='cuda')
+embeddings = model.encode(defs, show_progress_bar=True, device='cuda:0', batch_size=64)
 
 np.savez_compressed('data/data_feature/disease_desc_embed.npz', 
                     ids=ids, 

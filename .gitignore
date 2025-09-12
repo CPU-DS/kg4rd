@@ -18,11 +18,8 @@ papers/
 # original project PrimeKG
 primekg/
 data/
-data_*/
 test/
 kg/
-kg_*/
-models/
 checkpoints/
 wandb/
 swanlog/

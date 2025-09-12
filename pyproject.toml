@@ -39,6 +39,7 @@ dependencies = [
     "torch-sparse",
     "unike==3.2.12",
     "langid>=1.1.6",
+    "umap>=0.1.1",
 ]
 
 [tool.uv.sources]
