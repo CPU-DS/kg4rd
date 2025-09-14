@@ -199,7 +199,7 @@ if __name__ == "__main__":
         "log_epoch": 1,
         "save_epoch": 500,
         "num_neighbors": [10, 10]
-    }, mode='cloud')
+    }, mode='disabled')
     
     config = run.config
     
