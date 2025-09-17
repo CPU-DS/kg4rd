@@ -4,18 +4,21 @@
 # File Name: llm.py
 # Description: 大模型类
 
-
 from google.genai.types import GenerateContentConfig
 from google import genai
-from google.genai.types import HttpOptions
+from google.genai.types import HttpOptions, ThinkingConfig
 from openai import OpenAI
 from retry import retry
 import json
 from enum import Enum
 import os
+import logging
 from typing import TypeVar, Generic, Any
 from pydantic import BaseModel
 from abc import ABC, abstractmethod
+
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)
 
 T = TypeVar('T')
 
@@ -52,20 +55,25 @@ class Gemini(LLM):
     }
     
     def __init__(self):
-        self.client = genai.Client(api_key=os.getenv('GEMINI_API_KEY'), http_options=HttpOptions(timeout=3*60*1000))  # GOOGLE_API_KEY or GEMINI_API_KEY
+        self.client = genai.Client(
+            api_key=os.getenv('GEMINI_API_KEY'), 
+            http_options=HttpOptions(timeout=3*60*1000)
+        )  # GOOGLE_API_KEY or GEMINI_API_KEY
 
-    @retry(tries=5, delay=60)
+    @retry(tries=5, delay=60, logger=logger)
     def extract_relations(self, system_prompt, full_prompt, relations, *args, **kwargs) -> list:
         RelationType = Enum('RelationType', {name: name for name in relations})
 
         response = self.client.models.generate_content(
             model=self.name,
+            # contents='你好'
             contents=full_prompt,
             config=GenerateContentConfig(
                 system_instruction=system_prompt,
                 temperature=self.config['temperature'],
                 response_mime_type="application/json",
-                response_schema=list[Triple[RelationType]]
+                response_schema=list[Triple[RelationType]],
+                # thinking_config=ThinkingConfig(thinking_budget=0)
             )
         )
         return json.loads(str(response.text))
@@ -80,7 +88,7 @@ class DeepSeek(LLM):
     def __init__(self):
         self.client = OpenAI(api_key=os.getenv('DEEPSEEK_API_KEY'), base_url="https://api.deepseek.com")
 
-    @retry(tries=5, delay=60)
+    @retry(tries=5, delay=60, logger=logger)
     def extract_relations(self, system_prompt, full_prompt, *args, **kwargs) -> list:
         response = self.client.chat.completions.create(
             model=self.name,

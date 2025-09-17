@@ -21,6 +21,9 @@ from torch_geometric.loader import NeighborLoader
 import pandas as pd
 from tqdm import tqdm
 import swanlab
+import pytorch_warmup as warmup
+import yaml
+import argparse
 
 
 class GCL:
@@ -66,7 +69,7 @@ class GCL:
         )
         
         self.has_pretrained = torch.zeros(num_nodes, dtype=torch.bool, device=self.device)  # mask
-        for node_idx in self.node_indices:  # self.node_indices 是连续的 
+        for node_idx in self.node_indices:  # 可以确保 self.node_indices 是连续的 
             if node_idx in self.pre_embeddings and self.pre_embeddings[node_idx]:
                 self.has_pretrained[node_idx] = True
         
@@ -99,9 +102,9 @@ class GCL:
     def train(self, 
               epochs: int = 100, 
               lr: float = 0.001, 
-              batch_size: int = 1024, 
-              log_epoch: int = 1,
+              batch_size: int = 1024,
               save_epoch: int = 20,
+              warmup_period: float = 0.1,
               num_neighbors: list[int] = [10, 10],
               save_dir: str = 'src/kg4rd/gcl/checkpoints'):
 
@@ -118,6 +121,12 @@ class GCL:
             optimizer, 
             T_max=epochs,
             eta_min=1e-6
+        )
+        
+        warmup_steps = int(epochs * warmup_period)
+        warmup_scheduler = warmup.LinearWarmup(
+            optimizer,
+            warmup_period=warmup_steps
         )
         
         self.fusion_model.to(self.device)
@@ -137,10 +146,12 @@ class GCL:
                 data,
                 num_neighbors=num_neighbors,
                 batch_size=batch_size,
+                shuffle=True
             )
             
             total_loss = 0
-            for batch in tqdm(train_loader, desc=f"Epoch {epoch+1}/{epochs}"):
+            for batch in (phar := tqdm(train_loader)):
+                phar.set_description(desc=f"Epoch {epoch+1}/{epochs}, loss={total_loss:.3f}")
                 batch = batch.to(self.device)
                 optimizer.zero_grad()
                 
@@ -154,16 +165,17 @@ class GCL:
                 
                 total_loss += loss.item()
 
-            scheduler.step()
-            current_lr = scheduler.get_last_lr()[0]
+
+            with warmup_scheduler.dampening():
+                scheduler.step()
+            current_lr = optimizer.param_groups[0]['lr']
             
-            if (epoch + 1) % log_epoch == 0:
-                swanlab.log({
-                    "epoch": epoch + 1,
-                    "loss": total_loss,
-                    "learning_rate": current_lr
-                })
-                
+            swanlab.log({
+                "epoch": epoch + 1,
+                "loss": total_loss,
+                "lr": current_lr
+            })
+            
             if (epoch + 1) % save_epoch == 0:
                 if not os.path.exists(save_dir):
                     os.makedirs(save_dir)
@@ -173,7 +185,7 @@ class GCL:
         
     def get_embeddings(self) -> torch.Tensor:
         self.dgi_model.to(self.device)
-        self.fusion_model.to(self.device)            
+        self.fusion_model.to(self.device)           
         
         self.dgi_model.eval()
         self.fusion_model.eval()
@@ -184,29 +196,25 @@ class GCL:
             return embeddings
     
     def save_embeddings(self, save_path: str):
+        if not os.path.exists(save_path):
+            os.makedirs(save_path)
         embeddings = self.get_embeddings()
         np.savez_compressed(save_path, 
                             node_indices=np.arange(len(self.node_indices)),
                             embeddings=embeddings.cpu().numpy())
 
-if __name__ == "__main__":
-    run = swanlab.init(project="kg4rd", name="gcl", config={
-        "target_dim": 512,
-        "device": "cuda:1",
-        "batch_size": 512,
-        "epochs": 5000,
-        "lr": 0.001,
-        "log_epoch": 1,
-        "save_epoch": 500,
-        "num_neighbors": [10, 10]
-    }, mode='disabled')
-    
-    config = run.config
+
+def train(args):
+    with open(args.config, 'r') as f:
+        config = yaml.load(f, Loader=yaml.FullLoader)
+     
+    swanlab.init(project=config['project'], name=config['name'], config=config, mode=args.swanlab)
     
     gcl = GCL(
         target_dim=config['target_dim'],
         device=config['device']
     )
+    gcl.dgi_model.corruption_type = 'shuffle'
 
     gcl.load_graph_data()
     gcl.load_pre_embeddings()
@@ -215,8 +223,55 @@ if __name__ == "__main__":
         epochs=config['epochs'],
         lr=config['lr'],
         batch_size=config['batch_size'],
-        log_epoch=config['log_epoch'],
-        save_epoch=config['save_epoch']
+        save_epoch=config['save_epoch'],
+        num_neighbors=config['num_neighbors'],
+        warmup_period=config['warmup_period'],
+        save_dir=config['checkpoints_dir']
     )
 
     swanlab.finish()
+    
+def save(args):    
+    with open(args.config, 'r') as f:
+        config = yaml.load(f, Loader=yaml.FullLoader)
+        
+    gcl = GCL(
+        target_dim=config['target_dim'],
+        device=config['device']
+    )
+    
+    gcl.load_graph_data()
+    gcl.load_pre_embeddings()
+    
+    gcl.dgi_model.load_state_dict(
+        torch.load(os.path.join(config['checkpoints_dir'], f'dgi_model_{args.epoch}.pth'))
+    )
+    gcl.fusion_model.load_state_dict(
+        torch.load(os.path.join(config['checkpoints_dir'], f'fusion_model_{args.epoch}.pth'))
+    )
+    gcl.learnable_embeddings = torch.load(os.path.join(config['checkpoints_dir'], f'learnable_embeddings_{args.epoch}.pth'))
+    
+    gcl.save_embeddings(config['embeddings_dir'])
+        
+
+def main():
+    parser = argparse.ArgumentParser()
+    
+    subparsers = parser.add_subparsers(dest='mode')
+    subparsers.required = True
+    
+    train_parser = subparsers.add_parser('train')
+    train_parser.add_argument('--config', type=str)
+    train_parser.add_argument('--swanlab', type=str, default='disabled', choices=["disabled", "cloud", "local", "offline"])
+    train_parser.set_defaults(func=train)
+    
+    save_parser = subparsers.add_parser('save')
+    save_parser.add_argument('--config', type=str)
+    save_parser.add_argument('--epoch', type=int)
+    save_parser.set_defaults(func=save)
+    
+    args = parser.parse_args()
+    args.func(args)
+    
+if __name__ == "__main__":
+    main()

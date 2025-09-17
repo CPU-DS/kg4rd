@@ -15,7 +15,6 @@ import json5
 import time
 from typing import Optional
 import os
-from loguru import logger
 from shortuuid import uuid
 from tqdm import tqdm
 from typing import Any
