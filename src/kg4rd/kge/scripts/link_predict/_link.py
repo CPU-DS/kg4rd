@@ -17,6 +17,8 @@ nodes = pd.read_csv(os.path.join(os.path.dirname(__file__), '../../../kg/nodes.c
 
 # 治疗关系
 indication_rel_index = 3
+# 药物蛋白质关系
+drug_protein_rel_index = 1
 
 # 实体
 dmd_ent_index = 40189
