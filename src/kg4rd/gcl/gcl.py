@@ -8,6 +8,7 @@ import os
 import sys
 
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+
 from embedding_loader import NodeEmbeddingLoader
 from embedding_fusion import EmbeddingFusion
 from dgi import DGI
@@ -15,6 +16,7 @@ from dgi import DGI
 import numpy as np
 import torch
 import torch.nn as nn
+from torch.nn.utils.clip_grad import clip_grad_norm_
 from torch.optim.lr_scheduler import CosineAnnealingLR
 from torch_geometric.data import Data
 from torch_geometric.loader import NeighborLoader
@@ -24,6 +26,7 @@ import swanlab
 import pytorch_warmup as warmup
 import yaml
 import argparse
+import time
 
 
 class GCL:
@@ -40,6 +43,7 @@ class GCL:
 
         self.fusion_model = EmbeddingFusion(target_dim)
         self.dgi_model = DGI(target_dim)
+        self.embedding_norm = nn.LayerNorm(target_dim, device=device)
         
     def load_graph_data(self):
         self.nodes = pd.read_csv(self.nodes_path, low_memory=False).astype({'node_index': str}).astype({'node_index': int})
@@ -64,9 +68,11 @@ class GCL:
     
     def init_node_embeddings(self):
         num_nodes = len(self.node_indices)
+        
         self.learnable_embeddings = nn.Parameter(
-            torch.randn(num_nodes, self.target_dim, device=self.device) * 0.1
+            torch.zeros(num_nodes, self.target_dim, device=self.device)
         )
+        nn.init.xavier_normal_(self.learnable_embeddings)
         
         self.has_pretrained = torch.zeros(num_nodes, dtype=torch.bool, device=self.device)  # mask
         for node_idx in self.node_indices:  # 可以确保 self.node_indices 是连续的 
@@ -87,6 +93,7 @@ class GCL:
             fused_embeddings = []
             for node_idx in pretrained_node_indices:
                 fused = self.fusion_model(self.pre_embeddings[node_idx])
+                fused = self.embedding_norm(fused)
                 fused_embeddings.append(fused)
             
             if fused_embeddings:
@@ -95,7 +102,8 @@ class GCL:
         learnable_mask = ~batch_has_pretrained
         if learnable_mask.any():
             learnable_indices = indices_tensor[learnable_mask]
-            batch_embeddings[learnable_mask] = self.learnable_embeddings[learnable_indices]
+            learnable_emb = self.embedding_norm(self.learnable_embeddings[learnable_indices])
+            batch_embeddings[learnable_mask] = learnable_emb
         
         return batch_embeddings
         
@@ -111,10 +119,12 @@ class GCL:
         self.init_fusion_model()        
         self.init_node_embeddings()  # 从 pre_embeddings 到 learnable_embeddings
 
+        lr_s = lr * 0.5
         optimizer = torch.optim.Adam([
             {'params': self.fusion_model.parameters(), 'lr': lr},
             {'params': self.dgi_model.parameters(), 'lr': lr},
-            {'params': [self.learnable_embeddings], 'lr': lr * 0.1}
+            {'params': self.embedding_norm.parameters(), 'lr': lr},
+            {'params': [self.learnable_embeddings], 'lr': lr_s}
         ])
         
         scheduler = CosineAnnealingLR(
@@ -131,27 +141,29 @@ class GCL:
         
         self.fusion_model.to(self.device)
         self.dgi_model.to(self.device)
+        self.embedding_norm.to(self.device)
         
         self.fusion_model.train()
         self.dgi_model.train()
+        self.embedding_norm.train()
 
+        data = Data(
+            x = torch.zeros((len(self.node_indices), self.target_dim)),
+            edge_index = self.edge_index
+        )
+        
+        start_time = time.time()
         for epoch in range(epochs):
-            
-            data = Data(
-                x = torch.zeros((len(self.node_indices), self.target_dim)),
-                edge_index = self.edge_index
-            )
             
             train_loader = NeighborLoader(
                 data,
-                num_neighbors=num_neighbors,
+                num_neighbors=[min(50, num_neighbors[0]), min(50, num_neighbors[1])],
                 batch_size=batch_size,
                 shuffle=True
             )
             
             total_loss = 0
             for batch in (phar := tqdm(train_loader)):
-                phar.set_description(desc=f"Epoch {epoch+1}/{epochs}, loss={total_loss:.3f}")
                 batch = batch.to(self.device)
                 optimizer.zero_grad()
                 
@@ -161,10 +173,19 @@ class GCL:
                 loss = self.dgi_model.loss(positive, negative, summary)
                 
                 loss.backward()
+                
+                clip_grad_norm_([  # 梯度裁剪
+                    *self.fusion_model.parameters(),
+                    *self.dgi_model.parameters(), 
+                    *self.embedding_norm.parameters(),
+                    self.learnable_embeddings
+                ], max_norm=1.0)
+                
                 optimizer.step()
                 
                 total_loss += loss.item()
-
+                
+                phar.set_description(desc=f"Epoch {epoch+1}/{epochs}, time={time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())}, loss={total_loss:.3f}")
 
             with warmup_scheduler.dampening():
                 scheduler.step()
@@ -182,13 +203,20 @@ class GCL:
                 torch.save(self.dgi_model.state_dict(), os.path.join(save_dir, f'dgi_model_{epoch+1}.pth'))
                 torch.save(self.fusion_model.state_dict(), os.path.join(save_dir, f'fusion_model_{epoch+1}.pth'))
                 torch.save(self.learnable_embeddings, os.path.join(save_dir, f'learnable_embeddings_{epoch+1}.pth'))
+                torch.save(self.embedding_norm.state_dict(), os.path.join(save_dir, f'embedding_norm_{epoch+1}.pth'))
+
+        swanlab.log({
+            "duration": time.time() - start_time
+        })
         
     def get_embeddings(self) -> torch.Tensor:
         self.dgi_model.to(self.device)
-        self.fusion_model.to(self.device)           
+        self.fusion_model.to(self.device)
+        self.embedding_norm.to(self.device)
         
         self.dgi_model.eval()
         self.fusion_model.eval()
+        self.embedding_norm.eval()
         
         with torch.no_grad():
             embeddings = self.get_node_embeddings(self.node_indices)
@@ -221,7 +249,7 @@ def train(args):
     
     gcl.train(
         epochs=config['epochs'],
-        lr=config['lr'],
+        lr=float(config['lr']),
         batch_size=config['batch_size'],
         save_epoch=config['save_epoch'],
         num_neighbors=config['num_neighbors'],
@@ -250,6 +278,9 @@ def save(args):
         torch.load(os.path.join(config['checkpoints_dir'], f'fusion_model_{args.epoch}.pth'))
     )
     gcl.learnable_embeddings = torch.load(os.path.join(config['checkpoints_dir'], f'learnable_embeddings_{args.epoch}.pth'))
+    gcl.embedding_norm.load_state_dict(
+        torch.load(os.path.join(config['checkpoints_dir'], f'embedding_norm_{args.epoch}.pth'))
+    )
     
     gcl.save_embeddings(config['embeddings_dir'])
         

@@ -14,13 +14,17 @@ from typing import Literal
 class Discriminator(nn.Module):
     def __init__(self, input_dim: int):
         super().__init__()
-        self.bilinear = nn.Bilinear(input_dim // 2, input_dim // 2, 1)
+        self.mlp = nn.Sequential(
+            nn.Linear(input_dim, input_dim // 2),
+            nn.ReLU(),
+            nn.Dropout(0.1),
+            nn.Linear(input_dim // 2, input_dim // 4),
+            nn.ReLU(),
+            nn.Linear(input_dim // 4, 1)
+        )
     
     def forward(self, x: torch.Tensor) -> torch.Tensor:
-        mid = x.size(1) // 2
-        x1 = x[:, :mid]
-        x2 = x[:, mid:]
-        return self.bilinear(x1, x2)
+        return self.mlp(x)
 
 class GraphEncoder(nn.Module):
     def __init__(self, input_dim: int, hidden_dim: int = 512, output_dim: int = 256):
@@ -59,8 +63,9 @@ class DGI(nn.Module):
             noise = torch.randn_like(x) * 0.1  # 高斯噪声
             return x + noise
         else:
-            idx = torch.randperm(x.size(0)) # 打乱节点顺序
-            return x[idx]
+            idx = torch.randperm(x.size(0))
+            shuffled = x[idx]
+            return F.dropout(shuffled, p=0.1, training=True)  # 结合 shuffle 和 dropout
     
     def forward(self, x: torch.Tensor, edge_index: torch.Tensor) -> tuple[torch.Tensor, torch.Tensor, torch.Tensor]:
         positive = self.encoder(x, edge_index)
@@ -82,13 +87,14 @@ class DGI(nn.Module):
         pos_scores = self.discriminator(torch.cat([positive, summary], dim=1))  # 局部和全局特征拼接
         neg_scores = self.discriminator(torch.cat([negative, summary], dim=1))
         
+        label_smoothing = 0.1
         pos_loss = F.binary_cross_entropy_with_logits(
             pos_scores.squeeze(), 
-            torch.ones_like(pos_scores.squeeze())  # 取消标签平滑
+            torch.ones_like(pos_scores.squeeze()) * (1 - label_smoothing)
         )
         neg_loss = F.binary_cross_entropy_with_logits(
             neg_scores.squeeze(), 
-            torch.zeros_like(neg_scores.squeeze())
+            torch.zeros_like(neg_scores.squeeze()) + label_smoothing
         )
-        
+            
         return pos_loss + neg_loss
