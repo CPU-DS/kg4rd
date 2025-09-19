@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
-# Create Date: 2025/09/09
+# Create Date: 2025/09/19
 # Author: wangtao <wangtao.cpu@gmail.com>
-# File Name: transe_eval.py
-# Description: 评估 TransE
+# File Name: TransE_eval_pre_embed.py
+# Description: 评估 TransE 使用预训练的节点嵌入
 
 from unike.data import KGEDataLoader, BernSampler, TradTestSampler
 from unike.module.model import TransE
@@ -10,6 +10,8 @@ from unike.module.loss import MarginLoss
 from unike.module.strategy import NegativeSampling
 from unike.config import Trainer, Tester
 from unike.utils import WandbLogger
+import numpy as np
+import torch
 
 import yaml
 import argparse
@@ -18,7 +20,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument('--config', type=str)
 args = parser.parse_args()
 
-with open(args.config, 'r') as f:
+with open('src/kg4rd/kge/config/TransE_eval_GCL_Accel_20250919.yaml', 'r') as f:
 	config = yaml.load(f, Loader=yaml.FullLoader)
 
 wandb_logger = WandbLogger(endpoint='swanlab').set_config(
@@ -48,6 +50,13 @@ transe = TransE(
 	p_norm = config['p_norm'], 
 	norm_flag = config['norm_flag']
 )
+
+ent_embed: np.ndarray = np.load(config['ent_embed_path'])['embeddings']
+transe.ent_embeddings.weight.data = torch.from_numpy(ent_embed)
+
+if 'rel_embed_path' in config:
+	rel_embed: np.ndarray = np.load(config['rel_embed_path'])['embeddings']
+	transe.rel_embeddings.weight.data = torch.from_numpy(rel_embed)
 
 model = NegativeSampling(
 	model = transe, 

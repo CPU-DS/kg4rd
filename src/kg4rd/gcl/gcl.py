@@ -45,7 +45,13 @@ class GCL:
         self.dgi_model = DGI(target_dim)
         self.embedding_norm = nn.LayerNorm(target_dim, device=device)
         
-    def load_graph_data(self):
+        self._load_graph_data()
+        self._load_pre_embeddings()
+    
+        self._init_fusion_model()        
+        self._init_node_embeddings()  # 从 pre_embeddings 到 learnable_embeddings
+        
+    def _load_graph_data(self):
         self.nodes = pd.read_csv(self.nodes_path, low_memory=False).astype({'node_index': str}).astype({'node_index': int})
         self.node_indices = self.nodes['node_index'].tolist()
         
@@ -58,15 +64,15 @@ class GCL:
             ])
         )
         
-    def load_pre_embeddings(self):
+    def _load_pre_embeddings(self):
         embedding_loader = NodeEmbeddingLoader()
         self.pre_embeddings, self.type_dims = embedding_loader.load_node_embeddings(self.nodes, self.device)
         
-    def init_fusion_model(self):
+    def _init_fusion_model(self):
         for embed_type, dim in self.type_dims.items():
             self.fusion_model.add_embedding_type(embed_type, dim)
     
-    def init_node_embeddings(self):
+    def _init_node_embeddings(self):
         num_nodes = len(self.node_indices)
         
         self.learnable_embeddings = nn.Parameter(
@@ -115,9 +121,6 @@ class GCL:
               warmup_period: float = 0.1,
               num_neighbors: list[int] = [10, 10],
               save_dir: str = 'src/kg4rd/gcl/checkpoints'):
-
-        self.init_fusion_model()        
-        self.init_node_embeddings()  # 从 pre_embeddings 到 learnable_embeddings
 
         lr_s = lr * 0.5
         optimizer = torch.optim.Adam([
@@ -218,16 +221,17 @@ class GCL:
         self.fusion_model.eval()
         self.embedding_norm.eval()
         
+        self.edge_index = self.edge_index.to(self.device)
         with torch.no_grad():
             embeddings = self.get_node_embeddings(self.node_indices)
-            embeddings = self.dgi_model.encoder(embeddings, self.edge_index)
+            # embeddings = self.dgi_model.encoder(embeddings, self.edge_index)
             return embeddings
     
     def save_embeddings(self, save_path: str):
         if not os.path.exists(save_path):
             os.makedirs(save_path)
         embeddings = self.get_embeddings()
-        np.savez_compressed(save_path, 
+        np.savez_compressed(os.path.join(save_path, 'ent_embed.npz'), 
                             node_indices=np.arange(len(self.node_indices)),
                             embeddings=embeddings.cpu().numpy())
 
@@ -243,9 +247,6 @@ def train(args):
         device=config['device']
     )
     gcl.dgi_model.corruption_type = 'shuffle'
-
-    gcl.load_graph_data()
-    gcl.load_pre_embeddings()
     
     gcl.train(
         epochs=config['epochs'],
@@ -259,7 +260,7 @@ def train(args):
 
     swanlab.finish()
     
-def save(args):    
+def save(args):  
     with open(args.config, 'r') as f:
         config = yaml.load(f, Loader=yaml.FullLoader)
         
@@ -267,10 +268,7 @@ def save(args):
         target_dim=config['target_dim'],
         device=config['device']
     )
-    
-    gcl.load_graph_data()
-    gcl.load_pre_embeddings()
-    
+
     gcl.dgi_model.load_state_dict(
         torch.load(os.path.join(config['checkpoints_dir'], f'dgi_model_{args.epoch}.pth'))
     )
@@ -283,7 +281,7 @@ def save(args):
     )
     
     gcl.save_embeddings(config['embeddings_dir'])
-        
+
 
 def main():
     parser = argparse.ArgumentParser()
@@ -303,6 +301,8 @@ def main():
     
     args = parser.parse_args()
     args.func(args)
-    
+
+
 if __name__ == "__main__":
     main()
+ 

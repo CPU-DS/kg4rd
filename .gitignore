@@ -24,3 +24,4 @@ checkpoints/
 wandb/
 swanlog/
 link_result/
+embeddings

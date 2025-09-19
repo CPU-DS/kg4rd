@@ -1,15 +1,16 @@
 # 多 GPU 训练评估 TransE 模型, 在补充后的图谱上训练和评估
-# 2025/09/09 创建, 参照之前超参数调优的结果
+# 使用 GCL 训练得到节点预嵌入
+# 2025/09/19 创建, 沿用预训练的节点嵌入
 
 project: 'kg4rd'
-name: 'transe_eval_gpus_20250909'
+name: 'TransE_eval_GCL_Accel_20250919'
 
 in_path: 'src/kg4rd/kge/data/'
 train_file: 'train2id.txt'
 valid_file: 'valid2id.txt'
 test_file: 'test2id.txt'
 
-batch_size: 500
+batch_size: 1024
 neg_ent: 64
 num_workers: 16
 dim: 200
@@ -17,9 +18,9 @@ p_norm: 1
 norm_flag: True
 margin: 1.0
 epochs: 1000
-lr: 0.6
-adv_temperature: 3.0
-opt_method: "SGD"
+lr: 0.5383
+adv_temperature: 6.0
+opt_method: "Adagrad"
 
 test_batch_size: 10
 test_use_gpu: True
@@ -28,11 +29,13 @@ test_hits: [1, 3, 10, 30, 50]
 train_use_gpu: False
 use_accelerator: True
 delta: 0.01
-use_early_stopping: True
+use_early_stopping: False
 
 device: "cuda:0"
 
 valid_interval: 50
 log_interval: 1
 save_interval: 50
-save_path: "src/kg4rd/kge/checkpoints/transe_eval_gpus_20250909.pth"
+save_path: "src/kg4rd/kge/checkpoints/TransE_eval_GCL_Accel_20250919.pth"
+
+ent_embed_path: "src/kg4rd/gcl/embeddings/gcl_20250917/ent_embed.npz"

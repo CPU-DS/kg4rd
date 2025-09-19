@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # Create Date: 2025/09/10
 # Author: wangtao <wangtao.cpu@gmail.com>
-# File Name: transe.py
+# File Name: TransE.py
 # Description: 训练 TransE
 
 from unike.data import KGEDataLoader, BernSampler
