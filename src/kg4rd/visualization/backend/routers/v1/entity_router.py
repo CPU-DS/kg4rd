@@ -27,8 +27,8 @@ async def entity_query(
 ) -> Result[list[EntityDTO]]:
     return entity_service.query(query)
 
-@router.get('/detail')
-async def entity_detail(
+@router.get('/get')
+async def entity_get(
     node_index: int,
     entity_service: EntityService = Depends(get_entity_service)
 ) -> Result[Entity]:
