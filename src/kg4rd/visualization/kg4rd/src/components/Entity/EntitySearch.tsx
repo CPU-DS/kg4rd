@@ -1,6 +1,6 @@
-import React, { useState, useCallback } from 'react'
+import React, { useState, useCallback, useMemo } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { Input, Select, Button, Loading } from '../Common'
+import { Input, Select, Button, Loading, Pagination } from '../Common'
 import { entityService } from '../../services'
 import type { EntityQuery, EntityDTO, MatchNodeType, MatchMode } from '../../types'
 import { ResultCode } from '../../types'
@@ -14,6 +14,10 @@ const EntitySearch: React.FC = () => {
   const [results, setResults] = useState<EntityDTO[]>([])
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
+  
+  // 分页状态
+  const [currentPage, setCurrentPage] = useState(1)
+  const [pageSize, setPageSize] = useState(20)
 
   const nodeTypeOptions = [
     { value: 'all', label: '全部类型' },
@@ -39,22 +43,46 @@ const EntitySearch: React.FC = () => {
     { value: 'regex', label: '正则表达式' }
   ]
 
+  // 分页数据计算
+  const paginatedResults = useMemo(() => {
+    const startIndex = (currentPage - 1) * pageSize
+    const endIndex = startIndex + pageSize
+    return results.slice(startIndex, endIndex)
+  }, [results, currentPage, pageSize])
+
+  const totalPages = Math.ceil(results.length / pageSize)
+
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page)
+  }
+
+  const handlePageSizeChange = (newPageSize: number) => {
+    setPageSize(newPageSize)
+    setCurrentPage(1) // 重置到第一页
+  }
+
+  // 重置分页状态
+  const resetPagination = () => {
+    setCurrentPage(1)
+  }
+
   const handleSearch = useCallback(async () => {
     if (!query.trim()) {
       setError('请输入查询内容')
+      setResults([])  // 清空之前的内容
       return
     }
 
     setLoading(true)
     setError(null)
+    resetPagination() // 重置分页
 
     try {
       const queryParams: EntityQuery = {
         query_type: queryType,
         query_value: query.trim(),
         node_type: nodeType === 'all' ? undefined : nodeType,
-        match_mode: matchMode,
-        limit: 50
+        match_mode: matchMode
       }
 
       const response = await entityService.query(queryParams)
@@ -132,7 +160,7 @@ const EntitySearch: React.FC = () => {
               onKeyPress={handleKeyPress}
             />
           </div>
-          <Button onClick={handleSearch} loading={loading}>
+          <Button className='px-10' onClick={handleSearch} loading={loading}>
             搜索
           </Button>
         </div>
@@ -154,12 +182,17 @@ const EntitySearch: React.FC = () => {
       {!loading && results.length > 0 && (
         <div className="bg-white rounded-xl shadow-sm border border-gray-200 animate-fade-in">
           <div className="px-6 py-4 border-b border-gray-200">
-            <h3 className="text-lg font-medium text-gray-900">
-              搜索结果 ({results.length})
-            </h3>
+            <div className="flex items-center justify-between">
+              <h3 className="text-lg font-medium text-gray-900">
+                搜索结果 (共 {results.length} 条)
+              </h3>
+              <div className="text-sm text-gray-500">
+                第 {currentPage} 页，共 {totalPages} 页
+              </div>
+            </div>
           </div>
           <div className="divide-y divide-gray-200">
-            {results.map((entity, index) => (
+            {paginatedResults.map((entity, index) => (
               <div
                 key={entity.node_index}
                 onClick={() => handleEntityClick(entity)}
@@ -184,6 +217,19 @@ const EntitySearch: React.FC = () => {
                 </div>
               </div>
             ))}
+          </div>
+          
+          {/* 分页组件 */}
+          <div className="px-6 py-4 border-t border-gray-200">
+            <Pagination
+              currentPage={currentPage}
+              totalPages={totalPages}
+              totalItems={results.length}
+              itemsPerPage={pageSize}
+              onPageChange={handlePageChange}
+              onPageSizeChange={handlePageSizeChange}
+              pageSizeOptions={[10, 20, 50, 100]}
+            />
           </div>
         </div>
       )}

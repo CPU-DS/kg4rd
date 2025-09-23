@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { Button, Loading } from '../components/Common'
-import { KnowledgeGraph } from '../components/Graph'
+import { Graph } from '../components/Graph'
 import { entityService } from '../services'
-import type { Entity } from '../types'
+import type { Entity, NodeType } from '../types'
 import { ResultCode } from '../types'
+import { nodeLabels } from '../utils/typeMap'
 
 const EntityDetail: React.FC = () => {
   const { nodeIndex } = useParams<{ nodeIndex: string }>()
@@ -13,19 +14,8 @@ const EntityDetail: React.FC = () => {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
 
-  const nodeTypeLabels: Record<string, string> = {
-    'disease': '疾病',
-    'drug': '药物',
-    'gene/protein': '基因/蛋白质',
-    'pathway': '通路',
-    'effect/phenotype': '效应/表型',
-    'molecular_function': '分子功能',
-    'cellular_component': '细胞组分',
-    'biological_process': '生物过程'
-  }
-
-  const getNodeTypeLabel = (type: string) => {
-    return nodeTypeLabels[type] || type
+  const getNodeTypeLabel = (type: NodeType) => {
+    return nodeLabels[type] || type
   }
 
   useEffect(() => {
@@ -135,7 +125,7 @@ const EntityDetail: React.FC = () => {
                   </div>
                   <div className="flex flex-col">
                     <dt className="text-sm font-medium text-gray-500 mb-1">来源链接:</dt>
-                    <dd className="text-sm">
+                    <dd className="text-sm ml-5">
                       {entity.node_source_url.map((url, index) => (
                         <a
                           key={index}
@@ -152,10 +142,10 @@ const EntityDetail: React.FC = () => {
                 </dl>
               </div>
 
-              {/* 扩展属性 */}
+              {/* 扩展信息 */}
               {Object.keys(entity.node_properties).length > 0 && (
                 <div>
-                  <h3 className="text-lg font-medium text-gray-900 mb-3">扩展属性</h3>
+                  <h3 className="text-lg font-medium text-gray-900 mb-3">扩展信息</h3>
                   <dl className="space-y-2">
                     {Object.entries(entity.node_properties).map(([key, value]) => (
                       <div key={key} className="flex flex-col">
@@ -171,9 +161,10 @@ const EntityDetail: React.FC = () => {
 
           {/* 知识图谱 */}
           <div>
-            <h2 className="text-xl font-bold text-gray-900 mb-4">关系图谱</h2>
-            <KnowledgeGraph
+            <h2 className="text-xl font-bold text-gray-900 mb-4">知识图谱</h2>
+            <Graph
               centerNodeIndex={entity.node_index}
+              centerNodeType={entity.node_type}
               centerNodeName={entity.node_name}
             />
           </div>

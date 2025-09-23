@@ -2,17 +2,21 @@ import React, { useEffect, useRef, useState } from 'react'
 import * as echarts from 'echarts'
 import { Select, Loading } from '../Common'
 import { relationService } from '../../services'
-import type { Relation, RelationDirection, MatchRelationType } from '../../types'
+import type { Relation, RelationDirection, MatchRelationType, NodeType, RelationType } from '../../types'
 import { ResultCode } from '../../types'
+import { useRelationFilter } from '../../hooks/useRelationFilter'
+import { nodeLabels, relationLabels } from '../../utils/typeMap'
 
-interface KnowledgeGraphProps {
+interface GraphProps {
   centerNodeIndex: number
-  centerNodeName: string
+  centerNodeName: string,
+  centerNodeType: NodeType
 }
 
 interface GraphNode {
   id: string
   name: string
+  type: string
   category: number
   value: number
   symbolSize: number
@@ -21,16 +25,18 @@ interface GraphNode {
 interface GraphLink {
   source: string
   target: string
-  name: string
+  name: RelationType,
+  uid?: string
   lineStyle?: {
     color?: string
     width?: number
   }
 }
 
-const KnowledgeGraph: React.FC<KnowledgeGraphProps> = ({
+const Graph: React.FC<GraphProps> = ({
   centerNodeIndex,
-  centerNodeName
+  centerNodeName,
+  centerNodeType
 }) => {
   const chartRef = useRef<HTMLDivElement>(null)
   const chartInstance = useRef<echarts.ECharts | null>(null)
@@ -40,6 +46,18 @@ const KnowledgeGraph: React.FC<KnowledgeGraphProps> = ({
   const [hop, setHop] = useState(1)
   const [direction, setDirection] = useState<RelationDirection>('bidirection')
   const [relationType, setRelationType] = useState<MatchRelationType>('all')
+  
+  // 使用关系过滤Hook
+  const { 
+    relationOptions, 
+    isRelationTypeAvailable, 
+    getRecommendedRelationType,
+    availableRelationCount 
+  } = useRelationFilter({
+    centerNodeType: centerNodeType as NodeType,
+    direction,
+    includeAll: true
+  })
 
   const hopOptions = [
     { value: '1', label: '1跳' },
@@ -49,36 +67,9 @@ const KnowledgeGraph: React.FC<KnowledgeGraphProps> = ({
 
   const directionOptions = [
     { value: 'bidirection', label: '双向' },
-    { value: 'out', label: '出度' },
-    { value: 'in', label: '入度' }
+    { value: 'out', label: '出方向' },
+    { value: 'in', label: '入方向' }
   ]
-
-  const relationTypeOptions = [
-    { value: 'all', label: '全部关系' },
-    { value: 'drug_drug', label: '药物-药物' },
-    { value: 'protein_protein', label: '蛋白质-蛋白质' },
-    { value: 'disease_phenotype_positive', label: '疾病-表型(正向)' },
-    { value: 'bioprocess_protein', label: '生物过程-蛋白质' },
-    { value: 'cellcomp_protein', label: '细胞组分-蛋白质' },
-    { value: 'molfunc_protein', label: '分子功能-蛋白质' },
-    { value: 'phenotype_protein', label: '表型-蛋白质' },
-    { value: 'disease_protein', label: '疾病-蛋白质' },
-    { value: 'disease_disease', label: '疾病-疾病' },
-    { value: 'drug_effect', label: '药物-效应' },
-    { value: 'pathway_protein', label: '通路-蛋白质' },
-    { value: 'bioprocess_bioprocess', label: '生物过程-生物过程' },
-    { value: 'drug_protein', label: '药物-蛋白质' },
-    { value: 'phenotype_phenotype', label: '表型-表型' },
-    { value: 'contraindication', label: '禁忌症' },
-    { value: 'molfunc_molfunc', label: '分子功能-分子功能' },
-    { value: 'indication', label: '适应症' },
-    { value: 'cellcomp_cellcomp', label: '细胞组分-细胞组分' },
-    { value: 'drug_pathway', label: '药物-通路' },
-    { value: 'pathway_pathway', label: '通路-通路' },
-    { value: 'off-label use', label: '超说明书用药' },
-    { value: 'disease_phenotype_negative', label: '疾病-表型(负向)' }
-  ]
-
 
 
   const loadRelations = async () => {
@@ -105,6 +96,15 @@ const KnowledgeGraph: React.FC<KnowledgeGraphProps> = ({
     }
   }
 
+  // 当方向改变时，检查当前选中的关系类型是否仍然可用
+  useEffect(() => {
+    if (!isRelationTypeAvailable(relationType)) {
+      // 如果当前关系类型不可用，自动切换到推荐的关系类型
+      const recommendedType = getRecommendedRelationType()
+      setRelationType(recommendedType)
+    }
+  }, [direction, centerNodeType, isRelationTypeAvailable, relationType, getRecommendedRelationType])
+
   useEffect(() => {
     loadRelations()
   }, [centerNodeIndex, hop, direction, relationType])
@@ -125,6 +125,7 @@ const KnowledgeGraph: React.FC<KnowledgeGraphProps> = ({
     nodeMap.set(centerNodeIndex, {
       id: centerNodeIndex.toString(),
       name: centerNodeName,
+      type: nodeLabels[centerNodeType],
       category: 0, // 中心节点类别
       value: 1,
       symbolSize: 40
@@ -137,6 +138,7 @@ const KnowledgeGraph: React.FC<KnowledgeGraphProps> = ({
         nodeMap.set(relation.x_index, {
           id: relation.x_index.toString(),
           name: relation.x_name,
+          type: nodeLabels[relation.x_type],
           category: 1,
           value: 1,
           symbolSize: 25
@@ -148,6 +150,7 @@ const KnowledgeGraph: React.FC<KnowledgeGraphProps> = ({
         nodeMap.set(relation.y_index, {
           id: relation.y_index.toString(),
           name: relation.y_name,
+          type: nodeLabels[relation.y_type],
           category: 1,
           value: 1,
           symbolSize: 25
@@ -158,7 +161,8 @@ const KnowledgeGraph: React.FC<KnowledgeGraphProps> = ({
       links.push({
         source: relation.x_index.toString(),
         target: relation.y_index.toString(),
-        name: relation.display_relation_name || relation.relation_name,
+        name: relation.relation_name,
+        uid: relation.uid,
         lineStyle: {
           color: '#bdc3c7',
           width: 2
@@ -182,9 +186,9 @@ const KnowledgeGraph: React.FC<KnowledgeGraphProps> = ({
         trigger: 'item',
         formatter: (params: any) => {
           if (params.dataType === 'node') {
-            return `${params.data.name}<br/>索引: ${params.data.id}`
+            return `${params.data.name}<br/>${params.data.type}|索引: ${params.data.id}`
           } else if (params.dataType === 'edge') {
-            return `关系: ${params.data.name}`
+            return `关系: ${relationLabels[params.data.name as RelationType]}${params.data.uid ? `|(${params.data.uid})` : ''}`
           }
           return ''
         }
@@ -197,13 +201,14 @@ const KnowledgeGraph: React.FC<KnowledgeGraphProps> = ({
       series: [{
         type: 'graph',
         layout: 'force',
+        draggable: false,
+        roam: true,
         data: nodes,
         links: links,
         categories: [
           { name: '中心节点', itemStyle: { color: '#e74c3c' } },
           { name: '关联节点', itemStyle: { color: '#3498db' } }
         ],
-        roam: true,
         focusNodeAdjacency: true,
         itemStyle: {
           borderColor: '#fff',
@@ -231,7 +236,8 @@ const KnowledgeGraph: React.FC<KnowledgeGraphProps> = ({
           repulsion: 1000,
           gravity: 0.2,
           edgeLength: [50, 200],
-          layoutAnimation: true
+          layoutAnimation: true,
+          friction: 0.1  // 快速稳定
         }
       }],
       animationDuration: 1500,
@@ -240,12 +246,13 @@ const KnowledgeGraph: React.FC<KnowledgeGraphProps> = ({
 
     chartInstance.current.setOption(option, true)
 
-    // 添加点击事件
     chartInstance.current.off('click')
     chartInstance.current.on('click', (params: any) => {
       if (params.dataType === 'node' && params.data.id !== centerNodeIndex.toString()) {
-        // 可以在这里添加节点点击事件，比如跳转到该节点的详情页
-        console.log('点击节点:', params.data)
+      const nodeId = params.data.id
+      if (nodeId) {
+        window.open(`/entity/${nodeId}`, '_blank')
+      }
       }
     })
 
@@ -297,11 +304,14 @@ const KnowledgeGraph: React.FC<KnowledgeGraphProps> = ({
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">
               关系类型
+              <span className="ml-2 text-xs text-gray-500">
+                (可用: {availableRelationCount} 个)
+              </span>
             </label>
             <Select
               value={relationType}
               onChange={(value) => setRelationType(value as MatchRelationType)}
-              options={relationTypeOptions}
+              options={relationOptions}
             />
           </div>
           {/* <div>
@@ -332,32 +342,8 @@ const KnowledgeGraph: React.FC<KnowledgeGraphProps> = ({
           <div ref={chartRef} style={{ width: '100%', height: '600px' }} />
         )}
       </div>
-
-      {/* 统计信息 */}
-      {!loading && relations.length > 0 && (
-        <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-4">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
-            <div>
-              <div className="text-2xl font-bold text-blue-600">{relations.length}</div>
-              <div className="text-sm text-gray-600">关系数量</div>
-            </div>
-            <div>
-              <div className="text-2xl font-bold text-green-600">
-                {new Set([...relations.map(r => r.x_index), ...relations.map(r => r.y_index)]).size}
-              </div>
-              <div className="text-sm text-gray-600">节点数量</div>
-            </div>
-            <div>
-              <div className="text-2xl font-bold text-purple-600">
-                {new Set(relations.map(r => r.relation_name)).size}
-              </div>
-              <div className="text-sm text-gray-600">关系类型</div>
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   )
 }
 
-export default KnowledgeGraph
+export default Graph

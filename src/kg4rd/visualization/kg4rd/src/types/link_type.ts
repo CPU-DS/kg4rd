@@ -17,7 +17,7 @@ export interface LinkRequest {
 export type LinkRelationType = 'present' | 'absent'
 
 export interface LinkRelation {
-  relation_name: string
+  relation_name: RelationType
   x_index: number
   x_name: string
   x_type: NodeType

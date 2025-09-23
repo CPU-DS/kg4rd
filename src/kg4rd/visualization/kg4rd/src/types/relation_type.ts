@@ -34,7 +34,7 @@ export type RelationType =
 export type MatchRelationType = 'all' | RelationType
 
 export interface Relation {
-  relation_name: string
+  relation_name: RelationType
   x_index: number
   x_name: string
   x_type: NodeType

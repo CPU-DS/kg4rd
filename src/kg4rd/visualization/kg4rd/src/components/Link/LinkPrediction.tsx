@@ -4,6 +4,7 @@ import { linkService } from '../../services'
 import type { LinkRequest, LinkResult, NodeType, RelationType } from '../../types'
 import { ResultCode } from '../../types'
 import { exportLinkResultToExcel, exportLinkResultToCSV } from '../../utils/exportUtils'
+import { useLinkRelationFilter } from '../../hooks/useLinkRelationFilter'
 
 const LinkPrediction: React.FC = () => {
   const [modelNames, setModelNames] = useState<string[]>([])
@@ -28,6 +29,18 @@ const LinkPrediction: React.FC = () => {
   const [currentPage, setCurrentPage] = useState(1)
   const [pageSize, setPageSize] = useState(20)
 
+  // 使用链接关系过滤Hook
+  const { 
+    relationOptions, 
+    isRelationTypeAvailable,
+    availableRelationCount
+  } = useLinkRelationFilter({
+    headNodeType: headType === 'type' ? headNodeType : undefined,
+    tailNodeType: tailType === 'type' ? tailNodeType : undefined,
+    headType,
+    tailType
+  })
+
   const nodeTypeOptions = [
     { value: 'disease', label: '疾病' },
     { value: 'drug', label: '药物' },
@@ -39,30 +52,6 @@ const LinkPrediction: React.FC = () => {
     { value: 'biological_process', label: '生物过程' }
   ]
 
-  const relationTypeOptions = [
-    { value: 'drug_drug', label: '药物-药物' },
-    { value: 'protein_protein', label: '蛋白质-蛋白质' },
-    { value: 'disease_phenotype_positive', label: '疾病-表型(正向)' },
-    { value: 'bioprocess_protein', label: '生物过程-蛋白质' },
-    { value: 'cellcomp_protein', label: '细胞组分-蛋白质' },
-    { value: 'molfunc_protein', label: '分子功能-蛋白质' },
-    { value: 'phenotype_protein', label: '表型-蛋白质' },
-    { value: 'disease_protein', label: '疾病-蛋白质' },
-    { value: 'disease_disease', label: '疾病-疾病' },
-    { value: 'drug_effect', label: '药物-效应' },
-    { value: 'pathway_protein', label: '通路-蛋白质' },
-    { value: 'bioprocess_bioprocess', label: '生物过程-生物过程' },
-    { value: 'drug_protein', label: '药物-蛋白质' },
-    { value: 'phenotype_phenotype', label: '表型-表型' },
-    { value: 'contraindication', label: '禁忌症' },
-    { value: 'molfunc_molfunc', label: '分子功能-分子功能' },
-    { value: 'indication', label: '适应症' },
-    { value: 'cellcomp_cellcomp', label: '细胞组分-细胞组分' },
-    { value: 'drug_pathway', label: '药物-通路' },
-    { value: 'pathway_pathway', label: '通路-通路' },
-    { value: 'off-label use', label: '超说明书用药' },
-    { value: 'disease_phenotype_negative', label: '疾病-表型(负向)' }
-  ]
 
   const headTypeOptions = [
     { value: 'entities', label: '指定实体' },
@@ -95,6 +84,19 @@ const LinkPrediction: React.FC = () => {
 
     loadModelNames()
   }, [])
+
+  // 当头尾节点类型或选择方式变化时，只保留有效的关系类型选择
+  useEffect(() => {
+    // 只保留当前选中的有效关系类型，不自动添加推荐的关系类型
+    const validCurrentRelations = relationTypes.filter(rel => 
+      isRelationTypeAvailable(rel as RelationType)
+    )
+    
+    // 如果当前选中的关系类型有变化，更新选择
+    if (validCurrentRelations.length !== relationTypes.length) {
+      setRelationTypes(validCurrentRelations)
+    }
+  }, [headType, headNodeType, tailType, tailNodeType, isRelationTypeAvailable, relationTypes])
 
   const handleRelationTypeChange = (tokens: string[]) => {
     setRelationTypes(tokens)
@@ -245,7 +247,7 @@ const LinkPrediction: React.FC = () => {
   }
 
   const getRelationTypeLabel = (type: string) => {
-    const option = relationTypeOptions.find(opt => opt.value === type)
+    const option = relationOptions.find(opt => opt.value === type)
     return option?.label || type
   }
 
@@ -362,14 +364,28 @@ const LinkPrediction: React.FC = () => {
           {/* 关系类型选择 */}
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">
-              关系类型 (已选择 {relationTypes.length} 个)
+              关系类型 
+              <span className="ml-2 text-xs text-blue-600">
+                (可用: {availableRelationCount} 个, 已选择: {relationTypes.length} 个)
+              </span>
             </label>
-            <InputWithToken
-              selectedTokens={relationTypes}
-              onChange={handleRelationTypeChange}
-              options={relationTypeOptions}
-              placeholder="选择或搜索关系类型..."
-            />
+            {availableRelationCount === 0 ? (
+              <div className="p-3 bg-yellow-50 border border-yellow-200 rounded-lg text-yellow-700 text-sm">
+                <div className="flex items-center">
+                  <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
+                  </svg>
+                  当前头尾节点配置下没有可用的关系类型，请调整节点类型选择
+                </div>
+              </div>
+            ) : (
+              <InputWithToken
+                selectedTokens={relationTypes}
+                onChange={handleRelationTypeChange}
+                options={relationOptions}
+                placeholder="选择或搜索关系类型..."
+              />
+            )}
           </div>
 
           {/* 结果数量限制 */}
@@ -417,8 +433,57 @@ const LinkPrediction: React.FC = () => {
             </div>
           </div>
 
+          {/* 配置总结 */}
+          {/* <div className="bg-gray-50 rounded-lg p-4 space-y-2 text-sm">
+            <h4 className="font-medium text-gray-900 mb-3">当前配置总结:</h4>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <p><span className="font-medium">头节点:</span> 
+                  {headType === 'entities' 
+                    ? `指定实体 (${headEntities.split(',').filter(e => e.trim()).length} 个)` 
+                    : `按类型 (${getNodeTypeLabel(headNodeType)})`}
+                </p>
+                <p><span className="font-medium">尾节点:</span> 
+                  {tailType === 'entities' 
+                    ? `指定实体 (${tailEntities.split(',').filter(e => e.trim()).length} 个)` 
+                    : `按类型 (${getNodeTypeLabel(tailNodeType)})`}
+                </p>
+              </div>
+              <div>
+                <p><span className="font-medium">关系类型:</span> {relationTypes.length} / {availableRelationCount} 个</p>
+                <p><span className="font-medium">预测模型:</span> {selectedModel}</p>
+              </div>
+            </div>
+            <div className="mt-3">
+              <p className="font-medium mb-2">选中的关系类型:</p>
+              {relationTypes.length > 0 ? (
+                <div className="flex flex-wrap gap-1">
+                  {relationTypes.slice(0, 6).map(rel => (
+                    <span key={rel} className="inline-block bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">
+                      {getRelationTypeLabel(rel)}
+                    </span>
+                  ))}
+                  {relationTypes.length > 6 && (
+                    <span className="inline-block bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded">
+                      +{relationTypes.length - 6} 个更多
+                    </span>
+                  )}
+                </div>
+              ) : (
+                <div className="text-gray-500 text-sm italic">
+                  请选择要预测的关系类型
+                </div>
+              )}
+            </div>
+          </div> */}
+
           <div className="flex justify-center">
-            <Button onClick={handlePredict} loading={loading} size="lg">
+            <Button 
+              onClick={handlePredict} 
+              loading={loading} 
+              size="lg"
+              disabled={relationTypes.length === 0 || !selectedModel}
+            >
               开始预测
             </Button>
           </div>

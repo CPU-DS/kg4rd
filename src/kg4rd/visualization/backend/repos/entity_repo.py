@@ -9,6 +9,7 @@ import sys
 
 sys.path.append(os.path.join(os.path.dirname(os.path.abspath(__file__)), '../../..'))
 
+from typing import Optional
 import pandas as pd
 from models.entity_model import EntityDTO, MATCH_MODE, MATCH_NODE_TYPE, Entity
 from synonyms.simple_search import *
@@ -133,7 +134,7 @@ class EntityRepository:
         node_index: str,
         node_type: MATCH_NODE_TYPE = 'all',
         match_mode: MATCH_MODE = 'strict',
-        limit: int = 10
+        limit: Optional[int] = None
     ) -> list[EntityDTO]:
         df = self.entity_df
         if node_type != 'all':
@@ -148,10 +149,8 @@ class EntityRepository:
             case 'regex':
                 rows = df[df['node_index'].str.match(str(node_index), na=False)]
         
-        if limit > 0:
+        if limit:
             rows = rows.head(limit)
-        elif limit == 0:
-            return []
         return [
             EntityDTO(
                 node_index=int(row.node_index),  # type: ignore
@@ -166,7 +165,7 @@ class EntityRepository:
         node_name: str,
         node_type: MATCH_NODE_TYPE = 'all',
         match_mode: MATCH_MODE = 'strict',
-        limit: int = 10
+        limit: Optional[int] = None
     ) -> list[EntityDTO]:
         match node_type:
             case 'all':
@@ -195,10 +194,8 @@ class EntityRepository:
             case 'regex':
                 rows = df[df['name'].str.match(node_name, na=False)]
         
-        if limit > 0:
+        if limit:
             rows = rows.head(limit)
-        elif limit == 0:
-            return []
         return [
             EntityDTO(
                 node_index=int(row.node_index),  # type: ignore

@@ -1,5 +1,6 @@
 import * as XLSX from 'xlsx'
-import type { LinkResult } from '../types'
+import type { LinkResult, NodeType, RelationType } from '../types'
+import { relationLabels, nodeLabels } from '../utils/typeMap'
 
 export interface ExportData {
   '头实体名称': string
@@ -13,48 +14,12 @@ export interface ExportData {
   '关系状态': string
 }
 
-const nodeTypeLabels: Record<string, string> = {
-  'disease': '疾病',
-  'drug': '药物',
-  'gene/protein': '基因/蛋白质',
-  'pathway': '通路',
-  'effect/phenotype': '效应/表型',
-  'molecular_function': '分子功能',
-  'cellular_component': '细胞组分',
-  'biological_process': '生物过程'
+const getNodeTypeLabel = (type: NodeType): string => {
+  return nodeLabels[type] || type
 }
 
-const relationTypeLabels: Record<string, string> = {
-  'drug_drug': '药物-药物',
-  'protein_protein': '蛋白质-蛋白质',
-  'disease_phenotype_positive': '疾病-表型(正向)',
-  'bioprocess_protein': '生物过程-蛋白质',
-  'cellcomp_protein': '细胞组分-蛋白质',
-  'molfunc_protein': '分子功能-蛋白质',
-  'phenotype_protein': '表型-蛋白质',
-  'disease_protein': '疾病-蛋白质',
-  'disease_disease': '疾病-疾病',
-  'drug_effect': '药物-效应',
-  'pathway_protein': '通路-蛋白质',
-  'bioprocess_bioprocess': '生物过程-生物过程',
-  'drug_protein': '药物-蛋白质',
-  'phenotype_phenotype': '表型-表型',
-  'contraindication': '禁忌症',
-  'molfunc_molfunc': '分子功能-分子功能',
-  'indication': '适应症',
-  'cellcomp_cellcomp': '细胞组分-细胞组分',
-  'drug_pathway': '药物-通路',
-  'pathway_pathway': '通路-通路',
-  'off-label use': '超说明书用药',
-  'disease_phenotype_negative': '疾病-表型(负向)'
-}
-
-const getNodeTypeLabel = (type: string): string => {
-  return nodeTypeLabels[type] || type
-}
-
-const getRelationTypeLabel = (type: string): string => {
-  return relationTypeLabels[type] || type
+const getRelationTypeLabel = (type: RelationType): string => {
+  return relationLabels[type] || type
 }
 
 export const exportLinkResultToExcel = (results: LinkResult, filename?: string) => {

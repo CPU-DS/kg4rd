@@ -5,7 +5,7 @@
 # Description: 实体模型
 
 from pydantic import BaseModel, Field
-from typing import Literal
+from typing import Literal, Optional
 from typing_extensions import TypedDict
 
 NODE_TYPE = Literal[
@@ -44,4 +44,4 @@ class EntityQuery(BaseModel):
     query_value: str
     node_type: MATCH_NODE_TYPE = 'all'
     match_mode: MATCH_MODE = 'strict'
-    limit: int = Field(default=10, ge=-1)
+    limit: Optional[int] = None
