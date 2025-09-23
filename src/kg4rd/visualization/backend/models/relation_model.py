@@ -61,4 +61,4 @@ class RelationQuery(BaseModel):
     node_index: int
     direction: RELA_DIRECTION = 'bidirection'
     relation_type: MATCH_RELA_TYPE = 'all'
-    hop: int = Field(default=1, ge=1, le=5)
+    hop: int = Field(default=1, ge=1, lt=2)  # 目前只支持1跳

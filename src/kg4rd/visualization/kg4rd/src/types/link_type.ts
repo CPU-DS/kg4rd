@@ -26,6 +26,7 @@ export interface LinkRelation {
   y_type: NodeType
   score: number
   type: LinkRelationType
+  uid?: string
 }
 
 export type LinkResult = LinkRelation[]

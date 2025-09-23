@@ -11,8 +11,8 @@ export interface APIConfig {
 }
 
 const DEFAULT_CONFIG: APIConfig = {
-  baseURL: '/api/v1',
-  timeout: 10000,
+  baseURL: 'http://10.4.3.155:5555/api/v1',
+  timeout: 300000, // 5分钟超时，适应长时间推理
   headers: {
     'Content-Type': 'application/json',
   },

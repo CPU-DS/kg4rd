@@ -46,26 +46,27 @@ class EntityRepository:
             add_prefix(df_dis), 
             self.entity_df[self.entity_df['node_type'] == 'disease'], 
             left_on='id', right_on='node_id', how='left'
-        )
+        ).dropna(subset=['node_index'])
         self.df_drug = pd.merge(
             add_prefix(df_drug), 
             self.entity_df[self.entity_df['node_type'] == 'drug'], 
-            left_on='id', right_on='node_id', how='left')
+            left_on='id', right_on='node_id', how='left'
+        ).dropna(subset=['node_index'])
         self.df_phe = pd.merge(
             add_prefix(df_phe), 
             self.entity_df[self.entity_df['node_type'] == 'effect/phenotype'], 
             left_on='id', right_on='node_id', how='left'
-        )
+        ).dropna(subset=['node_index'])
         self.df_prot = pd.merge(
             add_prefix(df_prot), 
             self.entity_df[self.entity_df['node_type'] == 'gene/protein'], 
             left_on='id', right_on='node_id', how='left'
-        )
+        ).dropna(subset=['node_index'])
         self.df_path = pd.merge(
             add_prefix(df_path), 
             self.entity_df[self.entity_df['node_type'] == 'pathway'], 
             left_on='id', right_on='node_id', how='left'
-        )
+        ).dropna(subset=['node_index'])
         self.df_go = pd.merge(
             add_prefix(df_go), 
             self.entity_df[
@@ -74,7 +75,7 @@ class EntityRepository:
                 )
             ], 
             left_on='id', right_on='node_id', how='left'
-        )
+        ).dropna(subset=['node_index'])
         
         self.df_all = pd.concat([self.df_dis, self.df_drug, self.df_phe, self.df_prot, self.df_path, self.df_go], ignore_index=True)
         
@@ -233,19 +234,34 @@ class EntityRepository:
                 for row in rows.itertuples():
                     match row.ontology:  # type: ignore
                         case 'MESH':
-                            entity.node_source_url.append(f'{row.ontology}^https://meshb.nlm.nih.gov/record/ui?ui={row.ontology_id}')  # type: ignore
+                            entity.node_source_url.append({
+                                'name': f'{row.ontology}',  # type: ignore
+                                'url': f'https://meshb.nlm.nih.gov/record/ui?ui={row.ontology_id}'  # type: ignore
+                            })
                         case 'Orphanet':
-                            entity.node_source_url.append(f'{row.ontology}^https://www.orpha.net/en/disease/detail/{row.ontology_id}')  # type: ignore
+                            entity.node_source_url.append({
+                                'name': f'{row.ontology}',  # type: ignore
+                                'url': f'https://www.orpha.net/en/disease/detail/{row.ontology_id}'  # type: ignore
+                            })
                         case 'PMID':
-                            entity.node_source_url.append(f'{row.ontology}^https://pubmed.ncbi.nlm.nih.gov/{row.ontology_id}')  # type: ignore
+                            entity.node_source_url.append({
+                                'name': f'{row.ontology}',  # type: ignore
+                                'url': f'https://pubmed.ncbi.nlm.nih.gov/{row.ontology_id}'  # type: ignore
+                            })
                         case 'Wikipedia':
-                            entity.node_source_url.append(f'{row.ontology}^https://en.wikipedia.org/wiki/{row.ontology_id}')  # type: ignore
+                            entity.node_source_url.append({
+                                'name': f'{row.ontology}',  # type: ignore
+                                'url': f'https://en.wikipedia.org/wiki/{row.ontology_id}'  # type: ignore
+                            })
 
             case 'drug':
                 entity.node_properties = {
                     'description': self.df_drugbank[self.df_drugbank['id'] == entity.node_id]['description'].iloc[0],  # type: ignore
                 }
-                entity.node_source_url = [f'https://go.drugbank.com/drugs/{entity.node_id.split(":")[1]}']
+                entity.node_source_url = [{
+                    'name': 'DrugBank',
+                    'url': f'https://go.drugbank.com/drugs/{entity.node_id.split(":")[1]}'
+                }]
             case 'gene/protein':
                 ncbi_id = int(entity.node_id.split(":")[1])
                 path = f'/home/wangtao/gene/{ncbi_id}/data_report.jsonl'
@@ -258,21 +274,36 @@ class EntityRepository:
                         entity.node_properties = {
                             'description': desc
                         }
-                entity.node_source_url = [f'https://www.ncbi.nlm.nih.gov/gene/{ncbi_id}']
+                entity.node_source_url = [{
+                    'name': 'NCBI Gene',
+                    'url': f'https://www.ncbi.nlm.nih.gov/gene/{ncbi_id}'
+                }]
             case 'molecular_function' | 'biological_process' | 'cellular_component':
                 entity.node_properties = {
                     'definition': self.go[self.go['id'] == entity.node_id]['def'].iloc[0],  # type: ignore
                 }
-                entity.node_source_url = [f'https://amigo.geneontology.org/amigo/term/GO:{entity.node_id.split(":")[1].zfill(7)}']
+                entity.node_source_url = [{
+                    'name': 'GO',
+                    'url': f'https://amigo.geneontology.org/amigo/term/GO:{entity.node_id.split(":")[1].zfill(7)}'
+                }]
             case 'effect/phenotype':
                 entity.node_properties = {
                     'definition': self.hpo[self.hpo['id'] == entity.node_id]['def'].iloc[0],  # type: ignore
                 }
-                entity.node_source_url = [f'https://hpo.jax.org/browse/term/HP:{entity.node_id.split(":")[1].zfill(7)}']
+                entity.node_source_url = [{
+                    'name': 'HPO',
+                    'url': f'https://hpo.jax.org/browse/term/HP:{entity.node_id.split(":")[1].zfill(7)}'
+                }]
             case 'pathway':
                 if entity.node_source == 'REACTOME':
-                    entity.node_source_url = [f'https://reactome.org/content/detail/{entity.node_id.split(":")[1]}']
+                    entity.node_source_url = [{
+                        'name': 'REACTOME',
+                        'url': f'https://reactome.org/content/detail/{entity.node_id.split(":")[1]}'
+                    }]
                 elif entity.node_source == 'KEGG':
-                    entity.node_source_url = [f'https://www.kegg.jp/pathway/{entity.node_id.split(":")[1]}']
+                    entity.node_source_url = [{
+                        'name': 'KEGG',
+                        'url': f'https://www.kegg.jp/pathway/{entity.node_id.split(":")[1]}'
+                    }]
         
         return entity

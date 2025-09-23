@@ -20,6 +20,14 @@ class ModelRepository:
         )
         self._model_list = []
         
+        self.edges_supp_df = pd.read_csv(
+            os.path.join(
+                os.path.dirname(__file__), 
+                '../../../kg/kg_supplement.csv'
+            )
+        )
+        self.edges_supp_df['relation_index'] = self.edges_supp_df['relation'].apply(lambda x: self.link.rel2id[x])
+        
     def add_model(self, model_name: str, model: Model):
         self._model_list.append({
             'model_name': model_name,
@@ -48,18 +56,30 @@ class ModelRepository:
         rels = [self.link.rel2id[rel] for rel in request.rel]
         result = self.link.link(
             request.head, rels, request.tail, model, device='cuda:0'
-        ).head(request.limit)
+        )
+        result = result.rename(columns={'in': 'in_kg'})
+        if request.limit is not None:
+            result = result.head(request.limit)
+            
+        result = pd.merge(  # 补充 uid
+            result, 
+            self.edges_supp_df, 
+            left_on=['head', 'rel', 'tail'],
+            right_on=['x_index', 'relation_index', 'y_index'],
+            how='left'
+        ).drop(columns=['x_index', 'relation_index', 'y_index'])
         
         return [
             LinkRelation(
-                relation_name=row.relation,
-                x_index=row.head,
-                x_name=self.link.id2ent[row.head].split(':')[0],
-                x_type=self.link.id2ent[row.head].split(':')[1],
-                y_index=row.tail,
-                y_name=self.link.id2ent[row.tail].split(':')[0],
-                y_type=self.link.id2ent[row.tail].split(':')[1],
-                score=row.score,
-                type='present' if row['in'] == True else 'absent'
-            ) for row in result
+                relation_name=row.rel_ent,  # type: ignore
+                x_index=row.head,  # type: ignore
+                x_name=':'.join(row.head_ent.split(':')[:-1]),  # type: ignore
+                x_type=row.head_ent.split(':')[-1],  # type: ignore
+                y_index=row.tail,  # type: ignore
+                y_name=':'.join(row.tail_ent.split(':')[:-1]),  # type: ignore
+                y_type=row.tail_ent.split(':')[1],  # type: ignore
+                score=row.score,  # type: ignore
+                type='present' if row.in_kg == True else 'absent',  # type: ignore
+                uid=row.uid if not pd.isna(row.uid) else None  # type: ignore
+            ) for row in result.itertuples()
         ]

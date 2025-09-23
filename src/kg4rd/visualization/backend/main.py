@@ -9,6 +9,9 @@ from fastapi.responses import JSONResponse
 from contextlib import asynccontextmanager
 import uvicorn
 from routers import router_v1
+from fastapi.middleware.cors import CORSMiddleware
+
+from unike.module.model import TransE
 
 from repos.relation_repo import RelationRepository
 from repos.entity_repo import EntityRepository
@@ -18,11 +21,31 @@ from repos.model_repo import ModelRepository
 async def lifespan(app: FastAPI):
     app.state.relation_repo = RelationRepository()
     app.state.entity_repo = EntityRepository()
-    app.state.model_repo = ModelRepository()
+    model_repo = ModelRepository()
+    model = TransE(
+            dim = 200, 
+            p_norm = 1, 
+            norm_flag = True,
+            ent_tol = 121649,
+            rel_tol = 22
+        )
+    model_repo.add_model(
+        model_name='TransE20250910',
+        model=model
+    )
+    app.state.model_repo = model_repo
     yield
 
 app = FastAPI(lifespan=lifespan)
 app.include_router(router_v1)
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["GET", "POST"],
+    allow_headers=["*"]
+)
 
 @app.exception_handler(Exception)
 async def generic_exception_handler(_, exc):

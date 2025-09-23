@@ -17,13 +17,18 @@ export type MatchNodeType = 'all' | NodeType
 
 export type MatchMode = 'strict' | 'contains' | 'prefix' | 'regex'
 
+export interface NodeSourceUrl {
+  name: string
+  url: string
+}
+
 export interface Entity {
   node_index: number
   node_id: string
   node_name: string
   node_type: NodeType
   node_source: string
-  node_source_url: string[]
+  node_source_url: NodeSourceUrl[]
   node_properties: Record<string, string>
 }
 

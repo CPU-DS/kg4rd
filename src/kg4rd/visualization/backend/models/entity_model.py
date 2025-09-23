@@ -6,6 +6,7 @@
 
 from pydantic import BaseModel, Field
 from typing import Literal
+from typing_extensions import TypedDict
 
 NODE_TYPE = Literal[
     'disease', 
@@ -20,13 +21,17 @@ NODE_TYPE = Literal[
 MATCH_NODE_TYPE = Literal['all', NODE_TYPE]
 MATCH_MODE = Literal['strict', 'contains', 'prefix', 'regex']
 
+class NodeSourceUrl(TypedDict, total=True):
+    url: str
+    name: str
+
 class Entity(BaseModel):
     node_index: int
     node_id: str
     node_name: str
     node_type: NODE_TYPE
     node_source: str
-    node_source_url: list[str] = Field(default_factory=list)
+    node_source_url: list[NodeSourceUrl] = Field(default_factory=list)
     node_properties: dict[str, str] = Field(default_factory=dict)
 
 class EntityDTO(BaseModel):
