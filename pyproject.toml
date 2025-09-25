@@ -37,10 +37,10 @@ dependencies = [
     "torch-geometric>=2.6.1",
     "pyg-lib",
     "torch-sparse",
-    "unike==3.2.12",
     "langid>=1.1.6",
     "umap>=0.1.1",
     "pytorch-warmup>=0.2.0",
+    "unike==3.2.13",
 ]
 
 [tool.uv.sources]

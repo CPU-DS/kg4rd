@@ -1,22 +1,24 @@
 # -*- coding: utf-8 -*-
 # Create Date: 2025/09/20
 # Author: wangtao <wangtao.cpu@gmail.com>
-# File Name: TransEv2.py
+# File Name: TransE_GCLv2.py
 # Description: TransE 改进模型
 
 from unike.module.model import TransE
 import torch
 from torch import nn
 from typing_extensions import override
+import numpy as np
+import torch
 
 
-class TransEv2(TransE):
+class TransE_GCLv2(TransE):
     def __init__(
         self,
         ent_tol: int,
         rel_tol: int,
-        ent_embed: torch.Tensor,
-        rel_embed: torch.Tensor | None = None,
+        ent_embed_path: str,
+        rel_embed_path: str | None = None,
         dim: int = 100,
         p_norm: int = 1,
         norm_flag: bool = True,
@@ -31,11 +33,11 @@ class TransEv2(TransE):
             margin = margin
         )
         
-        self.ent_embeddings.weight.data = ent_embed
+        self.ent_embeddings.weight.data = torch.from_numpy(np.load(ent_embed_path)['embeddings'])
         self.ent_embeddings.weight.requires_grad = False
         
-        if rel_embed is not None:
-            self.rel_embeddings.weight.data = rel_embed
+        if rel_embed_path is not None:
+            self.rel_embeddings.weight.data = torch.from_numpy(np.load(rel_embed_path)['embeddings'])
             self.rel_embeddings.weight.requires_grad = False
         
         self.head = nn.Sequential(

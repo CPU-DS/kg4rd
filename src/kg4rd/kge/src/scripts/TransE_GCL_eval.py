@@ -1,17 +1,16 @@
 # -*- coding: utf-8 -*-
 # Create Date: 2025/09/19
 # Author: wangtao <wangtao.cpu@gmail.com>
-# File Name: TransEv2_eval_GCL.py
-# Description: 评估 TransEv2 使用预训练的节点嵌入，沿用之前的配置文件即可，只是导入模型不同
+# File Name: TransE_GCL_eval.py
+# Description: 评估 TransE 使用预训练的节点嵌入
 
 from unike.data import KGEDataLoader, BernSampler, TradTestSampler
+from unike.module.model import TransE
 from unike.module.loss import MarginLoss
 from unike.module.strategy import NegativeSampling
 from unike.config import Trainer, Tester
 from unike.utils import WandbLogger
-import numpy as np
-import torch
-from model.TransEv2 import TransEv2
+from model.TransE_GCL import TransE_GCL
 
 import yaml
 import argparse
@@ -25,7 +24,7 @@ with open(args.config, 'r') as f:
 
 wandb_logger = WandbLogger(endpoint='swanlab').set_config(
 	project=config['project'],
-	name=config['name'].replace('TransE', 'TransEv2'),
+	name=config['name'],
 	config=config,
 )
 
@@ -43,15 +42,14 @@ dataloader = KGEDataLoader(
 	test_sampler = TradTestSampler
 )
 
-ent_embed: np.ndarray = np.load(config['ent_embed_path'])['embeddings']
-
-transe = TransEv2(
+transe = TransE_GCL(
 	ent_tol = dataloader.get_ent_tol(),
 	rel_tol = dataloader.get_rel_tol(),
 	dim = config['dim'], 
 	p_norm = config['p_norm'], 
 	norm_flag = config['norm_flag'],
-	ent_embed = torch.from_numpy(ent_embed)
+	ent_embed_path = config['ent_embed_path'],
+	rel_embed_path = config['rel_embed_path']
 )
 
 model = NegativeSampling(

@@ -1,17 +1,17 @@
 # -*- coding: utf-8 -*-
 # Create Date: 2025/09/19
 # Author: wangtao <wangtao.cpu@gmail.com>
-# File Name: TransE_eval_GCL.py
-# Description: 评估 TransE 使用预训练的节点嵌入
+# File Name: TransEv2_eval_GCL.py
+# Description: 评估 TransEv2 使用预训练的节点嵌入
 
 from unike.data import KGEDataLoader, BernSampler, TradTestSampler
-from unike.module.model import TransE
 from unike.module.loss import MarginLoss
 from unike.module.strategy import NegativeSampling
 from unike.config import Trainer, Tester
 from unike.utils import WandbLogger
 import numpy as np
 import torch
+from model.TransE_GCLv2 import TransE_GCLv2
 
 import yaml
 import argparse
@@ -43,20 +43,15 @@ dataloader = KGEDataLoader(
 	test_sampler = TradTestSampler
 )
 
-transe = TransE(
+transe = TransE_GCLv2(
 	ent_tol = dataloader.get_ent_tol(),
 	rel_tol = dataloader.get_rel_tol(),
 	dim = config['dim'], 
 	p_norm = config['p_norm'], 
-	norm_flag = config['norm_flag']
+	norm_flag = config['norm_flag'],
+	ent_embed_path = config['ent_embed_path'],
+	rel_embed_path = config['rel_embed_path']
 )
-
-ent_embed: np.ndarray = np.load(config['ent_embed_path'])['embeddings']
-transe.ent_embeddings.weight.data = torch.from_numpy(ent_embed)
-
-if 'rel_embed_path' in config:
-	rel_embed: np.ndarray = np.load(config['rel_embed_path'])['embeddings']
-	transe.rel_embeddings.weight.data = torch.from_numpy(rel_embed)
 
 model = NegativeSampling(
 	model = transe, 
