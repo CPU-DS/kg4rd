@@ -3,6 +3,7 @@
 import axios, { type AxiosInstance, type AxiosRequestConfig, type AxiosResponse } from 'axios'
 import { ResultCode } from '../types'
 import type { Result } from '../types'
+import { getConfig } from '../config'
 
 export interface APIConfig {
   baseURL: string
@@ -10,12 +11,15 @@ export interface APIConfig {
   headers?: Record<string, string>
 }
 
-const DEFAULT_CONFIG: APIConfig = {
-  baseURL: 'http://10.4.3.155:5555/api/v1',
-  timeout: 300000, // 5分钟超时，适应长时间推理
-  headers: {
-    'Content-Type': 'application/json',
-  },
+function getDefaultConfig(): APIConfig {
+  const envConfig = getConfig()
+  return {
+    baseURL: envConfig.api.baseURL,
+    timeout: envConfig.api.timeout,
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  }
 }
 
 
@@ -23,7 +27,8 @@ export class API {
   private instance: AxiosInstance
 
   constructor(config: Partial<APIConfig> = {}) {
-    const finalConfig = { ...DEFAULT_CONFIG, ...config }
+    const defaultConfig = getDefaultConfig()
+    const finalConfig = { ...defaultConfig, ...config }
     
     this.instance = axios.create({
       baseURL: finalConfig.baseURL,

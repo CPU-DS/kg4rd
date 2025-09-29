@@ -9,8 +9,6 @@ from unike.module.loss import MarginLoss
 from unike.module.strategy import NegativeSampling
 from unike.config import Trainer, Tester
 from unike.utils import WandbLogger
-import numpy as np
-import torch
 from model.TransE_GCLv2 import TransE_GCLv2
 
 import yaml
@@ -49,8 +47,7 @@ transe = TransE_GCLv2(
 	dim = config['dim'], 
 	p_norm = config['p_norm'], 
 	norm_flag = config['norm_flag'],
-	ent_embed_path = config['ent_embed_path'],
-	rel_embed_path = config['rel_embed_path']
+	ent_embed_path = config['ent_embed_path']
 )
 
 model = NegativeSampling(

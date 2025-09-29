@@ -48,8 +48,7 @@ transe = TransE_GCL(
 	dim = config['dim'], 
 	p_norm = config['p_norm'], 
 	norm_flag = config['norm_flag'],
-	ent_embed_path = config['ent_embed_path'],
-	rel_embed_path = config['rel_embed_path']
+	ent_embed_path = config['ent_embed_path']
 )
 
 model = NegativeSampling(

@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 # Create Date: 2025/09/20
 # Author: wangtao <wangtao.cpu@gmail.com>
-# File Name: TransE_GCLv2.py
-# Description: TransE 改进模型
+# File Name: TransE_GCL.py
+# Description: TransE 改进模型, 使用 GCL 训练得到节点预嵌入
 
 from unike.module.model import TransE, get_transe_hpo_config
 import torch
@@ -39,7 +39,7 @@ class TransE_GCL(TransE):
             self.rel_embeddings.weight.data = torch.from_numpy(np.load(rel_embed_path)['embeddings'])
 
 
-def get_hpo_config() -> dict[str, dict[str, Any]]:
+def get_hpo_config() -> dict:
 	parameters_dict = {
         **get_transe_hpo_config(),
         'model': {

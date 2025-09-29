@@ -15,7 +15,6 @@ wheels/
 .idea/
 
 papers/
-# original project PrimeKG
 primekg/
 data/
 test/
