@@ -40,9 +40,9 @@ dependencies = [
     "langid>=1.1.6",
     "umap>=0.1.1",
     "pytorch-warmup>=0.2.0",
-    "unike==3.2.13",
     "fastapi>=0.117.1",
     "uvicorn>=0.37.0",
+    "unike==3.2.14",
 ]
 
 [tool.uv.sources]

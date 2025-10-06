@@ -1,18 +1,30 @@
 import React, { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { Tabs } from '../components/Common'
 import { EntitySearch } from '../components/Entity'
 import { LinkPrediction } from '../components/Link'
+import { LanguageSwitcher } from '../components/LanguageSwitcher'
+import { ThemeSwitcher } from '../components/ThemeSwitcher'
 
 const Index: React.FC = () => {
+  const { t } = useTranslation()
   const [activeTab, setActiveTab] = useState('entity')
 
   const tabItems = [
-    { key: 'entity', label: '实体查询' },
-    { key: 'link', label: '链接预测' }
+    { key: 'entity', label: t('nav.entitySearch') },
+    { key: 'link', label: t('nav.linkPrediction') }
   ]
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors">
+      {/* 头部语言和主题切换 */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4">
+        <div className="flex justify-end gap-3">
+          <ThemeSwitcher />
+          <LanguageSwitcher />
+        </div>
+      </div>
+
       {/* 内容区域 */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Tab 导航 */}

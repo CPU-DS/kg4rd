@@ -5,7 +5,9 @@ import { relationService } from '../../services'
 import type { Relation, RelationDirection, MatchRelationType, NodeType, RelationType } from '../../types'
 import { ResultCode } from '../../types'
 import { useRelationFilter } from '../../hooks/useRelationFilter'
-import { nodeLabels, relationLabels } from '../../utils/typeMap'
+import { getRelationLabel, getNodeLabel } from '../../utils/i18nTypeMap'
+import { useTheme } from '../../contexts'
+import { useTranslation } from 'react-i18next'
 
 interface GraphProps {
   centerNodeIndex: number
@@ -38,6 +40,7 @@ const Graph: React.FC<GraphProps> = ({
   centerNodeName,
   centerNodeType
 }) => {
+  const { resolvedTheme } = useTheme()
   const chartRef = useRef<HTMLDivElement>(null)
   const chartInstance = useRef<echarts.ECharts | null>(null)
   const [relations, setRelations] = useState<Relation[]>([])
@@ -46,6 +49,7 @@ const Graph: React.FC<GraphProps> = ({
   const [hop, setHop] = useState(1)
   const [direction, setDirection] = useState<RelationDirection>('bidirection')
   const [relationType, setRelationType] = useState<MatchRelationType>('all')
+  const { t } = useTranslation()
   
   // 使用关系过滤Hook
   const { 
@@ -60,15 +64,15 @@ const Graph: React.FC<GraphProps> = ({
   })
 
   const hopOptions = [
-    { value: '1', label: '1跳' },
+    { value: '1', label: t('graph.hop1') },
     // { value: '2', label: '2跳' },  // 目前只支持1跳
     // { value: '3', label: '3跳' }
   ]
 
   const directionOptions = [
-    { value: 'bidirection', label: '双向' },
-    { value: 'out', label: '出方向' },
-    { value: 'in', label: '入方向' }
+    { value: 'bidirection', label: t('graph.bidirection') },
+    { value: 'out', label: t('graph.outDirection') },
+    { value: 'in', label: t('graph.inDirection') }
   ]
 
 
@@ -87,10 +91,10 @@ const Graph: React.FC<GraphProps> = ({
       if (response.code === ResultCode.QUERY_OK) {
         setRelations(response.data || [])
       } else {
-        setError(response.message || '加载关系数据失败')
+        setError(response.message || t('graph.errorLoadFailed'))
       }
     } catch (err) {
-      setError('加载关系数据出错')
+      setError(t('graph.errorLoadError'))
     } finally {
       setLoading(false)
     }
@@ -125,7 +129,7 @@ const Graph: React.FC<GraphProps> = ({
     nodeMap.set(centerNodeIndex, {
       id: centerNodeIndex.toString(),
       name: centerNodeName,
-      type: nodeLabels[centerNodeType],
+      type: getNodeLabel(centerNodeType, t),
       category: 0, // 中心节点类别
       value: 1,
       symbolSize: 40
@@ -138,7 +142,7 @@ const Graph: React.FC<GraphProps> = ({
         nodeMap.set(relation.x_index, {
           id: relation.x_index.toString(),
           name: relation.x_name,
-          type: nodeLabels[relation.x_type],
+          type: getNodeLabel(relation.x_type, t),
           category: 1,
           value: 1,
           symbolSize: 25
@@ -150,7 +154,7 @@ const Graph: React.FC<GraphProps> = ({
         nodeMap.set(relation.y_index, {
           id: relation.y_index.toString(),
           name: relation.y_name,
-          type: nodeLabels[relation.y_type],
+          type: getNodeLabel(relation.y_type, t),
           category: 1,
           value: 1,
           symbolSize: 25
@@ -172,23 +176,37 @@ const Graph: React.FC<GraphProps> = ({
 
     const nodes = Array.from(nodeMap.values())
 
+    // 根据主题设置颜色
+    const isDark = resolvedTheme === 'dark'
+    const textColor = isDark ? '#e5e7eb' : '#374151'
+    const backgroundColor = isDark ? 'transparent' : 'transparent'
+    const legendTextColor = isDark ? '#d1d5db' : '#6b7280'
+    const borderColor = isDark ? '#374151' : '#fff'
+    
     // 配置图表选项
     const option: echarts.EChartsOption = {
+      backgroundColor: backgroundColor,
       title: {
-        text: `${centerNodeName} 的关系图谱`,
+        text: `${t('graph.title', { name: centerNodeName })}`,
         left: 'center',
         textStyle: {
           fontSize: 16,
-          fontWeight: 'normal'
+          fontWeight: 'normal',
+          color: textColor
         }
       },
       tooltip: {
         trigger: 'item',
+        backgroundColor: isDark ? '#374151' : '#fff',
+        borderColor: isDark ? '#4b5563' : '#e5e7eb',
+        textStyle: {
+          color: textColor
+        },
         formatter: (params: any) => {
           if (params.dataType === 'node') {
-            return `${params.data.name}<br/>${params.data.type}|索引: ${params.data.id}`
+            return `${params.data.name}<br/>${params.data.type}|${params.data.id}`
           } else if (params.dataType === 'edge') {
-            return `关系: ${relationLabels[params.data.name as RelationType]}${params.data.uid ? `|(${params.data.uid})` : ''}`
+            return `${t('graph.relationType')}: ${getRelationLabel(params.data.name as RelationType, t)}${params.data.uid ? `|(${params.data.uid})` : ''}`
           }
           return ''
         }
@@ -196,7 +214,10 @@ const Graph: React.FC<GraphProps> = ({
       legend: {
         data: ['中心节点', '关联节点'],
         bottom: 10,
-        left: 'center'
+        left: 'center',
+        textStyle: {
+          color: legendTextColor
+        }
       },
       series: [{
         type: 'graph',
@@ -211,16 +232,17 @@ const Graph: React.FC<GraphProps> = ({
         ],
         focusNodeAdjacency: true,
         itemStyle: {
-          borderColor: '#fff',
+          borderColor: borderColor,
           borderWidth: 1,
           shadowBlur: 10,
-          shadowColor: 'rgba(0, 0, 0, 0.3)'
+          shadowColor: isDark ? 'rgba(0, 0, 0, 0.6)' : 'rgba(0, 0, 0, 0.3)'
         },
         label: {
           show: true,
           position: 'right',
           formatter: '{b}',
-          fontSize: 12
+          fontSize: 12,
+          color: textColor
         },
         lineStyle: {
           color: 'source',
@@ -265,7 +287,7 @@ const Graph: React.FC<GraphProps> = ({
     return () => {
       window.removeEventListener('resize', handleResize)
     }
-  }, [relations, centerNodeIndex, centerNodeName, loading])
+  }, [relations, centerNodeIndex, centerNodeName, loading, resolvedTheme])
 
   useEffect(() => {
     return () => {
@@ -279,11 +301,11 @@ const Graph: React.FC<GraphProps> = ({
   return (
     <div className="w-full space-y-4">
       {/* 控制面板 */}
-      <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-4">
+      <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-4 transition-colors">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4 items-end">
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
-              跳数
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+              { t('graph.hop') }
             </label>
             <Select
               value={hop.toString()}
@@ -292,8 +314,8 @@ const Graph: React.FC<GraphProps> = ({
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
-              方向
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+              { t('graph.direction') }
             </label>
             <Select
               value={direction}
@@ -302,10 +324,10 @@ const Graph: React.FC<GraphProps> = ({
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
-              关系类型
-              <span className="ml-2 text-xs text-gray-500">
-                (可用: {availableRelationCount} 个)
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+              {t('graph.relationType')}
+              <span className="ml-2 text-xs text-gray-500 dark:text-gray-400">
+                ({t('graph.available', { count: availableRelationCount })})
               </span>
             </label>
             <Select
@@ -322,20 +344,20 @@ const Graph: React.FC<GraphProps> = ({
         </div>
 
         {error && (
-          <div className="mt-4 p-3 bg-red-50 border border-red-200 rounded-xl text-red-700 text-sm">
+          <div className="mt-4 p-3 bg-red-50 dark:bg-red-900/30 border border-red-200 dark:border-red-800 rounded-xl text-red-700 dark:text-red-400 text-sm">
             {error}
           </div>
         )}
       </div>
 
       {/* 图谱容器 */}
-      <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-4">
+      <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-4 transition-colors">
         {loading ? (
           <div className="flex justify-center items-center h-96">
             <Loading size="lg" />
           </div>
         ) : relations.length === 0 ? (
-          <div className="flex justify-center items-center h-96 text-gray-500">
+          <div className="flex justify-center items-center h-96 text-gray-500 dark:text-gray-400">
             暂无关系数据
           </div>
         ) : (

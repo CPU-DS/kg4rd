@@ -4,8 +4,10 @@
  */
 
 import { useMemo } from 'react'
+import { useTranslation } from 'react-i18next'
 import type { NodeType, RelationType, RelationDirection, MatchRelationType } from '../types'
-import { node2relation, relationLabels } from '../utils/typeMap'
+import { node2relation, relation2node } from '../utils/typeMap'
+import { getRelationLabel } from '../utils/i18nTypeMap'
 
 interface RelationOption {
   value: string
@@ -26,21 +28,23 @@ export const useRelationFilter = ({
   direction = 'bidirection',
   includeAll = true
 }: UseRelationFilterProps = {}) => {
+  const { t } = useTranslation()
+  
   const filteredRelationOptions = useMemo(() => {
     const options: RelationOption[] = []
     
     // 添加"全部关系"选项
     if (includeAll) {
-      options.push({ value: 'all', label: '全部关系' })
+      options.push({ value: 'all', label: t('graph.allTypes') })
     }
     
     // 如果没有指定节点类型，返回所有关系类型
     if (!centerNodeType || !(centerNodeType in node2relation)) {
-      const allRelationTypes = Object.keys(relationLabels) as RelationType[]
+      const allRelationTypes = Object.keys(relation2node) as RelationType[]
       allRelationTypes.forEach(relationType => {
         options.push({
           value: relationType,
-          label: relationLabels[relationType]
+          label: getRelationLabel(relationType, t)
         })
       })
       return options
@@ -86,12 +90,12 @@ export const useRelationFilter = ({
       .forEach(relationType => {
         options.push({
           value: relationType,
-          label: relationLabels[relationType] || relationType
+          label: getRelationLabel(relationType, t)
         })
       })
     
     return options
-  }, [centerNodeType, direction, includeAll])
+  }, [centerNodeType, direction, includeAll, t])
   
   /**
    * 检查指定的关系类型是否在当前过滤条件下可用

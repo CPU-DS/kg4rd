@@ -1,44 +1,29 @@
 import * as XLSX from 'xlsx'
-import type { LinkResult, NodeType, RelationType } from '../types'
-import { relationLabels, nodeLabels } from '../utils/typeMap'
+import type { TFunction } from 'i18next'
+import type { LinkResult } from '../types'
+import { getNodeLabel, getRelationLabel } from './i18nTypeMap'
 
 export interface ExportData {
-  '头实体名称': string
-  '头实体索引': number
-  '头实体类型': string
-  '关系类型': string
-  '尾实体名称': string
-  '尾实体索引': number
-  '尾实体类型': string
-  '预测分数': number
-  '关系状态': string
+  [key: string]: string | number
 }
 
-const getNodeTypeLabel = (type: NodeType): string => {
-  return nodeLabels[type] || type
-}
-
-const getRelationTypeLabel = (type: RelationType): string => {
-  return relationLabels[type] || type
-}
-
-export const exportLinkResultToExcel = (results: LinkResult, filename?: string) => {
+export const exportLinkResultToExcel = (results: LinkResult, t: TFunction, filename?: string) => {
   if (!results || results.length === 0) {
-    alert('没有数据可导出')
+    alert(t('common.noData'))
     return
   }
 
   // 转换数据格式
   const exportData: ExportData[] = results.map((result) => ({
-    '头实体名称': result.x_name,
-    '头实体索引': result.x_index,
-    '头实体类型': getNodeTypeLabel(result.x_type),
-    '关系类型': getRelationTypeLabel(result.relation_name),
-    '尾实体名称': result.y_name,
-    '尾实体索引': result.y_index,
-    '尾实体类型': getNodeTypeLabel(result.y_type),
-    '预测分数': parseFloat(result.score.toFixed(4)),
-    '关系状态': result.type === 'present' ? result.uid ? `存在(${result.uid})`: '存在' : '不存在'
+    [t('link.prediction.headEntityCol')]: result.x_name,
+    [t('common.index') + ' (' + t('link.prediction.headEntityCol') + ')']: result.x_index,
+    [t('common.type') + ' (' + t('link.prediction.headEntityCol') + ')']: getNodeLabel(result.x_type, t),
+    [t('link.prediction.relationCol')]: getRelationLabel(result.relation_name, t),
+    [t('link.prediction.tailEntityCol')]: result.y_name,
+    [t('common.index') + ' (' + t('link.prediction.tailEntityCol') + ')']: result.y_index,
+    [t('common.type') + ' (' + t('link.prediction.tailEntityCol') + ')']: getNodeLabel(result.y_type, t),
+    [t('link.prediction.scoreCol')]: parseFloat(result.score.toFixed(4)),
+    [t('link.prediction.typeCol')]: result.type === 'present' ? result.uid ? `${t('link.prediction.typePresent')}(${result.uid})`: t('link.prediction.typePresent') : t('link.prediction.typeAbsent')
   }))
 
   // 创建工作簿
@@ -62,33 +47,33 @@ export const exportLinkResultToExcel = (results: LinkResult, filename?: string) 
   worksheet['!cols'] = columnWidths
 
   // 添加工作表到工作簿
-  XLSX.utils.book_append_sheet(workbook, worksheet, '链接预测结果')
+  XLSX.utils.book_append_sheet(workbook, worksheet, t('link.prediction.results'))
 
   // 生成文件名
-  const defaultFilename = `链接预测结果_${new Date().toISOString().slice(0, 19).replace(/:/g, '-')}.xlsx`
+  const defaultFilename = `${t('link.prediction.results')}_${new Date().toISOString().slice(0, 19).replace(/:/g, '-')}.xlsx`
   const finalFilename = filename || defaultFilename
 
   // 导出文件
   XLSX.writeFile(workbook, finalFilename)
 }
 
-export const exportLinkResultToCSV = (results: LinkResult, filename?: string) => {
+export const exportLinkResultToCSV = (results: LinkResult, t: TFunction, filename?: string) => {
   if (!results || results.length === 0) {
-    alert('没有数据可导出')
+    alert(t('common.noData'))
     return
   }
 
   // 转换数据格式
   const exportData: ExportData[] = results.map((result) => ({
-    '头实体名称': result.x_name,
-    '头实体索引': result.x_index,
-    '头实体类型': getNodeTypeLabel(result.x_type),
-    '关系类型': getRelationTypeLabel(result.relation_name),
-    '尾实体名称': result.y_name,
-    '尾实体索引': result.y_index,
-    '尾实体类型': getNodeTypeLabel(result.y_type),
-    '预测分数': parseFloat(result.score.toFixed(4)),
-    '关系状态': result.type === 'present' ? result.uid ? `存在(${result.uid})`: '存在' : '不存在'
+    [t('link.prediction.headEntityCol')]: result.x_name,
+    [t('common.index') + ' (' + t('link.prediction.headEntityCol') + ')']: result.x_index,
+    [t('common.type') + ' (' + t('link.prediction.headEntityCol') + ')']: getNodeLabel(result.x_type, t),
+    [t('link.prediction.relationCol')]: getRelationLabel(result.relation_name, t),
+    [t('link.prediction.tailEntityCol')]: result.y_name,
+    [t('common.index') + ' (' + t('link.prediction.tailEntityCol') + ')']: result.y_index,
+    [t('common.type') + ' (' + t('link.prediction.tailEntityCol') + ')']: getNodeLabel(result.y_type, t),
+    [t('link.prediction.scoreCol')]: parseFloat(result.score.toFixed(4)),
+    [t('link.prediction.typeCol')]: result.type === 'present' ? result.uid ? `${t('link.prediction.typePresent')}(${result.uid})`: t('link.prediction.typePresent') : t('link.prediction.typeAbsent')
   }))
 
   // 创建工作簿
@@ -98,10 +83,10 @@ export const exportLinkResultToCSV = (results: LinkResult, filename?: string) =>
   const worksheet = XLSX.utils.json_to_sheet(exportData)
 
   // 添加工作表到工作簿
-  XLSX.utils.book_append_sheet(workbook, worksheet, '链接预测结果')
+  XLSX.utils.book_append_sheet(workbook, worksheet, t('link.prediction.results'))
 
   // 生成文件名
-  const defaultFilename = `链接预测结果_${new Date().toISOString().slice(0, 19).replace(/:/g, '-')}.csv`
+  const defaultFilename = `${t('link.prediction.results')}_${new Date().toISOString().slice(0, 19).replace(/:/g, '-')}.csv`
   const finalFilename = filename || defaultFilename
 
   // 导出CSV文件

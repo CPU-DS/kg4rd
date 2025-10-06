@@ -4,8 +4,10 @@
  */
 
 import { useMemo } from 'react'
+import { useTranslation } from 'react-i18next'
 import type { NodeType, RelationType } from '../types'
-import { relation2node, relationLabels } from '../utils/typeMap'
+import { relation2node } from '../utils/typeMap'
+import { getRelationLabel } from '../utils/i18nTypeMap'
 
 interface RelationOption {
   value: string
@@ -28,19 +30,20 @@ export const useLinkRelationFilter = ({
   headType,
   tailType
 }: UseLinkRelationFilterProps = {}) => {
+  const { t } = useTranslation()
   
   const filteredRelationOptions = useMemo(() => {
     const options: RelationOption[] = []
     
     // 如果头尾节点都是指定实体而不是按类型，返回所有关系类型
     if (headType === 'entities' && tailType === 'entities') {
-      const allRelationTypes = Object.keys(relationLabels) as RelationType[]
+      const allRelationTypes = Object.keys(relation2node) as RelationType[]
       allRelationTypes
         .sort()
         .forEach(relationType => {
           options.push({
             value: relationType,
-            label: relationLabels[relationType]
+            label: getRelationLabel(relationType, t)
           })
         })
       return options
@@ -80,12 +83,12 @@ export const useLinkRelationFilter = ({
     availableRelations.forEach(relationType => {
       options.push({
         value: relationType,
-        label: relationLabels[relationType] || relationType
+        label: getRelationLabel(relationType, t)
       })
     })
     
     return options
-  }, [headNodeType, tailNodeType, headType, tailType])
+  }, [headNodeType, tailNodeType, headType, tailType, t])
   
   /**
    * 检查指定的关系类型是否在当前过滤条件下可用

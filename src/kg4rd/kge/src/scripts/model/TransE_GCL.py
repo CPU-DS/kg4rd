@@ -6,8 +6,6 @@
 
 from unike.module.model import TransE, get_transe_hpo_config
 import torch
-from torch import nn
-from typing import Any
 import os
 import numpy as np
 

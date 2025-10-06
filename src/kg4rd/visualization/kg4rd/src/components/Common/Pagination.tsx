@@ -1,4 +1,5 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 
 interface PaginationProps {
   currentPage: number
@@ -21,6 +22,7 @@ const Pagination: React.FC<PaginationProps> = ({
   pageSizeOptions = [10, 20, 50, 100],
   className = ''
 }) => {
+  const { t } = useTranslation()
   const startItem = (currentPage - 1) * itemsPerPage + 1
   const endItem = Math.min(currentPage * itemsPerPage, totalItems)
 
@@ -62,18 +64,18 @@ const Pagination: React.FC<PaginationProps> = ({
     <div className={`flex items-center justify-between ${className}`}>
       {/* 左侧信息 */}
       <div className="flex items-center space-x-4">
-        <div className="text-sm text-gray-700">
-          显示第 <span className="font-medium">{startItem}</span> 到 <span className="font-medium">{endItem}</span> 条，
-          共 <span className="font-medium">{totalItems}</span> 条记录
+        <div className="text-sm text-gray-700 dark:text-gray-300">
+          {t('pagination.showing')} <span className="font-medium">{startItem}</span> {t('pagination.to')} <span className="font-medium">{endItem}</span>，
+          {t('pagination.total')} <span className="font-medium">{totalItems}</span> {t('pagination.items')}
         </div>
         
         {onPageSizeChange && (
           <div className="flex items-center space-x-2">
-            <label className="text-sm text-gray-700">每页显示:</label>
+            <label className="text-sm text-gray-700 dark:text-gray-300">{t('pagination.perPage')}:</label>
             <select
               value={itemsPerPage}
               onChange={(e) => onPageSizeChange(parseInt(e.target.value))}
-              className="px-2 py-1 border border-gray-300 rounded text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="px-2 py-1 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 rounded text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
             >
               {pageSizeOptions.map(size => (
                 <option key={size} value={size}>{size}</option>
@@ -90,23 +92,23 @@ const Pagination: React.FC<PaginationProps> = ({
           <button
             onClick={() => onPageChange(currentPage - 1)}
             disabled={currentPage === 1}
-            className="px-3 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+            className="px-3 py-2 text-sm font-medium text-gray-500 dark:text-gray-400 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-600 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
           >
-            上一页
+            {t('pagination.previous')}
           </button>
 
           {/* 页码 */}
           {visiblePages.map((page, index) => (
             <React.Fragment key={index}>
               {page === '...' ? (
-                <span className="px-3 py-2 text-sm font-medium text-gray-700">...</span>
+                <span className="px-3 py-2 text-sm font-medium text-gray-700 dark:text-gray-300">...</span>
               ) : (
                 <button
                   onClick={() => onPageChange(page as number)}
-                  className={`px-3 py-2 text-sm font-medium rounded-lg ${
+                  className={`px-3 py-2 text-sm font-medium rounded-lg transition-colors ${
                     currentPage === page
-                      ? 'text-white bg-blue-600 border border-blue-600'
-                      : 'text-gray-700 bg-white border border-gray-300 hover:bg-gray-50'
+                      ? 'text-white bg-blue-600 dark:bg-blue-700 border border-blue-600 dark:border-blue-700'
+                      : 'text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-600'
                   }`}
                 >
                   {page}
@@ -119,9 +121,9 @@ const Pagination: React.FC<PaginationProps> = ({
           <button
             onClick={() => onPageChange(currentPage + 1)}
             disabled={currentPage === totalPages}
-            className="px-3 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+            className="px-3 py-2 text-sm font-medium text-gray-500 dark:text-gray-400 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-600 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
           >
-            下一页
+            {t('pagination.next')}
           </button>
         </div>
       )}

@@ -25,6 +25,10 @@ hf download wangtao2001/kg4rd --repo-type=dataset --local-dir=data
 ```bash
 .
 ├── data/               # project data, use `hf download` to download and store here.
+│   ├── data/           # knowledge graph structure.
+│   ├── data_abstract/  # all abstracts.
+│   ├── data_feature/   # entity features and embeddings.
+│   └── data_synonyms/  # entity synonyms.
 ├── src/kg4rd/          # source code.
 │   ├── data_process/   # data process and build knowledge graph.
 │   ├── dock/           # molecular docking related.
@@ -37,7 +41,7 @@ hf download wangtao2001/kg4rd --repo-type=dataset --local-dir=data
 │   ├── overview/       # overview of the knowledge graph.
 │   ├── pubmed/         # get abstracts from pubmed.
 │   ├── synonyms/       # get entity synonyms.
-│   └── visualization/  # visualize the knowledge graph, including backend and web frontend.
+│   └── visualization/  # visualize the knowledge graph, including backend and frontend.
 ├── .gitignore
 ├── .python-version
 ├── README.md

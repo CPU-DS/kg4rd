@@ -8,6 +8,7 @@ import os
 import sys
 
 sys.path.append(os.path.join(os.path.dirname(os.path.abspath(__file__)), '../../..'))
+sys.path.append(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..'))
 
 from typing import Optional
 import pandas as pd
@@ -225,8 +226,9 @@ class EntityRepository:
             case 'disease':
                 entity.node_properties = {
                     'definition': self.df_disease_mondo[self.df_disease_mondo['id'] == entity.node_id]['definition'].iloc[0],  # type: ignore
-                    'description': self.df_disease_umls[self.df_disease_umls['id'] == entity.node_id]['description'].iloc[0],  # type: ignore
                 }
+                if not (d := self.df_disease_umls[self.df_disease_umls['id'] == entity.node_id]['description']).empty:  # type: ignore
+                    entity.node_properties['description'] = d.iloc[0]  # type: ignore
                 rows = self.df_disease_ref[self.df_disease_ref['id'] == entity.node_id]
                 for row in rows.itertuples():
                     match row.ontology:  # type: ignore
