@@ -30,7 +30,7 @@ test_hits: [1, 3, 10, 30, 50]
 train_use_gpu: False
 use_accelerator: True
 delta: 0.01
-use_early_stopping: False
+use_early_stopping: True
 
 device: "cuda:0"
 

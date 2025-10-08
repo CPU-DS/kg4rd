@@ -25,7 +25,7 @@ hf download wangtao2001/kg4rd --repo-type=dataset --local-dir=data
 ```bash
 .
 ├── data/               # project data, use `hf download` to download and store here.
-│   ├── data/           # knowledge graph structure.
+│   ├── data/           # knowledge graph source data.
 │   ├── data_abstract/  # all abstracts.
 │   ├── data_feature/   # entity features and embeddings.
 │   └── data_synonyms/  # entity synonyms.

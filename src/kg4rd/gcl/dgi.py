@@ -43,7 +43,8 @@ class DGI(nn.Module):
     def __init__(self, 
             input_dim: int, 
             hidden_dim: int = 512, 
-            output_dim: int = 256):
+            output_dim: int = 256
+        ):
         super().__init__()
         self.encoder = GraphEncoder(input_dim, hidden_dim, output_dim)
         self.discriminator = Discriminator(output_dim * 2)
@@ -57,15 +58,16 @@ class DGI(nn.Module):
         self.corruption_type: Literal['dropout', 'gaussian', 'shuffle'] = 'shuffle'
         
     def corruption(self, x: torch.Tensor) -> torch.Tensor:
-        if self.corruption_type == 'dropout':  # 随机丢弃特征
-            return F.dropout(x, p=0.2, training=True)
-        elif self.corruption_type == 'gaussian':
-            noise = torch.randn_like(x) * 0.1  # 高斯噪声
-            return x + noise
-        else:
-            idx = torch.randperm(x.size(0))
-            shuffled = x[idx]
-            return F.dropout(shuffled, p=0.1, training=True)  # 结合 shuffle 和 dropout
+        match self.corruption_type:
+            case 'dropout':  # 随机丢弃特征
+                return F.dropout(x, p=0.2, training=True)
+            case 'gaussian':
+                noise = torch.randn_like(x) * 0.1  # 高斯噪声
+                return x + noise
+            case _:  # shuffle
+                idx = torch.randperm(x.size(0))
+                shuffled = x[idx]
+                return F.dropout(shuffled, p=0.1, training=True)
     
     def forward(self, x: torch.Tensor, edge_index: torch.Tensor) -> tuple[torch.Tensor, torch.Tensor, torch.Tensor]:
         positive = self.encoder(x, edge_index)

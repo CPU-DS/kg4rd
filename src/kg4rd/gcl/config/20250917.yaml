@@ -3,6 +3,9 @@
 project: 'kg4rd'
 name: 'gcl_20250917'
 
+model_type: 'dgi'
+corruption_type: 'shuffle'
+
 target_dim: 200
 device: cuda:0
 batch_size: 256

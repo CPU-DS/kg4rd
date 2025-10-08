@@ -12,6 +12,8 @@ sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 from embedding_loader import NodeEmbeddingLoader
 from embedding_fusion import EmbeddingFusion
 from dgi import DGI
+from ggd import GGD
+from grace import GRACE
 
 import numpy as np
 import torch
@@ -27,13 +29,15 @@ import pytorch_warmup as warmup
 import yaml
 import argparse
 import time
+from typing import Literal
 
 
 class GCL:
     def __init__(self, 
                  nodes_path: str = 'src/kg4rd/kg/nodes.csv',
                  edges_path: str = 'src/kg4rd/kg/edges.csv',
-                 target_dim: int = 512,
+                 target_dim: int = 200,
+                 model_type: Literal['dgi', 'ggd', 'grace'] = 'dgi',
                  device: str = "cuda" if torch.cuda.is_available() else "cpu"):
         self.nodes_path = nodes_path
         self.edges_path = edges_path
@@ -42,7 +46,16 @@ class GCL:
         self.device = device
 
         self.fusion_model = EmbeddingFusion(target_dim)
-        self.dgi_model = DGI(target_dim)
+        
+        self.model_type = model_type
+        match model_type:
+            case 'ggd':
+                self.gcl_model = GGD(target_dim)
+            case 'grace':
+                self.gcl_model = GRACE(target_dim)
+            case _:  #  dgi
+                self.gcl_model = DGI(target_dim)
+        
         self.embedding_norm = nn.LayerNorm(target_dim, device=device)
         
         self._load_graph_data()
@@ -125,7 +138,7 @@ class GCL:
         lr_s = lr * 0.5
         optimizer = torch.optim.Adam([
             {'params': self.fusion_model.parameters(), 'lr': lr},
-            {'params': self.dgi_model.parameters(), 'lr': lr},
+            {'params': self.gcl_model.parameters(), 'lr': lr},
             {'params': self.embedding_norm.parameters(), 'lr': lr},
             {'params': [self.learnable_embeddings], 'lr': lr_s}
         ])
@@ -143,11 +156,11 @@ class GCL:
         )
         
         self.fusion_model.to(self.device)
-        self.dgi_model.to(self.device)
+        self.gcl_model.to(self.device)
         self.embedding_norm.to(self.device)
         
         self.fusion_model.train()
-        self.dgi_model.train()
+        self.gcl_model.train()
         self.embedding_norm.train()
 
         data = Data(
@@ -172,14 +185,21 @@ class GCL:
                 
                 batch.x = self.get_node_embeddings(batch.n_id.cpu().numpy())
                 
-                positive, negative, summary = self.dgi_model(batch.x, batch.edge_index)
-                loss = self.dgi_model.loss(positive, negative, summary)
+                if isinstance(self.gcl_model, DGI):
+                    positive, negative, summary = self.gcl_model(batch.x, batch.edge_index)
+                    loss = self.gcl_model.loss(positive, negative, summary)
+                elif isinstance(self.gcl_model, GGD):
+                    real_proj, fake_proj, real_repr = self.gcl_model(batch.x, batch.edge_index)
+                    loss = self.gcl_model.loss(real_proj, fake_proj, real_repr)
+                else:  # GRACE
+                    z1, z2 = self.gcl_model(batch.x, batch.edge_index)
+                    loss = self.gcl_model.loss(z1, z2)
                 
                 loss.backward()
                 
-                clip_grad_norm_([  # 梯度裁剪
+                clip_grad_norm_([
                     *self.fusion_model.parameters(),
-                    *self.dgi_model.parameters(), 
+                    *self.gcl_model.parameters(), 
                     *self.embedding_norm.parameters(),
                     self.learnable_embeddings
                 ], max_norm=1.0)
@@ -203,7 +223,8 @@ class GCL:
             if (epoch + 1) % save_epoch == 0:
                 if not os.path.exists(save_dir):
                     os.makedirs(save_dir)
-                torch.save(self.dgi_model.state_dict(), os.path.join(save_dir, f'dgi_model_{epoch+1}.pth'))
+                    
+                torch.save(self.gcl_model.state_dict(), os.path.join(save_dir, f'{self.model_type}_model_{epoch+1}.pth'))
                 torch.save(self.fusion_model.state_dict(), os.path.join(save_dir, f'fusion_model_{epoch+1}.pth'))
                 torch.save(self.learnable_embeddings, os.path.join(save_dir, f'learnable_embeddings_{epoch+1}.pth'))
                 torch.save(self.embedding_norm.state_dict(), os.path.join(save_dir, f'embedding_norm_{epoch+1}.pth'))
@@ -213,18 +234,18 @@ class GCL:
         })
         
     def get_embeddings(self) -> torch.Tensor:
-        self.dgi_model.to(self.device)
+        self.gcl_model.to(self.device)
         self.fusion_model.to(self.device)
         self.embedding_norm.to(self.device)
         
-        self.dgi_model.eval()
+        self.gcl_model.eval()
         self.fusion_model.eval()
         self.embedding_norm.eval()
         
         self.edge_index = self.edge_index.to(self.device)
         with torch.no_grad():
             embeddings = self.get_node_embeddings(self.node_indices)
-            # embeddings = self.dgi_model.encoder(embeddings, self.edge_index)
+            embeddings = self.gcl_model.encoder(embeddings, self.edge_index)
             return embeddings
     
     def save_embeddings(self, save_path: str):
@@ -244,9 +265,16 @@ def train(args):
     
     gcl = GCL(
         target_dim=config['target_dim'],
+        model_type=config.get('model_type', 'dgi'),
         device=config['device']
     )
-    gcl.dgi_model.corruption_type = 'shuffle'
+    
+    if isinstance(gcl.gcl_model, DGI):
+        gcl.gcl_model.corruption_type = config.get('corruption_type', 'shuffle')
+    elif isinstance(gcl.gcl_model, GGD):
+        gcl.gcl_model.generation_type = config.get('generation_type', 'transform')
+    elif isinstance(gcl.gcl_model, GRACE):
+        gcl.gcl_model.augmentation_type = config.get('augmentation_type', 'mixed')
     
     gcl.train(
         epochs=config['epochs'],
@@ -263,14 +291,17 @@ def train(args):
 def save(args):  
     with open(args.config, 'r') as f:
         config = yaml.load(f, Loader=yaml.FullLoader)
+    
+    model_type = config.get('model_type', 'dgi')
         
     gcl = GCL(
         target_dim=config['target_dim'],
+        model_type=model_type,
         device=config['device']
     )
 
-    gcl.dgi_model.load_state_dict(
-        torch.load(os.path.join(config['checkpoints_dir'], f'dgi_model_{args.epoch}.pth'))
+    gcl.gcl_model.load_state_dict(
+        torch.load(os.path.join(config['checkpoints_dir'], f'{model_type}_model_{args.epoch}.pth'))
     )
     gcl.fusion_model.load_state_dict(
         torch.load(os.path.join(config['checkpoints_dir'], f'fusion_model_{args.epoch}.pth'))
