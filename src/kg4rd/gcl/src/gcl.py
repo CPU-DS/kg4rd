@@ -322,7 +322,7 @@ def main():
     
     train_parser = subparsers.add_parser('train')
     train_parser.add_argument('--config', type=str)
-    train_parser.add_argument('--swanlab', type=str, default='disabled', choices=["disabled", "cloud", "local", "offline"])
+    train_parser.add_argument('--swanlab', type=str, default='cloud', choices=["disabled", "cloud", "local", "offline"])
     train_parser.set_defaults(func=train)
     
     save_parser = subparsers.add_parser('save')
@@ -336,4 +336,3 @@ def main():
 
 if __name__ == "__main__":
     main()
- 

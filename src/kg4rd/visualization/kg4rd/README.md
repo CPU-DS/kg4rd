@@ -23,12 +23,3 @@ then open the browser and visit `http://localhost:5173`.
 ```
 npm run build
 ```
-
-## Backend address
-
-All configuration files are located in the `src/config/environments/` directory. For development and production environments, the corresponding files are:
-
-- `development.ts`
-- `production.ts`
-
-change the value of `api.baseURL` in the corresponding file.

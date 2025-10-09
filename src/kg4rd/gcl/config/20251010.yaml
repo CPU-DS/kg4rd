@@ -1,0 +1,17 @@
+project: 'kg4rd'
+name: 'gcl_20251010'
+
+model_type: 'ggd'
+generation_type: 'transform'
+
+target_dim: 200
+device: cuda:1
+batch_size: 64
+epochs: 1000
+lr: 5e-4
+save_epoch: 100
+num_neighbors: [10, 10]
+warmup_period: 0.2
+
+checkpoints_dir: 'src/kg4rd/gcl/checkpoints/gcl_20251010'
+embeddings_dir: 'src/kg4rd/gcl/embeddings/gcl_20251010'
