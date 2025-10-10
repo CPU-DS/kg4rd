@@ -1,0 +1,37 @@
+# 分子对接配置文件
+
+# AutoDock Vina配置
+vina:
+  # AutoDock Vina可执行文件
+  executable: "vina"
+  
+  # 对接参数
+  exhaustiveness: 8  # 搜索彻底程度，越高越准确但越慢
+  num_modes: 9      # 生成的构象数量
+  energy_range: 3   # 能量范围（kcal/mol）
+  
+# 对接盒子设置
+grid_box:
+  # 默认盒子大小（Å）
+  size_x: 20
+  size_y: 20
+  size_z: 20
+  
+  # 间距
+  spacing: 0.375
+  
+# 评分阈值
+scoring:
+  # 亲和力阈值（kcal/mol），越负越好
+  affinity_threshold: -7.0
+  
+  # RMSD阈值（Å）
+  rmsd_threshold: 2.0
+  
+# 输出设置
+output:
+  # 保存前N个最佳构象
+  num_poses: 5
+  
+  # 输出格式
+  format: "pdbqt"  # pdbqt, sdf, mol2

@@ -10,7 +10,7 @@ import sys
 import pandas as pd
 
 
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+sys.path.append('src/kg4rd')
 
 from synonyms.obo_parser import OBOParser
 

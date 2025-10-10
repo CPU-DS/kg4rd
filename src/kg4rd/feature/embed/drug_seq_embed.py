@@ -4,18 +4,13 @@
 # File Name: drug_seq_embed.py
 # Description: drug peptide sequence embedding
 
-import sys
-import os
-
-sys.path.append(os.path.dirname(os.path.abspath(__file__)))
-
 import pandas as pd
 import re
 from Bio import SeqIO
 from io import StringIO
 import numpy as np
 from tqdm import tqdm
-from kg4rd.feature.embed.protein_seq_embed import get_sequence_embedding
+from protein_seq_embed import get_sequence_embedding
 
 split_pattern = re.compile(r'>.*?\n')
 

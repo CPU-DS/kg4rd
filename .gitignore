@@ -23,4 +23,5 @@ checkpoints/
 wandb/
 swanlog/
 link_result/
-embeddings
+embeddings/
+output/

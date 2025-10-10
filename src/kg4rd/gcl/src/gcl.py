@@ -4,17 +4,6 @@
 # File Name: gcl.py
 # Description: 图节点嵌入融合与图对比学习
 
-import os
-import sys
-
-sys.path.append(os.path.dirname(os.path.abspath(__file__)))
-
-from embedding_loader import NodeEmbeddingLoader
-from embedding_fusion import EmbeddingFusion
-from dgi import DGI
-from ggd import GGD
-from grace import GRACE
-
 import numpy as np
 import torch
 import torch.nn as nn
@@ -30,6 +19,13 @@ import yaml
 import argparse
 import time
 from typing import Literal
+import os
+
+from embedding_loader import NodeEmbeddingLoader
+from embedding_fusion import EmbeddingFusion
+from dgi import DGI
+from ggd import GGD
+from grace import GRACE
 
 
 class GCL:
