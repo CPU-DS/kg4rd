@@ -1,16 +1,17 @@
 # -*- coding: utf-8 -*-
 # Create Date: 2025/09/20
 # Author: wangtao <wangtao.cpu@gmail.com>
-# File Name: TransE_GCL.py
-# Description: TransE 改进模型, 使用 GCL 训练得到节点预嵌入
+# File Name: TransE_PreEv2.py
+# Description: TransE 改进模型
 
 from unike.module.model import TransE, get_transe_hpo_config
 import torch
+from typing_extensions import override
 import os
-import numpy as np
+from .PreEv2Mixin import PreEv2Mixin
 
 
-class TransE_GCL(TransE):
+class TransE_PreEv2(PreEv2Mixin, TransE):
     def __init__(
         self,
         ent_tol: int,
@@ -20,7 +21,8 @@ class TransE_GCL(TransE):
         dim: int = 100,
         p_norm: int = 1,
         norm_flag: bool = True,
-        margin: float | None = None
+        margin: float | None = None,
+        dropout: float = 0.1
     ):
         super().__init__(
             ent_tol = ent_tol,
@@ -31,23 +33,34 @@ class TransE_GCL(TransE):
             margin = margin
         )
         
-        self.ent_embeddings.weight.data = torch.from_numpy(np.load(ent_embed_path)['embeddings'])
-        
-        if rel_embed_path is not None:
-            self.rel_embeddings.weight.data = torch.from_numpy(np.load(rel_embed_path)['embeddings'])
-
+        self.init_pre_embeddings(
+            dim=self.dim,
+            ent_embed_path=ent_embed_path,
+            rel_embed_path=rel_embed_path,
+            dropout=dropout
+        )
+    
+    @override
+    def tri2emb(
+		self,
+		triples: torch.Tensor,
+		negs: torch.Tensor | None = None,
+		mode: str = 'single'
+    ) -> tuple:
+        head_emb, relation_emb, tail_emb = super().tri2emb(triples, negs, mode)  # type: ignore
+        return self.project(head_emb, relation_emb, tail_emb)
 
 def get_hpo_config() -> dict:
 	parameters_dict = {
         **get_transe_hpo_config(),
         'model': {
-            'value': 'TransE_GCL'
+            'value': 'TransE_PreEv2'
         },
         'model_class_path': {
             'value': os.path.dirname(__file__)
         },
         'model_class': {
-            'value': 'TransE_GCL.TransE_GCL'
+            'value': 'TransE_PreEv2.TransE_PreEv2'
         },
         'ent_embed_path': {
             'value': ''

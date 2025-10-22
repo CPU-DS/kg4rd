@@ -1,0 +1,26 @@
+project: 'kg4rd'
+name: 'gcl_20251014'
+
+model_type: 'grace'
+augmentation_type: 'mixed'
+
+target_dim: 256
+device: cuda:0
+
+temperature: 0.5
+edge_drop_rate: 0.2
+feat_drop_rate: 0.2
+
+batch_size: 256
+epochs: 1000
+lr: 1e-3
+weight_decay: 1e-5
+save_epoch: 100
+
+num_neighbors: [15, 15]
+warmup_period: 0.2
+
+checkpoints_dir: 'src/kg4rd/gcl/checkpoints/gcl_20251014'
+embeddings_dir: 'src/kg4rd/gcl/embeddings/gcl_20251014'
+
+save_device: cpu

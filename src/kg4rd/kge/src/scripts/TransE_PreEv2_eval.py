@@ -1,16 +1,15 @@
 # -*- coding: utf-8 -*-
 # Create Date: 2025/09/19
 # Author: wangtao <wangtao.cpu@gmail.com>
-# File Name: TransE_GCL_eval.py
-# Description: 评估 TransE 使用预训练的节点嵌入
+# File Name: TransE_PreEv2_eval.py
+# Description: 评估 TransE_PreEv2
 
 from unike.data import KGEDataLoader, BernSampler, TradTestSampler
-from unike.module.model import TransE
 from unike.module.loss import MarginLoss
 from unike.module.strategy import NegativeSampling
 from unike.config import Trainer, Tester
 from unike.utils import WandbLogger
-from model.TransE_GCL import TransE_GCL
+from model.TransE_PreEv2 import TransE_PreEv2
 
 import yaml
 import argparse
@@ -42,7 +41,7 @@ dataloader = KGEDataLoader(
 	test_sampler = TradTestSampler
 )
 
-transe = TransE_GCL(
+transe = TransE_PreEv2(
 	ent_tol = dataloader.get_ent_tol(),
 	rel_tol = dataloader.get_rel_tol(),
 	dim = config['dim'], 

@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 # Create Date: 2025/09/25
 # Author: wangtao <wangtao.cpu@gmail.com>
-# File Name: TransE_GCL_hpo.py
-# Description: TransE 使用 GCL 训练得到节点嵌入，进行超参数搜索
+# File Name: TransE_PreEv2_hpo.py
+# Description: TransE_PreEv2进行超参数搜索
 
 from unike.data import get_kge_data_loader_hpo_config
-from model.TransE_GCL import get_hpo_config
+from model.TransE_PreEv2 import get_hpo_config
 from unike.module.loss import get_margin_loss_hpo_config
 from unike.module.strategy import get_negative_sampling_hpo_config
 from unike.config import get_tester_hpo_config
@@ -50,6 +50,11 @@ loss_config = get_margin_loss_hpo_config()
 strategy_config = get_negative_sampling_hpo_config()
 
 tester_config = get_tester_hpo_config()
+tester_config.update({
+    'device_tester': {
+        'value': 'cuda:1'
+    }
+})
 
 trainer_config = get_trainer_hpo_config()
 trainer_config.update({
@@ -65,6 +70,9 @@ trainer_config.update({
     'epochs': {
         'value': config['epochs']
     },
+    'device_trainer': {
+        'value': 'cuda:1'
+    }
 })
 
 sweep_config = set_hpo_config(

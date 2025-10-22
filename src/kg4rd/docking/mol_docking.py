@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Create Date: 2025/08/01
+# Create Date: 2025/10/09
 # Author: wangtao <wangtao.cpu@gmail.com>
 # File Name: mol_docking.py
 # Description: 使用AutoDock Vina进行分子对接
@@ -46,8 +46,11 @@ class MolecularDocking:
             "--out", output_pdbqt,
         ]
         r = subprocess.run(cmd, capture_output=True, text=True)
+        stdout = r.stdout
+        with open(f'{output_prefix}.log', 'w') as f:
+            f.write(stdout)
         
-        docking_results = self._parse_vina_output(r.stdout, output_pdbqt)
+        docking_results = self._parse_vina_output(stdout, output_pdbqt)
         return docking_results
     
     def _parse_vina_output(self, log: str, output_pdbqt: str) -> dict[str, Any]:

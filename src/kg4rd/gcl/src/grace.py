@@ -29,11 +29,11 @@ class GraphEncoder(nn.Module):
 class GRACE(nn.Module):
     def __init__(self, 
             input_dim: int, 
-            hidden_dim: int = 512, 
-            output_dim: int = 256,
             edge_drop_rate: float = 0.2,
             feat_drop_rate: float = 0.2):
         super().__init__()
+        hidden_dim = input_dim * 2
+        output_dim = input_dim
         self.encoder = GraphEncoder(input_dim, hidden_dim, output_dim)
         
         self.projection_head = nn.Sequential(
@@ -47,6 +47,7 @@ class GRACE(nn.Module):
         self.feat_drop_rate = feat_drop_rate
         
         self.augmentation_type: Literal['edge', 'feature', 'mixed'] = 'mixed'
+        self.temperature: float = 0.2
         
     def augment_graph(self, 
                       x: torch.Tensor, 
@@ -93,37 +94,38 @@ class GRACE(nn.Module):
         
         return z1, z2
     
-    def nt_xent_loss(self, z1: torch.Tensor, z2: torch.Tensor, temperature: float = 0.5) -> torch.Tensor:
-        # NT-Xent (Normalized Temperature-scaled Cross Entropy) (InfoNCE)
+    def nt_xent_loss(self, z1: torch.Tensor, z2: torch.Tensor, temperature: float = 0.2) -> torch.Tensor:
         batch_size = z1.size(0)
-        
+
         z1 = F.normalize(z1, dim=1)
         z2 = F.normalize(z2, dim=1)
 
-        z = torch.cat([z1, z2], dim=0)  # (2*batch_size, dim)
+        sim_11 = torch.mm(z1, z1.t()) / temperature
+        sim_22 = torch.mm(z2, z2.t()) / temperature
+        sim_12 = torch.mm(z1, z2.t()) / temperature
+        sim_21 = torch.mm(z2, z1.t()) / temperature
         
-        sim_matrix = torch.mm(z, z.t()) / temperature  # 相似度矩阵 (2*batch_size, 2*batch_size)
+        # 对角线是正样本
+        mask = torch.eye(batch_size, device=z1.device).bool()
         
-        pos_mask = torch.zeros(2 * batch_size, 2 * batch_size, device=z.device)  # 正样本 mask, 对于每个样本i，它的正样本是另一个视图中的相同节点
-        for i in range(batch_size):
-            pos_mask[i, batch_size + i] = 1
-            pos_mask[batch_size + i, i] = 1
+        # z1->z2的损失
+        pos_12 = torch.diag(sim_12)
+        neg_sim_1 = torch.cat([sim_11.masked_fill(mask, -float('inf')), 
+                               sim_12.masked_fill(mask, -float('inf'))], dim=1)
+        neg_1 = torch.logsumexp(neg_sim_1, dim=1)
+        loss_1 = -pos_12 + neg_1
         
-        neg_mask = torch.ones_like(sim_matrix) - torch.eye(2 * batch_size, device=z.device) - pos_mask  # 负样本 mask, 排除本身和正样本
-        
-        exp_sim = torch.exp(sim_matrix)  # 指数相似度
-        pos_sim = (exp_sim * pos_mask).sum(dim=1)  # 正样本的相似度之和
-        neg_sim = (exp_sim * neg_mask).sum(dim=1)  # 负样本的相似度之和
+        # z2->z1的损失
+        pos_21 = torch.diag(sim_21)
+        neg_sim_2 = torch.cat([sim_22.masked_fill(mask, -float('inf')), 
+                               sim_21.masked_fill(mask, -float('inf'))], dim=1)
+        neg_2 = torch.logsumexp(neg_sim_2, dim=1)
+        loss_2 = -pos_21 + neg_2
 
-        loss = -torch.log(pos_sim / (pos_sim + neg_sim + 1e-8))
+        loss = (loss_1 + loss_2) / 2.0
         
         return loss.mean()
     
     def loss(self, z1: torch.Tensor, z2: torch.Tensor) -> torch.Tensor:
-        # 双向对比损失
-        loss1 = self.nt_xent_loss(z1, z2, temperature=0.5)
-        loss2 = self.nt_xent_loss(z2, z1, temperature=0.5)
-        
-        return (loss1 + loss2) / 2
-
-
+        # NT-Xent对比损失（内部已包含双向对称损失）
+        return self.nt_xent_loss(z1, z2, temperature=self.temperature)

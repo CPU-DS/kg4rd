@@ -1,9 +1,9 @@
 # TransE 模型超参数搜索
 # 使用 GCL 训练得到节点预嵌入
-# 2025/09/26 创建
+# 2025/09/20 创建
 
 project: 'kg4rd'
-sweep_name: 'TransE_GCLv2_hpo_20250926'
+sweep_name: 'TransE_PreE_hpo_20250920'
 
 in_path: 'src/kg4rd/kge/data/'
 test_batch_size: 10
@@ -13,7 +13,7 @@ dim: 200
 
 log_interval: 10
 valid_interval: 100
-save_path: "src/kg4rd/kge/checkpoints/TransE_GCLv2_hpo_20250926.pth"
+save_path: "src/kg4rd/kge/checkpoints/TransE_PreE_hpo_20250920.pth"
 epochs: 1000
 
 hpo_hits: [1, 3, 10, 30, 50]

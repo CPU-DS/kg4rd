@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Create Date: 2025/08/01
+# Create Date: 2025/10/09
 # Author: wangtao <wangtao.cpu@gmail.com>
 # File Name: mol_prep.py
 # Description: 处理蛋白质和配体
@@ -14,6 +14,7 @@ from rdkit.Chem.rdForceFieldHelpers import MMFFOptimizeMolecule
 from Bio.PDB import PDBParser, PDBIO, Select
 import yaml
 from meeko import MoleculePreparation, PDBQTWriterLegacy
+import os
 
 
 class ProteinPreparation:

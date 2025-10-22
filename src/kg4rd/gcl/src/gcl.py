@@ -129,14 +129,15 @@ class GCL:
               save_epoch: int = 20,
               warmup_period: float = 0.1,
               num_neighbors: list[int] = [10, 10],
+              weight_decay: float = 0.0,
               save_dir: str = 'src/kg4rd/gcl/checkpoints'):
 
         lr_s = lr * 0.5
         optimizer = torch.optim.Adam([
-            {'params': self.fusion_model.parameters(), 'lr': lr},
-            {'params': self.gcl_model.parameters(), 'lr': lr},
-            {'params': self.embedding_norm.parameters(), 'lr': lr},
-            {'params': [self.learnable_embeddings], 'lr': lr_s}
+            {'params': self.fusion_model.parameters(), 'lr': lr, 'weight_decay': weight_decay},
+            {'params': self.gcl_model.parameters(), 'lr': lr, 'weight_decay': weight_decay},
+            {'params': self.embedding_norm.parameters(), 'lr': lr, 'weight_decay': weight_decay},
+            {'params': [self.learnable_embeddings], 'lr': lr_s, 'weight_decay': 0.0}  # 嵌入层不使用weight_decay
         ])
         
         scheduler = CosineAnnealingLR(
@@ -271,6 +272,9 @@ def train(args):
         gcl.gcl_model.generation_type = config.get('generation_type', 'transform')
     elif isinstance(gcl.gcl_model, GRACE):
         gcl.gcl_model.augmentation_type = config.get('augmentation_type', 'mixed')
+        gcl.gcl_model.temperature = config.get('temperature', 0.2)
+        gcl.gcl_model.edge_drop_rate = config.get('edge_drop_rate', 0.2)
+        gcl.gcl_model.feat_drop_rate = config.get('feat_drop_rate', 0.2)
     
     gcl.train(
         epochs=config['epochs'],
@@ -279,6 +283,7 @@ def train(args):
         save_epoch=config['save_epoch'],
         num_neighbors=config['num_neighbors'],
         warmup_period=config['warmup_period'],
+        weight_decay=float(config.get('weight_decay', 0.0)),
         save_dir=config['checkpoints_dir']
     )
 
@@ -289,22 +294,23 @@ def save(args):
         config = yaml.load(f, Loader=yaml.FullLoader)
     
     model_type = config.get('model_type', 'dgi')
+    device = config.get('save_device', config['device'])
         
     gcl = GCL(
         target_dim=config['target_dim'],
         model_type=model_type,
-        device=config['device']
+        device=device
     )
 
     gcl.gcl_model.load_state_dict(
-        torch.load(os.path.join(config['checkpoints_dir'], f'{model_type}_model_{args.epoch}.pth'))
+        torch.load(os.path.join(config['checkpoints_dir'], f'{model_type}_model_{args.epoch}.pth'), map_location=device)
     )
     gcl.fusion_model.load_state_dict(
-        torch.load(os.path.join(config['checkpoints_dir'], f'fusion_model_{args.epoch}.pth'))
+        torch.load(os.path.join(config['checkpoints_dir'], f'fusion_model_{args.epoch}.pth'), map_location=device)
     )
-    gcl.learnable_embeddings = torch.load(os.path.join(config['checkpoints_dir'], f'learnable_embeddings_{args.epoch}.pth'))
+    gcl.learnable_embeddings = torch.load(os.path.join(config['checkpoints_dir'], f'learnable_embeddings_{args.epoch}.pth'), map_location=device)
     gcl.embedding_norm.load_state_dict(
-        torch.load(os.path.join(config['checkpoints_dir'], f'embedding_norm_{args.epoch}.pth'))
+        torch.load(os.path.join(config['checkpoints_dir'], f'embedding_norm_{args.epoch}.pth'), map_location=device)
     )
     
     gcl.save_embeddings(config['embeddings_dir'])
