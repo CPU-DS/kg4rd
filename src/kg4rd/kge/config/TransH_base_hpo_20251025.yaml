@@ -1,0 +1,22 @@
+# TransH 模型超参数搜索
+# 2025/10/25 创建
+
+project: 'kg4rd'
+sweep_name: 'TransH_base_hpo_20251025'
+
+in_path: 'src/kg4rd/kge/data/'
+train_file: 'train2id_base.txt'
+valid_file: 'valid2id_base.txt'
+test_file: 'test2id_base.txt'
+
+device_trainer: "cuda:2"
+device_tester: "cuda:2"
+
+test_batch_size: 10
+
+log_interval: 1
+valid_interval: 100
+save_path: "src/kg4rd/kge/checkpoints/TransH_base_hpo_20251025.pth"
+epochs: 1000
+
+hpo_hits: [1, 3, 10, 30, 50]
