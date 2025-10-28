@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # Create Date: 2025/10/22
 # Author: wangtao <wangtao.cpu@gmail.com>
-# File Name: TransD_GCLv2.py
+# File Name: TransD_PreEv2.py
 # Description: TransD 改进模型
 
 from unike.module.model import TransD, get_transd_hpo_config
@@ -11,7 +11,7 @@ import os
 from .PreEv2Mixin import PreEv2Mixin
 
 
-class TransD_GCLv2(PreEv2Mixin, TransD):
+class TransD_PreEv2(PreEv2Mixin, TransD):
     def __init__(
         self,
         ent_tol: int,

@@ -1,8 +1,8 @@
-# TransR 模型超参数搜索
-# 2025/10/25 创建
+# RotatE 模型超参数搜索
+# 2025/10/27 创建
 
 project: 'kg4rd'
-sweep_name: 'TransR_base_hpo_20251025'
+sweep_name: 'RotatE_base_hpo_20251027'
 
 in_path: 'src/kg4rd/kge/data/'
 train_file: 'train2id_base.txt'
@@ -12,11 +12,11 @@ test_file: 'test2id_base.txt'
 device_trainer: "cuda:0"
 device_tester: "cuda:0"
 
-test_batch_size: 10
+test_batch_size: 5
 
 log_interval: 1
 valid_interval: 100
-save_path: "src/kg4rd/kge/checkpoints/TransR_base_hpo_20251025.pth"
+save_path: "src/kg4rd/kge/checkpoints/RotatE_base_hpo_20251027.pth"
 epochs: 1000
 
 hpo_hits: [1, 3, 10, 30, 50]
