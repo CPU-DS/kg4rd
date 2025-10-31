@@ -17,6 +17,7 @@ import argparse
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--config', type=str)
+parser.add_argument('--resume_sweep_id', type=str, required=False, default=None)
 args = parser.parse_args()
 
 with open(args.config, 'r') as f:
@@ -88,4 +89,4 @@ sweep_config = set_hpo_config(
 
 set_hpo_hits(config['hpo_hits'])
 
-start_hpo_train(project=config['project'], config=sweep_config, count=20)
+start_hpo_train(project=config['project'], config=sweep_config, count=20, resume_sweep_id=args.resume_sweep_id)

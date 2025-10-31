@@ -42,7 +42,7 @@ dependencies = [
     "pytorch-warmup>=0.2.0",
     "fastapi>=0.117.1",
     "uvicorn>=0.37.0",
-    "unike==3.2.14",
+    "unike==3.2.15",
     "rdkit>=2025.9.1",
     "openbabel-wheel>=3.1.1.22",
     "meeko>=0.6.1",
