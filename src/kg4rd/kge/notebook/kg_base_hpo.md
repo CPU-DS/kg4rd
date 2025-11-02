@@ -19,5 +19,4 @@ http://10.4.3.159:8080
 | TransE | src/scripts/TransE_hpo.py | config/TransE_base_hpo_20251025.yaml | 10.4.0.141/cuda 12.2/4090/cuda:0 | 58jxmf1s |
 | TransD | src/scripts/TransD_hpo.py | config/TransD_base_hpo_20251025.yaml | 10.4.0.141/cuda 12.2/4090/cuda:1 | cjj2pds7 |
 | TransH | src/scripts/TransH_hpo.py | config/TransH_base_hpo_20251025.yaml | 10.4.0.141/cuda 12.2/4090/cuda:2 | f7ar4chd |
-| TransR | src/scripts/TransR_hpo.py | config/TransR_base_hpo_20251025.yaml | 10.4.3.159/cuda 12.4/A100/cuda:0 | xpn59izr |
 | DistMult | src/scripts/DistMult_hpo.py | config/DistMult_base_hpo_20251028.yaml | 10.4.0.141/cuda 12.2/4090/cuda:3 | al8l5x3s |
