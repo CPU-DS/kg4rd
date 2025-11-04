@@ -18,6 +18,6 @@
 
 1. 运行 `wandb_recover_run.py` 中的 `recover_sweep_runs` 函数, 传入之前的 `sweep_id`, 会将之前该 sweep 中的 run 数据全部恢复, 但不会恢复 sweep;
 
-2. 重新执行 `start_hpo_train` 函数时传入 `prior_runs` 参数将之前的 runs 和当前新的 sweep 管理起来;
+2. 重新执行 `start_hpo_train` 函数时传入 `prior_runs` 参数将之前的 runs 和当前新的 sweep 关联起来;
 
 3. 如果是使用 docker 部署的本地 wandb, 一定要加上 `--restart=always` 参数, 不然服务器重启后 wandb 容器有可能会消失;
