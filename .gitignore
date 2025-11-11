@@ -27,3 +27,5 @@ embeddings/
 output/
 
 transr_transe.json
+
+src/**/test_*.py

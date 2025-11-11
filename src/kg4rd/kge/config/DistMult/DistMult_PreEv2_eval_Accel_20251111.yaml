@@ -1,0 +1,36 @@
+# 2025/11/20 创建
+
+project: 'kg4rd'
+name: 'DistMult_PreEv2_eval_Accel_20251111'
+
+in_path: 'src/kg4rd/kge/data/'
+train_file: 'train2id.txt'
+valid_file: 'valid2id.txt'
+test_file: 'test2id.txt'
+
+batch_size: 512
+neg_ent: 10
+num_workers: 16
+dim: 256
+margin: 3.0
+epochs: 1000
+lr: 0.5438806123827384
+adv_temperature: 3.0
+opt_method: "Adagrad"
+
+test_batch_size: 10
+test_use_gpu: True
+test_hits: [1, 3, 10, 30, 50]
+device_tester: "cuda:1"
+
+device_trainer: "cuda:1"
+use_accelerator: False
+delta: 0.01
+use_early_stopping: True
+
+valid_interval: 100
+log_interval: 1
+save_interval: 100
+save_path: "src/kg4rd/kge/checkpoints/DistMult_PreEv2_eval_Accel_20251111/model.pth"
+
+ent_embed_path: "src/kg4rd/gcl/embeddings/gcl_20251014/ent_embed.npz"

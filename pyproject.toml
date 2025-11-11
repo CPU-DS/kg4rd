@@ -46,7 +46,7 @@ dependencies = [
     "openbabel-wheel>=3.1.1.22",
     "meeko>=0.6.1",
     "prody>=2.6.1",
-    "unike==3.2.16",
+    "unike==3.2.20",
 ]
 
 [tool.uv.sources]

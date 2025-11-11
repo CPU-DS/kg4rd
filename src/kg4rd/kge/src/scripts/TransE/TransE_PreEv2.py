@@ -25,16 +25,15 @@ class TransE_PreEv2(TransE, PreEv2Mixin):
         dim: int = 100,
         p_norm: int = 1,
         norm_flag: bool = True,
-        margin: float | None = None,
         dropout: float = 0.1
     ):
-        super().__init__(
+        TransE.__init__(
+            self,
             ent_tol = ent_tol,
             rel_tol = rel_tol,
             dim = dim,
             p_norm = p_norm,
             norm_flag = norm_flag,
-            margin = margin
         )
         
         self.prepare_ent_embeddings(ent_embed_path)
@@ -52,6 +51,7 @@ class TransE_PreEv2(TransE, PreEv2Mixin):
     ) -> tuple:
         head_emb, relation_emb, tail_emb = super().tri2emb(triples, negs, mode)  # type: ignore
         return self.project(head_emb, relation_emb, tail_emb)
+
 
 def get_hpo_config() -> dict:
 	parameters_dict = {

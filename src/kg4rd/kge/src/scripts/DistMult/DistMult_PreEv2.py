@@ -25,7 +25,8 @@ class DistMult_PreEv2(DistMult, PreEv2Mixin):
         dim: int = 100,
         dropout: float = 0.1
     ):
-        super().__init__(
+        DistMult.__init__(
+            self,
             ent_tol = ent_tol,
             rel_tol = rel_tol,
             dim = dim
