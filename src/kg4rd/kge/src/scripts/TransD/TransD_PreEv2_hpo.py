@@ -56,9 +56,6 @@ tester_config = get_tester_hpo_config()
 tester_config.update({
     'device_tester': {
         'value': config['device_tester']
-    },
-    'use_tqdm': {
-        'value': True
     }
 })
 

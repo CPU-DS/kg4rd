@@ -25,16 +25,15 @@ class TransH_PreEv2(TransH, PreEv2Mixin):
         dim: int = 100,
         p_norm: int = 1,
         norm_flag: bool = True,
-        margin: float | None = None,
         dropout: float = 0.1
     ):
-        super().__init__(
+        TransH.__init__(
+            self,
             ent_tol = ent_tol,
             rel_tol = rel_tol,
             dim = dim,
             p_norm = p_norm,
-            norm_flag = norm_flag,
-            margin = margin
+            norm_flag = norm_flag
         )
 
         self.prepare_ent_embeddings(ent_embed_path)

@@ -12,7 +12,6 @@ sys.path.append(str(path(__file__).parent.parent))
 from unike.module.model import TransD, get_transd_hpo_config
 import torch
 from typing_extensions import override
-import os
 from PreEv2Mixin import PreEv2Mixin
 
 
@@ -27,17 +26,16 @@ class TransD_PreEv2(TransD, PreEv2Mixin):
         dim_r: int = 100,
         p_norm: int = 1,
         norm_flag: bool = True,
-        margin: float | None = None,
         dropout: float = 0.1
     ):
-        super().__init__(
+        TransD.__init__(
+            self,
             ent_tol=ent_tol,
             rel_tol=rel_tol,
             dim_e=dim_e,
             dim_r=dim_r,
             p_norm=p_norm,
-            norm_flag=norm_flag,
-            margin=margin
+            norm_flag=norm_flag
         )
         
         self.prepare_ent_embeddings(ent_embed_path)
