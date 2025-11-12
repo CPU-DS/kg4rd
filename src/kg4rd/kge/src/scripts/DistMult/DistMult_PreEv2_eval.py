@@ -56,8 +56,8 @@ model = NegativeSampling(
 tester = Tester(
     model = distmult, 
     data_loader = dataloader, 
-    use_gpu = config['test_use_gpu'],
-    device = config['device_tester'],
+    use_gpu = config['tester_use_gpu'],
+    device = config['tester_device'],
     use_tqdm=True
 )
 
@@ -71,7 +71,7 @@ trainer = Trainer(
     lr = config['lr'],
     test = True,
     tester = tester,
-    device = config['device_trainer'],
+    device = config['trainer_device'],
     valid_interval = config['valid_interval'],
 	log_interval = config['log_interval'],
     save_interval = config['save_interval'],

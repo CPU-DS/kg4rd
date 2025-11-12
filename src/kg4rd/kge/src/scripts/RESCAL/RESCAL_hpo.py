@@ -10,7 +10,7 @@ from unike.module.loss import get_margin_loss_hpo_config
 from unike.module.strategy import get_negative_sampling_hpo_config
 from unike.config import get_tester_hpo_config
 from unike.config import get_trainer_hpo_config
-from unike.config import set_hpo_config, set_hpo_hits, start_hpo_train, set_hpo_hits
+from unike.config import set_hpo_config, set_hpo_hits, start_hpo_train
 
 import yaml
 import argparse
@@ -50,8 +50,8 @@ strategy_config = get_negative_sampling_hpo_config()
 
 tester_config = get_tester_hpo_config()
 tester_config.update({
-    'device_tester': {
-        'value': config['device_tester']
+    'device': {
+        'value': config['tester_device']
     },
     'use_tqdm': {
         'value': True
@@ -60,8 +60,8 @@ tester_config.update({
 
 trainer_config = get_trainer_hpo_config()
 trainer_config.update({
-    'device_trainer': {
-        'value': config['device_trainer']
+    'device': {
+        'value': config['trainer_device']
     },
     'log_interval': {
         'value': config['log_interval']

@@ -7,8 +7,8 @@ sweep_name: 'TransH_PreEv2_hpo_20251102'
 
 in_path: 'src/kg4rd/kge/data/'
 
-device_trainer: "cuda:3"
-device_tester: "cuda:3"
+trainer_device: "cuda:3"
+tester_device: "cuda:3"
 
 test_batch_size: 10
 batch_size: [128, 256, 512, 1024, 2048]

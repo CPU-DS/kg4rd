@@ -6,7 +6,7 @@
 
 from google.genai.types import GenerateContentConfig
 from google import genai
-from google.genai.types import HttpOptions, ThinkingConfig
+from google.genai.types import HttpOptions
 from openai import OpenAI
 from retry import retry
 import json

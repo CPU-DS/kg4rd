@@ -1,4 +1,4 @@
-# Extract Triples from Abstracts via LLM
+# extract triples
 
 > Only diseases included in the `Orphanet` database and that can be mapped to the `MeSH` database are extracted here.
 
@@ -18,7 +18,7 @@ The names of entities and relationships used in `PrimeKG` may differ from those 
 
 ## UID
 
-Each triple extracted by the model has a unique ID, which uses the form `{mesh_id}:{pmid}:{uid}`.
+Each triple extracted by the model has a unique ID, which uses the form `{mesh_id}:{pmid}:{short-uuid}`.
 
 ## Post Processing
 

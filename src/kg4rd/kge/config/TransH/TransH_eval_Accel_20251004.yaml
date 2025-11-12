@@ -22,10 +22,10 @@ adv_temperature: 3.0
 opt_method: "SGD"
 
 test_batch_size: 10
-test_use_gpu: True
+tester_use_gpu: True
 test_hits: [1, 3, 10, 30, 50]
 
-train_use_gpu: False
+trainer_use_gpu: False
 use_accelerator: True
 delta: 0.01
 use_early_stopping: True

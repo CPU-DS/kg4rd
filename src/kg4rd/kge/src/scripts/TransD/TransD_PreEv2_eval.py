@@ -59,7 +59,7 @@ model = NegativeSampling(
 tester = Tester(
     model = transd, 
     data_loader = dataloader, 
-    use_gpu = config['test_use_gpu'],
+    use_gpu = config['tester_use_gpu'],
     device = config['device']
 )
 

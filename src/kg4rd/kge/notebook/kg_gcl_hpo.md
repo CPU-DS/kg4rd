@@ -22,7 +22,6 @@ src/kg4rd/gcl/embeddings/gcl_20251014/ent_embed.npz
 
 | 模型 | 训练脚本 | 配置文件 | 设备 | Wandb |
 | ---- | -------- | ---- | ---- | ---- | 
-| TransE_PreEv2 | src/scripts/TransE/TransE_PreEv2_hpo.py | config/TransE/TransE_PreEv2_hpo_20251102.yaml | 10.4.0.141/cuda 12.2/4090/cuda:0 |  |
-| TransD_PreEv2 | src/scripts/TransD/TransD_PreEv2_hpo.py | config/TransD/TransD_PreEv2_hpo_20251102.yaml | 10.4.0.141/cuda 12.2/4090/cuda:1 |  |
-| TransH_PreEv2 | src/scripts/TransH/TransH_PreEv2_hpo.py | config/TransH/TransH_PreEv2_hpo_20251102.yaml | 10.4.0.141/cuda 12.2/4090/cuda:2 |  |
-| DistMult_PreEv2 | src/scripts/DistMult/DistMult_PreEv2_hpo.py | config/DistMult/DistMult_PreEv2_hpo_20251102.yaml | 10.4.0.141/cuda 12.2/4090/cuda:3 |  |
+| TransE_PreEv2 | src/scripts/TransE/TransE_PreEv2_hpo.py | config/TransE/TransE_PreEv2_hpo_20251102.yaml | 10.4.0.141/cuda 12.2/4090/cuda:0 | 7xhbk89d |
+| TransD_PreEv2 | src/scripts/TransD/TransD_PreEv2_hpo.py | config/TransD/TransD_PreEv2_hpo_20251102.yaml | 10.4.0.141/cuda 12.2/4090/cuda:2 | fmvt1xby |
+| TransH_PreEv2 | src/scripts/TransH/TransH_PreEv2_hpo.py | config/TransH/TransH_PreEv2_hpo_20251102.yaml | 10.4.0.141/cuda 12.2/4090/cuda:3 | sgbhfoc6 |

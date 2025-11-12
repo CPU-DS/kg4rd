@@ -19,7 +19,7 @@ lr: 0.5383
 adv_temperature: 6.0
 opt_method: "Adagrad"
 
-train_use_gpu: False
+trainer_use_gpu: False
 use_accelerator: True
 delta: 0.01
 

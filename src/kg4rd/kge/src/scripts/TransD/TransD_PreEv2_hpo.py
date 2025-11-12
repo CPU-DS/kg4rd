@@ -54,8 +54,8 @@ strategy_config = get_negative_sampling_hpo_config()
 
 tester_config = get_tester_hpo_config()
 tester_config.update({
-    'device_tester': {
-        'value': config['device_tester']
+    'device': {
+        'value': config['tester_device']
     }
 })
 
@@ -73,8 +73,8 @@ trainer_config.update({
     'epochs': {
         'value': config['epochs']
     },
-    'device_trainer': {
-        'value': config['device_trainer']
+    'device': {
+        'value': config['trainer_device']
     }
 })
 
