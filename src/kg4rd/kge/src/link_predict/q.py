@@ -26,7 +26,7 @@ s1pr1_ent_index = 5153
 tak1_ent_index = 9662 # MAP3K7
 ad_ent_index = 49932
 
-# 药品实体
+# 所有药品实体
 drug_ent_indexs = [link.ent2id[ent_name] for ent_name in link.ent2id.keys() if ent_name.split(':')[-1] == 'drug']
 
 _edges_supplement = pd.read_csv(
@@ -35,8 +35,8 @@ _edges_supplement = pd.read_csv(
 _edges_supplement['relation_index'] = _edges_supplement['relation'].apply(lambda x: link.rel2id[x])
 _edges_supplement = _edges_supplement.drop(columns=['relation'])
 
-# 如果该关系为新补充则添加相应的 uid 值
-# 为实体补充 id 值
+# 为实体补充 id 值和名称
+# 如果该关系为新补充还添加相应的 uid 值
 def add_id(df: pd.DataFrame) -> pd.DataFrame:
     df = pd.merge(
         df, 
