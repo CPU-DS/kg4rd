@@ -6,7 +6,7 @@
 
 from unike.data import get_kge_data_loader_hpo_config
 from DistMult_PreEv2 import get_hpo_config
-from unike.module.loss import get_margin_loss_hpo_config
+from unike.module.loss import get_sigmoid_loss_hpo_config
 from unike.module.strategy import get_negative_sampling_hpo_config
 from unike.config import get_tester_hpo_config
 from unike.config import get_trainer_hpo_config
@@ -45,7 +45,7 @@ kge_config.update({
     }
 })
 
-loss_config = get_margin_loss_hpo_config()
+loss_config = get_sigmoid_loss_hpo_config()
 
 strategy_config = get_negative_sampling_hpo_config()
 

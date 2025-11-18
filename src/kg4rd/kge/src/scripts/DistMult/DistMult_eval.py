@@ -1,15 +1,15 @@
 # -*- coding: utf-8 -*-
-# Create Date: 2025/11/04
+# Create Date: 2025/11/18
 # Author: wangtao <wangtao.cpu@gmail.com>
-# File Name: DistMult_PreEv2_eval.py
-# Description: 评估 DistMult_PreEv2
+# File Name: DistMult_eval.py
+# Description: 评估 DistMult
 
 from unike.data import KGEDataLoader, BernSampler, TradTestSampler
 from unike.module.loss import SigmoidLoss
 from unike.module.strategy import NegativeSampling
 from unike.config import Trainer, Tester
 from unike.utils import WandbLogger
-from DistMult_PreEv2 import DistMult_PreEv2
+from unike.module.model import DistMult
 
 import yaml
 import argparse
@@ -41,11 +41,10 @@ dataloader = KGEDataLoader(
 	test_sampler = TradTestSampler
 )
 
-distmult = DistMult_PreEv2(
+distmult = DistMult(
 	ent_tol = dataloader.get_ent_tol(),
 	rel_tol = dataloader.get_rel_tol(),
-	dim = config['dim'],
-	ent_embed_path = config['ent_embed_path']
+	dim = config['dim']
 )
 
 model = NegativeSampling(

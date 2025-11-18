@@ -1,5 +1,5 @@
 # DistMult 模型超参数搜索
-# 2025/10/28 创建
+# 已完成
 
 project: 'kg4rd'
 sweep_name: 'DistMult_base_hpo_20251028'
