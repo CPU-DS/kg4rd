@@ -1,5 +1,5 @@
 # TransE 模型超参数搜索
-# 2025/10/25 创建
+# 已完成
 
 project: 'kg4rd'
 sweep_name: 'TransE_base_hpo_20251025'

@@ -58,7 +58,8 @@ tester = Tester(
     model = transe, 
     data_loader = dataloader, 
     use_gpu = config['tester_use_gpu'],
-    device = config['device']
+    device = config['tester_device'],
+    use_tqdm=True
 )
 
 tester.set_hits(new_hits=config['test_hits'])
@@ -71,6 +72,7 @@ trainer = Trainer(
     lr = config['lr'],
     test = True,
     tester = tester, 
+    device = config['trainer_device'],
     valid_interval = config['valid_interval'],
 	log_interval = config['log_interval'],
     save_interval = config['save_interval'],
