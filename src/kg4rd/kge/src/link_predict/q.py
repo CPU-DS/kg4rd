@@ -9,11 +9,12 @@ import pandas as pd
 import os
 from typing import Optional
 
-link = Link(
-    in_path=os.path.join(os.path.dirname(__file__), '../../data')
-)
+_c = os.path.dirname(__file__)
 
-nodes = pd.read_csv(os.path.join(os.path.dirname(__file__), '../../../kg/nodes.csv'), low_memory=False)
+link = Link(
+    in_path=os.path.join(_c, '../../data')
+)
+nodes = pd.read_csv(os.path.join(_c, '../../../kg/nodes.csv'), low_memory=False)
 
 # 治疗关系
 indication_rel_index = 3
