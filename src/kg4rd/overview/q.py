@@ -6,6 +6,7 @@
 
 import matplotlib.pyplot as plt
 import pandas as pd
+import numpy as np
 import os
 from typing import Optional
 
@@ -26,7 +27,9 @@ _all_disease_nodes['node_id'] = _all_disease_nodes['node_id'].apply(lambda x: st
 
 orphanets = pd.merge(_all_disease_nodes, _mondo_ref,'left', left_on='node_id', right_on='mondo_id')[[
     'mondo_id', 'ontology', 'ontology_id', 'node_name', 'node_index'
-]].query('ontology == "Orphanet"')
+]].query('ontology == "Orphanet"').drop_duplicates(['node_index'], keep='first')
+
+edges_orphanets = edges.query('x_index in @orphanets["node_index"] or y_index in @orphanets["node_index"]')
 
 if os.path.exists(_primekg_path):
     primekg_nodes = pd.read_csv(os.path.join(_primekg_path, 'kg/nodes.csv'), low_memory=False)
@@ -36,7 +39,25 @@ if os.path.exists(_primekg_path):
     
     primekg_orphanets = pd.merge(_primekg_all_disease_nodes, _mondo_ref,'left', left_on='node_id', right_on='mondo_id')[[
         'mondo_id', 'ontology', 'ontology_id', 'node_name', 'node_index'
-    ]].query('ontology == "Orphanet"')
+    ]].query('ontology == "Orphanet"').drop_duplicates(['node_index'], keep='first')
+    primekg_edges_orphanets = primekg_edges.query('x_index in @primekg_orphanets["node_index"] or y_index in @primekg_orphanets["node_index"]')
+
+def _calculate_gini_coefficient(x):
+    x = np.array(x)
+    # 去除0值（度数为0的节点不参与计算）
+    x = x[x > 0]
+    if len(x) == 0:
+        return 0.0
+    
+    # 排序
+    sorted_x = np.sort(x)
+    n = len(x)
+    
+    # 计算基尼系数
+    index = np.arange(1, n + 1)
+    gini = (2 * np.sum(index * sorted_x)) / (n * np.sum(sorted_x)) - (n + 1) / n
+    
+    return gini
 
 def plot_degree_distribution(
         nodes: pd.DataFrame,
@@ -47,7 +68,9 @@ def plot_degree_distribution(
         threshold: int = 500,
         figsize: tuple = (14, 6),
         fontsize: int = 10,
-        figtext_pos: tuple = (0.45, 0.95)
+        figtext_pos: Optional[tuple] = (0.45, 0.95),
+        linewidth: float = 1,
+        bins: int = 25
     ):
     
     all_type_nodes = nodes.copy()
@@ -89,44 +112,51 @@ def plot_degree_distribution(
         in_filtered_count = (~in_threshold).sum()
         out_filtered_percent = (out_filtered_count / len(out_degree)) * 100
         in_filtered_percent = (in_filtered_count / len(in_degree)) * 100
+        
+        out_gini = _calculate_gini_coefficient(out_degree)
+        in_gini = _calculate_gini_coefficient(in_degree)
 
         plt.figure(figsize=figsize)
 
         plt.subplot(121)
-        plt.hist(filtered_out, bins=20, alpha=0.7, color='#3498db', edgecolor='#2980b9', linewidth=1)
+        plt.hist(filtered_out, bins=bins, alpha=0.7, color='#3498db', edgecolor='#2980b9', linewidth=linewidth)
         plt.grid(True, alpha=0.3)
         plt.title(f'out-degree distribution {"" if node_type is None else f"for {node_type}"}', fontsize=fontsize)
         plt.xlabel('out-degree', fontsize=fontsize)
-        plt.ylabel('count', fontsize=fontsize)
+        plt.ylabel('frequency', fontsize=fontsize)
         plt.xticks(fontsize=fontsize)
         plt.yticks(fontsize=fontsize)
-        plt.figtext(figtext_pos[0], figtext_pos[1], 
-            f'filtered degree > {threshold} ({out_filtered_count} nodes, {out_filtered_percent:.3f}%)\n'
-            f'sum = {out_degree.sum()}\n'
-            f'mean = {out_degree.mean():.3f}', 
-            transform=plt.gca().transAxes, 
-            bbox=dict(facecolor='white', alpha=0.8),
-            verticalalignment='top',
-            fontsize=fontsize
-        )
+        if figtext_pos is not None:
+            plt.figtext(figtext_pos[0], figtext_pos[1], 
+                f'filtered degree > {threshold} ({out_filtered_count} nodes, {out_filtered_percent:.3f}%)\n'
+                f'sum = {out_degree.sum()}\n'
+                f'mean = {out_degree.mean():.3f}\n'
+                f'gini coefficient = {out_gini:.3f}', 
+                transform=plt.gca().transAxes, 
+                bbox=dict(facecolor='white', alpha=0.8),
+                verticalalignment='top',
+                fontsize=fontsize
+            )
 
         plt.subplot(122)
-        plt.hist(filtered_in, bins=20, alpha=0.7, color='#3498db', edgecolor='#2980b9', linewidth=1)
+        plt.hist(filtered_in, bins=bins, alpha=0.7, color='#3498db', edgecolor='#2980b9', linewidth=linewidth)
         plt.grid(True, alpha=0.3)
         plt.title(f'in-degree distribution {"" if node_type is None else f"for {node_type}"}', fontsize=fontsize)
         plt.xlabel('in-degree', fontsize=fontsize)
-        plt.ylabel('count', fontsize=fontsize)
+        plt.ylabel('frequency', fontsize=fontsize)
         plt.xticks(fontsize=fontsize)
         plt.yticks(fontsize=fontsize)
-        plt.figtext(figtext_pos[0], figtext_pos[1], 
-            f'filtered degree > {threshold} ({in_filtered_count} nodes, {in_filtered_percent:.3f}%)\n'
-            f'sum = {in_degree.sum()}\n'
-            f'mean = {in_degree.mean():.3f}', 
-            transform=plt.gca().transAxes, 
-            bbox=dict(facecolor='white', alpha=0.8),
-            verticalalignment='top',
-            fontsize=fontsize
-        )
+        if figtext_pos is not None:
+            plt.figtext(figtext_pos[0], figtext_pos[1], 
+                f'filtered degree > {threshold} ({in_filtered_count} nodes, {in_filtered_percent:.3f}%)\n'
+                f'sum = {in_degree.sum()}\n'
+                f'mean = {in_degree.mean():.3f}\n'
+                f'gini coefficient = {in_gini:.3f}', 
+                transform=plt.gca().transAxes, 
+                bbox=dict(facecolor='white', alpha=0.8),
+                verticalalignment='top',
+                fontsize=fontsize
+            )
 
         plt.tight_layout()  # 调整子图之间的间距
         
@@ -139,24 +169,28 @@ def plot_degree_distribution(
         filtered_degree = degree[degree_threshold]
         filtered_degree_count = (~degree_threshold).sum()
         filtered_degree_percent = (filtered_degree_count / len(degree)) * 100
+
+        degree_gini = _calculate_gini_coefficient(degree)
         
         plt.figure(figsize=figsize)
         
-        plt.hist(filtered_degree, bins=20, alpha=0.7, color='#3498db', edgecolor='#2980b9', linewidth=1)
+        plt.hist(filtered_degree, bins=bins, alpha=0.7, color='#3498db', edgecolor='#2980b9', linewidth=linewidth)
         plt.grid(True, alpha=0.3)
         plt.title(f'degree distribution {"" if node_type is None else f"for {node_type}"}', fontsize=fontsize)
         plt.xlabel('degree', fontsize=fontsize)
-        plt.ylabel('count', fontsize=fontsize)
+        plt.ylabel('frequency', fontsize=fontsize)
         plt.xticks(fontsize=fontsize)
         plt.yticks(fontsize=fontsize)
-        plt.figtext(figtext_pos[0], figtext_pos[1], 
-            f'filtered degree > {threshold} ({filtered_degree_count} nodes, {filtered_degree_percent:.3f}%)\n'
-            f'sum = {degree.sum()}\n'
-            f'mean = {degree.mean():.3f}', 
-            transform=plt.gca().transAxes, 
-            bbox=dict(facecolor='white', alpha=0.8),
-            verticalalignment='top',
-            fontsize=fontsize
-        )
+        if figtext_pos is not None:
+            plt.figtext(figtext_pos[0], figtext_pos[1], 
+                f'filtered degree > {threshold} ({filtered_degree_count} nodes, {filtered_degree_percent:.3f}%)\n'
+                f'sum = {degree.sum()}\n'
+                f'mean = {degree.mean():.3f}\n'
+                f'gini coefficient = {degree_gini:.3f}', 
+                transform=plt.gca().transAxes, 
+                bbox=dict(facecolor='white', alpha=0.8),
+                verticalalignment='top',
+                fontsize=fontsize
+            )
         
     plt.show()

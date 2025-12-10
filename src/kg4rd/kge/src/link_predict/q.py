@@ -26,9 +26,13 @@ dmd_ent_index = 40189
 s1pr1_ent_index = 5153
 tak1_ent_index = 9662 # MAP3K7
 ad_ent_index = 49932
+olsalazine_ent_index = 21972
 
 # 所有药品实体
 drug_ent_indexs = [link.ent2id[ent_name] for ent_name in link.ent2id.keys() if ent_name.split(':')[-1] == 'drug']
+
+# 所有疾病实体
+disease_ent_indexs = [link.ent2id[ent_name] for ent_name in link.ent2id.keys() if ent_name.split(':')[-1] == 'disease']
 
 _edges_supplement = pd.read_csv(
     os.path.join(os.path.dirname(__file__), '../../../kg/edges_supplement.csv'), 

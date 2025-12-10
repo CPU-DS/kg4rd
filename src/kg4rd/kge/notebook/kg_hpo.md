@@ -17,6 +17,7 @@ http://10.4.3.159:8080
 | 模型 | 训练脚本 | 配置文件 | 设备 | Wandb | 状态 |
 | ---- | -------- | ---- | ---- | ---- | ---- |
 | DistMult | src/scripts/DistMult/DistMult_hpo.py | config/DistMult/DistMult_hpo_20251118.yaml | 10.4.0.141/cuda 12.2/4090/cuda:1 | jl1cmf61 | 已完成 |
+| TransE | src/scripts/TransE/TransE_hpo.py | config/TransE/TransE_hpo_20251126.yaml | 10.4.0.141/cuda 12.2/4090/cuda:1 | g2h6m14o | 已完成 | 
 
 - DistMult (nl7gmedp)
 
@@ -31,6 +32,30 @@ loss: SigmoidLoss
 lr: 0.3282426851422243
 neg_ent: 64
 opt_method: sgd
+patience: 2
+regul_rate: 0
+strategy: NegativeSampling
+test_batch_size: 10
+train_sampler: BernSampler
+use_early_stopping: True
+valid_interval: 50
+```
+
+- TransE (f0yyv8nz)
+```
+adv_temperature: 6
+batch_size: 4,096
+delta: 0.0001
+dim: 200
+epochs: 1000
+l3_regul_rate: 0
+loss: MarginLoss
+lr: 0.05079633914318759
+margin: 1
+neg_ent: 64
+norm_flag: True
+opt_method: adam
+p_norm: 1
 patience: 2
 regul_rate: 0
 strategy: NegativeSampling
