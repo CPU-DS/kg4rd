@@ -17,7 +17,9 @@ http://10.4.3.159:8080
 | 模型 | 训练脚本 | 配置文件 | 设备 | Wandb | 状态 |
 | ---- | -------- | ---- | ---- | ---- | ---- |
 | DistMult | src/scripts/DistMult/DistMult_hpo.py | config/DistMult/DistMult_hpo_20251118.yaml | 10.4.0.141/cuda 12.2/4090/cuda:1 | jl1cmf61 | 已完成 |
-| TransE | src/scripts/TransE/TransE_hpo.py | config/TransE/TransE_hpo_20251126.yaml | 10.4.0.141/cuda 12.2/4090/cuda:1 | g2h6m14o | 已完成 | 
+| TransE | src/scripts/TransE/TransE_hpo.py | config/TransE/TransE_hpo_20251126.yaml | 10.4.0.141/cuda 12.2/4090/cuda:1 | g2h6m14o | 已完成 |
+| TransD | src/scripts/TransD/TranD_hpo.py | config/TransD/TransD_hpo_20251225.yaml | 10.4.0.141/cuda 12.2/4090/cuda:0 | zis0lr7p |  |
+| TransH | src/scripts/TransH/TranH_hpo.py | config/TransH/TransH_hpo_20251225.yaml | 10.4.0.141/cuda 12.2/4090/cuda:1 | x1wr21lm |  |    
 
 - DistMult (nl7gmedp)
 

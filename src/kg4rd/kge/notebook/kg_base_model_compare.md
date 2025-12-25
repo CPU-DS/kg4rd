@@ -18,3 +18,4 @@ http://10.4.0.141:8000
 | ---- | -------- | ---- | ---- | ---- | --- |
 | DistMult | src/scripts/DistMult/DistMult_eval.py | config/DistMult/DistMult_base_eval_Accel_20251118.yaml | 10.4.0.141/cuda 12.2/4090/cuda:1 | rtrg844vrbiku8791m8cp | 已完成 |
 | TransE | src/scripts/TransE/TransE_eval.py | config/TransE/TransE_base_eval_Accel_20251120.yaml | 10.4.0.141/cuda 12.2/4090/cuda:1 | 6fnnf8lz6zjh6mv33fynj | 已完成 |
+| TransH | src/scripts/TransE/TransE_eval.py | config/TransH/TransE_base_eval_Accel_20251216.yaml | 10.4.0.141/cuda 12.2/4090/cuda:1 |  |  |

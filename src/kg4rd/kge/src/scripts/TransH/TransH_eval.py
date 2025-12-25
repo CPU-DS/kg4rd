@@ -59,7 +59,8 @@ tester = Tester(
     model = transh, 
     data_loader = dataloader, 
     use_gpu = config['tester_use_gpu'],
-    device = config['device']
+    device = config['tester_device'],
+    use_tqdm=True
 )
 
 tester.set_hits(new_hits=config['test_hits'])
@@ -80,6 +81,7 @@ trainer = Trainer(
 	wandb_logger = wandb_logger,
     use_accelerator = config['use_accelerator'],
     use_early_stopping = config['use_early_stopping'],
+    device = config['trainer_device']
 )
 
 if __name__ == '__main__':
