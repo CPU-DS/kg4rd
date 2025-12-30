@@ -7,7 +7,7 @@ valid_file: 'valid2id.txt'
 test_file: 'test2id.txt'
 
 trainer_device: "cuda:0"
-tester_device: "cuda:1"
+tester_device: "cuda:0"
 
 test_batch_size: 10
 

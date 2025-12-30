@@ -19,7 +19,9 @@ http://10.4.3.159:8080
 | DistMult | src/scripts/DistMult/DistMult_hpo.py | config/DistMult/DistMult_base_hpo_20251028.yaml | 10.4.0.141/cuda 12.2/4090/cuda:1 | 3ennbbwl | 已完成 |
 | TransE | src/scripts/TransE/TransE_hpo.py | config/TransE/TransE_base_hpo_20251025.yaml | 10.4.0.141/cuda 12.2/4090/cuda:2 | yzpfpb2e | 已完成 | 
 | TransH | src/scripts/TransH/TransH_hpo.py | config/TransH/TransH_base_hpo_20251025.yaml | 10.4.3.155/cuda 12.2/1080 Ti/cuda:0 | h6a1sujn | 已完成 | 
-| ANALOGY | src/scripts/ANALOGY/ANALOGY_hpo.py | config/ANALOGY/ANALOGY_base_hpo_20251028.yaml | 10.4.3.155/cuda 12.2/1080 Ti/cuda:1 | 388xxe2t | 已完成 | 
+| ANALOGY | src/scripts/ANALOGY/ANALOGY_hpo.py | config/ANALOGY/ANALOGY_base_hpo_20251028.yaml | 10.4.3.155/cuda 12.2/1080 Ti/cuda:1 | 388xxe2t | 已完成 |
+| TransD | src/scripts/TransD/TranD_hpo.py | config/TransD/TransD_base_hpo_20251025.yaml | 10.4.3.155/cuda 12.2/1080 Ti/cuda:0 | riv98sxc |  |
+| ComplEx | src/scripts/ComplEx/ComplEx_hpo.py | config/ComplEx/ComplEx_base_hpo_20251027.yaml | 10.4.3.155/cuda 12.2/1080 Ti/cuda:1 | hk4gsepw |  | 
 
 ### 最优结果
 
