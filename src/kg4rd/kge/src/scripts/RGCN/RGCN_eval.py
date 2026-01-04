@@ -50,11 +50,11 @@ rgcn = RGCN(
 
 model = RGCNSampling(
 	model = rgcn,
-	loss = RGCNLoss(model = rgcn, regularization = config['regularization'])
+	loss = RGCNLoss(model = rgcn, regularization = 1e-5)
 )
 
 tester = Tester(
-    model = transe, 
+    model = rgcn, 
     data_loader = dataloader, 
     use_gpu = config['tester_use_gpu'],
     device = config['tester_device'],

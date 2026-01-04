@@ -11,8 +11,11 @@ uv sync
 If you encounter the following error when installing dependencies by using `uv add` or `pip install`, please add `-f https://data.dgl.ai/wheels/torch-2.1/cu121/repo.html` to your installation command.
 
 ```bash
-error: Distribution `dgl==2.2.1 @ registry+https://pypi.org/simple` can't be installed because it doesn't have a source distribution or wheel for the current platform
+Distribution `dgl==2.2.1 @ registry+https://pypi.org/simple` can't be installed because it doesn't have a source distribution or wheel for the current platform
 ```
+
+If you encounter issues caused by mixing different cuDNN versions, please add `LD_LIBRARY_PATH=` before all `python` or `uv` commands.
+
 
 ## Download data
 
@@ -60,4 +63,4 @@ accelerate config
 accelerate launch src/kg4rd/kge/src/scripts/TransE_entire.py --config src/kg4rd/kge/src/config/TransE_entire_Accel_20250910.yaml
 ```
 
-- Use link prediction for relationships you are interested in, here we execute the notebook `src/kg4rd/kge/src/link_predict/drug_TAK1_TransE.ipynb` to predict the relationship between protein target `TAK1` and all drugs.
+- Use link prediction for relationships you are interested in, here let's execute the notebook `src/kg4rd/kge/src/link_predict/drug_TAK1_TransE.ipynb` to predict the relationship between protein target `TAK1` and all drugs.

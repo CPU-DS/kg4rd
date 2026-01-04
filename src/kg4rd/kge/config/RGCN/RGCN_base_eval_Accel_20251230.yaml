@@ -6,7 +6,7 @@ train_file: 'train2id_base.txt'
 valid_file: 'valid2id_base.txt'
 test_file: 'test2id_base.txt'
 
-batch_size: 4096
+batch_size: 128
 neg_ent: 64
 num_workers: 16
 dim: 200
@@ -15,7 +15,6 @@ epochs: 1000
 lr: 0.07236990606544978
 adv_temperature: 6
 opt_method: "SGD"
-regularization: 1e-5
 
 test_batch_size: 10
 tester_use_gpu: True

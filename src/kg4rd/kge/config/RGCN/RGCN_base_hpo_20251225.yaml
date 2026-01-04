@@ -6,8 +6,8 @@ train_file: 'train2id_base.txt'
 valid_file: 'valid2id_base.txt'
 test_file: 'test2id_base.txt'
 
-trainer_device: "cuda:1"
-tester_device: "cuda:1"
+trainer_device: "cuda:2"
+tester_device: "cuda:2"
 
 test_batch_size: 10
 
