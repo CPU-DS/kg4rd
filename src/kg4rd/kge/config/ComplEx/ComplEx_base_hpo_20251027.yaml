@@ -1,6 +1,3 @@
-# ComplEx 模型超参数搜索
-# 2025/10/27 创建
-
 project: 'kg4rd'
 sweep_name: 'ComplEx_base_hpo_20251027'
 

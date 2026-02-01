@@ -14,18 +14,22 @@ http://10.4.3.159:8080
 
 ### 训练配置
 
-| 模型 | 训练脚本 | 配置文件 | 设备 | Wandb | 状态 |
-| ---- | -------- | ---- | ---- | ---- | --- |
-| DistMult | src/scripts/DistMult/DistMult_hpo.py | config/DistMult/DistMult_base_hpo_20251028.yaml | 10.4.0.141/cuda 12.2/4090/cuda:1 | 3ennbbwl | 已完成 |
-| TransE | src/scripts/TransE/TransE_hpo.py | config/TransE/TransE_base_hpo_20251025.yaml | 10.4.0.141/cuda 12.2/4090/cuda:2 | yzpfpb2e | 已完成 | 
-| TransH | src/scripts/TransH/TransH_hpo.py | config/TransH/TransH_base_hpo_20251025.yaml | 10.4.3.155/cuda 12.2/1080 Ti/cuda:0 | h6a1sujn | 已完成 | 
-| ANALOGY | src/scripts/ANALOGY/ANALOGY_hpo.py | config/ANALOGY/ANALOGY_base_hpo_20251028.yaml | 10.4.3.155/cuda 12.2/1080 Ti/cuda:1 | 388xxe2t | 已完成 |
-| TransD | src/scripts/TransD/TranD_hpo.py | config/TransD/TransD_base_hpo_20251025.yaml | 10.4.3.155/cuda 12.2/1080 Ti/cuda:0 | riv98sxc |  |
-| ComplEx | src/scripts/ComplEx/ComplEx_hpo.py | config/ComplEx/ComplEx_base_hpo_20251027.yaml | 10.4.3.155/cuda 12.2/1080 Ti/cuda:1 | hk4gsepw |  | 
+| 模型 | 训练脚本 | 配置文件 | 设备 |
+| ---- | -------- | ---- | ---- |
+| DistMult | src/scripts/DistMult/DistMult_hpo.py | config/DistMult/DistMult_base_hpo_20251028.yaml | 10.4.0.141/cuda 12.2/4090/cuda:1 |
+| TransE | src/scripts/TransE/TransE_hpo.py | config/TransE/TransE_base_hpo_20251025.yaml | 10.4.0.141/cuda 12.2/4090/cuda:2 |
+| TransH | src/scripts/TransH/TransH_hpo.py | config/TransH/TransH_base_hpo_20251025.yaml | 10.4.3.155/cuda 12.2/1080 Ti/cuda:0 |
+| ANALOGY | src/scripts/ANALOGY/ANALOGY_hpo.py | config/ANALOGY/ANALOGY_base_hpo_20251028.yaml | 10.4.3.155/cuda 12.2/1080 Ti/cuda:1 |
+| TransD | src/scripts/TransD/TranD_hpo.py | config/TransD/TransD_base_hpo_20251025.yaml | 10.4.3.155/cuda 12.2/1080 Ti/cuda:0 |
+| ComplEx | src/scripts/ComplEx/ComplEx_hpo.py | config/ComplEx/ComplEx_base_hpo_20251027.yaml | 10.4.3.155/cuda 12.2/1080 Ti/cuda:1 |
+| SimplE | src/scripts/SimplE/SimplE_hpo.py | config/SimplE/SimplE_base_hpo_20251028.yaml | 10.4.0.141/cuda 12.2/4090/cuda:2 |
+| RESCAL | src/scripts/RESCAL/RESCAL_hpo.py | config/RESCAL/RESCAL_base_hpo_20251027.yaml | 10.4.0.141/cuda 12.2/4090/cuda:1 |
+| RGCN | src/scripts/RGCN/RGCN_hpo.py | config/RGCN/RGCN_base_eval_Accel_20251230.yaml | 10.4.0.141/cuda 12.2/4090/cuda:2 |
+| CompGCN | src/scripts/CompGCN/CompGCN_hpo.py | config/CompGCN_hpo_20260130.yaml | 10.4.0.141/cuda 12.2/4090/cuda:3 |
 
 ### 最优结果
 
-- DistMult (ym3uhkwc)
+- DistMult
 
 ```
 adv_temperature: 3
@@ -47,7 +51,7 @@ use_early_stopping: True
 valid_interval: 50
 ```
 
-- TransE (74wykuey)
+- TransE
 ```
 adv_temperature: 6
 batch_size: 4,096
@@ -71,7 +75,7 @@ use_early_stopping: True
 valid_interval: 50
 ```
 
-- TransH (h6a1sujn)
+- TransH
 ```
 adv_temperature: 6
 batch_size: 4,096
@@ -94,7 +98,7 @@ use_early_stopping: True
 valid_interval: 50
 ```
 
-- ANALOGY (q0slgvut)
+- ANALOGY
 ```
 adv_temperature: 6
 batch_size: 4,096
@@ -103,7 +107,6 @@ dim: 200
 epochs: 1,000
 l3_regul_rate: 0
 lr: 0.02483607260093485
-margin: 1
 neg_ent: 16
 opt_method: adam
 patience: 2
@@ -111,6 +114,133 @@ regul_rate: 0
 strategy: NegativeSampling
 test_batch_size: 10
 train_sampler: BernSampler
+use_early_stopping: True
+valid_interval: 50
+```
+
+- SimplE
+```
+adv_temperature: 6
+batch_size: 512
+delta: 0.0001
+dim: 50
+epochs: 1000
+l3_regul_rate: 0
+loss: NegativeSampling
+lr: 0.8753348749023981
+neg_ent: 64
+opt_method: sgd
+patience: 2
+regul_rate: 0
+strategy: NegativeSampling
+test_batch_size: 10
+train_sampler: BernSampler
+use_early_stopping: True
+valid_interval: 50
+```
+
+- RESCAL
+```
+adv_temperature: 3
+batch_size: 4,096
+delta: 0.0001
+dim: 50
+epochs: 1000
+l3_regul_rate: 0
+loss: MarginLoss
+lr: 0.54787191581426
+margin: 6
+neg_ent: 64
+opt_method: sgd
+patience: 2
+regul_rate: 0
+strategy: NegativeSampling
+test_batch_size: 5
+train_sampler: BernSampler
+use_early_stopping: True
+valid_interval: 50
+```
+
+- TransD
+```
+adv_temperature: 6
+batch_size: 512
+delta: 0.0001
+dim_e: 100
+dim_r: 100
+epochs: 1,000
+l3_regul_rate: 0
+lr: 0.19029603128223693
+neg_ent: 64
+opt_method: sgd
+patience: 2
+regul_rate: 0
+strategy: NegativeSampling
+test_batch_size: 10
+train_sampler: BernSampler
+use_early_stopping: True
+valid_interval: 50
+```
+
+- ComplEx
+```
+adv_temperature: 1
+batch_size: 512
+delta: 0.0001
+dim: 50
+epochs: 1000
+l3_regul_rate: 0
+loss: SoftplusLoss
+lr: 0.8371733105997534
+neg_ent: 16
+opt_method: adagrad
+patience: 2
+regul_rate: 0
+strategy: NegativeSampling
+test_batch_size: 5
+train_sampler: BernSampler
+use_early_stopping: True
+valid_interval: 50
+```
+
+- RGCN
+```
+adv_temperature: 1
+batch_size: 6000
+delta: 0.0001
+dim: 500
+epochs: 1000
+l3_regul_rate: 0
+loss: RGCNLoss
+lr: 0.6708171351897112
+neg_ent: 16
+opt_method: adagrad
+patience: 2
+regul_rate: 0
+strategy: RGCNSampling
+test_batch_size: 5
+train_sampler: BernSampler
+use_early_stopping: True
+valid_interval: 50
+```
+
+- CompGCN
+```
+adv_temperature: 3
+batch_size: 512
+delta: 0.0001
+dim: 100
+epochs: 1000
+l3_regul_rate: 0
+loss: CompGCNLoss
+lr: 0.1785133167199816
+neg_ent: 16
+opt_method: adagrad
+patience: 2
+regul_rate: 0
+strategy: CompGCNSampling
+test_batch_size: 5
+train_sampler: Sampler
 use_early_stopping: True
 valid_interval: 50
 ```

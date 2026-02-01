@@ -45,6 +45,9 @@ data_loader_config.update({
     },
     'test_sampler': {
         'value': 'RGCNTestSampler'
+    },
+    'batch_size': {
+        'values': config['batch_size']
     }
 })
 
@@ -58,6 +61,9 @@ tester_config = get_tester_hpo_config()
 tester_config.update({
     'device': {
         'value': config['tester_device']
+    },
+    'use_gpu': {
+        'value': False
     },
     'use_tqdm': {
         'value': True
@@ -95,4 +101,4 @@ sweep_config = set_hpo_config(
 
 set_hpo_hits(config['hpo_hits'])
 
-start_hpo_train(project=config['project'], config=sweep_config, count=20, resume_sweep_id=args.resume_sweep_id)
+start_hpo_train(project=config['project'], config=sweep_config, count=5, resume_sweep_id=args.resume_sweep_id)

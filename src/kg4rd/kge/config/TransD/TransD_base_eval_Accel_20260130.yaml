@@ -1,22 +1,23 @@
 project: 'kg4rd'
-name: 'TransH_eval_Accel_20251004'
+name: 'TransD_base_eval_Accel_20260130'
 
 in_path: 'src/kg4rd/kge/data/'
-train_file: 'train2id.txt'
-valid_file: 'valid2id.txt'
-test_file: 'test2id.txt'
+train_file: 'train2id_base.txt'
+valid_file: 'valid2id_base.txt'
+test_file: 'test2id_base.txt'
 
-batch_size: 1024
+batch_size: 512
 neg_ent: 64
 num_workers: 16
-dim: 200
+dim_e: 100
+dim_r: 100
 p_norm: 1
 norm_flag: True
 margin: 1.0
 epochs: 500
-lr: 0.022296944339356858
+lr: 0.19029603128223693
 adv_temperature: 6
-opt_method: "adagrad"
+opt_method: "Adagrad"
 
 test_batch_size: 10
 tester_use_gpu: True
@@ -30,5 +31,5 @@ use_early_stopping: True
 
 valid_interval: 50
 log_interval: 1
-save_interval: 50
-save_path: "src/kg4rd/kge/checkpoints/TransH_eval_Accel_20251004.pth"
+save_interval: 100
+save_path: "src/kg4rd/kge/checkpoints/TransD_base_eval_Accel_20260130.pth"

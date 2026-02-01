@@ -89,4 +89,5 @@ sweep_config = set_hpo_config(
 
 set_hpo_hits(config['hpo_hits'])
 
-start_hpo_train(project=config['project'], config=sweep_config, count=20, resume_sweep_id=args.resume_sweep_id)
+start_hpo_train(project=config['project'], config=sweep_config, count=0, resume_sweep_id=args.resume_sweep_id, 
+                prior_runs=['mmliwpw3', 'b4ecxke8', 'q8efo8qa', '1ye1t2i6', 'iteenzpi', '83b95cts', 'qn6mrlus', 'vr58agym', 'adrk6lpt', '74wykuey', 'geca7fbf', 'tjph46o8', 'xr0n1yfg', 'pvdj4z4a', 'qb5lvmdd', 'vkv6ef1m', 'mxq9oj9x', 'rehfmwr2', 'id0fti16', 'dc6mripw'])

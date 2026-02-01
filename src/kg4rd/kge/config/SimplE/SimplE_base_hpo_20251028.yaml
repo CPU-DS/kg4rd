@@ -1,6 +1,3 @@
-# SimplE 模型超参数搜索
-# 2025/10/28 创建
-
 project: 'kg4rd'
 sweep_name: 'SimplE_base_hpo_20251028'
 
@@ -9,8 +6,8 @@ train_file: 'train2id_base.txt'
 valid_file: 'valid2id_base.txt'
 test_file: 'test2id_base.txt'
 
-trainer_device: "cuda:0"
-tester_device: "cuda:0"
+trainer_device: "cuda:2"
+tester_device: "cuda:2"
 
 test_batch_size: 5
 

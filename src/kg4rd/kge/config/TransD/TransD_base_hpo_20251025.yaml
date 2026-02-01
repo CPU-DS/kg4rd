@@ -1,6 +1,3 @@
-# TransD 模型超参数搜索
-# 2025/10/25 创建
-
 project: 'kg4rd'
 sweep_name: 'TransD_base_hpo_20251025'
 

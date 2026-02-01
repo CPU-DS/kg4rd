@@ -6,13 +6,15 @@ train_file: 'train2id_base.txt'
 valid_file: 'valid2id_base.txt'
 test_file: 'test2id_base.txt'
 
-trainer_device: "cuda:2"
-tester_device: "cuda:2"
+batch_size: [1000, 3000, 6000]
+
+trainer_device: "cuda:0"
+tester_device: "cuda:0"
 
 test_batch_size: 10
 
 log_interval: 1
-valid_interval: 50
+valid_interval: 5
 save_path: "src/kg4rd/kge/checkpoints/RGCN_base_hpo_20251225/model.pth"
 epochs: 1000
 

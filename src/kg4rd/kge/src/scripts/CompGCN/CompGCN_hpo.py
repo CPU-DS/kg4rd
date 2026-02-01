@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
-# Create Date: 2025/10/25
+# Create Date: 2025/12/25
 # Author: wangtao <wangtao.cpu@gmail.com>
-# File Name: TransR_hpo.py
-# Description: TransR 超参数搜索
+# File Name: CompGCN_hpo.py
+# Description: CompGCN 超参数搜索
 
 from unike.data import get_kge_data_loader_hpo_config
-from unike.module.model import get_transr_hpo_config
-from unike.module.loss import get_margin_loss_hpo_config
-from unike.module.strategy import get_negative_sampling_hpo_config
+from unike.module.model import get_compgcn_hpo_config
+from unike.module.loss import get_compgcn_loss_hpo_config
+from unike.module.strategy import get_compgcn_sampling_hpo_config
 from unike.config import get_tester_hpo_config
 from unike.config import get_trainer_hpo_config
 from unike.config import set_hpo_config, start_hpo_train, set_hpo_hits
@@ -22,7 +22,7 @@ args = parser.parse_args()
 
 with open(args.config, 'r') as f:
 	config = yaml.load(f, Loader=yaml.FullLoader)
- 
+
 data_loader_config = get_kge_data_loader_hpo_config()
 data_loader_config.update({
     'in_path': {
@@ -39,14 +39,29 @@ data_loader_config.update({
     },
     'test_batch_size': {
         'value': config['test_batch_size']
+    },
+    'train_sampler': {
+        'value': 'CompGCNSampler'
+    },
+    'test_sampler': {
+        'value': 'CompGCNTestSampler'
+    },
+    'batch_size': {
+        'values': config['batch_size']
     }
 })
 
-kge_config = get_transr_hpo_config()
 
-loss_config = get_margin_loss_hpo_config()
+kge_config = get_compgcn_hpo_config()
+kge_config.update({
+    'dim': {
+        'value': 100
+    }
+})
 
-strategy_config = get_negative_sampling_hpo_config()
+loss_config = get_compgcn_loss_hpo_config()
+
+strategy_config = get_compgcn_sampling_hpo_config()
 
 tester_config = get_tester_hpo_config()
 tester_config.update({
@@ -74,7 +89,7 @@ trainer_config.update({
     },
     'epochs': {
         'value': config['epochs']
-    },
+    }
 })
 
 sweep_config = set_hpo_config(
@@ -89,4 +104,4 @@ sweep_config = set_hpo_config(
 
 set_hpo_hits(config['hpo_hits'])
 
-start_hpo_train(project=config['project'], config=sweep_config, count=20, resume_sweep_id=args.resume_sweep_id)
+start_hpo_train(project=config['project'], config=sweep_config, count=5, resume_sweep_id=args.resume_sweep_id)

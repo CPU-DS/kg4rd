@@ -1,5 +1,5 @@
 project: 'kg4rd'
-name: 'TransE_base_eval_Accel_20251120'
+name: 'RESCAL_base_eval_Accel_20260130'
 
 in_path: 'src/kg4rd/kge/data/'
 train_file: 'train2id_base.txt'
@@ -9,14 +9,14 @@ test_file: 'test2id_base.txt'
 batch_size: 4096
 neg_ent: 64
 num_workers: 16
-dim: 200
-p_norm: 1
-norm_flag: True
-margin: 1
-epochs: 1000
-lr: 0.07236990606544978
-adv_temperature: 6
-opt_method: "SGD"
+dim: 50
+regul_rate: 0
+l3_regul_rate: 0
+epochs: 500
+lr: 0.54787191581426
+adv_temperature: 3
+opt_method: "sgd"
+margin: 6
 
 test_batch_size: 10
 tester_use_gpu: True
@@ -31,4 +31,4 @@ use_early_stopping: True
 valid_interval: 50
 log_interval: 1
 save_interval: 100
-save_path: "src/kg4rd/kge/checkpoints/TransE_base_eval_Accel_20251120/model.pth"
+save_path: "src/kg4rd/kge/checkpoints/RESCAL_base_eval_Accel_20260130.pth"

@@ -24,8 +24,7 @@ with open(args.config, 'r') as f:
 wandb_logger = WandbLogger(endpoint='swanlab').set_config(
 	project=config['project'],
 	name=config['name'],
-	config=config,
-	offline=True
+	config=config
 )
 
 dataloader = KGEDataLoader(

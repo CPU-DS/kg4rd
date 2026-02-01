@@ -1,7 +1,3 @@
-# TransH 模型超参数搜索
-# 使用 GCL 训练得到节点预嵌入
-# 2025/11/02 创建
-
 project: 'kg4rd'
 sweep_name: 'TransH_PreEv2_hpo_20251102'
 

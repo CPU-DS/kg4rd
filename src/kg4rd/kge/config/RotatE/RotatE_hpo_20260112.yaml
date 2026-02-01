@@ -1,19 +1,19 @@
 project: 'kg4rd'
-sweep_name: 'DistMult_hpo_20251118'
+sweep_name: 'RotatE_hpo_20260112'
 
 in_path: 'src/kg4rd/kge/data/'
 train_file: 'train2id.txt'
 valid_file: 'valid2id.txt'
 test_file: 'test2id.txt'
 
-trainer_device: "cuda:1"
-tester_device: "cuda:1"
+trainer_device: "cuda:2"
+tester_device: "cuda:2"
 
 test_batch_size: 10
 
-log_interval: 10
+log_interval: 1
 valid_interval: 50
-save_path: "src/kg4rd/kge/checkpoints/DistMult_hpo_20251118/model.pth"
+save_path: "src/kg4rd/kge/checkpoints/RotatE_hpo_20260112.pth"
 epochs: 1000
 
 hpo_hits: [1, 3, 10, 30, 50]

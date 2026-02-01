@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
-# Create Date: 2025/10/04
+# Create Date: 2026/01/30
 # Author: wangtao <wangtao.cpu@gmail.com>
-# File Name: TransD_eval.py
-# Description: 评估 TransD
+# File Name: ANALOGY_eval.py
+# Description: 评估 ANALOGY
 
 from unike.data import KGEDataLoader, BernSampler, TradTestSampler
-from unike.module.model import TransD
-from unike.module.loss import MarginLoss
+from unike.module.model import Analogy
+from unike.module.loss import SoftplusLoss
 from unike.module.strategy import NegativeSampling
 from unike.config import Trainer, Tester
 from unike.utils import WandbLogger
@@ -41,22 +41,21 @@ dataloader = KGEDataLoader(
 	test_sampler = TradTestSampler
 )
 
-transd = TransD(
+analogy = Analogy(
 	ent_tol = dataloader.get_ent_tol(),
 	rel_tol = dataloader.get_rel_tol(),
-	dim_e = config['dim_e'],
-    dim_r = config['dim_r'],
-	p_norm = config['p_norm'], 
-	norm_flag = config['norm_flag']
+	dim = config['dim']
 )
 
 model = NegativeSampling(
-	model = transd, 
-	loss = MarginLoss(margin = config['margin'], adv_temperature = config['adv_temperature']),
+	model = analogy, 
+	loss = SoftplusLoss(adv_temperature = config['adv_temperature']),
+    regul_rate = config['regul_rate'],
+    l3_regul_rate = config['l3_regul_rate']
 )
 
 tester = Tester(
-    model = transd, 
+    model = analogy, 
     data_loader = dataloader, 
     use_gpu = config['tester_use_gpu'],
     device = config['tester_device']

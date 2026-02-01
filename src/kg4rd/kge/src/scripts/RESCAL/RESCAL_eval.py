@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
-# Create Date: 2025/10/04
+# Create Date: 2026/01/30
 # Author: wangtao <wangtao.cpu@gmail.com>
-# File Name: TransD_eval.py
-# Description: 评估 TransD
+# File Name: RESCAL_eval.py
+# Description: 评估 RESCAL
 
 from unike.data import KGEDataLoader, BernSampler, TradTestSampler
-from unike.module.model import TransD
+from unike.module.model import RESCAL
 from unike.module.loss import MarginLoss
 from unike.module.strategy import NegativeSampling
 from unike.config import Trainer, Tester
@@ -24,9 +24,9 @@ with open(args.config, 'r') as f:
 wandb_logger = WandbLogger(endpoint='swanlab').set_config(
 	project=config['project'],
 	name=config['name'],
-	config=config,
+	config=config
 )
- 
+
 dataloader = KGEDataLoader(
 	in_path = config['in_path'],
 	train_file=config['train_file'],
@@ -41,25 +41,23 @@ dataloader = KGEDataLoader(
 	test_sampler = TradTestSampler
 )
 
-transd = TransD(
+rescal = RESCAL(
 	ent_tol = dataloader.get_ent_tol(),
 	rel_tol = dataloader.get_rel_tol(),
-	dim_e = config['dim_e'],
-    dim_r = config['dim_r'],
-	p_norm = config['p_norm'], 
-	norm_flag = config['norm_flag']
+	dim = config['dim']
 )
 
 model = NegativeSampling(
-	model = transd, 
+	model = rescal, 
 	loss = MarginLoss(margin = config['margin'], adv_temperature = config['adv_temperature']),
 )
 
 tester = Tester(
-    model = transd, 
+    model = rescal, 
     data_loader = dataloader, 
     use_gpu = config['tester_use_gpu'],
-    device = config['tester_device']
+    device = config['tester_device'],
+    use_tqdm=True
 )
 
 tester.set_hits(new_hits=config['test_hits'])
@@ -72,6 +70,7 @@ trainer = Trainer(
     lr = config['lr'],
     test = True,
     tester = tester, 
+    device = config['trainer_device'],
     valid_interval = config['valid_interval'],
 	log_interval = config['log_interval'],
     save_interval = config['save_interval'],
@@ -80,9 +79,9 @@ trainer = Trainer(
 	wandb_logger = wandb_logger,
     use_accelerator = config['use_accelerator'],
     use_early_stopping = config['use_early_stopping'],
-	device = config['trainer_device']
 )
 
 if __name__ == '__main__':
 	trainer.run()
 	wandb_logger.finish()
+
