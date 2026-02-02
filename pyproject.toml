@@ -45,7 +45,7 @@ dependencies = [
     "prody>=2.6.1",
     "tqdm>=4.67.1",
     "google-genai>=1.56.0",
-    "unike==3.3.1",
+    "unike==3.4.0",
 ]
 
 [tool.uv.sources]

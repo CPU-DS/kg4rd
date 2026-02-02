@@ -1624,7 +1624,7 @@ requires-dist = [
     { name = "torch-sparse", url = "https://data.pyg.org/whl/torch-2.1.0%2Bcu121/torch_sparse-0.6.18%2Bpt21cu121-cp311-cp311-linux_x86_64.whl" },
     { name = "tqdm", specifier = ">=4.67.1" },
     { name = "transformers", specifier = "==4.43" },
-    { name = "unike", specifier = "==3.3.1" },
+    { name = "unike", specifier = "==3.4.0" },
     { name = "uvicorn", specifier = ">=0.37.0" },
 ]
 
@@ -2568,7 +2568,7 @@ name = "pexpect"
 version = "4.9.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "ptyprocess" },
+    { name = "ptyprocess", marker = "python_full_version < '3.12' or sys_platform != 'win32'" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/42/92/cc564bf6381ff43ce1f4d06852fc19a2f11d180f23dc32d9588bee2f149d/pexpect-4.9.0.tar.gz", hash = "sha256:ee7d41123f3c9911050ea2c2dac107568dc43b2d3b0c7557a33212c398ead30f", size = 166450 }
 wheels = [
@@ -4221,7 +4221,7 @@ wheels = [
 
 [[package]]
 name = "unike"
-version = "3.3.1"
+version = "3.4.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "accelerate" },
@@ -4235,9 +4235,9 @@ dependencies = [
     { name = "tqdm" },
     { name = "wandb" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/76/6c/7c5cfa37a70a5cdd3f62302db5a400d86799715e34579a16c6cc7d1d2ba6/unike-3.3.1.tar.gz", hash = "sha256:d07a446c507cf05977bf544e294de46de1dffc7374300f4a0ab83170e75718c6", size = 128663 }
+sdist = { url = "https://files.pythonhosted.org/packages/83/8b/d43a0b60131de7b85799ca86559aed5a2470f79bb0cf2fbcdd89c47d6f79/unike-3.4.0.tar.gz", hash = "sha256:164ba4d652e81011d1eb7a93f64cf096108b8cb209c03e9d0d53171f81ca2858", size = 130734 }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/c2/3d/6dfdb2d9157d71a0cf33a4f51d448848e719584f83a98605e062cba226c0/unike-3.3.1-py3-none-any.whl", hash = "sha256:2ab0e7c0bda64f83dd80282f5cade7f6cbf0029b8ab1ee9767e0aa56ba9f4539", size = 103993 },
+    { url = "https://files.pythonhosted.org/packages/a1/17/edeb0853f7fdf3258ca0cdb4235b706fff833ce467797fa63bdef0df3af3/unike-3.4.0-py3-none-any.whl", hash = "sha256:5cae04ee965bfdb9e87dc7b5a45ff8c87d52b1bb6255dead3e97fa7fea48d729", size = 105920 },
 ]
 
 [[package]]
