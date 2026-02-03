@@ -1,15 +1,15 @@
 # -*- coding: utf-8 -*-
-# Create Date: 2025/12/30
+# Create Date: 2026/02/03
 # Author: wangtao <wangtao.cpu@gmail.com>
-# File Name: RGCN_eval.py
-# Description: 评估 RGCN
+# File Name: CompGCN_eval.py
+# Description: 评估 CompGCN
 
-from unike.data import KGEDataLoader, RGCNSampler, RGCNTestSampler
-from unike.module.model import RGCN
-from unike.module.loss import RGCNLoss
-from unike.module.strategy import RGCNSampling
-from unike.config import Trainer, Tester
 from unike.utils import WandbLogger
+from unike.data import KGEDataLoader, CompGCNSampler, CompGCNTestSampler
+from unike.module.model import CompGCN
+from unike.module.loss import CompGCNLoss
+from unike.module.strategy import CompGCNSampling
+from unike.config import Trainer, Tester
 
 import yaml
 import argparse
@@ -28,7 +28,7 @@ wandb_logger = WandbLogger(endpoint='swanlab').set_config(
 )
 
 dataloader = KGEDataLoader(
-	in_path = config['in_path'],
+    in_path = config['in_path'],
 	train_file=config['train_file'],
 	valid_file=config['valid_file'],
 	test_file=config['test_file'],
@@ -37,24 +37,24 @@ dataloader = KGEDataLoader(
 	test = True,
 	test_batch_size = config['test_batch_size'],
 	num_workers = config['num_workers'],
-	train_sampler = RGCNSampler,
-	test_sampler = RGCNTestSampler
+	train_sampler = CompGCNSampler,
+	test_sampler = CompGCNTestSampler
 )
 
-rgcn = RGCN(
+compgcn = CompGCN(
 	ent_tol = dataloader.get_ent_tol(),
 	rel_tol = dataloader.get_rel_tol(),
-	dim = config['dim'], 
-	num_layers = config['num_layers']
+	dim = config['dim']
 )
 
-model = RGCNSampling(
-	model = rgcn,
-	loss = RGCNLoss(model = rgcn, regularization = 1e-5)
+model = CompGCNSampling(
+	model = compgcn,
+	loss = CompGCNLoss(model = compgcn),
+	ent_tol = dataloader.get_ent_tol()
 )
 
 tester = Tester(
-    model = rgcn, 
+    model = compgcn, 
     data_loader = dataloader, 
     use_gpu = config['tester_use_gpu'],
     device = config['tester_device'],

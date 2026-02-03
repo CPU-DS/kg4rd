@@ -1,15 +1,15 @@
 # -*- coding: utf-8 -*-
-# Create Date: 2025/12/30
+# Create Date: 2026/02/02
 # Author: wangtao <wangtao.cpu@gmail.com>
-# File Name: RGCN_eval.py
-# Description: 评估 RGCN
+# File Name: RGCN_PreE_eval.py
+# Description: 评估 RGCN_PreE
 
 from unike.data import KGEDataLoader, RGCNSampler, RGCNTestSampler
-from unike.module.model import RGCN
 from unike.module.loss import RGCNLoss
 from unike.module.strategy import RGCNSampling
 from unike.config import Trainer, Tester
 from unike.utils import WandbLogger
+from RGCN_PreE import RGCN_PreE
 
 import yaml
 import argparse
@@ -41,11 +41,12 @@ dataloader = KGEDataLoader(
 	test_sampler = RGCNTestSampler
 )
 
-rgcn = RGCN(
+rgcn = RGCN_PreE(
 	ent_tol = dataloader.get_ent_tol(),
 	rel_tol = dataloader.get_rel_tol(),
 	dim = config['dim'], 
-	num_layers = config['num_layers']
+	num_layers = config['num_layers'],
+    ent_embed_path = config['ent_embed_path']
 )
 
 model = RGCNSampling(

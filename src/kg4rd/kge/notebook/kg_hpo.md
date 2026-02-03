@@ -203,11 +203,10 @@ valid_interval: 50
 
 - RGCN
 ```
-adv_temperature: 3
+adv_temperature: 1
 batch_size: 3000
 delta: 0.0001
-dim: 500
-epochs: 1000
+dim: 200
 l3_regul_rate: 0
 loss: RGCNLoss
 lr: 0.7857815410979511
@@ -216,10 +215,8 @@ opt_method: adagrad
 patience: 2
 regul_rate: 0
 strategy: RGCNSampling
-test_batch_size: 5
 train_sampler: BernSampler
 use_early_stopping: True
-valid_interval: 50
 ```
 
 - CompGCN
