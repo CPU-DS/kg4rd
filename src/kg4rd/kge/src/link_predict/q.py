@@ -27,12 +27,22 @@ s1pr1_ent_index = 5153
 tak1_ent_index = 9662 # MAP3K7
 ad_ent_index = 49932
 olsalazine_ent_index = 21972
+# LLM提取过程中增益最大的罕见病
+adult_T_cell_index = 72926
+mantle_cell_lymphoma_index = 41349
+
+# 图谱中链接关系最多的罕见病
+genetic_obesity_index = 39242
+multiple_congenital_anomalies_index = 47347
+rare_ataxia_index = 44612
 
 # 所有药品实体
 drug_ent_indexs = [link.ent2id[ent_name] for ent_name in link.ent2id.keys() if ent_name.split(':')[-1] == 'drug']
 
 # 所有疾病实体
 disease_ent_indexs = [link.ent2id[ent_name] for ent_name in link.ent2id.keys() if ent_name.split(':')[-1] == 'disease']
+
+
 
 _edges_supplement = pd.read_csv(
     os.path.join(os.path.dirname(__file__), '../../../kg/edges_supplement.csv'), 

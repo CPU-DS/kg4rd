@@ -59,24 +59,26 @@ const Select: React.FC<SelectProps> = ({
         onClick={handleToggle}
         disabled={disabled}
         className={`
-          w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-xl text-left
-          focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent
-          transition-all duration-200 bg-white dark:bg-gray-700
-          ${disabled 
-            ? 'bg-gray-100 dark:bg-gray-800 cursor-not-allowed text-gray-400 dark:text-gray-500' 
-            : 'hover:border-gray-400 dark:hover:border-gray-500 cursor-pointer'
-          }
-          ${isOpen ? 'border-blue-500 ring-2 ring-blue-500' : ''}
+          w-full px-4 py-2.5 rounded-xl text-left text-sm
+          transition-all duration-200 cursor-pointer
+          focus:outline-none focus:ring-2
+          ${disabled ? 'opacity-50 cursor-not-allowed' : ''}
         `}
+        style={{
+          background: 'var(--color-surface)',
+          border: isOpen ? '1px solid var(--color-brand)' : '1px solid var(--color-border)',
+          color: selectedOption ? 'var(--color-text-primary)' : 'var(--color-text-tertiary)',
+          boxShadow: isOpen ? '0 0 0 2px rgba(13, 148, 136, 0.2)' : 'none',
+        }}
       >
         <div className="flex items-center justify-between">
-          <span className={`block truncate ${!selectedOption && placeholder ? 'text-gray-400 dark:text-gray-500' : 'text-gray-900 dark:text-gray-100'}`}>
-            {displayText}
-          </span>
+          <span className="block truncate">{displayText}</span>
           <svg
-            className={`w-5 h-5 text-gray-400 dark:text-gray-500 transition-transform duration-200 ${
-              isOpen ? 'rotate-180' : ''
-            }`}
+            className="w-4 h-4 transition-transform duration-200 flex-shrink-0"
+            style={{
+              color: 'var(--color-text-tertiary)',
+              transform: isOpen ? 'rotate(180deg)' : 'none',
+            }}
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -87,27 +89,40 @@ const Select: React.FC<SelectProps> = ({
       </button>
 
       {isOpen && (
-        <div className="absolute z-50 w-full mt-1 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-xl shadow-lg max-h-60 overflow-auto select-dropdown">
+        <div className="absolute z-50 w-full mt-1.5 rounded-xl overflow-hidden max-h-60 overflow-y-auto select-dropdown"
+             style={{
+               background: 'var(--color-surface)',
+               border: '1px solid var(--color-border)',
+               boxShadow: 'var(--shadow-lg)',
+             }}>
           {options.map((option) => (
             <button
               key={option.value}
               type="button"
               onClick={() => handleSelect(option)}
-              className={`
-                w-full px-3 py-2 text-left hover:bg-blue-50 dark:hover:bg-blue-900/30 focus:bg-blue-50 dark:focus:bg-blue-900/30
-                focus:outline-none transition-colors duration-150
-                ${value === option.value 
-                  ? 'bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 font-medium' 
-                  : 'text-gray-900 dark:text-gray-100'
-                }
-                first:rounded-t-xl last:rounded-b-xl
-              `}
+              className="w-full px-4 py-2.5 text-left text-sm transition-colors duration-150 cursor-pointer"
+              style={{
+                background: value === option.value ? 'var(--color-brand-subtle)' : 'transparent',
+                color: value === option.value ? 'var(--color-brand)' : 'var(--color-text-primary)',
+                fontWeight: value === option.value ? 500 : 400,
+              }}
+              onMouseEnter={(e) => {
+                if (value !== option.value)
+                  e.currentTarget.style.background = 'var(--color-surface-raised)'
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.background = value === option.value
+                  ? 'var(--color-brand-subtle)' : 'transparent'
+              }}
             >
               <div className="flex items-center justify-between">
                 <span className="block truncate">{option.label}</span>
                 {value === option.value && (
-                  <svg className="w-4 h-4 text-blue-600 dark:text-blue-400" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  <svg className="w-4 h-4 flex-shrink-0" style={{ color: 'var(--color-brand)' }}
+                       fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd"
+                          d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                          clipRule="evenodd" />
                   </svg>
                 )}
               </div>

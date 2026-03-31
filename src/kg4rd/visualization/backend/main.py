@@ -29,6 +29,7 @@ async def lifespan(app: FastAPI):
             ent_tol = 121649,
             rel_tol = 22
         )
+    model.load_checkpoint('/home/wangtao/src/kg4rd/src/kg4rd/kge/checkpoints/TransE_entrie_Accel_20250910.pth')
     model_repo.add_model(
         model_name='TransE20250910',
         model=model

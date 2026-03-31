@@ -17,7 +17,6 @@ const EntitySearch: React.FC = () => {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
   
-  // 分页状态
   const [currentPage, setCurrentPage] = useState(1)
   const [pageSize, setPageSize] = useState(20)
 
@@ -45,7 +44,6 @@ const EntitySearch: React.FC = () => {
     { value: 'regex', label: t('entity.search.matchRegex') }
   ]
 
-  // 分页数据计算
   const paginatedResults = useMemo(() => {
     const startIndex = (currentPage - 1) * pageSize
     const endIndex = startIndex + pageSize
@@ -60,10 +58,9 @@ const EntitySearch: React.FC = () => {
 
   const handlePageSizeChange = (newPageSize: number) => {
     setPageSize(newPageSize)
-    setCurrentPage(1) // 重置到第一页
+    setCurrentPage(1)
   }
 
-  // 重置分页状态
   const resetPagination = () => {
     setCurrentPage(1)
   }
@@ -71,13 +68,13 @@ const EntitySearch: React.FC = () => {
   const handleSearch = useCallback(async () => {
     if (!query.trim()) {
       setError(t('entity.search.errorEmpty'))
-      setResults([])  // 清空之前的内容
+      setResults([])
       return
     }
 
     setLoading(true)
     setError(null)
-    resetPagination() // 重置分页
+    resetPagination()
 
     try {
       const queryParams: EntityQuery = {
@@ -117,21 +114,21 @@ const EntitySearch: React.FC = () => {
   }
 
   const optimizeNodeName = (name: string) => {
-  // 如果名称中不包含空格，则将全部字母大写，如果包含空格，则将首字母和空格后的第一个字母大写
-  if (!name.includes(' ')) {
-    return name.toUpperCase()
-  } else {
-    return name.replace(/\b\w/g, (char) => char.toUpperCase())
-  }
+    if (!name.includes(' ')) {
+      return name.toUpperCase()
+    } else {
+      return name.replace(/\b\w/g, (char) => char.toUpperCase())
+    }
   }
 
   return (
     <div className="w-full max-w-4xl mx-auto space-y-6">
-      {/* 搜索配置 */}
-      <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6 transition-colors">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+      {/* Search configuration */}
+      <div className="card p-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-5">
           <div>
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+            <label className="block text-xs font-semibold uppercase tracking-wider mb-2"
+                   style={{ color: 'var(--color-text-tertiary)', letterSpacing: '0.06em' }}>
               {t('entity.search.queryMethod')}
             </label>
             <Select
@@ -141,7 +138,8 @@ const EntitySearch: React.FC = () => {
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+            <label className="block text-xs font-semibold uppercase tracking-wider mb-2"
+                   style={{ color: 'var(--color-text-tertiary)', letterSpacing: '0.06em' }}>
               {t('entity.search.nodeType')}
             </label>
             <Select
@@ -151,7 +149,8 @@ const EntitySearch: React.FC = () => {
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+            <label className="block text-xs font-semibold uppercase tracking-wider mb-2"
+                   style={{ color: 'var(--color-text-tertiary)', letterSpacing: '0.06em' }}>
               {t('entity.search.matchMode')}
             </label>
             <Select
@@ -177,61 +176,83 @@ const EntitySearch: React.FC = () => {
         </div>
 
         {error && (
-          <div className="mt-4 p-3 bg-red-50 dark:bg-red-900/30 border border-red-200 dark:border-red-800 rounded-xl text-red-700 dark:text-red-400 text-sm">
+          <div className="mt-4 p-3 rounded-xl text-sm"
+               style={{
+                 background: 'var(--color-error-subtle)',
+                 color: 'var(--color-error)',
+                 border: '1px solid transparent',
+               }}>
             {error}
           </div>
         )}
       </div>
 
-      {/* 搜索结果 */}
+      {/* Results */}
       {loading && (
-        <div className="flex justify-center py-8">
+        <div className="flex justify-center py-12">
           <Loading size="lg" />
         </div>
       )}
 
       {!loading && results.length > 0 && (
-        <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 animate-fade-in transition-colors">
-          <div className="px-6 py-4 border-b border-gray-200 dark:border-gray-700">
+        <div className="card animate-fade-in overflow-hidden">
+          <div className="px-6 py-4" style={{ borderBottom: '1px solid var(--color-border)' }}>
             <div className="flex items-center justify-between">
-              <h3 className="text-lg font-medium text-gray-900 dark:text-gray-100">
-                {t('entity.search.searchResults')} ({t('common.totalResults', { count: results.length })})
+              <h3 className="text-base font-semibold" style={{ color: 'var(--color-text-primary)' }}>
+                {t('entity.search.searchResults')}
+                <span className="ml-2 text-sm font-normal" style={{ color: 'var(--color-text-tertiary)' }}>
+                  {t('common.totalResults', { count: results.length })}
+                </span>
               </h3>
-              <div className="text-sm text-gray-500 dark:text-gray-400">
+              <div className="text-xs mono" style={{ color: 'var(--color-text-tertiary)' }}>
                 {t('common.page', { current: currentPage, total: totalPages })}
               </div>
             </div>
           </div>
-          <div className="divide-y divide-gray-200 dark:divide-gray-700">
+
+          <div>
             {paginatedResults.map((entity, index) => (
               <div
                 key={entity.node_index}
                 onClick={() => handleEntityClick(entity)}
-                className="px-6 py-4 hover:bg-gray-50 dark:hover:bg-gray-700 cursor-pointer transition-all duration-200 hover:shadow-sm"
-                style={{ animationDelay: `${index * 0.05}s` }}
+                className="px-6 py-4 cursor-pointer transition-all duration-200 animate-stagger group"
+                style={{
+                  borderBottom: '1px solid var(--color-border-subtle)',
+                  animationDelay: `${index * 0.04}s`,
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = 'var(--color-surface-raised)'
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = 'transparent'
+                }}
               >
                 <div className="flex items-center justify-between">
                   <div>
-                    <h4 className="text-base font-medium text-gray-900 dark:text-gray-100 mb-1">
+                    <h4 className="text-sm font-semibold mb-1"
+                        style={{ color: 'var(--color-text-primary)' }}>
                       {optimizeNodeName(entity.node_name)}
                     </h4>
-                    <div className="flex items-center space-x-4 text-sm text-gray-500 dark:text-gray-400">
-                      <span>{t('common.index')}: {entity.node_index}</span>
-                      <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-300">
+                    <div className="flex items-center gap-3">
+                      <span className="mono text-xs" style={{ color: 'var(--color-text-tertiary)' }}>
+                        {t('common.index')}: {entity.node_index}
+                      </span>
+                      <span className="tag-brand">
                         {getNodeTypeLabel(entity.node_type)}
                       </span>
                     </div>
                   </div>
-                  <div className="text-gray-400 dark:text-gray-500 transform transition-transform duration-200 group-hover:translate-x-1">
-                    →
-                  </div>
+                  <svg className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1"
+                       style={{ color: 'var(--color-text-tertiary)' }}
+                       fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
                 </div>
               </div>
             ))}
           </div>
           
-          {/* 分页组件 */}
-          <div className="px-6 py-4 border-t border-gray-200 dark:border-gray-700">
+          <div className="px-6 py-4" style={{ borderTop: '1px solid var(--color-border)' }}>
             <Pagination
               currentPage={currentPage}
               totalPages={totalPages}
@@ -246,8 +267,18 @@ const EntitySearch: React.FC = () => {
       )}
 
       {!loading && results.length === 0 && query && (
-        <div className="text-center py-8 text-gray-500 dark:text-gray-400">
-          {t('entity.search.noResults')}
+        <div className="text-center py-12 animate-fade-in">
+          <div className="w-16 h-16 mx-auto mb-4 rounded-2xl flex items-center justify-center"
+               style={{ background: 'var(--color-surface-raised)' }}>
+            <svg className="w-8 h-8" style={{ color: 'var(--color-text-tertiary)' }}
+                 fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5}
+                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
+          </div>
+          <p className="text-sm" style={{ color: 'var(--color-text-tertiary)' }}>
+            {t('entity.search.noResults')}
+          </p>
         </div>
       )}
     </div>

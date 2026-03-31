@@ -62,7 +62,9 @@ trainer = Trainer(
 	save_path = config['save_path'], 
     delta = config['delta'],
 	wandb_logger = wandb_logger,
-    use_accelerator = config['use_accelerator']
+	use_gpu = config['trainer_use_gpu'],
+    use_accelerator = config['use_accelerator'],
+    device = config['trainer_device']
 )
 
 if __name__ == '__main__':

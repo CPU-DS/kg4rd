@@ -60,22 +60,45 @@ const Pagination: React.FC<PaginationProps> = ({
     return null
   }
 
+  const pageButtonStyle = (isActive: boolean): React.CSSProperties => ({
+    background: isActive
+      ? 'linear-gradient(135deg, var(--color-brand), var(--color-brand-dark))'
+      : 'var(--color-surface)',
+    color: isActive ? '#ffffff' : 'var(--color-text-secondary)',
+    border: isActive ? 'none' : '1px solid var(--color-border)',
+    boxShadow: isActive ? '0 2px 6px rgba(13, 148, 136, 0.25)' : 'none',
+  })
+
   return (
     <div className={`flex items-center justify-between ${className}`}>
-      {/* 左侧信息 */}
-      <div className="flex items-center space-x-4">
-        <div className="text-sm text-gray-700 dark:text-gray-300">
-          {t('pagination.showing')} <span className="font-medium">{startItem}</span> {t('pagination.to')} <span className="font-medium">{endItem}</span>，
-          {t('pagination.total')} <span className="font-medium">{totalItems}</span> {t('pagination.items')}
+      <div className="flex items-center gap-4">
+        <div className="text-sm" style={{ color: 'var(--color-text-secondary)' }}>
+          {t('pagination.showing')}{' '}
+          <span className="font-medium mono" style={{ color: 'var(--color-text-primary)' }}>{startItem}</span>
+          {' '}{t('pagination.to')}{' '}
+          <span className="font-medium mono" style={{ color: 'var(--color-text-primary)' }}>{endItem}</span>，
+          {t('pagination.total')}{' '}
+          <span className="font-medium mono" style={{ color: 'var(--color-text-primary)' }}>{totalItems}</span>
+          {' '}{t('pagination.items')}
         </div>
-        
+
         {onPageSizeChange && (
-          <div className="flex items-center space-x-2">
-            <label className="text-sm text-gray-700 dark:text-gray-300">{t('pagination.perPage')}:</label>
+          <div className="flex items-center gap-2">
+            <label className="text-sm" style={{ color: 'var(--color-text-secondary)' }}>
+              {t('pagination.perPage')}:
+            </label>
             <select
               value={itemsPerPage}
               onChange={(e) => onPageSizeChange(parseInt(e.target.value))}
-              className="px-2 py-1 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 rounded text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="px-2.5 py-1.5 rounded-lg text-sm focus:outline-none focus:ring-2 cursor-pointer"
+              style={{
+                background: 'var(--color-surface)',
+                border: '1px solid var(--color-border)',
+                color: 'var(--color-text-primary)',
+                fontFamily: 'var(--font-mono)',
+                // @ts-expect-error CSS custom property
+                '--tw-ring-color': 'var(--color-brand)',
+              }}
             >
               {pageSizeOptions.map(size => (
                 <option key={size} value={size}>{size}</option>
@@ -85,31 +108,32 @@ const Pagination: React.FC<PaginationProps> = ({
         )}
       </div>
 
-      {/* 右侧分页 */}
       {totalPages > 1 && (
-        <div className="flex items-center space-x-1">
-          {/* 上一页 */}
+        <div className="flex items-center gap-1">
           <button
             onClick={() => onPageChange(currentPage - 1)}
             disabled={currentPage === 1}
-            className="px-3 py-2 text-sm font-medium text-gray-500 dark:text-gray-400 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-600 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+            className="px-3 py-2 text-sm font-medium rounded-lg transition-all duration-200 cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed"
+            style={{
+              background: 'var(--color-surface)',
+              color: 'var(--color-text-secondary)',
+              border: '1px solid var(--color-border)',
+            }}
           >
             {t('pagination.previous')}
           </button>
 
-          {/* 页码 */}
           {visiblePages.map((page, index) => (
             <React.Fragment key={index}>
               {page === '...' ? (
-                <span className="px-3 py-2 text-sm font-medium text-gray-700 dark:text-gray-300">...</span>
+                <span className="px-2 py-2 text-sm" style={{ color: 'var(--color-text-tertiary)' }}>
+                  ···
+                </span>
               ) : (
                 <button
                   onClick={() => onPageChange(page as number)}
-                  className={`px-3 py-2 text-sm font-medium rounded-lg transition-colors ${
-                    currentPage === page
-                      ? 'text-white bg-blue-600 dark:bg-blue-700 border border-blue-600 dark:border-blue-700'
-                      : 'text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-600'
-                  }`}
+                  className="w-9 h-9 text-sm font-medium rounded-lg transition-all duration-200 cursor-pointer mono"
+                  style={pageButtonStyle(currentPage === page)}
                 >
                   {page}
                 </button>
@@ -117,11 +141,15 @@ const Pagination: React.FC<PaginationProps> = ({
             </React.Fragment>
           ))}
 
-          {/* 下一页 */}
           <button
             onClick={() => onPageChange(currentPage + 1)}
             disabled={currentPage === totalPages}
-            className="px-3 py-2 text-sm font-medium text-gray-500 dark:text-gray-400 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-600 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+            className="px-3 py-2 text-sm font-medium rounded-lg transition-all duration-200 cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed"
+            style={{
+              background: 'var(--color-surface)',
+              color: 'var(--color-text-secondary)',
+              border: '1px solid var(--color-border)',
+            }}
           >
             {t('pagination.next')}
           </button>

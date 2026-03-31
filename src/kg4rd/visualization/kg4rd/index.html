@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>kg4rd</title>
     <script>
-      // 防止主题闪烁 - 在页面加载前就应用主题
       (function() {
         const theme = localStorage.getItem('kg4rd-theme') || 'system';
         const isDark = theme === 'dark' || (theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);

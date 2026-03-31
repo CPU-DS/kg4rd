@@ -72,6 +72,11 @@ export default {
       byType: 'By Type',
       entityIndex: 'Entity Index',
       entityIndexPlaceholder: 'Enter index and press Enter to add',
+      entitySelect: 'Select Entities',
+      entitySearchPlaceholder: 'Search by name or index...',
+      entitySearchContinue: 'Continue searching...',
+      entitySearchNoResults: 'No matching entities found',
+      entitySearchEnterToAdd: 'Press Enter to add this index directly',
       nodeType: 'Node Type',
       relationType: 'Relation Type',
       relationAvailable: '(Available: {{available}}, Selected: {{selected}})',
@@ -122,6 +127,8 @@ export default {
     errorLoadFailed: 'Failed to load relation data',
     errorLoadError: 'Error loading relation data',
     available: 'Available: {{count}}',
+    exportSVG: 'Export SVG',
+    exportPNG: 'Export HD PNG',
   },
   nodeTypes: {
     all: 'All Types',
@@ -157,6 +164,11 @@ export default {
     pathway_pathway: 'Pathway-Pathway',
     'off-label use': 'Off-label Use',
     disease_phenotype_negative: 'Disease-Phenotype (Negative)',
+  },
+  export: {
+    pageAsSvg: 'Export Page as SVG',
+    pageAsPng: 'Export Page as PNG',
+    exporting: 'Exporting...',
   },
   settings: {
     language: 'Language',

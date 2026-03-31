@@ -38,44 +38,52 @@ export const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ className = 
     <div className={`relative ${className}`} ref={dropdownRef}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-2 px-4 py-2 rounded-lg bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors shadow-sm"
+        className="flex items-center gap-2 px-3 py-2 rounded-lg transition-all duration-200 cursor-pointer"
+        style={{
+          background: 'var(--color-surface-raised)',
+          border: '1px solid var(--color-border)',
+          color: 'var(--color-text-secondary)',
+        }}
         type="button"
       >
-        <svg
-          className="w-5 h-5 text-gray-600 dark:text-gray-400"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
+        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path
             strokeLinecap="round"
             strokeLinejoin="round"
-            strokeWidth={2}
+            strokeWidth={1.8}
             d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"
           />
         </svg>
-        <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
+        <span className="text-sm font-medium hidden sm:inline">
           {LANGUAGES[currentLanguage].nativeLabel}
         </span>
-        <svg
-          className={`w-4 h-4 text-gray-500 dark:text-gray-400 transition-transform ${isOpen ? 'rotate-180' : ''}`}
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-        </svg>
       </button>
 
       {isOpen && (
-        <div className="absolute right-0 mt-2 w-48 bg-white dark:bg-gray-800 rounded-lg shadow-lg border border-gray-200 dark:border-gray-600 py-1 z-50 animate-fade-in-down">
+        <div className="absolute right-0 mt-2 w-44 rounded-xl overflow-hidden py-1 z-50 animate-fade-in-down"
+             style={{
+               background: 'var(--color-surface)',
+               border: '1px solid var(--color-border)',
+               boxShadow: 'var(--shadow-lg)',
+             }}>
           {Object.entries(LANGUAGES).map(([lang, { nativeLabel }]) => (
             <button
               key={lang}
               onClick={() => handleLanguageChange(lang as Language)}
-              className={`w-full text-left px-4 py-2 text-sm hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors ${
-                currentLanguage === lang ? 'bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 font-medium' : 'text-gray-700 dark:text-gray-300'
-              }`}
+              className="w-full text-left px-4 py-2.5 text-sm transition-colors cursor-pointer"
+              style={{
+                background: currentLanguage === lang ? 'var(--color-brand-subtle)' : 'transparent',
+                color: currentLanguage === lang ? 'var(--color-brand)' : 'var(--color-text-secondary)',
+                fontWeight: currentLanguage === lang ? 500 : 400,
+              }}
+              onMouseEnter={(e) => {
+                if (currentLanguage !== lang)
+                  e.currentTarget.style.background = 'var(--color-surface-raised)'
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.background = currentLanguage === lang
+                  ? 'var(--color-brand-subtle)' : 'transparent'
+              }}
               type="button"
             >
               {nativeLabel}

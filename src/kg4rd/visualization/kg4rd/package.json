@@ -4,7 +4,7 @@
   "version": "0.1.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --host 0.0.0.0 --port 6721",
     "build": "tsc -b && vite build"
   },
   "dependencies": {
@@ -12,6 +12,7 @@
     "axios": "^1.12.2",
     "echarts": "^5.6.0",
     "echarts-for-react": "^3.0.2",
+    "html-to-image": "^1.11.13",
     "i18next": "^25.5.3",
     "i18next-browser-languagedetector": "^8.2.0",
     "immer": "^10.1.3",

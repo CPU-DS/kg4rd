@@ -1,5 +1,5 @@
 project: 'kg4rd'
-name: 'gcl_20251014'
+name: 'GRACE_20251014'
 
 model_type: 'grace'
 augmentation_type: 'mixed'
@@ -20,7 +20,7 @@ save_epoch: 100
 num_neighbors: [15, 15]
 warmup_period: 0.2
 
-checkpoints_dir: 'src/kg4rd/gcl/checkpoints/gcl_20251014'
-embeddings_dir: 'src/kg4rd/gcl/embeddings/gcl_20251014'
+checkpoints_dir: 'src/kg4rd/gcl/checkpoints/GRACE_20251014'
+embeddings_dir: 'src/kg4rd/gcl/embeddings/GRACE_20251014'
 
 save_device: cpu

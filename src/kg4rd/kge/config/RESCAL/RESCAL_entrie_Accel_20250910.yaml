@@ -1,0 +1,24 @@
+project: 'kg4rd'
+name: 'RESCAL_entrie_Accel_20250910'
+
+in_path: 'src/kg4rd/kge/data/'
+train_file: 'all2id.txt'
+
+batch_size: 2048
+neg_ent: 16
+num_workers: 16
+dim: 50
+epochs: 1000
+lr: 0.7485010381006322
+margin: 6
+adv_temperature: 6.0
+opt_method: "sgd"
+
+trainer_use_gpu: True
+trainer_device: "cuda:1"
+use_accelerator: False
+delta: 0.01
+
+log_interval: 1
+save_interval: 50
+save_path: "src/kg4rd/kge/checkpoints/RESCAL_entrie_Accel_20250910.pth"

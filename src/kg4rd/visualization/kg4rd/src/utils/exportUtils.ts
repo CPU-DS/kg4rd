@@ -1,4 +1,5 @@
 import * as XLSX from 'xlsx'
+import { toSvg, toPng } from 'html-to-image'
 import type { TFunction } from 'i18next'
 import type { LinkResult } from '../types'
 import { getNodeLabel, getRelationLabel } from './i18nTypeMap'
@@ -91,4 +92,44 @@ export const exportLinkResultToCSV = (results: LinkResult, t: TFunction, filenam
 
   // 导出CSV文件
   XLSX.writeFile(workbook, finalFilename, { bookType: 'csv' })
+}
+
+const downloadDataUrl = (dataUrl: string, filename: string) => {
+  const a = document.createElement('a')
+  a.href = dataUrl
+  a.download = filename
+  document.body.appendChild(a)
+  a.click()
+  document.body.removeChild(a)
+}
+
+const EXPORT_OPTIONS = {
+  cacheBust: true,
+  filter: (node: HTMLElement) => {
+    return !node.hasAttribute?.('data-export-ignore')
+  },
+}
+
+export const exportPageAsSvg = async (
+  node: HTMLElement,
+  filename: string = 'page.svg'
+) => {
+  const dataUrl = await toSvg(node, {
+    ...EXPORT_OPTIONS,
+    backgroundColor: getComputedStyle(node).backgroundColor || '#ffffff',
+  })
+  downloadDataUrl(dataUrl, filename)
+}
+
+export const exportPageAsPng = async (
+  node: HTMLElement,
+  filename: string = 'page_hd.png',
+  scale: number = 3
+) => {
+  const dataUrl = await toPng(node, {
+    ...EXPORT_OPTIONS,
+    pixelRatio: scale,
+    backgroundColor: getComputedStyle(node).backgroundColor || '#ffffff',
+  })
+  downloadDataUrl(dataUrl, filename)
 }

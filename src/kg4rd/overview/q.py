@@ -10,8 +10,12 @@ import numpy as np
 import os
 from typing import Optional
 
-plt.rcParams['figure.dpi'] = 150  # 提高图片分辨率
-plt.rcParams['font.family'] = 'serif'  # 设置字体
+plt.style.use('seaborn-v0_8-whitegrid')
+plt.rcParams['figure.dpi'] = 200
+plt.rcParams['font.family'] = 'serif'
+plt.rcParams['font.serif'] = ['Times New Roman']
+plt.rcParams['font.size'] = 20
+plt.rcParams['mathtext.fontset'] = 'stix'
 
 _c = os.path.dirname(__file__)
 _primekg_path = os.path.join(_c, '../../../primekg')
@@ -70,7 +74,8 @@ def plot_degree_distribution(
         fontsize: int = 10,
         figtext_pos: Optional[tuple] = (0.45, 0.95),
         linewidth: float = 1,
-        bins: int = 25
+        bins: int = 25,
+        save_path: Optional[str] = None
     ):
     
     all_type_nodes = nodes.copy()
@@ -116,49 +121,43 @@ def plot_degree_distribution(
         out_gini = _calculate_gini_coefficient(out_degree)
         in_gini = _calculate_gini_coefficient(in_degree)
 
-        plt.figure(figsize=figsize)
+        fig, (ax1, ax2) = plt.subplots(1, 2, figsize=figsize)
 
-        plt.subplot(121)
-        plt.hist(filtered_out, bins=bins, alpha=0.7, color='#3498db', edgecolor='#2980b9', linewidth=linewidth)
-        plt.grid(True, alpha=0.3)
-        plt.title(f'out-degree distribution {"" if node_type is None else f"for {node_type}"}', fontsize=fontsize)
-        plt.xlabel('out-degree', fontsize=fontsize)
-        plt.ylabel('frequency', fontsize=fontsize)
-        plt.xticks(fontsize=fontsize)
-        plt.yticks(fontsize=fontsize)
+        ax1.hist(filtered_out, bins=bins, alpha=0.6, color='#3498db', edgecolor='white', linewidth=linewidth)
+        ax1.set_title(f'out-degree distribution {"" if node_type is None else f"for {node_type}"}', fontsize=fontsize)
+        ax1.set_xlabel('out-degree', fontsize=fontsize)
+        ax1.set_ylabel('frequency', fontsize=fontsize)
+        ax1.tick_params(axis='both', labelsize=fontsize)
         if figtext_pos is not None:
-            plt.figtext(figtext_pos[0], figtext_pos[1], 
+            ax1.text(figtext_pos[0], figtext_pos[1], 
                 f'filtered degree > {threshold} ({out_filtered_count} nodes, {out_filtered_percent:.3f}%)\n'
                 f'sum = {out_degree.sum()}\n'
                 f'mean = {out_degree.mean():.3f}\n'
                 f'gini coefficient = {out_gini:.3f}', 
-                transform=plt.gca().transAxes, 
-                bbox=dict(facecolor='white', alpha=0.8),
+                transform=ax1.transAxes, 
+                bbox=dict(boxstyle='round,pad=0.5', facecolor='white', edgecolor='0.8'),
                 verticalalignment='top',
                 fontsize=fontsize
             )
 
-        plt.subplot(122)
-        plt.hist(filtered_in, bins=bins, alpha=0.7, color='#3498db', edgecolor='#2980b9', linewidth=linewidth)
-        plt.grid(True, alpha=0.3)
-        plt.title(f'in-degree distribution {"" if node_type is None else f"for {node_type}"}', fontsize=fontsize)
-        plt.xlabel('in-degree', fontsize=fontsize)
-        plt.ylabel('frequency', fontsize=fontsize)
-        plt.xticks(fontsize=fontsize)
-        plt.yticks(fontsize=fontsize)
+        ax2.hist(filtered_in, bins=bins, alpha=0.6, color='#3498db', edgecolor='white', linewidth=linewidth)
+        ax2.set_title(f'in-degree distribution {"" if node_type is None else f"for {node_type}"}', fontsize=fontsize)
+        ax2.set_xlabel('in-degree', fontsize=fontsize)
+        ax2.set_ylabel('frequency', fontsize=fontsize)
+        ax2.tick_params(axis='both', labelsize=fontsize)
         if figtext_pos is not None:
-            plt.figtext(figtext_pos[0], figtext_pos[1], 
+            ax2.text(figtext_pos[0], figtext_pos[1], 
                 f'filtered degree > {threshold} ({in_filtered_count} nodes, {in_filtered_percent:.3f}%)\n'
                 f'sum = {in_degree.sum()}\n'
                 f'mean = {in_degree.mean():.3f}\n'
                 f'gini coefficient = {in_gini:.3f}', 
-                transform=plt.gca().transAxes, 
-                bbox=dict(facecolor='white', alpha=0.8),
+                transform=ax2.transAxes, 
+                bbox=dict(boxstyle='round,pad=0.5', facecolor='white', edgecolor='0.8'),
                 verticalalignment='top',
                 fontsize=fontsize
             )
 
-        plt.tight_layout()  # 调整子图之间的间距
+        plt.tight_layout()
         
     else:
         degree = pd.merge(out_degree, in_degree, on='node_index', how='outer').fillna(0).astype({'relation_x': int}).astype({'relation_y': int})
@@ -172,25 +171,37 @@ def plot_degree_distribution(
 
         degree_gini = _calculate_gini_coefficient(degree)
         
-        plt.figure(figsize=figsize)
+        fig, ax = plt.subplots(figsize=figsize)
         
-        plt.hist(filtered_degree, bins=bins, alpha=0.7, color='#3498db', edgecolor='#2980b9', linewidth=linewidth)
-        plt.grid(True, alpha=0.3)
-        plt.title(f'degree distribution {"" if node_type is None else f"for {node_type}"}', fontsize=fontsize)
-        plt.xlabel('degree', fontsize=fontsize)
-        plt.ylabel('frequency', fontsize=fontsize)
-        plt.xticks(fontsize=fontsize)
-        plt.yticks(fontsize=fontsize)
+        ax.hist(filtered_degree, bins=bins, alpha=0.6, color='#3498db', edgecolor='white', linewidth=linewidth)
+        ax.set_title(f'Degree Distribution {"" if node_type is None else f"for {node_type}"}', fontsize=fontsize)
+        ax.set_xlabel('Degree', fontsize=fontsize)
+        ax.set_ylabel('Frequency', fontsize=fontsize)
+        ax.tick_params(axis='both', labelsize=fontsize)
         if figtext_pos is not None:
-            plt.figtext(figtext_pos[0], figtext_pos[1], 
-                f'filtered degree > {threshold} ({filtered_degree_count} nodes, {filtered_degree_percent:.3f}%)\n'
-                f'sum = {degree.sum()}\n'
-                f'mean = {degree.mean():.3f}\n'
-                f'gini coefficient = {degree_gini:.3f}', 
-                transform=plt.gca().transAxes, 
-                bbox=dict(facecolor='white', alpha=0.8),
+            ax.text(figtext_pos[0], figtext_pos[1], 
+                f'Filtered degree > {threshold} ({filtered_degree_count} nodes, {filtered_degree_percent:.3f}%)\n'
+                f'Sum = {degree.sum()}\n'
+                f'Mean = {degree.mean():.3f}\n'
+                f'Gini Coefficient = {degree_gini:.3f}', 
+                transform=ax.transAxes, 
+                bbox=dict(boxstyle='round,pad=0.5', facecolor='white', edgecolor='0.8', alpha=0.8),
                 verticalalignment='top',
                 fontsize=fontsize
             )
         
+    if save_path is not None:
+        plt.savefig(save_path, bbox_inches='tight', facecolor='white', dpi=300, pil_kwargs={'compression': 'tiff_lzw'})
     plt.show()
+
+if __name__ == '__main__':
+    plot_degree_distribution(
+        nodes, edges, 
+        in_out=False, 
+        bins=50, 
+        fontsize=12,
+        threshold=200, 
+        figsize=(10, 6), 
+        figtext_pos=(0.6, 0.96),
+        save_path='degree_distribution.tif'
+    )

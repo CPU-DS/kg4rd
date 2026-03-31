@@ -13,6 +13,7 @@ wheels/
 .vscode/
 .cursor/
 .idea/
+.claude/
 
 papers/
 primekg/

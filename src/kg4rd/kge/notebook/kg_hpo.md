@@ -8,10 +8,6 @@ data/valid2id.txt
 data/test2id.txt
 ```
 
-### Wandb
-
-http://10.4.3.159:8080
-
 ### 训练配置
 
 | 模型 | 训练脚本 | 配置文件 | 设备 |
@@ -24,8 +20,6 @@ http://10.4.3.159:8080
 | ANALOGY | src/scripts/ANALOGY/ANALOGY_hpo.py | config/ANALOGY/ANALOGY_hpo_20260105.yaml | 10.4.0.141/cuda 12.2/4090/cuda:2 |
 | RESCAL | src/scripts/RESCAL/RESCAL_hpo.py | config/ANALOGY/RESCAL_hpo_20260105.yaml | 10.4.0.141/cuda 12.2/4090/cuda:3 |
 | SimplE | src/scripts/SimplE/SimplE_hpo.py | config/SimplE/SimplE_hpo_20260112.yaml | 10.4.0.141/cuda 12.2/4090/cuda:3 |
-| RGCN | src/scripts/RGCN/RGCN_hpo.py | config/RGCN/RGCN_hpo_20260130.yaml | 10.4.0.141/cuda 12.2/4090/cuda:0 |
-| CompGCN | src/scripts/CompGCN/CompGCN_hpo.py | config/CompGCN_hpo_20260130.yaml | 10.4.0.141/cuda 12.2/4090/cuda:1 |
 
 - DistMult
 
@@ -197,45 +191,6 @@ regul_rate: 0
 strategy: NegativeSampling
 test_batch_size: 10
 train_sampler: BernSampler
-use_early_stopping: True
-valid_interval: 50
-```
-
-- RGCN
-```
-adv_temperature: 1
-batch_size: 3000
-delta: 0.0001
-dim: 200
-l3_regul_rate: 0
-loss: RGCNLoss
-lr: 0.7857815410979511
-neg_ent: 16
-opt_method: adagrad
-patience: 2
-regul_rate: 0
-strategy: RGCNSampling
-train_sampler: BernSampler
-use_early_stopping: True
-```
-
-- CompGCN
-```
-adv_temperature: 3
-batch_size: 256
-delta: 0.0001
-dim: 100
-epochs: 1000
-l3_regul_rate: 0
-loss: CompGCNLoss
-lr: 0.3451281510901301
-neg_ent: 16
-opt_method: adagrad
-patience: 2
-regul_rate: 0
-strategy: CompGCNSampling
-test_batch_size: 5
-train_sampler: Sampler
 use_early_stopping: True
 valid_interval: 50
 ```

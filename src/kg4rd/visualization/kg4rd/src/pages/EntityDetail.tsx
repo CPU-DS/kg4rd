@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { Button, Loading } from '../components/Common'
@@ -9,6 +9,8 @@ import { entityService } from '../services'
 import type { Entity, NodeType } from '../types'
 import { ResultCode } from '../types'
 import { getNodeLabel } from '../utils/i18nTypeMap'
+import { exportPageAsSvg, exportPageAsPng } from '../utils/exportUtils'
+import { useExportVisible } from '../hooks'
 
 const EntityDetail: React.FC = () => {
   const { t } = useTranslation()
@@ -18,6 +20,9 @@ const EntityDetail: React.FC = () => {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
   const [copySuccess, setCopySuccess] = useState(false)
+  const [exporting, setExporting] = useState(false)
+  const pageRef = useRef<HTMLDivElement>(null)
+  const { exportVisible } = useExportVisible()
 
   const getNodeTypeLabel = (type: NodeType) => {
     return getNodeLabel(type, t)
@@ -39,6 +44,21 @@ const EntityDetail: React.FC = () => {
       setTimeout(() => setCopySuccess(false), 2000)
     } catch (err) {
       console.error('Failed to copy:', err)
+    }
+  }
+
+  const handleExport = async (type: 'svg' | 'png') => {
+    if (!pageRef.current || exporting) return
+    setExporting(true)
+    try {
+      const filename = `${entity?.node_name || 'entity'}_${new Date().toISOString().slice(0, 10)}`
+      if (type === 'svg') {
+        await exportPageAsSvg(pageRef.current, `${filename}.svg`)
+      } else {
+        await exportPageAsPng(pageRef.current, `${filename}_hd.png`)
+      }
+    } finally {
+      setExporting(false)
     }
   }
 
@@ -77,7 +97,8 @@ const EntityDetail: React.FC = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex justify-center items-center transition-colors">
+      <div className="min-h-screen flex justify-center items-center transition-colors"
+           style={{ backgroundColor: 'var(--color-surface)' }}>
         <Loading size="lg" />
       </div>
     )
@@ -85,12 +106,21 @@ const EntityDetail: React.FC = () => {
 
   if (error || !entity) {
     return (
-      <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex flex-col justify-center items-center transition-colors">
-        <div className="text-center">
-          <div className="text-6xl text-gray-400 dark:text-gray-600 mb-4">⚠️</div>
-          <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-2">{t('entity.detail.loadFailed')}</h1>
-          <p className="text-gray-600 dark:text-gray-400 mb-6">{error}</p>
-          <Button onClick={() => navigate('/') }>
+      <div className="min-h-screen flex flex-col justify-center items-center transition-colors gradient-mesh"
+           style={{ backgroundColor: 'var(--color-surface)' }}>
+        <div className="text-center animate-fade-in">
+          <div className="w-20 h-20 mx-auto mb-6 rounded-2xl flex items-center justify-center"
+               style={{ background: 'var(--color-error-subtle)' }}>
+            <svg className="w-10 h-10" style={{ color: 'var(--color-error)' }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4.5c-.77-.833-2.694-.833-3.464 0L3.34 16.5c-.77.833.192 2.5 1.732 2.5z" />
+            </svg>
+          </div>
+          <h1 className="text-2xl font-semibold mb-2"
+              style={{ color: 'var(--color-text-primary)' }}>
+            {t('entity.detail.loadFailed')}
+          </h1>
+          <p className="mb-8 text-sm" style={{ color: 'var(--color-text-secondary)' }}>{error}</p>
+          <Button onClick={() => navigate('/')}>
             {t('common.backToHome')}
           </Button>
         </div>
@@ -99,42 +129,82 @@ const EntityDetail: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        {/* 头部：返回按钮和设置 */}
-        <div className="mb-6 flex items-center justify-between">
-          <Button variant="primary" onClick={() => navigate('/')}>
-            ← {t('common.backToHome')}
-          </Button>
-          <div className="flex gap-3">
-            <ThemeSwitcher />
-            <LanguageSwitcher />
+    <div ref={pageRef} className="min-h-screen transition-colors gradient-mesh"
+         style={{ backgroundColor: 'var(--color-surface)' }}>
+      {/* Header */}
+      <header className="border-b" style={{ borderColor: 'var(--color-border)' }}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-16">
+            <div className="flex items-center gap-3">
+              <button onClick={() => navigate('/')}
+                      data-export-ignore
+                      className="flex items-center gap-2 text-sm font-medium transition-colors cursor-pointer"
+                      style={{ color: 'var(--color-brand)' }}>
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                </svg>
+                {t('common.backToHome')}
+              </button>
+              <span style={{ color: 'var(--color-border)' }}>/</span>
+              <span className="text-sm font-medium"
+                    style={{ color: 'var(--color-text-primary)' }}>
+                {entity.node_name}
+              </span>
+            </div>
+            <div className="flex items-center gap-2" data-export-ignore>
+              {exportVisible && (
+                <>
+                  <Button variant="outline" size="sm" onClick={() => handleExport('svg')}
+                          disabled={exporting} loading={exporting}>
+                    {exporting ? t('export.exporting') : t('export.pageAsSvg')}
+                  </Button>
+                  <Button variant="secondary" size="sm" onClick={() => handleExport('png')}
+                          disabled={exporting} loading={exporting}>
+                    {exporting ? t('export.exporting') : t('export.pageAsPng')}
+                  </Button>
+                </>
+              )}
+              <ThemeSwitcher />
+              <LanguageSwitcher />
+            </div>
           </div>
         </div>
-        
-        <div className="space-y-8">
-          {/* 实体基本信息 */}
-          <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6 transition-colors">
-            <div className="flex items-start justify-between mb-6">
+      </header>
+
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="space-y-8 animate-fade-in">
+          {/* Entity info card */}
+          <div className="card p-8">
+            <div className="flex items-start justify-between mb-8">
               <div>
-                <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-2">
-                  {entity.node_name}
-                </h2>
-                <div className="flex items-center space-x-4">
-                  <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-300">
+                <div className="flex items-center gap-3 mb-3">
+                  <h2 className="text-2xl font-semibold tracking-tight"
+                      style={{ color: 'var(--color-text-primary)' }}>
+                    {entity.node_name}
+                  </h2>
+                  <span className="tag-brand">
                     {getNodeTypeLabel(entity.node_type)}
                   </span>
+                </div>
+                <div className="flex items-center gap-4">
                   <button
                     onClick={handleCopyIndex}
-                    className="inline-flex items-center gap-1.5 text-sm text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors cursor-pointer group"
+                    className="inline-flex items-center gap-1.5 text-sm transition-all cursor-pointer group"
+                    style={{ color: 'var(--color-text-tertiary)' }}
                     title={t('entity.detail.copyIndex')}
                   >
-                    <span>{t('common.index')}: {entity.node_index}</span>
+                    <span className="mono text-xs" style={{
+                      padding: '2px 8px',
+                      borderRadius: '6px',
+                      background: 'var(--color-surface-raised)',
+                      border: '1px solid var(--color-border)',
+                    }}>
+                      {t('common.index')}: {entity.node_index}
+                    </span>
                     <svg
-                      className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
+                      className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity"
+                      fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                      style={{ color: copySuccess ? 'var(--color-success)' : 'var(--color-brand)' }}
                     >
                       {copySuccess ? (
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
@@ -143,69 +213,107 @@ const EntityDetail: React.FC = () => {
                       )}
                     </svg>
                   </button>
-                  <span className="text-sm text-gray-500 dark:text-gray-400">
+                  <span className="mono text-xs" style={{
+                    color: 'var(--color-text-tertiary)',
+                    padding: '2px 8px',
+                    borderRadius: '6px',
+                    background: 'var(--color-surface-raised)',
+                    border: '1px solid var(--color-border)',
+                  }}>
                     ID: {removePrefix(entity.node_id)}
                   </span>
                 </div>
               </div>
             </div>
 
-            {/* 基本属性 */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div>
-                <h3 className="text-lg font-medium text-gray-900 dark:text-gray-100 mb-3">{t('entity.detail.basicInfo')}</h3>
-                <dl className="space-y-2">
-                  <div className="flex">
-                    <dt className="w-24 text-sm font-medium text-gray-500 dark:text-gray-400">{t('common.name')}:</dt>
-                    <dd className="text-sm text-gray-900 dark:text-gray-200">{entity.node_name}</dd>
+                <h3 className="text-sm font-semibold uppercase tracking-wider mb-4"
+                    style={{ color: 'var(--color-text-tertiary)', letterSpacing: '0.08em' }}>
+                  {t('entity.detail.basicInfo')}
+                </h3>
+                <div className="card-inner p-4 space-y-3">
+                  <div className="flex items-start">
+                    <dt className="w-28 text-sm flex-shrink-0" style={{ color: 'var(--color-text-tertiary)' }}>
+                      {t('common.name')}
+                    </dt>
+                    <dd className="text-sm font-medium" style={{ color: 'var(--color-text-primary)' }}>
+                      {entity.node_name}
+                    </dd>
                   </div>
-                  <div className="flex">
-                    <dt className="w-24 text-sm font-medium text-gray-500 dark:text-gray-400">{t('common.type')}:</dt>
-                    <dd className="text-sm text-gray-900 dark:text-gray-200">{getNodeTypeLabel(entity.node_type)}</dd>
+                  <div className="flex items-start">
+                    <dt className="w-28 text-sm flex-shrink-0" style={{ color: 'var(--color-text-tertiary)' }}>
+                      {t('common.type')}
+                    </dt>
+                    <dd className="text-sm" style={{ color: 'var(--color-text-primary)' }}>
+                      {getNodeTypeLabel(entity.node_type)}
+                    </dd>
                   </div>
-                  <div className="flex">
-                    <dt className="w-24 text-sm font-medium text-gray-500 dark:text-gray-400">{t('common.source')}:</dt>
-                    <dd className="text-sm text-gray-900 dark:text-gray-200">{entity.node_source}</dd>
+                  <div className="flex items-start">
+                    <dt className="w-28 text-sm flex-shrink-0" style={{ color: 'var(--color-text-tertiary)' }}>
+                      {t('common.source')}
+                    </dt>
+                    <dd className="text-sm" style={{ color: 'var(--color-text-primary)' }}>
+                      {entity.node_source}
+                    </dd>
                   </div>
-                  <div className="flex flex-col">
-                    <dt className="text-sm font-medium text-gray-500 dark:text-gray-400 mb-1">{t('common.sourceLink')}:</dt>
-                    <dd className="text-sm ml-5">
+                  <div>
+                    <dt className="text-sm mb-2" style={{ color: 'var(--color-text-tertiary)' }}>
+                      {t('common.sourceLink')}
+                    </dt>
+                    <dd className="flex flex-col gap-1.5 ml-2">
                       {entity.node_source_url.map((url, index) => (
                         <a
                           key={index}
                           href={url.url}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 underline block mt-1"
+                          className="text-sm inline-flex items-center gap-1 transition-colors"
+                          style={{ color: 'var(--color-brand)' }}
                         >
+                          <svg className="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                          </svg>
                           {url.name}
                         </a>
                       ))}
                     </dd>
                   </div>
-                </dl>
+                </div>
               </div>
 
-              {/* 扩展信息 */}
               {Object.keys(entity.node_properties).length > 0 && (
                 <div>
-                  <h3 className="text-lg font-medium text-gray-900 dark:text-gray-100 mb-3">{t('entity.detail.extendedInfo')}</h3>
-                  <dl className="space-y-2">
+                  <h3 className="text-sm font-semibold uppercase tracking-wider mb-4"
+                      style={{ color: 'var(--color-text-tertiary)', letterSpacing: '0.08em' }}>
+                    {t('entity.detail.extendedInfo')}
+                  </h3>
+                  <div className="card-inner p-4 space-y-3">
                     {Object.entries(entity.node_properties).map(([key, value]) => (
-                      <div key={key} className="flex flex-col">
-                        <dt className="text-sm font-medium text-gray-500 dark:text-gray-400">{key}:</dt>
-                        <dd className="text-sm text-gray-900 dark:text-gray-200 mt-1 break-words">{value}</dd>
+                      <div key={key}>
+                        <dt className="text-xs font-medium uppercase tracking-wider mb-1"
+                            style={{ color: 'var(--color-text-tertiary)', letterSpacing: '0.05em' }}>
+                          {key}
+                        </dt>
+                        <dd className="text-sm break-words" style={{ color: 'var(--color-text-primary)' }}>
+                          {value}
+                        </dd>
                       </div>
                     ))}
-                  </dl>
+                  </div>
                 </div>
               )}
             </div>
           </div>
 
-          {/* 知识图谱 */}
+          {/* Knowledge graph */}
           <div>
-            <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4">{t('entity.detail.knowledgeGraph')}</h2>
+            <div className="flex items-center gap-3 mb-5">
+              <div className="w-1 h-6 rounded-full" style={{ background: 'var(--color-brand)' }} />
+              <h2 className="text-xl font-semibold" style={{ color: 'var(--color-text-primary)' }}>
+                {t('entity.detail.knowledgeGraph')}
+              </h2>
+            </div>
             <Graph
               centerNodeIndex={entity.node_index}
               centerNodeType={entity.node_type}
@@ -213,7 +321,7 @@ const EntityDetail: React.FC = () => {
             />
           </div>
         </div>
-      </div>
+      </main>
     </div>
   )
 }

@@ -72,6 +72,11 @@ export default {
       byType: '按类型',
       entityIndex: '实体索引',
       entityIndexPlaceholder: '输入索引后按回车添加',
+      entitySelect: '选择实体',
+      entitySearchPlaceholder: '输入名称或索引搜索实体...',
+      entitySearchContinue: '继续搜索添加...',
+      entitySearchNoResults: '未找到匹配的实体',
+      entitySearchEnterToAdd: '按回车直接添加该索引',
       nodeType: '节点类型',
       relationType: '关系类型',
       relationAvailable: '(可用: {{available}} 个, 已选择: {{selected}} 个)',
@@ -122,6 +127,8 @@ export default {
     errorLoadFailed: '加载关系数据失败',
     errorLoadError: '加载关系数据出错',
     available: '可用: {{count}} 个',
+    exportSVG: '导出SVG',
+    exportPNG: '导出高清PNG',
   },
   nodeTypes: {
     all: '全部类型',
@@ -157,6 +164,11 @@ export default {
     pathway_pathway: '通路-通路',
     'off-label use': '超说明书用药',
     disease_phenotype_negative: '疾病-表型(负向)',
+  },
+  export: {
+    pageAsSvg: '导出页面为SVG',
+    pageAsPng: '导出页面为PNG',
+    exporting: '导出中...',
   },
   settings: {
     language: '语言',

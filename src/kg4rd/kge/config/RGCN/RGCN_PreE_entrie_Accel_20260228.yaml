@@ -1,0 +1,28 @@
+project: 'kg4rd'
+name: 'RGCN_PreE_entrie_Accel_20260228'
+
+in_path: 'src/kg4rd/kge/data/'
+train_file: 'all2id.txt'
+
+batch_size: 60000
+neg_ent: 16
+num_workers: 16
+dim: 200
+num_layers: 2
+epochs: 1000
+lr: 0.001
+adv_temperature: 1
+opt_method: "adagrad"
+
+use_accelerator: False
+delta: 0.01
+use_early_stopping: True
+trainer_device: "cuda:0"
+trainer_use_gpu: True
+
+valid_interval: 200
+log_interval: 1
+save_interval: 100
+save_path: "src/kg4rd/kge/checkpoints/RGCN_PreE_entrie_Accel_20260228/model.pth"
+
+ent_embed_path: "src/kg4rd/gcl/embeddings/GRACE_20251014/ent_embed.npz"

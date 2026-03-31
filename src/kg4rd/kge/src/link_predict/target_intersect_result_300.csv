@@ -1,0 +1,39 @@
+head,rel,tail,score,in,head_ent,rel_ent,tail_ent,uid,head_id,tail_id
+24464,1,9016,-13.567123413085938,True,Drisapersen:drug,drug_protein,DMD:gene/protein,,kg4rd:DB13688,kg4rd:1756
+24986,1,9016,-13.82034683227539,True,Viltolarsen:drug,drug_protein,DMD:gene/protein,D020388:38376743:en7qzyJeYuSjdvXNtQmYxc,kg4rd:DB15005,kg4rd:1756
+17356,1,9315,-13.840385437011719,True,Zinc chloride:drug,drug_protein,UTRN:gene/protein,,kg4rd:DB14533,kg4rd:7402
+17572,1,9315,-13.950468063354492,True,Zinc acetate:drug,drug_protein,UTRN:gene/protein,,kg4rd:DB14487,kg4rd:7402
+17357,1,9315,-13.954242706298828,True,"Zinc sulfate, unspecified form:drug",drug_protein,UTRN:gene/protein,,kg4rd:DB14548,kg4rd:7402
+17571,1,9315,-13.977025032043457,True,Zinc:drug,drug_protein,UTRN:gene/protein,,kg4rd:DB01593,kg4rd:7402
+17974,1,9016,-14.039267539978027,True,Casimersen:drug,drug_protein,DMD:gene/protein,D020388:34909800:bEPz7iJXAp9pBbZF3cEFT5,kg4rd:DB14984,kg4rd:1756
+24465,1,9016,-14.354289054870605,True,Golodirsen:drug,drug_protein,DMD:gene/protein,,kg4rd:DB15593,kg4rd:1756
+18139,1,9315,-14.672168731689453,False,Artenimol:drug,drug_protein,UTRN:gene/protein,,kg4rd:DB11638,kg4rd:7402
+18574,1,9315,-14.70106315612793,False,Fostamatinib:drug,drug_protein,UTRN:gene/protein,,kg4rd:DB12010,kg4rd:7402
+17667,1,9016,-14.717538833618164,True,Ataluren:drug,drug_protein,DMD:gene/protein,,kg4rd:DB05016,kg4rd:1756
+18757,1,9315,-14.808478355407715,False,Gavestinel:drug,drug_protein,UTRN:gene/protein,,kg4rd:DB06741,kg4rd:7402
+19711,1,13239,-14.825161933898926,False,Phosphoaminophosphonic Acid-Adenylate Ester:drug,drug_protein,DYSF:gene/protein,,kg4rd:DB04395,kg4rd:8291
+18565,1,13239,-14.912437438964844,True,Saracatinib:drug,drug_protein,DYSF:gene/protein,D049288:40108832:fDVS4AmJj9g6fZk6NZdzs5,kg4rd:DB11805,kg4rd:8291
+20831,1,9016,-14.949251174926758,False,Dequalinium:drug,drug_protein,DMD:gene/protein,,kg4rd:DB04209,kg4rd:1756
+16919,1,9315,-14.961002349853516,False,Enflurane:drug,drug_protein,UTRN:gene/protein,,kg4rd:DB00228,kg4rd:7402
+17014,1,9016,-14.993459701538086,False,Verapamil:drug,drug_protein,DMD:gene/protein,,kg4rd:DB00661,kg4rd:1756
+24465,1,13239,-14.99543571472168,False,Golodirsen:drug,drug_protein,DYSF:gene/protein,,kg4rd:DB15593,kg4rd:8291
+16919,1,9016,-14.999844551086426,False,Enflurane:drug,drug_protein,DMD:gene/protein,,kg4rd:DB00228,kg4rd:1756
+17068,1,9016,-15.015504837036133,False,Quinidine:drug,drug_protein,DMD:gene/protein,,kg4rd:DB00908,kg4rd:1756
+22523,1,9016,-15.039835929870605,False,Phenylbutyric acid:drug,drug_protein,DMD:gene/protein,,kg4rd:DB06819,kg4rd:1756
+18818,1,9016,-15.094172477722168,False,Pyridoxal phosphate:drug,drug_protein,DMD:gene/protein,,kg4rd:DB00114,kg4rd:1756
+19314,1,9016,-15.103179931640625,False,Creatine:drug,drug_protein,DMD:gene/protein,,kg4rd:DB00148,kg4rd:1756
+24986,1,13239,-15.122528076171875,False,Viltolarsen:drug,drug_protein,DYSF:gene/protein,,kg4rd:DB15005,kg4rd:8291
+17244,1,9016,-15.133232116699219,False,Vemurafenib:drug,drug_protein,DMD:gene/protein,,kg4rd:DB08881,kg4rd:1756
+18654,1,9315,-15.234939575195312,False,Zanubrutinib:drug,drug_protein,UTRN:gene/protein,,kg4rd:DB15035,kg4rd:7402
+17987,1,9016,-15.244122505187988,False,Bortezomib:drug,drug_protein,DMD:gene/protein,,kg4rd:DB00188,kg4rd:1756
+18476,1,9016,-15.265085220336914,False,Bosutinib:drug,drug_protein,DMD:gene/protein,,kg4rd:DB06616,kg4rd:1756
+19005,1,9016,-15.282649040222168,False,Phenethyl Isothiocyanate:drug,drug_protein,DMD:gene/protein,,kg4rd:DB12695,kg4rd:1756
+18139,1,9016,-15.351497650146484,False,Artenimol:drug,drug_protein,DMD:gene/protein,,kg4rd:DB11638,kg4rd:1756
+17824,1,13239,-15.364110946655273,False,Aspartic acid:drug,drug_protein,DYSF:gene/protein,,kg4rd:DB00128,kg4rd:8291
+18821,1,9016,-15.365086555480957,False,Glutamic acid:drug,drug_protein,DMD:gene/protein,,kg4rd:DB00142,kg4rd:1756
+16789,1,9016,-15.370529174804688,False,Copper:drug,drug_protein,DMD:gene/protein,,kg4rd:DB09130,kg4rd:1756
+18457,1,9016,-15.395663261413574,False,Seletracetam:drug,drug_protein,DMD:gene/protein,,kg4rd:DB05885,kg4rd:1756
+20831,1,13239,-15.404358863830566,False,Dequalinium:drug,drug_protein,DYSF:gene/protein,,kg4rd:DB04209,kg4rd:8291
+16789,1,13239,-15.413211822509766,False,Copper:drug,drug_protein,DYSF:gene/protein,,kg4rd:DB09130,kg4rd:8291
+18574,1,9016,-15.421937942504883,False,Fostamatinib:drug,drug_protein,DMD:gene/protein,,kg4rd:DB12010,kg4rd:1756
+21965,1,13239,-15.436017036437988,False,ORE-1001:drug,drug_protein,DYSF:gene/protein,,kg4rd:DB12271,kg4rd:8291

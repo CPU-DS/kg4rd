@@ -6,7 +6,7 @@ train_file: 'train2id_base.txt'
 valid_file: 'valid2id_base.txt'
 test_file: 'test2id_base.txt'
 
-batch_size: 2048
+batch_size: 10000
 neg_ent: 16
 num_workers: 16
 dim: 100
@@ -15,18 +15,18 @@ lr: 0.0001
 adv_temperature: 1
 opt_method: "adagrad"
 
-test_batch_size: 256
+test_batch_size: 512
 tester_use_gpu: True
 test_hits: [1, 3, 10, 30, 50]
-tester_device: "cuda:7"
+tester_device: "cuda:6"
 
 use_accelerator: False
 delta: 0.01
 use_early_stopping: True
-trainer_device: "cuda:7"
+trainer_device: "cuda:6"
 trainer_use_gpu: True
 
-valid_interval: 2
+valid_interval: 200
 log_interval: 1
 save_interval: 100
 save_path: "src/kg4rd/kge/checkpoints/CompGCN_base_eval_Accel_20260203/model.pth"

@@ -1,5 +1,5 @@
 project: 'kg4rd'
-name: 'gcl_20250917'
+name: 'DGI_20250917'
 
 model_type: 'dgi'
 corruption_type: 'shuffle'
@@ -13,5 +13,5 @@ save_epoch: 100
 num_neighbors: [50, 50]
 warmup_period: 0.2
 
-checkpoints_dir: 'src/kg4rd/gcl/checkpoints/gcl_20250917'
-embeddings_dir: 'src/kg4rd/gcl/embeddings/gcl_20250917'
+checkpoints_dir: 'src/kg4rd/gcl/checkpoints/DGI_20250917'
+embeddings_dir: 'src/kg4rd/gcl/embeddings/DGI_20250917'

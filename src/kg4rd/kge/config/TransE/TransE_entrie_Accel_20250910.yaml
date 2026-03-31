@@ -4,7 +4,7 @@ name: 'TransE_entrie_Accel_20250910'
 in_path: 'src/kg4rd/kge/data/'
 train_file: 'all2id.txt'
 
-batch_size: 1024
+batch_size: 4096
 neg_ent: 64
 num_workers: 16
 dim: 200
@@ -12,12 +12,13 @@ p_norm: 1
 norm_flag: True
 margin: 1.0
 epochs: 1000
-lr: 0.5383
+lr: 0.05079633914318759
 adv_temperature: 6.0
-opt_method: "Adagrad"
+opt_method: "adam"
 
-trainer_use_gpu: False
-use_accelerator: True
+trainer_use_gpu: True
+trainer_device: "cuda:0"
+use_accelerator: False
 delta: 0.01
 
 log_interval: 1
