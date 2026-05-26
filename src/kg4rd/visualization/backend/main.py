@@ -21,18 +21,17 @@ from repos.model_repo import ModelRepository
 async def lifespan(app: FastAPI):
     app.state.relation_repo = RelationRepository()
     app.state.entity_repo = EntityRepository()
-    model_repo = ModelRepository()
-    model = TransE(
+    model_repo = ModelRepository(device='cpu')
+    model_repo.add_model(
+        model_name='TransE(20250910)',
+        model=TransE(
             dim = 200, 
             p_norm = 1, 
             norm_flag = True,
             ent_tol = 121649,
             rel_tol = 22
-        )
-    model.load_checkpoint('/home/wangtao/src/kg4rd/src/kg4rd/kge/checkpoints/TransE_entrie_Accel_20250910.pth')
-    model_repo.add_model(
-        model_name='TransE20250910',
-        model=model
+        ),
+        checkpoint_path='/home/wangtao/src/kg4rd/src/kg4rd/kge/checkpoints/TransE_entrie_Accel_20250910.pth'
     )
     app.state.model_repo = model_repo
     yield
