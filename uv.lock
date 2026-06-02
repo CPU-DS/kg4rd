@@ -1628,7 +1628,7 @@ requires-dist = [
     { name = "tqdm", specifier = ">=4.67.1" },
     { name = "transformers", specifier = "==4.43" },
     { name = "umap-learn", specifier = ">=0.5.11" },
-    { name = "unike", specifier = "==3.4.0.dev1" },
+    { name = "unike", specifier = "==3.4.0" },
     { name = "uvicorn", specifier = ">=0.37.0" },
 ]
 
@@ -4310,7 +4310,7 @@ wheels = [
 
 [[package]]
 name = "unike"
-version = "3.4.0.dev1"
+version = "3.4.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "accelerate" },
@@ -4324,9 +4324,9 @@ dependencies = [
     { name = "tqdm" },
     { name = "wandb" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/6c/88/21b15b28eef979bb7916a0470d2803050b32b1878da72b732e8845fe8560/unike-3.4.0.dev1.tar.gz", hash = "sha256:07e26269c32d148b7b64282222181782574be12232b3c3f90ec53ca7c36d0ea6", size = 130859 }
+sdist = { url = "https://files.pythonhosted.org/packages/83/8b/d43a0b60131de7b85799ca86559aed5a2470f79bb0cf2fbcdd89c47d6f79/unike-3.4.0.tar.gz", hash = "sha256:164ba4d652e81011d1eb7a93f64cf096108b8cb209c03e9d0d53171f81ca2858", size = 130734 }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/a7/92/8c703cdde50a7689057854e0b918e58a31dae9f13d5f12e17a0621679bdd/unike-3.4.0.dev1-py3-none-any.whl", hash = "sha256:cce6f77af485a154f269ced20ab146190e2a10b85b393d13a2a884d015b17324", size = 106078 },
+    { url = "https://files.pythonhosted.org/packages/a1/17/edeb0853f7fdf3258ca0cdb4235b706fff833ce467797fa63bdef0df3af3/unike-3.4.0-py3-none-any.whl", hash = "sha256:5cae04ee965bfdb9e87dc7b5a45ff8c87d52b1bb6255dead3e97fa7fea48d729", size = 105920 },
 ]
 
 [[package]]
