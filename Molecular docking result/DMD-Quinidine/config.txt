@@ -1,0 +1,9 @@
+receptor = DMD.pdbqt
+ligand = Quinidine.pdbqt
+center_x = 25.212
+center_y = 28.396
+center_z = 13.798
+size_x = 71.75
+size_y = 71.75
+size_z = 71.75
+out = Quinidine_out.pdbqt

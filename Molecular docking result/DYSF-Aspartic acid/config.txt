@@ -1,0 +1,9 @@
+receptor = DYSF.pdbqt
+ligand = Aspartic acid.pdbqt
+center_x = -14.011
+center_y = -8.106
+center_z = 19.908
+size_x = 43.0555555556
+size_y = 54.25
+size_z = 48.2222222222
+out = Aspartic acid_out.pdbqt

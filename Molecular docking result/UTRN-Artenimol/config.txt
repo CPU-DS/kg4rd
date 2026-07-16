@@ -1,0 +1,9 @@
+receptor = UTRN.pdbqt
+ligand = Artenimol.pdbqt
+center_x = 22.652
+center_y = 16.08
+center_z = 18.945
+size_x = 73.85
+size_y = 72.6777777778
+size_z = 73.85
+out = Artenimol_out.pdbqt

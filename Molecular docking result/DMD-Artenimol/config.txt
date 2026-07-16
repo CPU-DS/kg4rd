@@ -1,0 +1,9 @@
+receptor = DMD.pdbqt
+ligand = Artenimol.pdbqt
+center_x = 25.212
+center_y = 28.396
+center_z = 13.798
+size_x = 74.55
+size_y = 74.55
+size_z = 74.55
+out = Artenimol_out.pdbqt
