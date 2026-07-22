@@ -32,6 +32,8 @@ hf download wangtao2001/kg4rd --repo-type=dataset --local-dir=data
 │   ├── data_abstract/  # all abstracts.
 │   ├── data_feature/   # entity features and embeddings.
 │   └── data_synonyms/  # entity synonyms.
+├── docs/               # project documentation.
+├── mol_dock_raw/       # raw files for molecular docking examples.
 ├── src/kg4rd/          # source code.
 │   ├── data_process/   # data process and build knowledge graph.
 │   ├── dock/           # molecular docking related.
